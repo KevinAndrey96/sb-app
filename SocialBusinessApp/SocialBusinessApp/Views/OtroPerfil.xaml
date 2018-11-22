@@ -24,12 +24,18 @@
             <StackLayout  Orientation="Horizontal" HorizontalOptions="FillAndExpand">
                 <Button x:Name="BtnComentarios" Text="Comentarios" HeightRequest="80"  HorizontalOptions="FillAndExpand"  BackgroundColor="#448AFF" TextColor="#FFFFFF"></Button>
                 <Button x:Name="BtnLogros" Text="Logros" HeightRequest="80"   HorizontalOptions="FillAndExpand" BackgroundColor="#448AFF" TextColor="#FFFFFF"></Button>-->
-                <Image x:Name="BtnOfert" Source="ofertas.png" WidthRequest="100" HeightRequest="100" HorizontalOptions="Center"/>
+                <!--<Image x:Name="BtnOfert" Source="ofertas.png" WidthRequest="100" HeightRequest="100" HorizontalOptions="Center"/>
                 <Image x:Name="BtnTeam" Source="equipo.png" WidthRequest="100" HeightRequest="100" HorizontalOptions="Center"/>
                 <Image x:Name="BtnComments" Source="comentarios.png" WidthRequest="100" HeightRequest="100" HorizontalOptions="Center"/>
                 <Image x:Name="BtnAchievement" Source="logros.png" WidthRequest="100" HeightRequest="100" HorizontalOptions="Center"/>
+                -->
+                
             </StackLayout>
-            
+            <Button x:Name="btnOfertas" Text="Ofertas" BackgroundColor="#9c27b0" TextColor="#FFFFFF"></Button>
+            <Button x:Name="btnComentarios" Text="Comentarios" BackgroundColor="#9c27b0" TextColor="#FFFFFF"></Button>
+            <Button x:Name="btnLogros" Text="Logros" BackgroundColor="#9c27b0" TextColor="#FFFFFF"></Button>
+            <Button x:Name="btnEquipo" Text="Equipo inmobiliario" BackgroundColor="#9c27b0" TextColor="#FFFFFF"></Button>
+
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

@@ -60,6 +60,9 @@
     <Compile Include="Cells\OfertaCell.cs" />
     <Compile Include="Cells\RankingCell.cs" />
     <Compile Include="Cells\RankingICell.cs" />
+    <Compile Include="Views\EditarOferta.xaml.cs">
+      <DependentUpon>EditarOferta.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Eventos.xaml.cs">
       <DependentUpon>Eventos.xaml</DependentUpon>
     </Compile>
@@ -90,6 +93,12 @@
     <Compile Include="OfertaFotos.cs" />
     <Compile Include="Views\MisOfertas.xaml.cs">
       <DependentUpon>MisOfertas.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MyPlace.xaml.cs">
+      <DependentUpon>MyPlace.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\OfertasUsuario.xaml.cs">
+      <DependentUpon>OfertasUsuario.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\OtroPerfil.xaml.cs">
       <DependentUpon>OtroPerfil.xaml</DependentUpon>
@@ -401,6 +410,24 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Views\Gallery.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\MyPlace.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\EditarOferta.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\OfertasUsuario.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>
