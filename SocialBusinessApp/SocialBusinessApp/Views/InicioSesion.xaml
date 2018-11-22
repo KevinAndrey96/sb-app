@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SocialBusinessApp.InicioSesion" BackgroundColor="#E1BEE7">
+    <ContentPage.Content BackgroundColor="#E1BEE7">
+        <ScrollView>
+            <StackLayout Padding="20,20,20,20" BackgroundColor="#FFFFFF">
+                <Image Source="logorec.png" WidthRequest="300" HeightRequest="130" HorizontalOptions="Center"/>
+                <ActivityIndicator x:Name="waitActivityIndicator"></ActivityIndicator>
+                <Entry x:Name="txtEmail" Placeholder="E-Mail" WidthRequest="250" Keyboard="Email" HorizontalTextAlignment="Center" Text="kaherreras@unal.edu.co" HorizontalOptions="Center" RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent,Property=Height,Factor=1,Constant=250}" RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent,Property=Width,Factor=.5}"></Entry>
+                <Entry x:Name="txtContrasena" IsPassword="True" WidthRequest="250" HorizontalTextAlignment="Center" Placeholder="Contraseña" Text="123456" HorizontalOptions="Center" RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent,Property=Height,Factor=1,Constant=250}" RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent,Property=Width,Factor=.5}"></Entry>
+                <!--<Button x:Name="btnIngresar" Text="Iniciar Sesión" HorizontalOptions="Center" BackgroundColor="#9c27b0" WidthRequest="150" TextColor="#FFFFFF" RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent,Property=Height,Factor=1,Constant=250}" RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent,Property=Width,Factor=.5}"></Button>
+            <Button x:Name="btnRegistro" Text="Registrate" HorizontalOptions="Center" BackgroundColor="#9c27b0" WidthRequest="150" TextColor="#FFFFFF" RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent,Property=Height,Factor=1,Constant=250}" RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent,Property=Width,Factor=.5}" ></Button>
+            <Button x:Name="btnOlvidoClave" Text="¿Olvidaste tu contraseña?" TextColor="Blue" HorizontalOptions="Center" BackgroundColor = "Transparent"></Button>-->
+                <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                    <Image x:Name="BtnLogin" Source="ingresar.png" WidthRequest="100" HeightRequest="100" HorizontalOptions="Center"/>
+                    <Image x:Name="BtnSignUp" Source="registrarse.png" WidthRequest="100" HeightRequest="100" HorizontalOptions="Center"/>
+                    <Image x:Name="BtnPassword" Source="password.png" WidthRequest="100" HeightRequest="100" HorizontalOptions="Center"/>
+                </StackLayout>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

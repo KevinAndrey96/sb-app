@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SocialBusinessApp.MLS"
+             Title="MLS">
+    <ContentPage.Content>
+        <StackLayout>
+            <StackLayout Orientation="Horizontal">
+                <!--<Button x:Name="BtnAgregarOferta" Text="Agregar Oferta" WidthRequest="150" HorizontalOptions="FillAndExpand" VerticalOptions="Center" BackgroundColor="#9c27b0" TextColor="#FFFFFF"></Button>-->
+                <Image x:Name="BtnAddOfert" Source="pofertar.png" HeightRequest="50" WidthRequest="150"  BackgroundColor="Transparent" HorizontalOptions="FillAndExpand"/>
+                <ActivityIndicator x:Name="waitActivityIndicator" HeightRequest="50" HorizontalOptions="Center"></ActivityIndicator>
+                <Image x:Name="BtnAdvancedSearch" Source="pbusqueda.png" HeightRequest="50" WidthRequest="150"  BackgroundColor="Transparent" HorizontalOptions="FillAndExpand"/>
+                <!--<Button x:Name="BtnBuscar" Text="Buscar" WidthRequest="150" HorizontalOptions="FillAndExpand" VerticalOptions="Center" BackgroundColor="#9c27b0" TextColor="#FFFFFF"></Button>-->
+                <!--<Image x:Name="BtnSearch" Source="buscar.png" HeightRequest="50" WidthRequest="50"  BackgroundColor="Transparent" HorizontalOptions="FillAndExpand"/>-->
+            </StackLayout>
+            <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                <Entry Placeholder="¿Qué estás buscando?" HorizontalOptions="FillAndExpand"></Entry>
+                <Image x:Name="BtnSearch" Source="buscar.png" HeightRequest="50" WidthRequest="50"  BackgroundColor="Transparent" HorizontalOptions="FillAndExpand"/>
+            </StackLayout>
+            <ListView x:Name="OfertasListView" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" RowHeight="111"/>
+
+            <!--
+            <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" HeightRequest="68">
+                <Image x:Name="BtnMLS" Source="ranking.png" HeightRequest="67" WidthRequest="67"  BackgroundColor="Transparent" HorizontalOptions="Center"/>
+                <Image x:Name="BtnTheRanking" Source="ranking.png" HeightRequest="67" WidthRequest="67"  BackgroundColor="Transparent" HorizontalOptions="Center"/>
+                <Image x:Name="BtnTheChat" Source="comentarios.png" HeightRequest="67" WidthRequest="67"  BackgroundColor="Transparent" HorizontalOptions="Center"/>
+                <Image x:Name="BtnEvents" Source="eventos.png" HeightRequest="67" WidthRequest="67"  BackgroundColor="Transparent" HorizontalOptions="Center"/>
+                <Image x:Name="BtnProfile" Source="perfil.png" HeightRequest="67" WidthRequest="67"  BackgroundColor="Transparent" HorizontalOptions="Center"/>
+            </StackLayout>
+-->            
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

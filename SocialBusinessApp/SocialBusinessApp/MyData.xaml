@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SocialBusinessApp.MyData">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout Padding="20,20,20,20">
+               <!-- <Image x:Name="FPerfil" Source="" HorizontalOptions="Center"/>
+                <ActivityIndicator x:Name="waitActivityIndicator" HorizontalOptions="Center"></ActivityIndicator>
+                <Image x:Name="FInmobiliaria" Source="" HorizontalOptions="Center"/>-->
+                
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

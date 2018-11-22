@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SocialBusinessApp.MiPerfil">
+    <ContentPage.Content>
+        <ScrollView>
+        <StackLayout Padding="20,20,20,20" BackgroundColor="#FFFFFF">
+                <!--<Image Source="sbicon.png" WidthRequest="100" HeightRequest="100" HorizontalOptions="Center"/>-->
+                <Label Text="Editar Perfil" FontSize="25" HorizontalOptions="Center"></Label>
+                <Entry x:Name="txtNombres" Text="{Binding Nombres}" Placeholder="Nombre"></Entry>
+            <Entry x:Name="txtApellidos" Text="{Binding Apellidos}"  Placeholder="Apellido"></Entry>
+            <Entry x:Name="txtEmail"  Text="{Binding Email}" Placeholder="Correo Electrónico" Keyboard="Email"></Entry>
+            <Entry x:Name="txtCiudad"  Text="{Binding Ciudad}" Placeholder="Ciudad"></Entry>
+            <Entry x:Name="txtPais"  Text="{Binding Pais}" Placeholder="País"></Entry>
+            <Picker x:Name="txtGenero" SelectedItem="{Binding Genero}" Title="Genero" HorizontalOptions="FillAndExpand">
+                <Picker.Items>
+                    <x:String>mujer</x:String>
+                    <x:String>hombre</x:String>
+                    <x:String>otro</x:String>
+                </Picker.Items>
+            </Picker>
+            <Label Text="Fecha De Nacimiento"></Label>
+            <Entry x:Name="txtNAno"  Text="{Binding NAno}" Placeholder="Año" Keyboard="Numeric"></Entry>
+            <Picker x:Name="txtNMes" Title="Mes"  HorizontalOptions="FillAndExpand">
+                <Picker.Items>
+                    <x:String>Enero</x:String>
+                    <x:String>Febrero</x:String>
+                    <x:String>Marzo</x:String>
+                    <x:String>Abril</x:String>
+                    <x:String>Mayo</x:String>
+                    <x:String>Junio</x:String>
+                    <x:String>Julio</x:String>
+                    <x:String>Agosto</x:String>
+                    <x:String>Septiembre</x:String>
+                    <x:String>Octubre</x:String>
+                    <x:String>Noviembre</x:String>
+                    <x:String>Diciembre</x:String>
+                </Picker.Items>
+            </Picker>
+            <Entry x:Name="txtNDia" Placeholder="Día" Text="{Binding NDia}" Keyboard="Numeric"></Entry>
+            <Button x:Name="btnActualizarPerfil" Text="Guardar Cambios"  BackgroundColor="#9c27b0" TextColor="#FFFFFF"></Button>
+        </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

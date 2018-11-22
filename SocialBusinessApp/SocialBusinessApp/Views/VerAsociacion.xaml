@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SocialBusinessApp.Views.VerAsociacion">
+    <ContentPage.Content>
+        <StackLayout Padding="20,20,20,20">
+
+            <Image x:Name="FAsociacionF" Source="http://app.socialbusiness.com.co/imgs/blank.png" WidthRequest="150" HorizontalOptions="Center"/>
+
+            <Label x:Name="TxtName" Text="Cobol Ingeniería SAS" HorizontalOptions="Center" Font="Bold,30" TextColor="#9c27b0"></Label>
+            <Label x:Name="TxtDepartment" Text="Nacional" HorizontalOptions="Center" Font="Bold,30"></Label>
+            <Label x:Name="TxtAddress" Text="Av 9 No. 127B -16" FontSize="20"></Label>
+            <Label x:Name="TxtPhone" Text="3105447422" FontSize="20"></Label>
+            <Label x:Name="TxtEmail" Text="Correo@socialbusiness.com.co" FontSize="20"></Label>
+
+            <Label x:Name="TxtAffiliate" Text="5 Afiliados" FontSize="20"></Label>
+
+            <Label Text="" FontSize="20"></Label>
+
+            
+            <!--<Button x:Name="" Text="Sitio Web" HeightRequest="80"  HorizontalOptions="FillAndExpand"  BackgroundColor="#448AFF" TextColor="#FFFFFF"></Button>
+            <Button x:Name="" Text="Facebook" HeightRequest="80"  HorizontalOptions="FillAndExpand"  BackgroundColor="#448AFF" TextColor="#FFFFFF"></Button>
+            <Button x:Name="" Text="Twitter" HeightRequest="80"  HorizontalOptions="FillAndExpand"  BackgroundColor="#448AFF" TextColor="#FFFFFF"></Button>
+            -->
+
+            <StackLayout  Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                <!--<Button x:Name="BtnComentarios" Text="Comentarios" HeightRequest="80"  HorizontalOptions="FillAndExpand"  BackgroundColor="#448AFF" TextColor="#FFFFFF"></Button>
+                <Button x:Name="BtnLogros" Text="Logros" HeightRequest="80"   HorizontalOptions="FillAndExpand" BackgroundColor="#448AFF" TextColor="#FFFFFF"></Button>-->
+                <!--<Image x:Name="BtnOfert" Source="ofertas.png" WidthRequest="100" HeightRequest="100" HorizontalOptions="Center"/>
+                <Image x:Name="BtnTeam" Source="equipo.png" WidthRequest="100" HeightRequest="100" HorizontalOptions="Center"/>
+                <Image x:Name="BtnComments" Source="comentarios.png" WidthRequest="100" HeightRequest="100" HorizontalOptions="Center"/>
+                <Image x:Name="BtnAchievement" Source="logros.png" WidthRequest="100" HeightRequest="100" HorizontalOptions="Center"/>-->
+            </StackLayout>
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

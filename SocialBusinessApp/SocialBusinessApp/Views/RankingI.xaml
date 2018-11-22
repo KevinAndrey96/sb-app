@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SocialBusinessApp.RankingI">
+    <ContentPage.Content>
+        <StackLayout>
+            <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                <Entry Placeholder="¿Alguna inmobiliaria en especial?" HorizontalOptions="FillAndExpand"></Entry>
+                <Image x:Name="BtnSearch" Source="buscar.png" HeightRequest="50" WidthRequest="50"  BackgroundColor="Transparent" HorizontalOptions="FillAndExpand"/>
+            </StackLayout>
+            <ListView x:Name="RankingIListView" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" RowHeight="111"/>
+        </StackLayout>
+        
+    </ContentPage.Content>
+</ContentPage>

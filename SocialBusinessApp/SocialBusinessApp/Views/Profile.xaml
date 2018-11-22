@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SocialBusinessApp.Profile">
+    <ContentPage.Content>
+        <ScrollView>
+                <StackLayout Padding="20,20,20,20">
+
+                    <StackLayout Orientation="Horizontal">
+                        <Image x:Name="FPerfil" Source=""  HorizontalOptions="Center"/>
+                        <ActivityIndicator x:Name="waitActivityIndicator" HorizontalOptions="Center"></ActivityIndicator>
+                        <Image x:Name="FInmobiliaria" Source="" HorizontalOptions="Center"/>
+                    </StackLayout>
+                    <Label x:Name="TxtName" Text="" HorizontalOptions="Center" Font="Bold,30" TextColor="#9c27b0"></Label>
+                    <Label x:Name="TxtCodigo" Text="" HorizontalOptions="Center" Font="Bold,30"></Label>
+                    <Label x:Name="TxtCorreo" Text="" FontSize="20"></Label>
+                    <Label x:Name="TxtCelular" Text="" FontSize="20"></Label>
+                    <Label x:Name="TxtPosicion" Text="" FontSize="20"></Label>
+                    <Label x:Name="TxtPuntaje" Text="" FontSize="20"></Label>
+                
+
+
+                    <Label x:Name="TxtInmobiliaria" Text="" HorizontalOptions="Center" FontSize="25" Font="Bold,25" TextColor="#9c27b0"></Label>
+                <Label x:Name="TxtNit" HorizontalOptions="Center" Text="" FontSize="20"></Label>
+
+                <Label x:Name="TxtDepartamento" Text="" HorizontalOptions="Center" Font="Bold,20"></Label>
+                
+
+
+                <!--
+                        <Image x:Name="BtnEditProfile" Source="registrarse.png" WidthRequest="100" HeightRequest="100" HorizontalOptions="Center"/>
+                        <Image x:Name="BtnChangePassword" Source="password.png" WidthRequest="100" HeightRequest="100" HorizontalOptions="Center"/>
+                        <Image x:Name="BtnPremium" Source="premium.png" WidthRequest="100" HeightRequest="100" HorizontalOptions="Center"/>
+    -->
+                    <!--                
+                    <Image x:Name="BtnLogout" Source="salir.png" WidthRequest="100" HeightRequest="100" HorizontalOptions="Center"/>
+                    -->
+                </StackLayout>
+            </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

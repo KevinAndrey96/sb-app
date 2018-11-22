@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SocialBusinessApp.Filtros">
+    <ContentPage.Content>
+        <StackLayout Padding="20,20,20,20" BackgroundColor="#FFFFFF">
+            <Label Text="Busqueda Avanzada" HorizontalOptions="Center" FontSize="25"></Label>
+            <Picker  x:Name="TxtDepartamento" Title="Departamento"   >
+                <Picker.Items>
+                    <x:String>Antioquia</x:String>
+                    <x:String>Arauca</x:String>
+                </Picker.Items>
+            </Picker>
+            <Picker  x:Name="TxtCiudad" Title="Ciudad" >
+                <Picker.Items>
+                    <x:String>Bogotá</x:String>
+                    <x:String>Medellín</x:String>
+                </Picker.Items>
+            </Picker>
+            <Picker  x:Name="txtCategoria" Title="Tipo de inmueble"  >
+                <Picker.Items>
+                    <x:String>Apartamento</x:String>
+                    <x:String>Apartaestudio</x:String>
+                    <x:String>Casa</x:String>
+                    <x:String>Finca</x:String>
+                    <x:String>Lote</x:String>
+                    <x:String>Local</x:String>
+                    <x:String>Bodega</x:String>
+                    <x:String>Edificio</x:String>
+                </Picker.Items>
+            </Picker>
+            <Entry x:Name="TxtHabitaciones" Keyboard="Numeric" Placeholder="Habitaciones" ></Entry>
+            <Entry x:Name="TxtParqueaderos" Keyboard="Numeric" Placeholder="Parqueaderos" ></Entry>
+            <Picker  x:Name="txtUbicacion" Title="Ubicación">
+                <Picker.Items>
+                    <x:String>Norte</x:String>
+                    <x:String>Sur</x:String>
+                </Picker.Items>
+            </Picker>
+            <Label Text="Presupuesto" FontSize="15"></Label>
+            <Entry x:Name="TxtPreMinimo" Keyboard="Numeric" Placeholder="Mínimo"></Entry>
+            <Entry x:Name="TxtPreMaximo" Keyboard="Numeric" Placeholder="Máximo" ></Entry>
+            
+            <Entry x:Name="txtBuscalo" Placeholder="Información Extra" ></Entry>
+            <Button x:Name="btnBusca" Text="Busqueda Avanzada"  BackgroundColor="#9c27b0" HorizontalOptions="Center" TextColor="#FFFFFF"></Button>
+            
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
