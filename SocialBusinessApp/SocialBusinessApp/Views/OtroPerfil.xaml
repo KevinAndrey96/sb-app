@@ -4,10 +4,21 @@
              x:Class="SocialBusinessApp.OtroPerfil">
     <ContentPage.Content>
         <StackLayout Padding="20,20,20,20">
-            <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+            <!--<StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
                 <Image x:Name="FPerfil" Source="" WidthRequest="150" HorizontalOptions="Center"/>
                 <Image x:Name="FInmobiliaria" Source="" WidthRequest="150" HorizontalOptions="Center"/>
-            </StackLayout>
+            </StackLayout>-->
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Image x:Name="FPerfil" Source="" Grid.Row="0" Grid.Column="0" WidthRequest="150" HorizontalOptions="Center"/>
+                <Image x:Name="FInmobiliaria" Grid.Row="0" Grid.Column="1" Source="" WidthRequest="150" HorizontalOptions="Center"/>
+            </Grid>
             <Label x:Name="TxtName" Text="" TextColor="#9c27b0" HorizontalOptions="Center" FontSize="25"></Label>
             <Label x:Name="TxtInmobiliaria" Text="Inmobiliaria: " FontSize="21"></Label>
             <Label x:Name="TxtNit" Text="Nit: " FontSize="21"></Label>
