@@ -1,7 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="SocialBusinessApp.Listado">
+             x:Class="SocialBusinessApp.Listado"
+             xmlns:flv="clr-namespace:DLToolkit.Forms.Controls;assembly=DLToolkit.Forms.Controls.FlowListView"
+			       >
+  <!--xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"-->
     <ContentPage.Content>
         <ScrollView>
             <StackLayout Padding="20,20,20,20" BackgroundColor="#FFFFFF">
@@ -89,6 +92,26 @@
                 <Label Text="Contacto y otra información" FontSize="25"></Label>
                 <Entry x:Name="txtTe" Placeholder="Telefono" Keyboard="Numeric"></Entry>
                 <Entry x:Name="txtDe" Placeholder="Descripcion"></Entry>
+                
+                <StackLayout Padding="20">
+                    <Button TextColor="red" BackgroundColor="Blue" Text="Select From Gallery" Clicked="Handle_Clicked"/>
+                    <flv:FlowListView FlowColumnCount="3" x:Name="listItems" 
+						SeparatorVisibility="None"
+						HasUnevenRows="false" RowHeight="100" >
+                        <flv:FlowListView.FlowColumnTemplate>
+                            <DataTemplate >
+                                <!--<ffimageloading:CachedImage  DownsampleToViewSize="true" AbsoluteLayout.LayoutFlags="All" HeightRequest="100" AbsoluteLayout.LayoutBounds="0,0,1,1" Source="{Binding .}"  Aspect="AspectFill" HorizontalOptions="FillAndExpand">
+                                
+                                </ffimageloading:CachedImage>-->
+                                
+                            </DataTemplate>
+                        </flv:FlowListView.FlowColumnTemplate>
+                    </flv:FlowListView>
+                </StackLayout>
+                
+                
+                
+                
                 <Label Text="Inmueble" FontSize="25"></Label>
                 <Picker x:Name="txtCategoria" Title="Categoria"  HorizontalOptions="FillAndExpand">
                     <Picker.Items>

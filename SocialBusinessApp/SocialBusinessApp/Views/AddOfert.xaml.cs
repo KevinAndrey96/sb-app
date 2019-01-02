@@ -32,6 +32,12 @@ namespace SocialBusinessApp
             InitializeComponent ();
             btnPublicar.Clicked += (sender, e) => btnPublicarClick();
         }
+        async void Handle_Clicked(object sender, System.EventArgs e)
+        {
+
+            await DependencyService.Get<IMediaService>().OpenGallery();
+
+        }
         private void btnPublicarClick()
         {
             SendTo();

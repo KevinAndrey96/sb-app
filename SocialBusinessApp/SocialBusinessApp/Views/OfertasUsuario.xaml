@@ -23,7 +23,7 @@
                 <Image x:Name="BtnEvents" Source="eventos.png" HeightRequest="67" WidthRequest="67"  BackgroundColor="Transparent" HorizontalOptions="Center"/>
                 <Image x:Name="BtnProfile" Source="perfil.png" HeightRequest="67" WidthRequest="67"  BackgroundColor="Transparent" HorizontalOptions="Center"/>
             </StackLayout>
--->
+            -->
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

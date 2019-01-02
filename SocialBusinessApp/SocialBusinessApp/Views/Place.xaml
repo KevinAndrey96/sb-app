@@ -9,6 +9,17 @@
             <Label Text="" x:Name="TxtNombrePlace"
                 HorizontalOptions="Center" FontSize="30" Font="Bold,30" TextColor="#9c27b0"/>
                 <Image x:Name="FPlace" Source="" HorizontalOptions="Center" WidthRequest="200" HeightRequest="200"/>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Button x:Name="btnUbicacion"  Grid.Row="0" Grid.Column="0" Text="Ubicación" BackgroundColor="#9c27b0" TextColor="#FFFFFF" HorizontalOptions="FillAndExpand"></Button>
+                    <Button x:Name="btnGaleria"  Grid.Row="0" Grid.Column="1" Text="Galeria" BackgroundColor="#9c27b0" TextColor="#FFFFFF" HorizontalOptions="FillAndExpand"></Button>
+                </Grid>
                 <Label Text="Precio: " x:Name="TxtPrecio" FontSize="17"></Label>
                 <Label Text="Dirección: "  x:Name="TxtDireccion" FontSize="17"></Label>
                 <Label Text="Barrio: "  x:Name="TxtBarrio" FontSize="17"></Label>
@@ -29,7 +40,8 @@
                 <Label Text="Descripción" HorizontalOptions="CenterAndExpand" FontSize="25" TextColor="#9c27b0" Font="Bold,25"/>
 
                 <Label Text=""  x:Name="TxtDescripcion" FontSize="15"></Label>
-                <Button x:Name="btnUbicacion" Text="Ubicación en el mapa" BackgroundColor="#9c27b0" TextColor="#FFFFFF"></Button>
+                
+                
                 <!--<Button x:Name="btnGaleria" Text="Galeria" BackgroundColor="#9c27b0" TextColor="#FFFFFF"></Button>-->
 
                 <!--<StackLayout>
@@ -41,11 +53,11 @@
                     </StackLayout>
                 </StackLayout>-->
 
-                <ActivityIndicator x:Name="waitActivityIndicator" HorizontalOptions="Center"></ActivityIndicator>
-                <ScrollView>
-            <ListView x:Name="FotosInmuebleListView" HorizontalOptions="FillAndExpand" HeightRequest="222" RowHeight="111"/>
-                </ScrollView>
-            </StackLayout>
+               <!--<ActivityIndicator x:Name="waitActivityIndicator" HorizontalOptions="Center"></ActivityIndicator>-->
+                <!--<ScrollView>-->
+            <!--<ListView x:Name="FotosInmuebleListView" HorizontalOptions="FillAndExpand" HeightRequest="222" RowHeight="111"/>-->
+                <!--</ScrollView> -->
+        </StackLayout>
         </ScrollView>
     </ContentPage.Content>
 </ContentPage>

@@ -30,10 +30,11 @@ namespace SocialBusinessApp
         {
             NavigationPage.SetHasNavigationBar(this, true);
             InitializeComponent();
-            this.LoadFotos();
+            //this.LoadFotos();
             this.oferta = oferta;
 
             btnUbicacion.Clicked += (sender, e) => btnUbicacionClickAsync();
+            btnGaleria.Clicked += (sender, e) => btnGaleriaF();
             //btnGaleria.Clicked += (sender, e) => btnGaleriaClickAsync();
 
             TxtNombrePlace.Text = oferta.Nombre;
@@ -57,9 +58,9 @@ namespace SocialBusinessApp
             DisplayAlert("uno", "Dos: " + oferta.Lat, "Tres" + oferta.Long);
             PlaceID = oferta.ID;
             this.PlaceID = oferta.ID;
-            FotosInmuebleListView.ItemTemplate = new DataTemplate(typeof(FotosCell));
+            //FotosInmuebleListView.ItemTemplate = new DataTemplate(typeof(FotosCell));
             
-            this.LoadFotos();
+            //this.LoadFotos();
 
 
 
@@ -79,7 +80,11 @@ namespace SocialBusinessApp
         {
             await Navigation.PushModalAsync(new Gallery());
         }
-        private async void LoadFotos()
+        private async void btnGaleriaF()
+        {
+            await Navigation.PushModalAsync(new MisListados("https://app.socialbusiness.com.co/gallery/?id="+PlaceID));
+        }
+        /*private async void LoadFotos()
         {
             waitActivityIndicator.IsRunning = true;
             string result;
@@ -102,6 +107,6 @@ namespace SocialBusinessApp
             ofertafotos = JsonConvert.DeserializeObject<List<OfertaFotos>>(result);
             FotosInmuebleListView.ItemsSource = ofertafotos;
             //imgSlider.Images = ofertafotos;
-        }
+        }*/
     }
 }
