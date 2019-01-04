@@ -14,7 +14,7 @@ using System.Collections.Generic;
 using Android.Provider;
 using Android.Database;
 using Xamarin.Forms;
-//using FFImageLoading.Forms.Droid;
+
 
 using DLToolkit.Forms.Controls;
 using Android.Graphics;
@@ -22,8 +22,10 @@ using Android.Media;
 using System.IO;
 using SocialBusinessApp.Droid.Helpers;
 using SocialBusinessApp.Services;
-
 using FFImageLoading.Forms.Platform;
+
+
+//using FFImageLoading.Forms.Platform;
 
 namespace SocialBusinessApp.Droid
 {
@@ -43,9 +45,12 @@ namespace SocialBusinessApp.Droid
             Xamarin.Essentials.Platform.Init(this, bundle);
             ImageCarouselRenderer.Init();
 
+
             FlowListView.Init();
-            //FFImageLoading.Forms.Platform.CachedImageRenderer.Init(enableFastRenderer: true);
-            //CachedImageRenderer.Init(true);
+            //CachedImageRenderer.Init(false);
+            //FFImageLoading.Forms.Platform.CachedImageRenderer.Init(true);
+            //FFImageLoading.Forms.Platform.CachedImageRenderer.Init(enableFastRenderer: false);
+            CachedImageRenderer.Init(true);
             //FFImageLoading.Forms.Platform.CachedImageRenderer.Init(enableFastRenderer: [true] /[false]);
 
 
@@ -140,9 +145,11 @@ namespace SocialBusinessApp.Droid
                 }
                 return fullPathToImage;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                Toast.MakeText(Xamarin.Forms.Forms.Context, "Unable to get path", ToastLength.Long).Show();
+#pragma warning disable CS0618 // El tipo o el miembro están obsoletos
+                Toast.MakeText(context: Forms.Context, text: "Unable to get path", duration: ToastLength.Long).Show();
+#pragma warning restore CS0618 // El tipo o el miembro están obsoletos
 
             }
 

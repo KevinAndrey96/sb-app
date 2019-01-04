@@ -26,6 +26,7 @@ namespace SocialBusinessApp.Droid
 		
 		public static void UpdateIdValues()
 		{
+			global::ModernHttpClient.Resource.String.library_name = global::SocialBusinessApp.Droid.Resource.String.library_name;
 			global::Xamarin.Forms.Platform.Android.Resource.Attribute.actionBarSize = global::SocialBusinessApp.Droid.Resource.Attribute.actionBarSize;
 			global::Xamd.ImageCarousel.Forms.Plugin.Droid.Resource.String.library_name = global::SocialBusinessApp.Droid.Resource.String.library_name;
 		}

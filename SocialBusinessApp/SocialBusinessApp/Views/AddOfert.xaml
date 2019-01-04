@@ -3,6 +3,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="SocialBusinessApp.Listado"
              xmlns:flv="clr-namespace:DLToolkit.Forms.Controls;assembly=DLToolkit.Forms.Controls.FlowListView"
+             xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+
 			       >
   <!--xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"-->
     <ContentPage.Content>
@@ -100,18 +102,28 @@
 						HasUnevenRows="false" RowHeight="100" >
                         <flv:FlowListView.FlowColumnTemplate>
                             <DataTemplate >
-                                <!--<ffimageloading:CachedImage  DownsampleToViewSize="true" AbsoluteLayout.LayoutFlags="All" HeightRequest="100" AbsoluteLayout.LayoutBounds="0,0,1,1" Source="{Binding .}"  Aspect="AspectFill" HorizontalOptions="FillAndExpand">
-                                
-                                </ffimageloading:CachedImage>-->
-                                
+                                <ffimageloading:CachedImage  DownsampleToViewSize="true" AbsoluteLayout.LayoutFlags="All" HeightRequest="100" AbsoluteLayout.LayoutBounds="0,0,1,1" Source="{Binding .}"  Aspect="AspectFill" HorizontalOptions="FillAndExpand">
+
+                                </ffimageloading:CachedImage>
+
                             </DataTemplate>
                         </flv:FlowListView.FlowColumnTemplate>
                     </flv:FlowListView>
                 </StackLayout>
                 
-                
-                
-                
+                <ScrollView>
+                    <StackLayout Spacing="10" Padding="10">
+                        <Button x:Name="takePhoto" Text="Take Photo"/>
+                        <Button x:Name="pickPhoto" Text="Pick Photo"/>
+                        <Button x:Name="takeVideo" Text="Take Video"/>
+                        <Button x:Name="pickVideo" Text="Pick Video"/>
+                        <ProgressBar x:Name="progress" Progress="0.0" IsVisible="False" />
+                        <Image x:Name="image"/>
+                    </StackLayout>
+                </ScrollView>
+
+
+
                 <Label Text="Inmueble" FontSize="25"></Label>
                 <Picker x:Name="txtCategoria" Title="Categoria"  HorizontalOptions="FillAndExpand">
                     <Picker.Items>
