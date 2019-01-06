@@ -6,8 +6,7 @@
     <ContentPage.Content>
         <ScrollView>
         <StackLayout Padding="20,20,20,20">
-            <Label Text="" x:Name="TxtNombrePlace"
-                HorizontalOptions="Center" FontSize="30" Font="Bold,30" TextColor="#9c27b0"/>
+            <Label Text="" x:Name="TxtNombrePlace" HorizontalOptions="Center" FontSize="30" Font="Bold,30" TextColor="#9c27b0"/>
                 <Image x:Name="FPlace" Source="" HorizontalOptions="Center" WidthRequest="200" HeightRequest="200"/>
                 <Grid>
                     <Grid.RowDefinitions>

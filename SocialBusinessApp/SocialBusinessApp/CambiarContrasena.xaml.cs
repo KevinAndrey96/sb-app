@@ -19,9 +19,9 @@ namespace SocialBusinessApp
         {
             NavigationPage.SetHasNavigationBar(this, false);
             InitializeComponent();
-            btnCambiarContrasena.Clicked += (sender, e) => btnCambiarContrasenaClick();
+            btnCambiarContrasena.Clicked += (sender, e) => BtnCambiarContrasenaClick();
         }
-        private void btnCambiarContrasenaClick()
+        private void BtnCambiarContrasenaClick()
         {
             if (txtContraNue.Text.Equals(txtContraNue2.Text))
             {

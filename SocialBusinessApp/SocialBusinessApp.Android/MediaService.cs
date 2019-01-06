@@ -39,7 +39,7 @@ namespace SocialBusinessApp.Droid
 
                 if (status == PermissionStatus.Granted)
                 {
-                    Toast.MakeText(Xamarin.Forms.Forms.Context, "Select max 20 images", ToastLength.Long).Show();
+                    Toast.MakeText(Xamarin.Forms.Forms.Context, "Seleccione máximo 15 fotos", ToastLength.Long).Show();
                     var imageIntent = new Intent(
                         Intent.ActionPick);
                     imageIntent.SetType("image/*");
