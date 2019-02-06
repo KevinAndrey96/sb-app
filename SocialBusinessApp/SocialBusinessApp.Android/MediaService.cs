@@ -30,7 +30,9 @@ namespace SocialBusinessApp.Droid
                 {
                     if (await CrossPermissions.Current.ShouldShowRequestPermissionRationaleAsync(Plugin.Permissions.Abstractions.Permission.Storage))
                     {
-                        Toast.MakeText(Xamarin.Forms.Forms.Context, "Need Storage permission to access to your photos.", ToastLength.Long).Show();
+#pragma warning disable CS0618 // El tipo o el miembro están obsoletos
+                        Toast.MakeText(context: Forms.Context, text: "Necesitamos permiso para acceder al almacenamiento interno.", duration: ToastLength.Long).Show();
+#pragma warning restore CS0618 // El tipo o el miembro están obsoletos
                     }
 
                     var results = await CrossPermissions.Current.RequestPermissionsAsync(new[] { Plugin.Permissions.Abstractions.Permission.Storage });
@@ -39,25 +41,33 @@ namespace SocialBusinessApp.Droid
 
                 if (status == PermissionStatus.Granted)
                 {
-                    Toast.MakeText(Xamarin.Forms.Forms.Context, "Seleccione máximo 15 fotos", ToastLength.Long).Show();
+#pragma warning disable CS0618 // El tipo o el miembro están obsoletos
+                    Toast.MakeText(context: Forms.Context, text: "Seleccione máximo 15 fotos", duration: ToastLength.Long).Show();
+#pragma warning restore CS0618 // El tipo o el miembro están obsoletos
                     var imageIntent = new Intent(
                         Intent.ActionPick);
                     imageIntent.SetType("image/*");
                     imageIntent.PutExtra(Intent.ExtraAllowMultiple, true);
                     imageIntent.SetAction(Intent.ActionGetContent);
+#pragma warning disable CS0618 // El tipo o el miembro están obsoletos
                     ((Activity)Forms.Context).StartActivityForResult(
-                        Intent.CreateChooser(imageIntent, "Select photo"), MainActivity.OPENGALLERYCODE);
+#pragma warning restore CS0618 // El tipo o el miembro están obsoletos
+                        Intent.CreateChooser(imageIntent, "Seleccione la fotografía"), MainActivity.OPENGALLERYCODE);
 
                 }
                 else if (status != PermissionStatus.Unknown)
                 {
-                    Toast.MakeText(Xamarin.Forms.Forms.Context, "Permission Denied. Can not continue, try again.", ToastLength.Long).Show();
+#pragma warning disable CS0618 // El tipo o el miembro están obsoletos
+                    Toast.MakeText(context: Forms.Context, text: "Permission Denied. Can not continue, try again.", duration: ToastLength.Long).Show();
+#pragma warning restore CS0618 // El tipo o el miembro están obsoletos
                 }
             }
             catch (Exception ex)
             {
                 Console.WriteLine(ex.ToString());
-                Toast.MakeText(Xamarin.Forms.Forms.Context, "Error. Can not continue, try again.", ToastLength.Long).Show();
+#pragma warning disable CS0618 // El tipo o el miembro están obsoletos
+                Toast.MakeText(context: Forms.Context, text: "Error. Can not continue, try again.", duration: ToastLength.Long).Show();
+#pragma warning restore CS0618 // El tipo o el miembro están obsoletos
             }
         }
 

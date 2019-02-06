@@ -45,23 +45,46 @@ namespace SocialBusinessApp.Cells
             
             var ImagenOferta = new Image
             {
-                Source = ImageSource.FromUri(new Uri (String.Format("http://app.socialbusiness.com.co/place_pic_thumb/2/18.02.01.16.25-1517520342.06-25656287.jpg"))),
+                Source = ImageSource.FromUri(new Uri (String.Format("https://app.socialbusiness.com.co/place_pic_thumb/2/18.02.01.16.25-1517520342.06-25656287.jpg"))),
                 WidthRequest = 110,
                 HeightRequest = 110
             };
             ImagenOferta.SetBinding(Image.SourceProperty, new Binding("Fotografia"));
 
+            Button button = new Button
+            {
+                Image = "user_icon",
+                WidthRequest = 50,
+                HeightRequest = 50
+            };
+
+            
+
             var View2 = new StackLayout
             {
-                Children = { NombreLabel, PrecioLabel, ABHPLabel, CiudadLabel},
+                Children = {PrecioLabel, ABHPLabel, CiudadLabel},
+                Orientation = StackOrientation.Vertical
+            };
+
+            var View3 = new StackLayout
+            {
+                Children = { View2, button },
+                Orientation = StackOrientation.Horizontal
+            };
+
+            var View4 = new StackLayout
+            {
+                Children = { NombreLabel, View3 },
                 Orientation = StackOrientation.Vertical
             };
 
             View = new StackLayout
             {
-                Children = { ImagenOferta, View2},
+                Children = { ImagenOferta, View4},
                 Orientation = StackOrientation.Horizontal
             };
+
+            
         }
     }
 }

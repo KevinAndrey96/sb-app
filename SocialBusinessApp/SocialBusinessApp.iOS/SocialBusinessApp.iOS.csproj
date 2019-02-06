@@ -385,6 +385,7 @@
     <BundleResource Include="Resources\registrarse.png" />
     <BundleResource Include="Resources\ingresar.png" />
     <BundleResource Include="Resources\splash.png" />
+    <BundleResource Include="Resources\user_icon.png" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">

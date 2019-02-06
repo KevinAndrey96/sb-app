@@ -15,6 +15,8 @@ using System.IO;
 using Plugin.Media.Abstractions;
 using System.Net.Http.Headers;
 using SocialBusinessApp.Services;
+using Xamarin.Forms.Internals;
+using SkiaSharp;
 
 namespace SocialBusinessApp
 {
@@ -70,8 +72,11 @@ namespace SocialBusinessApp
         private void BtnPublicarClick()
         {
             SendTo();
+            //DisplayAlert("Imagen", _images.First(), "Ok");
+            //SendTo2();
+            
         }
-        
+
         public async Task<bool> Upload(MediaFile mediaFile, string filename)
         {
             byte[] bitmapData;
@@ -108,11 +113,16 @@ namespace SocialBusinessApp
         }
 
 
-        private async void SendTo()
+
+
+
+    private async void SendTo()
         {
+            
+
             var values = new Dictionary<string, string>
                 {
-                   { "Dato1",  txtNO.Text},
+                   { "Dato1", txtNO.Text},
                    { "Dato2", txtDepartamento.Items[txtDepartamento.SelectedIndex]},
                    { "Dato3", txtCi.Text},
                    { "Dato4", txtBar.Text},
@@ -136,23 +146,20 @@ namespace SocialBusinessApp
                 };
             var content = new FormUrlEncodedContent(values);
 
-            var response = await client.PostAsync("http://app.socialbusiness.com.co/api/Post.php", content);
+            var response = await client.PostAsync("https://app.socialbusiness.com.co/api/Post.php", content);
             //DisplayAlert("Alert", "You have been alerted 2", "OK");
             try
             {
-                if (CrossMedia.Current.IsPickPhotoSupported)
-                {
-                    var photo = await CrossMedia.Current.PickPhotoAsync();
-                }
+                
                 var responseString = await response.Content.ReadAsStringAsync();
                 Rta = JsonConvert.DeserializeObject<Respuesta>(responseString);
                 await DisplayAlert("Alerta", Rta.Mensaje, "Ok");
-                await Navigation.PopModalAsync().ConfigureAwait(false);
-                await Navigation.PushModalAsync(new Archivos());
+                //await Navigation.PopModalAsync().ConfigureAwait(false);
+                //await Navigation.PushModalAsync(new Archivos());
 
-                Navigation.InsertPageBefore(new Archivos(), this);
-                await Navigation.PopModalAsync();
-                
+                //Navigation.InsertPageBefore(new Archivos(), this);
+                //await Navigation.PopModalAsync();
+
             }
             catch (Exception e)
             {
@@ -160,5 +167,50 @@ namespace SocialBusinessApp
 
             }
         }
-	}
+
+
+
+
+
+
+        private MediaFile _image;
+        private async void SendTo2()
+        {
+            
+            using (HttpClient client = new HttpClient())
+            {
+                try
+                {
+                    MultipartFormDataContent formData = new MultipartFormDataContent();
+                    formData.Add(new StringContent(JsonConvert.SerializeObject("uploaded_file"), Encoding.UTF8, "application/json"), "uploaded_file");
+                    //formData.Add(new StringContent("param2 name"), "param2");
+                    var response = await client.PostAsync("https://app.socialbusiness.com.co/api/upload_photos.php", formData);
+                    //Logger.Log("Response : " + responseObj.ToString());
+                    try
+                    {
+
+                        var responseString = await response.Content.ReadAsStringAsync();
+                        Rta = JsonConvert.DeserializeObject<Respuesta>(responseString);
+                        await DisplayAlert("Alerta", Rta.Mensaje, "Ok");
+                        //await Navigation.PopModalAsync().ConfigureAwait(false);
+                        //await Navigation.PushModalAsync(new Archivos());
+
+                        //Navigation.InsertPageBefore(new Archivos(), this);
+                        //await Navigation.PopModalAsync();
+
+                    }
+                    catch (Exception e)
+                    {
+                        await DisplayAlert("Alerta", "" + e, "Ok");
+
+                    }
+                }
+                catch (Exception ex)
+                {
+                    //Logger.Log("Exception : " + ex.ToString());
+                    await DisplayAlert("Error", ex.ToString(), "Ok");
+                }
+            }
+        }
+    }
 }

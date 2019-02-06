@@ -3229,26 +3229,26 @@ namespace SocialBusinessApp.Droid
 			// aapt resource value: 0x7f020054
 			public const int avd_hide_password = 2130837588;
 			
-			// aapt resource value: 0x7f02016c
-			public const int avd_hide_password_1 = 2130837868;
-			
 			// aapt resource value: 0x7f02016d
-			public const int avd_hide_password_2 = 2130837869;
+			public const int avd_hide_password_1 = 2130837869;
 			
 			// aapt resource value: 0x7f02016e
-			public const int avd_hide_password_3 = 2130837870;
+			public const int avd_hide_password_2 = 2130837870;
+			
+			// aapt resource value: 0x7f02016f
+			public const int avd_hide_password_3 = 2130837871;
 			
 			// aapt resource value: 0x7f020055
 			public const int avd_show_password = 2130837589;
 			
-			// aapt resource value: 0x7f02016f
-			public const int avd_show_password_1 = 2130837871;
-			
 			// aapt resource value: 0x7f020170
-			public const int avd_show_password_2 = 2130837872;
+			public const int avd_show_password_1 = 2130837872;
 			
 			// aapt resource value: 0x7f020171
-			public const int avd_show_password_3 = 2130837873;
+			public const int avd_show_password_2 = 2130837873;
+			
+			// aapt resource value: 0x7f020172
+			public const int avd_show_password_3 = 2130837874;
 			
 			// aapt resource value: 0x7f020056
 			public const int buscar = 2130837590;
@@ -3313,8 +3313,8 @@ namespace SocialBusinessApp.Droid
 			// aapt resource value: 0x7f02006a
 			public const int common_google_signin_btn_text_light_normal_background = 2130837610;
 			
-			// aapt resource value: 0x7f02016b
-			public const int crop_image_menu_crop = 2130837867;
+			// aapt resource value: 0x7f02016c
+			public const int crop_image_menu_crop = 2130837868;
 			
 			// aapt resource value: 0x7f02006b
 			public const int crop_image_menu_flip = 2130837611;
@@ -4015,11 +4015,11 @@ namespace SocialBusinessApp.Droid
 			// aapt resource value: 0x7f020153
 			public const int notification_icon_background = 2130837843;
 			
-			// aapt resource value: 0x7f020169
-			public const int notification_template_icon_bg = 2130837865;
-			
 			// aapt resource value: 0x7f02016a
-			public const int notification_template_icon_low_bg = 2130837866;
+			public const int notification_template_icon_bg = 2130837866;
+			
+			// aapt resource value: 0x7f02016b
+			public const int notification_template_icon_low_bg = 2130837867;
 			
 			// aapt resource value: 0x7f020154
 			public const int notification_tile_bg = 2130837844;
@@ -4083,6 +4083,9 @@ namespace SocialBusinessApp.Droid
 			
 			// aapt resource value: 0x7f020168
 			public const int tooltip_frame_light = 2130837864;
+			
+			// aapt resource value: 0x7f020169
+			public const int user_icon = 2130837865;
 			
 			static Drawable()
 			{

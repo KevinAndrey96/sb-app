@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using Plugin.Permissions.Abstractions;
 using SocialBusinessApp.Cells;
 using System;
 using System.Collections.Generic;
@@ -21,7 +22,9 @@ namespace SocialBusinessApp
             NavigationPage.SetHasNavigationBar(this, false);
             InitializeComponent();
             this.Title = "Multiple Listing Service (MLS)";
+
             
+
             //this.Icon = "ranking.png";
             /*
             TapGestureRecognizer Ranking = new TapGestureRecognizer();
@@ -126,5 +129,6 @@ namespace SocialBusinessApp
             ofertas = JsonConvert.DeserializeObject<List<Oferta>>(result);
             OfertasListView.ItemsSource = ofertas;
         }
+
     }
 }
