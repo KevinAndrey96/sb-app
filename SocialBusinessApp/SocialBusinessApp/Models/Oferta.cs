@@ -9,6 +9,7 @@ namespace SocialBusinessApp
     public class Oferta
     {
         public string ID { get; set; }
+        public string UserId { get; set; }
         public string Nombre { get; set; }
         public string NombreCorto { get; set; }
         public string Precio { get; set; }
@@ -35,6 +36,10 @@ namespace SocialBusinessApp
         public override string ToString()
         {
             return base.ToString();
+        }
+        private void OnClick_u()
+        {
+            //DisplayAlert("1", "2", "3");
         }
     }
 }

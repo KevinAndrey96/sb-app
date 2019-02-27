@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SocialBusinessApp.Views;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -55,10 +56,14 @@ namespace SocialBusinessApp.Cells
             {
                 Image = "user_icon",
                 WidthRequest = 50,
-                HeightRequest = 50
+                HeightRequest = 50,
+                //Text = "Hola"
+                //Clicked = "OnClick_u"
             };
+            //button.SetBinding(Button.ClassIdProperty, new Binding("ID"));
+            button.SetBinding(Button.TextProperty, new Binding("UserId"));
+            button.Clicked += PlusClicked;
 
-            
 
             var View2 = new StackLayout
             {
@@ -68,7 +73,7 @@ namespace SocialBusinessApp.Cells
 
             var View3 = new StackLayout
             {
-                Children = { View2, button },
+                Children = { button, View2  },
                 Orientation = StackOrientation.Horizontal
             };
 
@@ -85,6 +90,13 @@ namespace SocialBusinessApp.Cells
             };
 
             
+        }
+        private void PlusClicked(object sender, EventArgs e)
+        {
+            Button btn = (Button)sender;
+            //var ran = btn.Text as Rank;
+            //Application.Current.MainPage.DisplayAlert("Alert", "Do you want to delete this item.", btn.Text);
+            Application.Current.MainPage.Navigation.PushModalAsync(new BuscarPerfil(btn.Text));
         }
     }
 }

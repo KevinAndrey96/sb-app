@@ -67,6 +67,10 @@ namespace SocialBusinessApp
         {
             Navigation.PushAsync(new Eventos());
         }
+        private void OnClick_u()
+        {
+            Navigation.PushAsync(new Eventos());
+        }
         private void BtnStandarSearchClick()
         {
             Navigation.PushAsync(new Eventos());
