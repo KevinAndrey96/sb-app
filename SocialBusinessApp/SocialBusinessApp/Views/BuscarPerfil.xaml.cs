@@ -29,7 +29,7 @@ namespace SocialBusinessApp.Views
             {
                 HttpClient client = new HttpClient
                 {
-                    BaseAddress = new Uri("http://app.socialbusiness.com.co")
+                    BaseAddress = new Uri("https://app.socialbusiness.com.co")
                 };
                 var code = Perfil;
                 string url = string.Format("/api/Profile.php?id=" + code);

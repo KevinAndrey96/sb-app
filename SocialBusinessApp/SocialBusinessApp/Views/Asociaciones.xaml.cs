@@ -22,7 +22,7 @@ namespace SocialBusinessApp
         {
             NavigationPage.SetHasNavigationBar(this, false);
             InitializeComponent();
-            this.Title = "Asociaciones";
+            this.Title = "Franquicias";
 
             AsociacionesListView.ItemTemplate = new DataTemplate(typeof(AsociacionCell));
             this.LoadAll();

@@ -45,7 +45,7 @@ namespace SocialBusinessApp
         }
         private async void btnComentariosClick()
         {
-            await DisplayAlert("Alerta", "Opción no implementada aún", "Ok");
+            await Navigation.PushModalAsync(new Comentarios(this.Code));
         }
         private async void btnLogrosClick()
         {
