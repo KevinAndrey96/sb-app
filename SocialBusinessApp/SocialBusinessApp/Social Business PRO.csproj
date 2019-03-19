@@ -43,11 +43,13 @@
       <DependentUpon>Archivos.xaml</DependentUpon>
     </Compile>
     <Compile Include="Cells\ComentarioCell.cs" />
+    <Compile Include="Cells\LogrosCell.cs" />
     <Compile Include="IMediaService.cs" />
     <Compile Include="Interface1.cs" />
     <Compile Include="MediaService.cs" />
     <Compile Include="Models\Comentario.cs" />
     <Compile Include="Models\Inmobiliario.cs" />
+    <Compile Include="Models\Logro.cs" />
     <Compile Include="Services\IMediaService.cs" />
     <Compile Include="Services\IMessanger.cs" />
     <Compile Include="Tabbeds\TabbedMLS.xaml.cs">
@@ -88,6 +90,9 @@
     </Compile>
     <Compile Include="Views\Inmobiliaria.xaml.cs">
       <DependentUpon>Inmobiliaria.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Logros.xaml.cs">
+      <DependentUpon>Logros.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Mapa.xaml.cs">
       <DependentUpon>Mapa.xaml</DependentUpon>
@@ -486,6 +491,12 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Views\Comentarios.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\Logros.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>

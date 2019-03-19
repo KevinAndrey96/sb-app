@@ -20,7 +20,29 @@ namespace SocialBusinessApp.Views
         {
             InitializeComponent();
             Ejecucion(Perfil);
+            //await Navigation.PushModalAsync(new OfertasUsuario(this.Code));
 
+            btnOfertas.Clicked += (sender, e) => btnOfertasClick(Perfil);
+            btnComentarios.Clicked += (sender, e) => btnComentariosClick(Perfil);
+            btnLogros.Clicked += (sender, e) => btnLogrosClick(Perfil);
+            btnEquipo.Clicked += (sender, e) => btnEquipoClick();
+        }
+
+        private async void btnOfertasClick(string Code)
+        {
+            await Navigation.PushModalAsync(new OfertasUsuario("Código: "+Code));
+        }
+        private async void btnComentariosClick(string Code)
+        {
+            await Navigation.PushModalAsync(new Comentarios("Código: "+Code));
+        }
+        private async void btnLogrosClick(string Code)
+        {
+            await Navigation.PushModalAsync(new Logros("Código: "+Code));
+        }
+        private async void btnEquipoClick()
+        {
+            await DisplayAlert("Alerta", "Opción no implementada aún", "Ok");
         }
 
         private async void Ejecucion(String Perfil)

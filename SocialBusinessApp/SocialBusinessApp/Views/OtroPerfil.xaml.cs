@@ -23,13 +23,17 @@ namespace SocialBusinessApp
             this.rank = rank;
             this.Code = rank.Codigo;
             TxtName.Text = rank.Nombre;
-            TxtInmobiliaria.Text = "Inmobiliaria: " + rank.Inmobiliaria;
-            TxtNit.Text = "Nit: " + rank.Nit;
-            TxtCodigo.Text = "Código: " + rank.Codigo;
+            if(rank.Nit!="")
+            {
+                TxtInmobiliaria.Text = "Inmobiliaria: " + rank.Inmobiliaria;
+                TxtNit.Text = "Nit: " + rank.Nit;
+                btnEquipo.IsVisible = false;
+            }
+            TxtCodigo.Text = rank.Codigo;
             TxtCelular.Text = "Celular: " + rank.Celular;
             TxtCorreo.Text = "Correo electrónico: " + rank.Correo;
-            TxtPosicion.Text = "Posición Ranking: " + rank.Posicion;
-            TxtPuntaje.Text = "Puntaje: " + rank.Puntaje;
+            TxtPosicion.Text = "Posición Ranking: " + rank.Posicion.Substring(10);
+            TxtPuntaje.Text = rank.Puntaje;
             FPerfil.Source = rank.Fotografia;
             FInmobiliaria.Source = rank.FotografiaInmobiliaria;
 
@@ -49,7 +53,7 @@ namespace SocialBusinessApp
         }
         private async void btnLogrosClick()
         {
-            await DisplayAlert("Alerta", "Opción no implementada aún", "Ok");
+            await Navigation.PushModalAsync(new Logros(this.Code));
         }
         private async void btnEquipoClick()
         {
