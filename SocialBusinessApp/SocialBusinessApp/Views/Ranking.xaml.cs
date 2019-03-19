@@ -23,7 +23,7 @@ namespace SocialBusinessApp
             this.Title = "Profesionales";
             //this.Icon = "iconoranking";
             //BtnRankingInmobiliarias.Clicked += (sender, e) => BtnRankingInmobiliariasClick();
-            RankingListView.ItemTemplate = new DataTemplate(typeof(RankingICell));
+            //RankingListView.ItemTemplate = new DataTemplate(typeof(RankingICell));
             
 
             /*TapGestureRecognizer Search = new TapGestureRecognizer();

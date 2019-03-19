@@ -27,6 +27,10 @@ namespace SocialBusinessApp
             {
                 TxtInmobiliaria.Text = "Inmobiliaria: " + rank.Inmobiliaria;
                 TxtNit.Text = "Nit: " + rank.Nit;
+                btnEquipo.IsVisible = true;
+            }
+            else
+            {
                 btnEquipo.IsVisible = false;
             }
             TxtCodigo.Text = rank.Codigo;
@@ -57,7 +61,7 @@ namespace SocialBusinessApp
         }
         private async void btnEquipoClick()
         {
-            await DisplayAlert("Alerta", "Opción no implementada aún", "Ok");
+            await Navigation.PushModalAsync(new Equipo(this.Code));
         }
     }
 }

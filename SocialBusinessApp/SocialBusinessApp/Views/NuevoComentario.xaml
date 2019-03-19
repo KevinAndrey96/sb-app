@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SocialBusinessApp.Views.NuevoComentario">
+    <ContentPage.Content>
+        <StackLayout Padding="20,20,20,20">
+            <Label Text="Realiza un comentario a tu colega" TextColor="#9c27b0" HorizontalOptions="Center" FontSize="25"></Label>
+            <Editor Text="Hola" HeightRequest="111" Keyboard="Chat"/>
+            <Button x:Name="btnComentar" Text="Comentar" BackgroundColor="#9c27b0" TextColor="#FFFFFF"></Button>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

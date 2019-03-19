@@ -25,7 +25,7 @@ namespace SocialBusinessApp.Views
             btnOfertas.Clicked += (sender, e) => btnOfertasClick(Perfil);
             btnComentarios.Clicked += (sender, e) => btnComentariosClick(Perfil);
             btnLogros.Clicked += (sender, e) => btnLogrosClick(Perfil);
-            btnEquipo.Clicked += (sender, e) => btnEquipoClick();
+            btnEquipo.Clicked += (sender, e) => btnEquipoClick(Perfil);
         }
 
         private async void btnOfertasClick(string Code)
@@ -40,9 +40,9 @@ namespace SocialBusinessApp.Views
         {
             await Navigation.PushModalAsync(new Logros("Código: "+Code));
         }
-        private async void btnEquipoClick()
+        private async void btnEquipoClick(string Code)
         {
-            await DisplayAlert("Alerta", "Opción no implementada aún", "Ok");
+            await Navigation.PushModalAsync(new Equipo("Código: " + Code));
         }
 
         private async void Ejecucion(String Perfil)
@@ -76,6 +76,7 @@ namespace SocialBusinessApp.Views
                 {
                     TxtInmobiliaria.Text = "";
                     TxtNit.Text = "";
+                    btnEquipo.IsVisible = false;
                 }
                 
                 //TxtDepartamento.Text = Userio.Departamento;

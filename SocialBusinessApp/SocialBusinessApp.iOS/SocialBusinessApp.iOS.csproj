@@ -210,6 +210,12 @@
     <Reference Include="SkiaSharp, Version=1.68.0.0, Culture=neutral, PublicKeyToken=0738eb9f132ed756, processorArchitecture=MSIL">
       <HintPath>..\..\packages\SkiaSharp.1.68.0\lib\Xamarin.iOS\SkiaSharp.dll</HintPath>
     </Reference>
+    <Reference Include="SuaveControls.FloatingActionButton, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\SuaveControls.FloatingActionButton.2017.10.17\lib\xamarinios10\SuaveControls.FloatingActionButton.dll</HintPath>
+    </Reference>
+    <Reference Include="SuaveControls.FloatingActionButton.iOS, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\SuaveControls.FloatingActionButton.2017.10.17\lib\xamarinios10\SuaveControls.FloatingActionButton.iOS.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.IO.Compression" />
     <Reference Include="System.Net.Http" />
@@ -386,6 +392,9 @@
     <BundleResource Include="Resources\ingresar.png" />
     <BundleResource Include="Resources\splash.png" />
     <BundleResource Include="Resources\user_icon.png" />
+    <BundleResource Include="Resources\lapiz.png" />
+    <BundleResource Include="Resources\lapiz%402x.png" />
+    <BundleResource Include="Resources\lapiz%403x.png" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">

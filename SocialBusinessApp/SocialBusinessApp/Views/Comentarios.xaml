@@ -1,12 +1,33 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:views="clr-namespace:SuaveControls.Views;assembly=SuaveControls.FloatingActionButton"
              x:Class="SocialBusinessApp.Views.Comentarios">
     <ContentPage.Content>
-        <StackLayout Padding="10,10,0,0">
-            <Label Text="Comentarios de perfil" TextColor="#9c27b0" HorizontalOptions="Center" FontSize="25"></Label>
-            <ListView x:Name="ComentariosListView" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" RowHeight="111"/>
+        
+            <!--<Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="8*" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="4*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+            <StackLayout Padding="10,10,0,0"  Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2">-->
+        <StackLayout Padding="10,10,10,10">
+                <StackLayout Padding="10,10,10,10">
+                    <Label Text="Realiza un comentario" TextColor="#9c27b0" HorizontalOptions="Center" FontSize="25"></Label>
+                    <Editor x:Name="Comentario" Placeholder="Realiza un comentario acerca de tu colega" HeightRequest="111" Keyboard="Chat"/>
+                    <Button x:Name="btnComentar" Text="Comentar" BackgroundColor="#9c27b0" TextColor="#FFFFFF"></Button>
+                </StackLayout>
+                <Label Text="Comentarios de perfil" TextColor="#9c27b0" HorizontalOptions="Center" FontSize="25"></Label>
+                <ListView x:Name="ComentariosListView"  HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" RowHeight="111"/>
         </StackLayout>
+        <!--</StackLayout>
+            <views:FloatingActionButton Image="lapiz.png" Grid.Column="1" Grid.Row="1" ButtonColor="#9c27b0" WidthRequest="56" HeightRequest="56" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" x:Name="btnNuevoComentario"/>
+            </Grid>-->
+        
         
             
         

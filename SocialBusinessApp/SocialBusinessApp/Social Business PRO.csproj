@@ -43,6 +43,7 @@
       <DependentUpon>Archivos.xaml</DependentUpon>
     </Compile>
     <Compile Include="Cells\ComentarioCell.cs" />
+    <Compile Include="Cells\EquipoCell.cs" />
     <Compile Include="Cells\LogrosCell.cs" />
     <Compile Include="IMediaService.cs" />
     <Compile Include="Interface1.cs" />
@@ -74,6 +75,9 @@
     </Compile>
     <Compile Include="Views\EditarOferta.xaml.cs">
       <DependentUpon>EditarOferta.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Equipo.xaml.cs">
+      <DependentUpon>Equipo.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Eventos.xaml.cs">
       <DependentUpon>Eventos.xaml</DependentUpon>
@@ -111,6 +115,9 @@
     </Compile>
     <Compile Include="Views\MyPlace.xaml.cs">
       <DependentUpon>MyPlace.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\NuevoComentario.xaml.cs">
+      <DependentUpon>NuevoComentario.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\OfertasUsuario.xaml.cs">
       <DependentUpon>OfertasUsuario.xaml</DependentUpon>
@@ -231,6 +238,9 @@
     </Reference>
     <Reference Include="SkiaSharp, Version=1.60.0.0, Culture=neutral, PublicKeyToken=0738eb9f132ed756, processorArchitecture=MSIL">
       <HintPath>..\..\packages\SkiaSharp.1.60.0\lib\portable-net45+win8+wpa81+wp8\SkiaSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="SuaveControls.FloatingActionButton, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\SuaveControls.FloatingActionButton.2017.10.17\lib\portable45-net45+win8+wp8+wpa81\SuaveControls.FloatingActionButton.dll</HintPath>
     </Reference>
     <Reference Include="System.Net.Http, Version=1.5.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Microsoft.Net.Http.2.2.29\lib\portable-net40+sl4+win8+wp71+wpa81\System.Net.Http.dll</HintPath>
@@ -497,6 +507,18 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Views\Logros.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\Equipo.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\NuevoComentario.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>

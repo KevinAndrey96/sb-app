@@ -17,6 +17,8 @@ namespace SocialBusinessApp.Views
 	public partial class Comentarios : ContentPage
 	{
         private List<Comentario> Comentario1;
+        private static HttpClient client = new HttpClient();
+        Respuesta Rta;
         public Comentarios (string code)
 		{
             //NavigationPage.SetHasNavigationBar(this, false);
@@ -31,14 +33,54 @@ namespace SocialBusinessApp.Views
             BtnSearch.GestureRecognizers.Add(Search);
             */
             //AsociacionesListView.ItemTapped += AsociacionesListView_ItemTapped;
-        }
+            btnComentar.Clicked += (sender, e) => btnComentarClick(code);
 
+        }
+        private async void btnComentarClick(string code)
+        {
+            var values = new Dictionary<string, string>
+                {
+                   { "Autor",  (String)App.Current.Properties["Codigo"]},
+                   { "Comentario",  Comentario.Text},
+                   { "Profesional", code }
+                };
+            var content = new FormUrlEncodedContent(values);
+
+            try
+            {
+                var response = await client.PostAsync("https://app.socialbusiness.com.co/api/RealizarComentario.php", content);
+                var responseString = await response.Content.ReadAsStringAsync();
+                Rta = JsonConvert.DeserializeObject<Respuesta>(responseString);
+            }
+            catch (Exception)
+            {
+                waitActivityIndicator.IsRunning = false;
+                await DisplayAlert("Alerta", "No se detecta conexión a internet, por favor intente más tarde", "Ok");
+                return;
+            }
+            if (Rta.Estado.Equals("Si"))
+            {
+                await DisplayAlert("¡Éxito!", Rta.Mensaje, "Ok");
+                await Navigation.PopAsync().ConfigureAwait(false);
+            }
+            else
+            {
+                waitActivityIndicator.IsRunning = false;
+                await DisplayAlert("Alerta", Rta.Mensaje, "Ok");
+            }
+        }
+        private async void SendTo()
+        {
+            //waitActivityIndicator.IsRunning = true;
+            
+
+        }
         /*private async void ComentariosListView_ItemTapped(object sender, ItemTappedEventArgs e)
         {
             var asoc = e.Item as Asociacion;
             await Navigation.PushModalAsync(new VerAsociacion(asoc));
         }*/
-        
+
         private async void LoadAll(String code)
         {
             //waitActivityIndicator.IsRunning = true;
