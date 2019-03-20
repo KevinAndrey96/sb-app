@@ -41,25 +41,25 @@ namespace SocialBusinessApp
             FPerfil.Source = rank.Fotografia;
             FInmobiliaria.Source = rank.FotografiaInmobiliaria;
 
-            btnOfertas.Clicked += (sender, e) => btnOfertasClick();
-            btnComentarios.Clicked += (sender, e) => btnComentariosClick();
-            btnLogros.Clicked += (sender, e) => btnLogrosClick();
-            btnEquipo.Clicked += (sender, e) => btnEquipoClick();
+            btnOfertas.Clicked += (sender, e) => BtnOfertasClick();
+            btnComentarios.Clicked += (sender, e) => BtnComentariosClick();
+            btnLogros.Clicked += (sender, e) => BtnLogrosClick();
+            btnEquipo.Clicked += (sender, e) => BtnEquipoClick();
 
         }
-        private async void btnOfertasClick()
+        private async void BtnOfertasClick()
         {
             await Navigation.PushModalAsync(new OfertasUsuario(this.Code));
         }
-        private async void btnComentariosClick()
+        private async void BtnComentariosClick()
         {
             await Navigation.PushModalAsync(new Comentarios(this.Code));
         }
-        private async void btnLogrosClick()
+        private async void BtnLogrosClick()
         {
             await Navigation.PushModalAsync(new Logros(this.Code));
         }
-        private async void btnEquipoClick()
+        private async void BtnEquipoClick()
         {
             await Navigation.PushModalAsync(new Equipo(this.Code));
         }

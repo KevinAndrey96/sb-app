@@ -9,27 +9,32 @@
 
             <Label x:Name="TxtName" Text="Cobol Ingeniería SAS" HorizontalOptions="Center" Font="Bold,30" TextColor="#9c27b0"></Label>
             <Label x:Name="TxtNit" Text="Nit. 901131205" HorizontalOptions="Center" Font="Bold,30"></Label>
+            <Label x:Name="TxtIntegrantes" Text="" FontSize="20"></Label>
             <Label x:Name="TxtDepartments" Text="Bogotá, Bolivar, Nariño" FontSize="20"></Label>
             <Label x:Name="TxtPosition" Text="1 en Ranking" FontSize="20"></Label>
             <Label x:Name="TxtScore" Text="4000 Puntos" FontSize="20"></Label>
             
-            <Label Text="" FontSize="20"></Label>
-            
+            <!--<Label Text="" FontSize="20"></Label>-->
+            <Button x:Name="btnInmuebles" Text="Inmuebles" BackgroundColor="#9c27b0" TextColor="#FFFFFF"></Button>
+            <!--<Button x:Name="btnIntegrantes" Text="Integrantes" BackgroundColor="#9c27b0" TextColor="#FFFFFF"></Button>-->
+            <ListView x:Name="IntegrantesListView" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" RowHeight="111"/>
+            <!--
             <Button x:Name="BtnInmuebles" Text="Inmuebles" WidthRequest="150"  HorizontalOptions="Center"  BackgroundColor="#448AFF" TextColor="#FFFFFF"></Button>
             <Button x:Name="BtnIntegrantes" Text="Integrantes" WidthRequest="150"  HorizontalOptions="Center"  BackgroundColor="#448AFF" TextColor="#FFFFFF"></Button>
+            -->
             <!--<Button x:Name="" Text="Sitio Web" HeightRequest="80"  HorizontalOptions="FillAndExpand"  BackgroundColor="#448AFF" TextColor="#FFFFFF"></Button>
             <Button x:Name="" Text="Facebook" HeightRequest="80"  HorizontalOptions="FillAndExpand"  BackgroundColor="#448AFF" TextColor="#FFFFFF"></Button>
             <Button x:Name="" Text="Twitter" HeightRequest="80"  HorizontalOptions="FillAndExpand"  BackgroundColor="#448AFF" TextColor="#FFFFFF"></Button>
             -->
             
-            <StackLayout  Orientation="Horizontal" HorizontalOptions="FillAndExpand">
-                <!--<Button x:Name="BtnComentarios" Text="Comentarios" HeightRequest="80"  HorizontalOptions="FillAndExpand"  BackgroundColor="#448AFF" TextColor="#FFFFFF"></Button>
-                <Button x:Name="BtnLogros" Text="Logros" HeightRequest="80"   HorizontalOptions="FillAndExpand" BackgroundColor="#448AFF" TextColor="#FFFFFF"></Button>-->
-                <!--<Image x:Name="BtnOfert" Source="ofertas.png" WidthRequest="100" HeightRequest="100" HorizontalOptions="Center"/>
+            <!--<StackLayout  Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                <Button x:Name="BtnComentarios" Text="Comentarios" HeightRequest="80"  HorizontalOptions="FillAndExpand"  BackgroundColor="#448AFF" TextColor="#FFFFFF"></Button>
+                <Button x:Name="BtnLogros" Text="Logros" HeightRequest="80"   HorizontalOptions="FillAndExpand" BackgroundColor="#448AFF" TextColor="#FFFFFF"></Button>
+                <Image x:Name="BtnOfert" Source="ofertas.png" WidthRequest="100" HeightRequest="100" HorizontalOptions="Center"/>
                 <Image x:Name="BtnTeam" Source="equipo.png" WidthRequest="100" HeightRequest="100" HorizontalOptions="Center"/>
                 <Image x:Name="BtnComments" Source="comentarios.png" WidthRequest="100" HeightRequest="100" HorizontalOptions="Center"/>
-                <Image x:Name="BtnAchievement" Source="logros.png" WidthRequest="100" HeightRequest="100" HorizontalOptions="Center"/>-->
-            </StackLayout>
+                <Image x:Name="BtnAchievement" Source="logros.png" WidthRequest="100" HeightRequest="100" HorizontalOptions="Center"/>
+            </StackLayout>-->
 
         </StackLayout>
     </ContentPage.Content>

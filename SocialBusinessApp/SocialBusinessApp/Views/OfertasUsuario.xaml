@@ -5,7 +5,7 @@
              Title="Mis ofertas">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Ofertas" TextColor="#9c27b0" HorizontalOptions="Center" FontSize="25"></Label>
+            <Label Text="Ofertas de usuario" TextColor="#9c27b0" HorizontalOptions="Center" FontSize="25"></Label>
             <StackLayout Orientation="Horizontal">
                 <!--<Button x:Name="BtnAgregarOferta" Text="Agregar Oferta" WidthRequest="150" HorizontalOptions="FillAndExpand" VerticalOptions="Center" BackgroundColor="#9c27b0" TextColor="#FFFFFF"></Button>-->
                 <ActivityIndicator x:Name="waitActivityIndicator2" HeightRequest="50" HorizontalOptions="Center"></ActivityIndicator>

@@ -119,6 +119,9 @@
     <Compile Include="Views\NuevoComentario.xaml.cs">
       <DependentUpon>NuevoComentario.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\OfertasInmobiliaria.xaml.cs">
+      <DependentUpon>OfertasInmobiliaria.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\OfertasUsuario.xaml.cs">
       <DependentUpon>OfertasUsuario.xaml</DependentUpon>
     </Compile>
@@ -519,6 +522,12 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Views\NuevoComentario.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\OfertasInmobiliaria.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>

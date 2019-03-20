@@ -42,7 +42,7 @@ namespace SocialBusinessApp.Views
                 {
                    { "Autor",  (String)App.Current.Properties["Codigo"]},
                    { "Comentario",  Comentario.Text},
-                   { "Profesional", code }
+                   { "Profesional", code.Substring(8) }
                 };
             var content = new FormUrlEncodedContent(values);
 
@@ -50,22 +50,24 @@ namespace SocialBusinessApp.Views
             {
                 var response = await client.PostAsync("https://app.socialbusiness.com.co/api/RealizarComentario.php", content);
                 var responseString = await response.Content.ReadAsStringAsync();
+                //await DisplayAlert("Alerta", responseString, "Ok");
                 Rta = JsonConvert.DeserializeObject<Respuesta>(responseString);
+                
             }
             catch (Exception)
             {
-                waitActivityIndicator.IsRunning = false;
+                //waitActivityIndicator.IsRunning = false;
                 await DisplayAlert("Alerta", "No se detecta conexión a internet, por favor intente más tarde", "Ok");
                 return;
             }
             if (Rta.Estado.Equals("Si"))
             {
                 await DisplayAlert("¡Éxito!", Rta.Mensaje, "Ok");
-                await Navigation.PopAsync().ConfigureAwait(false);
+                await Navigation.PopModalAsync();
             }
             else
             {
-                waitActivityIndicator.IsRunning = false;
+                //waitActivityIndicator.IsRunning = false;
                 await DisplayAlert("Alerta", Rta.Mensaje, "Ok");
             }
         }

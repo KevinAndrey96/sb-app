@@ -14,6 +14,7 @@ namespace SocialBusinessApp
         public string Puntaje { get; set; }
         public string Medalla { get; set; }
         public string Fotografia { get; set; }
+        public string Integrantes { get; set; }
         public string Departamento { get; set; }
         public string Nit { get; set; }
 
