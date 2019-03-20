@@ -69,6 +69,7 @@ namespace SocialBusinessApp.Views
                 TxtCelular.Text = "Teléfono: " + Userio.Celular;
                 TxtPuntaje.Text = "Puntaje acumulado: " + Userio.Puntaje;
                 TxtPosicion.Text = "Posición en Ranking: " + Userio.Posicion;
+                TxtDepartamento.Text = Userio.Ciudad;
 
                 TxtInmobiliaria.Text = Userio.Inmobiliaria;
                 TxtNit.Text = "Nit. " + Userio.Nit;

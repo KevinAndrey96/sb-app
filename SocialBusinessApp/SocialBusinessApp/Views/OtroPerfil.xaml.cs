@@ -39,6 +39,7 @@ namespace SocialBusinessApp
             TxtPosicion.Text = "Posición Ranking: " + rank.Posicion.Substring(10);
             TxtPuntaje.Text = rank.Puntaje;
             FPerfil.Source = rank.Fotografia;
+            TxtDepartamento.Text = rank.Ciudad;
             FInmobiliaria.Source = rank.FotografiaInmobiliaria;
 
             btnOfertas.Clicked += (sender, e) => BtnOfertasClick();

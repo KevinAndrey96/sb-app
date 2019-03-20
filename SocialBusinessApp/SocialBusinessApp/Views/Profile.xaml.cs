@@ -59,7 +59,7 @@ namespace SocialBusinessApp
             }
             catch (Exception e)
             {
-                waitActivityIndicator.IsRunning = false;
+                //waitActivityIndicator.IsRunning = false;
                 await DisplayAlert("Alerta", "No se detecta conexión a internet, por favor intente más tarde"+e, "Ok");
                 return;
             }

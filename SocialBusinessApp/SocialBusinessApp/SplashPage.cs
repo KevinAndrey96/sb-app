@@ -33,6 +33,7 @@ namespace SocialBusinessApp
             //AbsoluteLayout.SetLayoutBounds(splashImage, new Rectangle(0.5, 0.5, AbsoluteLayout.AutoSize, AbsoluteLayout.AutoSize));
             //AbsoluteLayout.SetLayoutFlags(splashImage, AbsoluteLayoutFlags.All);
             AbsoluteLayout.SetLayoutBounds(splashImage, new Rectangle(0.5, 0.5, 1,1));
+            //AbsoluteLayout.SetLayoutBounds(splashImage, new Rectangle(0.5, 0.5, 1, 1));
 
             sub.Children.Add(splashImage);
 
@@ -46,8 +47,10 @@ namespace SocialBusinessApp
             base.OnAppearing();
 
             await splashImage.ScaleTo(1, 2000); //Time-consuming processes such as initialization
-            await splashImage.ScaleTo(0.9, 1500, Easing.Linear);
-            await splashImage.ScaleTo(150, 1200, Easing.Linear);
+            //await splashImage.ScaleTo(0.9, 1500, Easing.Linear);
+            await splashImage.ScaleTo(0.9, 750, Easing.Linear);
+            //await splashImage.ScaleTo(150, 1200, Easing.Linear);
+            await splashImage.ScaleTo(150, 600, Easing.Linear);
             Application.Current.MainPage = new NavigationPage(new InicioSesion())
             {
                 BarBackgroundColor = Color.FromHex("#9c27b0"),

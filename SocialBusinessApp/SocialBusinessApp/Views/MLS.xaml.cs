@@ -1,6 +1,7 @@
 ﻿using Newtonsoft.Json;
 using Plugin.Permissions.Abstractions;
 using SocialBusinessApp.Cells;
+using SocialBusinessApp.Views;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -42,15 +43,15 @@ namespace SocialBusinessApp
 
             TapGestureRecognizer Search = new TapGestureRecognizer();
             Search.Tapped += (sender, e) => BtnStandarSearchClick();
-            BtnSearch.GestureRecognizers.Add(Search);
+            //BtnSearch.GestureRecognizers.Add(Search);
 
             TapGestureRecognizer AddOfert = new TapGestureRecognizer();
             AddOfert.Tapped += (sender, e) => BtnAgregarOfertaClick();
-            BtnAddOfert.GestureRecognizers.Add(AddOfert);
+            //BtnAddOfert.GestureRecognizers.Add(AddOfert);
 
             TapGestureRecognizer AdvancedSearch = new TapGestureRecognizer();
             AdvancedSearch.Tapped += (sender, e) => BtnBuscarClick();
-            BtnAdvancedSearch.GestureRecognizers.Add(AdvancedSearch);
+            //BtnAdvancedSearch.GestureRecognizers.Add(AdvancedSearch);
 
             //BtnAgregarOferta.Clicked += (sender, e) => btnAgregarOfertaClick();
             //BtnSalir.Clicked += (sender, e) => btnSalirClick();
@@ -62,11 +63,26 @@ namespace SocialBusinessApp
             OfertasListView.ItemTemplate = new DataTemplate ( typeof(OfertaCell) );
             this.LoadOfertas();
             OfertasListView.ItemTapped += OfertasListView_ItemTapped;
+
+            btnSearch.Clicked += (sender, e) => BtnSearchClick(txtSearch.Text);
+            btnAgregarOferta.Clicked += (sender, e) => BtnAgregarOfertaClick();
+            btnPerfil.Clicked += (sender, e) => BtnPerfilClick();
         }
-        private void BtnEventosClick()
+        private void BtnSearchClick(string Param)
         {
-            Navigation.PushAsync(new Eventos());
+            Navigation.PushModalAsync(new BuscarOfertas(Param));
         }
+        private void BtnAgregarOfertaClick()
+        {
+            Navigation.PushModalAsync(new Listado());
+        }
+        private void BtnPerfilClick()
+        {
+            Navigation.PushModalAsync(new Profile());
+        }
+
+
+
         private void OnClick_u()
         {
             Navigation.PushAsync(new Eventos());
@@ -80,10 +96,10 @@ namespace SocialBusinessApp
             var oferta = e.Item as Oferta;
             await Navigation.PushModalAsync(new Place(oferta));
         }
-        private void BtnAgregarOfertaClick()
+        /*private void BtnAgregarOfertaClick()
         {
             Navigation.PushModalAsync(new Listado());
-        }
+        }*/
         private void BtnBuscarClick()
         {
             Navigation.PushAsync(new Filtros());
@@ -96,10 +112,7 @@ namespace SocialBusinessApp
         {
             Navigation.PushAsync(new MisListados("http://app.socialbusiness.com.co/chat"));
         }
-        private void BtnPerfilClick()
-        {
-            //Navigation.PushAsync(new Perfil((String)App.Current.Properties["Codigo"]));
-        }
+        
         private void BtnSalirClick()
         {
             EliminarSesion();

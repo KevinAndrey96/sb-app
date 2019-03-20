@@ -24,7 +24,8 @@ namespace SocialBusinessApp
 
             MainPage = new NavigationPage(new SplashPage())
             {
-                BarBackgroundColor = Color.FromHex("#9c27b0"),
+                BarBackgroundColor = Color.FromHex("#FFFFFF"),
+                //#9c27b0
                 BarTextColor = Color.White,
             };
 

@@ -20,15 +20,18 @@
                 <Image x:Name="FInmobiliaria" Grid.Row="0" Grid.Column="1" Source="" WidthRequest="150" HorizontalOptions="Center"/>
             </Grid>
             <Label x:Name="TxtName" Text="" TextColor="#9c27b0" HorizontalOptions="Center" FontSize="25"></Label>
+
+            <Label x:Name="TxtCodigo" Text="" HorizontalOptions="Center" Font="Bold,30"></Label>
+            <Label x:Name="TxtDepartamento" Text="" HorizontalOptions="Center" Font="Bold,20"></Label>
+            <Label x:Name="TxtCorreo" Text="" FontSize="20"></Label>
+            <Label x:Name="TxtCelular" Text="" FontSize="20"></Label>
+            <Label x:Name="TxtPosicion" Text="" FontSize="20"></Label>
+            <Label x:Name="TxtPuntaje" Text="" FontSize="20"></Label>
+
+            <Label x:Name="TxtInmobiliaria" Text="" HorizontalOptions="Center" FontSize="25" Font="Bold,25" TextColor="#9c27b0"></Label>
+            <Label x:Name="TxtNit" HorizontalOptions="Center" Text="" FontSize="20"></Label>
+
             
-            <Label x:Name="TxtCodigo" Text="Código: " FontSize="20"></Label>
-            <Label x:Name="TxtCelular" Text="Celular: " FontSize="20"></Label>
-            <Label x:Name="TxtCorreo" Text="Correo Electrónico: " FontSize="20"></Label>
-            <Label x:Name="TxtPosicion" Text="Posición: " FontSize="22"></Label>
-            <Label x:Name="TxtPuntaje" Text="Puntaje: " FontSize="22"></Label>
-            
-            <Label x:Name="TxtInmobiliaria" Text="Inmobiliaria: " FontSize="21"></Label>
-            <Label x:Name="TxtNit" Text="Nit: " FontSize="21"></Label>
 
             <StackLayout  Orientation="Horizontal" HorizontalOptions="FillAndExpand">
                 <!--<Button x:Name="BtnOfertas" Text="Ofertas" HeightRequest="80"  HorizontalOptions="FillAndExpand"  BackgroundColor="#448AFF" TextColor="#FFFFFF"></Button>

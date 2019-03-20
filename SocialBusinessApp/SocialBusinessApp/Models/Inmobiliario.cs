@@ -17,7 +17,8 @@ namespace SocialBusinessApp.Models
         public String Posicion { get; set; }
         public String Puntaje { get; set; }
         public String Departamento { get; set; }
-        
+        public String Ciudad { get; set; }
+
         public String FotoPerfil { get; set; }
         public String FotoInmobiliaria { get; set; }
         

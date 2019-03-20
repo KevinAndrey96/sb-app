@@ -2,8 +2,8 @@
 <TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="SocialBusinessApp.TabbedPage2"
-             BarBackgroundColor="#2196F3" 
-             BarTextColor="#FFFFFF">
+             BarBackgroundColor="#FFFFFF" 
+             BarTextColor="#9c27b0">
   <!--Pages can be added as references or inline-->
     <TabbedPage.Children>
     </TabbedPage.Children>

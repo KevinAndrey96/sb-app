@@ -57,6 +57,8 @@ namespace SocialBusinessApp.Cells
                 Image = "user_icon",
                 WidthRequest = 50,
                 HeightRequest = 50,
+                //BackgroundColor = Color.FromHex("9c27b0")
+
                 //Text = "Hola"
                 //Clicked = "OnClick_u"
             };

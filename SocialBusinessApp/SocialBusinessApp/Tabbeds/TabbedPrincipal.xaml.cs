@@ -22,7 +22,7 @@ namespace SocialBusinessApp
             this.Children.Add(new TabbedPage2());
             this.Children.Add(new MisListados("http://app.socialbusiness.com.co/chat"));
             this.Children.Add(new TabbedEventos());
-            this.Children.Add(new Profile());
+            //this.Children.Add(new Profile());
             
             //this.Children.Add(new Perfil());
             
