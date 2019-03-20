@@ -8,16 +8,17 @@
             <Image x:Name="FAsociacionF" Source="http://app.socialbusiness.com.co/imgs/blank.png" WidthRequest="150" HorizontalOptions="Center"/>
 
             <Label x:Name="TxtName" Text="Cobol Ingeniería SAS" HorizontalOptions="Center" Font="Bold,30" TextColor="#9c27b0"></Label>
-            <Label x:Name="TxtDepartment" Text="Nacional" HorizontalOptions="Center" Font="Bold,30"></Label>
+            <!--<Label x:Name="TxtDepartment" Text="Nacional" HorizontalOptions="Center" Font="Bold,30"></Label>-->
+            <Label x:Name="TxtDepartment" Text="" FontSize="20"></Label>
             <Label x:Name="TxtAddress" Text="Av 9 No. 127B -16" FontSize="20"></Label>
             <Label x:Name="TxtPhone" Text="3105447422" FontSize="20"></Label>
             <Label x:Name="TxtEmail" Text="Correo@socialbusiness.com.co" FontSize="20"></Label>
 
             <Label x:Name="TxtAffiliate" Text="5 Afiliados" FontSize="20"></Label>
 
-            <Label Text="" FontSize="20"></Label>
+            <!--<Label Text="" FontSize="20"></Label>-->
+            <ListView x:Name="IntegrantesListView" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" RowHeight="111"/>
 
-            
             <!--<Button x:Name="" Text="Sitio Web" HeightRequest="80"  HorizontalOptions="FillAndExpand"  BackgroundColor="#448AFF" TextColor="#FFFFFF"></Button>
             <Button x:Name="" Text="Facebook" HeightRequest="80"  HorizontalOptions="FillAndExpand"  BackgroundColor="#448AFF" TextColor="#FFFFFF"></Button>
             <Button x:Name="" Text="Twitter" HeightRequest="80"  HorizontalOptions="FillAndExpand"  BackgroundColor="#448AFF" TextColor="#FFFFFF"></Button>

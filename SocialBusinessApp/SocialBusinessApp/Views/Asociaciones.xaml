@@ -5,7 +5,7 @@
     <ContentPage.Content>
         <StackLayout>
             <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
-                <Entry Placeholder="¿Alguna asociación en especial?" HorizontalOptions="FillAndExpand"></Entry>
+                <Entry Placeholder="¿Alguna franquicia en especial?" HorizontalOptions="FillAndExpand"></Entry>
                 <Image x:Name="BtnSearch" Source="buscar.png" HeightRequest="50" WidthRequest="50"  BackgroundColor="Transparent" HorizontalOptions="FillAndExpand"/>
             </StackLayout>
             <ListView x:Name="AsociacionesListView" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" RowHeight="111"/>

@@ -35,7 +35,7 @@ namespace SocialBusinessApp.Views
             //btnIntegrantes.Clicked += (sender, e) => BtnIntegrantesClick();
             IntegrantesListView.ItemTemplate = new DataTemplate(typeof(RankingCell));
             this.LoadRanking(ranki.Nombre);
-            IntegrantesListView.ItemTapped += EquipoListView_ItemTapped;
+            IntegrantesListView.ItemTapped += IntegrantesListView_ItemTapped;
         }
         
         private async void BtnInmueblesClick(string name)
@@ -46,7 +46,7 @@ namespace SocialBusinessApp.Views
         {
             //await Navigation.PushModalAsync(new OfertasUsuario(this.Code));
         }*/
-        private async void EquipoListView_ItemTapped(object sender, ItemTappedEventArgs e)
+        private async void IntegrantesListView_ItemTapped(object sender, ItemTappedEventArgs e)
         {
             var rank = e.Item as Rank;
             await Navigation.PushModalAsync(new OtroPerfil(rank));
