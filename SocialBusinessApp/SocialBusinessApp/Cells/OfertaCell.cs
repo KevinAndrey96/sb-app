@@ -58,6 +58,7 @@ namespace SocialBusinessApp.Cells
                 WidthRequest = 50,
                 HeightRequest = 50,
                 //BackgroundColor = Color.FromHex("9c27b0")
+                BackgroundColor = Color.Transparent,
 
                 //Text = "Hola"
                 //Clicked = "OnClick_u"

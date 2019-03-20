@@ -1,5 +1,6 @@
 ﻿using Newtonsoft.Json;
 using SocialBusinessApp.Cells;
+using SocialBusinessApp.Views;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -35,6 +36,12 @@ namespace SocialBusinessApp
             RankingListView.ItemTemplate = new DataTemplate(typeof(RankingCell));
             this.LoadRanking();
             RankingListView.ItemTapped += RankingListView_ItemTapped;
+
+            btnSearch.Clicked += (sender, e) => BtnSearchClick(txtSearch.Text);
+        }
+        private void BtnSearchClick(string Param)
+        {
+            Navigation.PushModalAsync(new BuscarProfesionales(Param));
         }
 
         private async void RankingListView_ItemTapped(object sender, ItemTappedEventArgs e)

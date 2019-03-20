@@ -22,7 +22,6 @@ namespace SocialBusinessApp.Views
             OfertasListView2.ItemTemplate = new DataTemplate(typeof(OfertaCell));
             this.LoadOfertas2(Param);
             OfertasListView2.ItemTapped += OfertasListView_ItemTapped;
-
             btnSearch.Clicked += (sender, e) => BtnSearchClick();
         }
         private void BtnSearchClick()

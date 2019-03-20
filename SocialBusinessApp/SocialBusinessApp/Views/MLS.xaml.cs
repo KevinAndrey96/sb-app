@@ -64,9 +64,10 @@ namespace SocialBusinessApp
             this.LoadOfertas();
             OfertasListView.ItemTapped += OfertasListView_ItemTapped;
 
-            btnSearch.Clicked += (sender, e) => BtnSearchClick(txtSearch.Text);
+            
             btnAgregarOferta.Clicked += (sender, e) => BtnAgregarOfertaClick();
             btnPerfil.Clicked += (sender, e) => BtnPerfilClick();
+            btnSearch.Clicked += (sender, e) => BtnSearchClick(txtSearch.Text);
         }
         private void BtnSearchClick(string Param)
         {
