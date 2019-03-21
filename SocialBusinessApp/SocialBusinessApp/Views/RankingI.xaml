@@ -4,9 +4,9 @@
              x:Class="SocialBusinessApp.RankingI">
     <ContentPage.Content>
         <StackLayout>
-            <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
-                <Entry Placeholder="¿Alguna inmobiliaria en especial?" HorizontalOptions="FillAndExpand"></Entry>
-                <Image x:Name="BtnSearch" Source="buscar.png" HeightRequest="50" WidthRequest="50"  BackgroundColor="Transparent" HorizontalOptions="FillAndExpand"/>
+            <StackLayout Orientation="Horizontal" Padding="5,5,5,5" HorizontalOptions="FillAndExpand">
+                <Entry x:Name="txtSearch" Placeholder="¿Alguna inmobiliaria en especial?" HorizontalOptions="FillAndExpand"></Entry>
+                <Button Image="lupa.png" WidthRequest="50" HeightRequest="50" HorizontalOptions="Center" x:Name="btnSearch" BackgroundColor="#9c27b0"></Button>
             </StackLayout>
             <ListView x:Name="RankingIListView" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" RowHeight="111"/>
         </StackLayout>

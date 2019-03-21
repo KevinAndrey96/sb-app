@@ -4,11 +4,57 @@
              x:Class="SocialBusinessApp.Filtros">
     <ContentPage.Content>
         <StackLayout Padding="20,20,20,20" BackgroundColor="#FFFFFF">
-            <Label Text="Busqueda Avanzada" HorizontalOptions="Center" FontSize="25"></Label>
+            <!--<StackLayout Orientation="Horizontal">
+                <Button Image="lapiz.png" Text="Apartamento" HeightRequest="50" WidthRequest="100"></Button>
+                <Button Image="lupa.png" Text="Apartaestudio" HeightRequest="50" WidthRequest="100"></Button>
+                <Button Image="usuario.png" Text="Casa" HeightRequest="50" WidthRequest="100"></Button>
+            </StackLayout>
+            <StackLayout Orientation="Horizontal">
+                <Button Image="lapiz.png" Text="Finca" HeightRequest="50" WidthRequest="100"></Button>
+                <Button Image="lupa.png" Text="Lote" HeightRequest="50" WidthRequest="100"></Button>
+                <Button Image="usuario.png" Text="Local u Oficina" HeightRequest="50" WidthRequest="100"></Button>
+            </StackLayout>
+            <StackLayout Orientation="Horizontal">
+                <Button Image="lapiz.png" Text="Bodega" HeightRequest="50" WidthRequest="100"></Button>
+                <Button Image="lupa.png" Text="Edificio" HeightRequest="50" WidthRequest="100"></Button>
+                <Button Image="usuario.png" Text="Hotel" HeightRequest="50" WidthRequest="100"></Button>
+            </StackLayout>-->
+            <Label Text="Busqueda avanzada" TextColor="#9c27b0" HorizontalOptions="Center" FontSize="25"></Label>
             <Picker  x:Name="TxtDepartamento" Title="Departamento"   >
                 <Picker.Items>
-                    <x:String>Antioquia</x:String>
-                    <x:String>Arauca</x:String>
+                    <x:String>AMAZONAS</x:String>
+                    <x:String>ANTIOQUIA</x:String>
+                    <x:String>ARAUCA</x:String>
+                    <x:String>ATLANTICO</x:String>
+                    <x:String>BOLIVAR</x:String>
+                    <x:String>BOYACA</x:String>
+                    <x:String>CALDAS</x:String>
+                    <x:String>CAQUETA</x:String>
+                    <x:String>CASANARE</x:String>
+                    <x:String>CAUCA</x:String>
+                    <x:String>CESAR</x:String>
+                    <x:String>CHOCO</x:String>
+                    <x:String>CORDOBA</x:String>
+                    <x:String>CUNDINAMARCA</x:String>
+                    <x:String>GUAINIA</x:String>
+                    <x:String>GUAJIRA</x:String>
+                    <x:String>GUAVIARE</x:String>
+                    <x:String>HUILA</x:String>
+                    <x:String>MAGDALENA</x:String>
+                    <x:String>META</x:String>
+                    <x:String>N SANTANDER</x:String>
+                    <x:String>NARINO</x:String>
+                    <x:String>PUTUMAYO</x:String>
+                    <x:String>QUINDIO</x:String>
+                    <x:String>RISARALDA</x:String>
+                    <x:String>SAN ANDRES</x:String>
+                    <x:String>SANTANDER</x:String>
+                    <x:String>SUCRE</x:String>
+                    <x:String>TOLIMA</x:String>
+                    <x:String>VALLE DEL CAUCA</x:String>
+                    <x:String>VAUPES</x:String>
+                    <x:String>VICHADA</x:String>
+                    <x:String>ESTADOS UNIDOS</x:String>
                 </Picker.Items>
             </Picker>
             <Picker  x:Name="TxtCiudad" Title="Ciudad" >

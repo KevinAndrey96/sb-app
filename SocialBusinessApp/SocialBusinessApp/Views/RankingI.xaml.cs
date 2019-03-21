@@ -28,10 +28,15 @@ namespace SocialBusinessApp
 
             TapGestureRecognizer Search = new TapGestureRecognizer();
             Search.Tapped += (sender, e) => BtnStandarSearchClick();
-            BtnSearch.GestureRecognizers.Add(Search);
+            //BtnSearch.GestureRecognizers.Add(Search);
 
             //Fin Codigo Footer
             RankingIListView.ItemTapped += RankingIListView_ItemTapped;
+            btnSearch.Clicked += (sender, e) => BtnSearchClick(txtSearch.Text);
+        }
+        private void BtnSearchClick(string Param)
+        {
+            Navigation.PushModalAsync(new BuscarInmobiliarias(Param));
         }
 
         private async void RankingIListView_ItemTapped(object sender, ItemTappedEventArgs e)

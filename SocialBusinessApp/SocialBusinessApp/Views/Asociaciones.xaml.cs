@@ -29,9 +29,15 @@ namespace SocialBusinessApp
 
             TapGestureRecognizer Search = new TapGestureRecognizer();
             Search.Tapped += (sender, e) => BtnStandarSearchClick();
-            BtnSearch.GestureRecognizers.Add(Search);
+            //BtnSearch.GestureRecognizers.Add(Search);
 
             AsociacionesListView.ItemTapped += AsociacionesListView_ItemTapped;
+
+           btnSearch.Clicked += (sender, e) => BtnSearchClick(txtSearch.Text);
+        }
+        private void BtnSearchClick(string Param)
+        {
+            Navigation.PushModalAsync(new BuscarFranquicias(Param));
         }
 
         private async void AsociacionesListView_ItemTapped(object sender, ItemTappedEventArgs e)

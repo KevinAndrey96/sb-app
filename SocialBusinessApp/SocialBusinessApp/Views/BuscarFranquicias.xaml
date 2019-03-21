@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SocialBusinessApp.Views.BuscarFranquicias">
+    <ContentPage.Content>
+        <StackLayout>
+            <StackLayout>
+                <Label Text="Resultados de busqueda" TextColor="#9c27b0" HorizontalOptions="Center" FontSize="25"></Label>
+                <!--<Button Image="lupa.png" x:Name="btnSearch" TextColor="#FFFFFF" Text="Busqueda Avanzada" BackgroundColor="#9c27b0"></Button>-->
+                <ListView x:Name="FranquiciasListView" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" RowHeight="111"/>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

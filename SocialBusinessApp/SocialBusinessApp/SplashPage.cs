@@ -37,7 +37,8 @@ namespace SocialBusinessApp
 
             sub.Children.Add(splashImage);
 
-            this.BackgroundColor = Color.FromHex("#9c27b0");
+            //this.BackgroundColor = Color.FromHex("#9c27b0");
+            this.BackgroundColor = Color.FromHex("#FFFFFF");
             this.Content = sub;
         }
 
