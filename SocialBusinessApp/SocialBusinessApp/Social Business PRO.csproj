@@ -48,6 +48,7 @@
     <Compile Include="IMediaService.cs" />
     <Compile Include="Interface1.cs" />
     <Compile Include="MediaService.cs" />
+    <Compile Include="Models\Ciudad.cs" />
     <Compile Include="Models\Comentario.cs" />
     <Compile Include="Models\Inmobiliario.cs" />
     <Compile Include="Models\Logro.cs" />
@@ -56,6 +57,7 @@
     <Compile Include="Tabbeds\TabbedMLS.xaml.cs">
       <DependentUpon>TabbedMLS.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ViewModels\PickerVM.cs" />
     <Compile Include="Views\Asociaciones.xaml.cs">
       <DependentUpon>Asociaciones.xaml</DependentUpon>
     </Compile>
@@ -391,9 +393,7 @@
       <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="ViewModels\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <EmbeddedResource Include="Tabbeds\TabbedPrincipal.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
