@@ -21,6 +21,7 @@ namespace SocialBusinessApp
                 BarBackgroundColor = Color.FromHex("#9c27b0"),
         		BarTextColor = Color.White,
 	        };*/
+            //Plugin.CurrentActivity.CrossCurrentActivity.Current.Init(this, bundle);
 
             MainPage = new NavigationPage(new SplashPage())
             {

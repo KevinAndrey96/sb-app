@@ -42,7 +42,7 @@ namespace SocialBusinessApp.Droid
                 if (status == PermissionStatus.Granted)
                 {
 #pragma warning disable CS0618 // El tipo o el miembro están obsoletos
-                    Toast.MakeText(context: Forms.Context, text: "Seleccione máximo 15 fotos", duration: ToastLength.Long).Show();
+                    Toast.MakeText(context: Forms.Context, text: "Seleccione las fotografías", duration: ToastLength.Long).Show();
 #pragma warning restore CS0618 // El tipo o el miembro están obsoletos
                     var imageIntent = new Intent(
                         Intent.ActionPick);

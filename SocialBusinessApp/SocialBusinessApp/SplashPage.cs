@@ -51,7 +51,7 @@ namespace SocialBusinessApp
             //await splashImage.ScaleTo(0.9, 1500, Easing.Linear);
             await splashImage.ScaleTo(0.9, 750, Easing.Linear);
             //await splashImage.ScaleTo(150, 1200, Easing.Linear);
-            await splashImage.ScaleTo(150, 600, Easing.Linear);
+            //await splashImage.ScaleTo(150, 600, Easing.Linear);
             Application.Current.MainPage = new NavigationPage(new InicioSesion())
             {
                 BarBackgroundColor = Color.FromHex("#9c27b0"),

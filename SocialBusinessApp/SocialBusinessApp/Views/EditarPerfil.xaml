@@ -1,0 +1,119 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SocialBusinessApp.Views.EditarPerfil">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout Padding="20,20,20,20" BackgroundColor="#FFFFFF">
+                <Label Text="Información personal" TextColor="#9c27b0" FontSize="25"></Label>
+                <Entry x:Name="txtNombres" Placeholder="Nombres"></Entry>
+                <Entry x:Name="txtApellidos" Placeholder="Apellidos"></Entry>
+                
+
+
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Picker x:Name="pikDepartamento" Grid.Row="0" Grid.Column="0" Title="Departamento" SelectedIndexChanged="DepartamentoSelect" HorizontalOptions="FillAndExpand">
+                        <Picker.Items>
+                            <x:String>Amazonas</x:String>
+                            <x:String>Antioquia</x:String>
+                            <x:String>Arauca</x:String>
+                            <x:String>Atlántico</x:String>
+                            <x:String>Bogotá</x:String>
+                            <x:String>Bolívar</x:String>
+                            <x:String>Boyacá</x:String>
+                            <x:String>Caldas</x:String>
+                            <x:String>Caquetá</x:String>
+                            <x:String>Casanare</x:String>
+                            <x:String>Cauca</x:String>
+                            <x:String>Cesar</x:String>
+                            <x:String>Chocó</x:String>
+                            <x:String>Córdoba</x:String>
+                            <x:String>Cundinamarca</x:String>
+                            <x:String>Guainía</x:String>
+                            <x:String>Guaviare</x:String>
+                            <x:String>Huila</x:String>
+                            <x:String>La Guajira</x:String>
+                            <x:String>Magdalena</x:String>
+                            <x:String>Meta</x:String>
+                            <x:String>Nariño</x:String>
+                            <x:String>Norte de Santander</x:String>
+                            <x:String>Putumayo</x:String>
+                            <x:String>Quindío</x:String>
+                            <x:String>Risaralda</x:String>
+                            <x:String>San Andrés y Providencia</x:String>
+                            <x:String>Santander</x:String>
+                            <x:String>Sucre</x:String>
+                            <x:String>Tolima</x:String>
+                            <x:String>Valle del Cauca</x:String>
+                            <x:String>Vaupés</x:String>
+                            <x:String>Vichada</x:String>
+                        </Picker.Items>
+                    </Picker>
+                    <Picker x:Name="pikCiudad" Grid.Row="0" Grid.Column="1" Title="Ciudad" IsEnabled="False" HorizontalOptions="FillAndExpand"></Picker>
+                </Grid>
+
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Entry x:Name="txtTelefono" Grid.Row="0" Grid.Column="0" Placeholder="Telefono" Keyboard="Numeric"></Entry>
+                    <Picker x:Name="pikGenero" Grid.Row="0" Grid.Column="1" Title="Género" HorizontalOptions="FillAndExpand">
+                        <Picker.Items>
+                            <x:String>Masculino</x:String>
+                            <x:String>Femenino</x:String>
+                            <x:String>Otro</x:String>
+                        </Picker.Items>
+                    </Picker>
+                </Grid>
+                <Label Text="Fecha de nacimiento" FontSize="17"></Label>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Entry x:Name="txtDia" Grid.Row="0" Grid.Column="0" Placeholder="Día" Keyboard="Numeric"></Entry>
+                    <Picker x:Name="pikMes" Grid.Row="0" Grid.Column="1" Title="Mes" HorizontalOptions="FillAndExpand">
+                        <Picker.Items>
+                            <x:String>Enero</x:String>
+                            <x:String>Febrero</x:String>
+                            <x:String>Marzo</x:String>
+                            <x:String>Abril</x:String>
+                            <x:String>Mayo</x:String>
+                            <x:String>Junio</x:String>
+                            <x:String>Julio</x:String>
+                            <x:String>Agosto</x:String>
+                            <x:String>Septiembre</x:String>
+                            <x:String>Octubre</x:String>
+                            <x:String>Noviembre</x:String>
+                            <x:String>Diciembre</x:String>
+                        </Picker.Items>
+                    </Picker>
+                    <Entry x:Name="txtAno" Grid.Row="0" Grid.Column="2" Placeholder="Año" Keyboard="Numeric"></Entry>
+                </Grid>
+                <Label Text="Redes Sociales" TextColor="#9c27b0" FontSize="25"></Label>
+                <Entry x:Name="txtFacebook" Placeholder="Facebook URL"></Entry>
+                <Entry x:Name="txtTwitter" Placeholder="Twitter URL"></Entry>
+                <Entry x:Name="txtInstagram" Placeholder="Instagram URL"></Entry>
+                <Entry x:Name="txtYoutube" Placeholder="Youtube URL"></Entry>
+                <Entry x:Name="txtWeb" Placeholder="Sitio Web URL"></Entry>
+
+                <Button x:Name="btnActualizar" Text="Actualizar datos" BackgroundColor="#9c27b0" TextColor="#FFFFFF"></Button>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

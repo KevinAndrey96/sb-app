@@ -90,6 +90,9 @@
     <Compile Include="Views\EditarOferta.xaml.cs">
       <DependentUpon>EditarOferta.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\EditarPerfil.xaml.cs">
+      <DependentUpon>EditarPerfil.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Equipo.xaml.cs">
       <DependentUpon>Equipo.xaml</DependentUpon>
     </Compile>
@@ -393,7 +396,12 @@
       <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <EmbeddedResource Include="Views\EditarPerfil.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Tabbeds\TabbedPrincipal.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>

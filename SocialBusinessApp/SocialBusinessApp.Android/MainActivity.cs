@@ -23,6 +23,9 @@ using System.IO;
 using SocialBusinessApp.Droid.Helpers;
 using SocialBusinessApp.Services;
 using FFImageLoading.Forms.Platform;
+using Plugin.Permissions;
+using System.Threading.Tasks;
+using Android;
 
 
 //using FFImageLoading.Forms.Platform;
@@ -33,8 +36,9 @@ namespace SocialBusinessApp.Droid
     public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsAppCompatActivity
     {
         public static int OPENGALLERYCODE = 100;
-        protected override void OnCreate(Bundle bundle)
+        protected async override void OnCreate(Bundle bundle)
         {
+            await TryToGetPermissions();
             TabLayoutResource = Resource.Layout.Tabbar;
             ToolbarResource = Resource.Layout.Toolbar;
 
@@ -59,7 +63,11 @@ namespace SocialBusinessApp.Droid
 
 
 
-
+/*        public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Android.Content.PM.Permission[] grantResults)
+{
+    PermissionsImplementation.Current.OnRequestPermissionsResult(requestCode, permissions, grantResults);
+    base.OnRequestPermissionsResult(requestCode, permissions, grantResults);
+}*/
 
 
         protected override void OnActivityResult(int requestCode, Result resultCode, Intent data)
@@ -162,11 +170,91 @@ namespace SocialBusinessApp.Droid
 
 
 
+        #region RuntimePermissions
+
+        async Task TryToGetPermissions()
+        {
+            if ((int)Build.VERSION.SdkInt >= 23)
+            {
+                await GetPermissionsAsync();
+                return;
+            }
+        }
+
+        const int RequestLocationId = 0;
+        readonly string[] PermissionsGroupLocation =
+            {
+                    //TODO add more permissions
+                    Manifest.Permission.AccessCoarseLocation,
+                    Manifest.Permission.AccessFineLocation,
+                    Manifest.Permission.AccessLocationExtraCommands,
+                    Manifest.Permission.AccessMockLocation,
+                    Manifest.Permission.AccessNetworkState,
+                    Manifest.Permission.AccessWifiState,
+                    Manifest.Permission.Internet,
+                    Manifest.Permission.ReadExternalStorage,
+                    Manifest.Permission.WriteExternalStorage,
+                    //Manifest.Permission_group.Storage
+             };
+
+        async Task GetPermissionsAsync()
+        {
+            const string permission = Manifest.Permission.AccessFineLocation;
+            if (CheckSelfPermission(permission) == (int)Android.Content.PM.Permission.Granted)
+            {
+                //TODO change the message to show the permissions name
+                Toast.MakeText(this, "Permisos otorgados", ToastLength.Short).Show();
+                return;
+            }
+
+            if (ShouldShowRequestPermissionRationale(permission))
+            {
+                //set alert for executing the task
+                AlertDialog.Builder alert = new AlertDialog.Builder(this);
+                alert.SetTitle("Permisos Necesarios");
+                alert.SetMessage("Social Business requiere tu permiso para acceder a la galeria de tu teléfono para que puedas publicar ofertas con fotos y permiso de ubicación para poder interactuar con la ubicación y mapa de las ofertas");
+                alert.SetPositiveButton("Otorgar Permisos", (senderAlert, args) =>
+                {
+                    RequestPermissions(PermissionsGroupLocation, RequestLocationId);
+                });
+                alert.SetNegativeButton("Cancelar", (senderAlert, args) =>
+                {
+                    Toast.MakeText(this, "Cancelado!", ToastLength.Short).Show();
+                });
+                Dialog dialog = alert.Create();
+                dialog.Show();
+                return;
+            }
+            RequestPermissions(PermissionsGroupLocation, RequestLocationId);
+        }
+
+        public override async void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Android.Content.PM.Permission[] grantResults)
+        {
+            switch (requestCode)
+
+            {
+                case RequestLocationId:
+                    {
+                        if (grantResults[0] == (int)Android.Content.PM.Permission.Granted)
+                        {
+                            Toast.MakeText(this, "Permisos otorgados", ToastLength.Short).Show();
+                        }
+                        else
+                        {
+                            //Permission Denied :(
+                            Toast.MakeText(this, "Permisos denegados", ToastLength.Short).Show();
+                        }
+                    }
+                    break;
+            }
+            //base.OnRequestPermissionsResult(requestCode, permissions, grantResults);
+        }
 
 
 
+        #endregion
 
-        public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Permission[] grantResults) { Xamarin.Essentials.Platform.OnRequestPermissionsResult(requestCode, permissions, grantResults); base.OnRequestPermissionsResult(requestCode, permissions, grantResults); }
+
     }
 }
 

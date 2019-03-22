@@ -1,5 +1,6 @@
 ﻿using Newtonsoft.Json;
 using SocialBusinessApp.Models;
+using SocialBusinessApp.Views;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -38,7 +39,7 @@ namespace SocialBusinessApp
         }
         private async void BtnEditProfileClick()
         {
-            //await Navigation.PushModalAsync(new OfertasUsuario(this.Code));
+            await Navigation.PushModalAsync(new EditarPerfil());
         }
         private async void BtnPremiumClick()
         {
@@ -48,17 +49,7 @@ namespace SocialBusinessApp
         {
             EliminarSesion();
             await Navigation.PopModalAsync();
-
-
-            //await App.Current.MainPage.Navigation.PopToRootAsync();
-            //await App.Current.MainPage.Navigation.PopToRootAsync();
-            //await App.Current.MainPage.Navigation.PushAsync(new InicioSesion());
             Application.Current.MainPage = new NavigationPage(new InicioSesion());
-            //App.Current.MainPage.Navigation.InsertPageBefore(new InicioSesion(), this);
-            //await Navigation.PushAsync(new InicioSesion());
-            //await Navigation.PopAsync().ConfigureAwait(false);
-            //App.Current.MainPage.Navigation.InsertPageBefore(new);
-            //await App.Current.MainPage.Navigation.PopAsync().ConfigureAwait(false);
         }
         private void EliminarSesion()
         {
@@ -88,6 +79,15 @@ namespace SocialBusinessApp
                 TxtCelular.Text = "Teléfono: "+Userio.Celular;
                 TxtPuntaje.Text = "Puntaje acumulado: "+Userio.Puntaje;
                 TxtPosicion.Text = "Posición en Ranking: "+Userio.Posicion;
+                if(Userio.Premium=="Si")
+                {
+                    txtPremium.Text = "Sb Premium hasta "+Userio.Vencimiento;
+                    btnPremium.IsVisible = false;
+                }else
+                {
+                    txtPremium.Text = "Suscripcipción Premium Vencida";
+                    btnPremium.IsVisible = true;
+                }
 
                 TxtInmobiliaria.Text = Userio.Inmobiliaria;
                 TxtNit.Text = "Nit. " + Userio.Nit;

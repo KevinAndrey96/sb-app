@@ -24,39 +24,7 @@ namespace SocialBusinessApp
 {
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class Listado : ContentPage
-    {
-        private List<City> Ciudades;
-
-        public List<City> GetCities(string param)
-        {
-            var cities = new List<City>()
-            {
-                new City(){Key = 1, Value = "Vacio" },
-                new City(){Key = 2, Value = "otro Vacio" }
-            };
-            if (param == "Antioquia")
-            {
-                cities = new List<City>()
-                {
-                    new City(){Key = 1, Value = "Medellin"},
-                    new City(){Key = 2, Value = "Pereira"},
-                    new City(){Key = 3, Value = "Antioquia"}
-                };
-            }
-            else
-            {
-                cities = new List<City>()
-                {
-                    new City(){Key = 1, Value = "Tunja"},
-                    new City(){Key = 2, Value = "Tota"},
-                    new City(){Key = 3, Value = "Boyacá"}
-                };
-            }
-            return cities;
-        }
-
-
-        
+    {      
 
         private static HttpClient client = new HttpClient();
         Respuesta Rta;

@@ -1,209 +1,196 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="SocialBusinessApp.Listado"
-             xmlns:flv="clr-namespace:DLToolkit.Forms.Controls;assembly=DLToolkit.Forms.Controls.FlowListView"
-             xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+ xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+ x:Class="SocialBusinessApp.Listado"
+ xmlns:flv="clr-namespace:DLToolkit.Forms.Controls;assembly=DLToolkit.Forms.Controls.FlowListView"
+ xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms">
+  <ContentPage.Content>
+    <ScrollView>
+      <StackLayout Padding="20,20,20,20" BackgroundColor="#FFFFFF">
+        <Label Text="Nueva Oferta Social Business" HorizontalOptions="Center" FontSize="30" Font="Bold,30" TextColor="#9c27b0"/>
+        <Entry x:Name="txtNO" Placeholder="Nombre de la oferta"></Entry>
+        <Label Text="Dirección y Ubicación" TextColor="#9c27b0" FontSize="25"></Label>
+        <StackLayout Orientation="Horizontal">
 
-			       >
-  <!--xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"-->
-    <ContentPage.Content>
-        <ScrollView>
-            <StackLayout Padding="20,20,20,20" BackgroundColor="#FFFFFF">
-                <Label Text="Nueva Oferta Social Business" HorizontalOptions="Center" FontSize="30" Font="Bold,30" TextColor="#9c27b0"/>
-                <Entry x:Name="txtNO" Placeholder="Nombre de la oferta"></Entry>
-              <Label Text="Dirección y Ubicación" TextColor="#9c27b0" FontSize="25"></Label>
-                <StackLayout Orientation="Horizontal">
-                  
-                </StackLayout>
+        </StackLayout>
 
-              <Grid>
-                <Grid.RowDefinitions>
-                  <RowDefinition Height="*" />
-                </Grid.RowDefinitions>
-                <Grid.ColumnDefinitions>
-                  <ColumnDefinition Width="*" />
-                  <ColumnDefinition Width="*" />
-                </Grid.ColumnDefinitions>
-                <Picker x:Name="txtDepartamento" Grid.Row="0" Grid.Column="0" Title="Departamento" SelectedIndexChanged="DepartamentoSelect" HorizontalOptions="FillAndExpand">
-                  <Picker.Items>
-                    <x:String>Amazonas</x:String>
-                    <x:String>Antioquia</x:String>
-                    <x:String>Arauca</x:String>
-                    <x:String>Atlántico</x:String>
-                    <x:String>Bogotá</x:String>
-                    <x:String>Bolívar</x:String>
-                    <x:String>Boyacá</x:String>
-                    <x:String>Caldas</x:String>
-                    <x:String>Caquetá</x:String>
-                    <x:String>Casanare</x:String>
-                    <x:String>Cauca</x:String>
-                    <x:String>Cesar</x:String>
-                    <x:String>Chocó</x:String>
-                    <x:String>Córdoba</x:String>
-                    <x:String>Cundinamarca</x:String>
-                    <x:String>Guainía</x:String>
-                    <x:String>Guaviare</x:String>
-                    <x:String>Huila</x:String>
-                    <x:String>La Guajira</x:String>
-                    <x:String>Magdalena</x:String>
-                    <x:String>Meta</x:String>
-                    <x:String>Nariño</x:String>
-                    <x:String>Norte de Santander</x:String>
-                    <x:String>Putumayo</x:String>
-                    <x:String>Quindío</x:String>
-                    <x:String>Risaralda</x:String>
-                    <x:String>San Andrés y Providencia</x:String>
-                    <x:String>Santander</x:String>
-                    <x:String>Sucre</x:String>
-                    <x:String>Tolima</x:String>
-                    <x:String>Valle del Cauca</x:String>
-                    <x:String>Vaupés</x:String>
-                    <x:String>Vichada</x:String>
-                  </Picker.Items>
-                </Picker>
-                <Picker x:Name="txtCiudad" Grid.Row="0" Grid.Column="1" Title="Ciudad" IsEnabled="False" HorizontalOptions="FillAndExpand"></Picker>
-              </Grid>
-              
-                <Entry x:Name="txtBar" Placeholder="Barrio"></Entry>
-                <Entry x:Name="txtDi" Placeholder="Dirección"></Entry>
-              <Grid>
-                <Grid.RowDefinitions>
-                  <RowDefinition Height="*" />
-                </Grid.RowDefinitions>
-                <Grid.ColumnDefinitions>
-                  <ColumnDefinition Width="*" />
-                  <ColumnDefinition Width="*" />
-                </Grid.ColumnDefinitions>
-                <Entry x:Name="txtPr" Grid.Row="0" Grid.Column="0" Keyboard="Numeric" Placeholder="Precio"></Entry>
-                <Picker x:Name="txtUbicación" Grid.Row="0" Grid.Column="1" Title="Ubicación"  HorizontalOptions="FillAndExpand">
-                  <Picker.Items>
-                    <x:String>Norte</x:String>
-                    <x:String>Sur</x:String>
-                    <x:String>Oriente</x:String>
-                    <x:String>Occidente</x:String>
-                  </Picker.Items>
-                </Picker>
-              </Grid>
-              <Label Text="Información general" TextColor="#9c27b0" FontSize="25"></Label>
-              <Grid>
-                <Grid.RowDefinitions>
-                  <RowDefinition Height="*" />
-                </Grid.RowDefinitions>
-                <Grid.ColumnDefinitions>
-                  <ColumnDefinition Width="*" />
-                  <ColumnDefinition Width="*" />
-                </Grid.ColumnDefinitions>
-                <Picker x:Name="txtEstrato" Grid.Row="0" Grid.Column="0" Title="Estrato"  HorizontalOptions="FillAndExpand">
-                  <Picker.Items>
-                    <x:String>1</x:String>
-                    <x:String>2</x:String>
-                    <x:String>3</x:String>
-                    <x:String>4</x:String>
-                    <x:String>5</x:String>
-                    <x:String>6</x:String>
-                    <x:String>Campestre</x:String>
-                  </Picker.Items>
-                </Picker>
-                <Picker x:Name="txtAntiguedad" Grid.Row="0" Grid.Column="1" Title="Antiguedad"  HorizontalOptions="FillAndExpand">
-                  <Picker.Items>
-                    <x:String>Proyecto en Planos</x:String>
-                    <x:String>Proyecto en construcción</x:String>
-                    <x:String>Estrenar</x:String>
-                    <x:String>Hasta 3 años</x:String>
-                    <x:String>Hasta 6 años</x:String>
-                    <x:String>Hasta 10 años</x:String>
-                    <x:String>Hasta 15 años</x:String>
-                    <x:String>Hasta 20 años</x:String>
-                    <x:String>Más de 20 años</x:String>
-                  </Picker.Items>
-                </Picker>
-              </Grid>
+        <Grid>
+          <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+          </Grid.RowDefinitions>
+          <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+          </Grid.ColumnDefinitions>
+          <Picker x:Name="txtDepartamento" Grid.Row="0" Grid.Column="0" Title="Departamento" SelectedIndexChanged="DepartamentoSelect" HorizontalOptions="FillAndExpand">
+            <Picker.Items>
+              <x:String>Amazonas</x:String>
+              <x:String>Antioquia</x:String>
+              <x:String>Arauca</x:String>
+              <x:String>Atlántico</x:String>
+              <x:String>Bogotá</x:String>
+              <x:String>Bolívar</x:String>
+              <x:String>Boyacá</x:String>
+              <x:String>Caldas</x:String>
+              <x:String>Caquetá</x:String>
+              <x:String>Casanare</x:String>
+              <x:String>Cauca</x:String>
+              <x:String>Cesar</x:String>
+              <x:String>Chocó</x:String>
+              <x:String>Córdoba</x:String>
+              <x:String>Cundinamarca</x:String>
+              <x:String>Guainía</x:String>
+              <x:String>Guaviare</x:String>
+              <x:String>Huila</x:String>
+              <x:String>La Guajira</x:String>
+              <x:String>Magdalena</x:String>
+              <x:String>Meta</x:String>
+              <x:String>Nariño</x:String>
+              <x:String>Norte de Santander</x:String>
+              <x:String>Putumayo</x:String>
+              <x:String>Quindío</x:String>
+              <x:String>Risaralda</x:String>
+              <x:String>San Andrés y Providencia</x:String>
+              <x:String>Santander</x:String>
+              <x:String>Sucre</x:String>
+              <x:String>Tolima</x:String>
+              <x:String>Valle del Cauca</x:String>
+              <x:String>Vaupés</x:String>
+              <x:String>Vichada</x:String>
+            </Picker.Items>
+          </Picker>
+          <Picker x:Name="txtCiudad" Grid.Row="0" Grid.Column="1" Title="Ciudad" IsEnabled="False" HorizontalOptions="FillAndExpand"></Picker>
+        </Grid>
 
-              <Grid>
-                <Grid.RowDefinitions>
-                  <RowDefinition Height="*" />
-                </Grid.RowDefinitions>
-                <Grid.ColumnDefinitions>
-                  <ColumnDefinition Width="*" />
-                  <ColumnDefinition Width="*" />
-                  <ColumnDefinition Width="*" />
-                  <ColumnDefinition Width="*" />
-                </Grid.ColumnDefinitions>
-                  <Entry x:Name="txtAr"  Grid.Row="0" Grid.Column="0" Keyboard="Numeric" Placeholder="Area (m²)"></Entry>
-                  <Entry x:Name="txtHa"  Grid.Row="0" Grid.Column="1" Keyboard="Numeric" Placeholder="Habitaciones"></Entry>
-                  <Entry x:Name="txtBa"  Grid.Row="0" Grid.Column="2" Keyboard="Numeric"  Placeholder="Baños"></Entry>
-                  <Entry x:Name="txtPa"  Grid.Row="0" Grid.Column="3" Keyboard="Numeric" Placeholder="Parqueaderos"></Entry>
-              </Grid>
+        <Entry x:Name="txtBar" Placeholder="Barrio"></Entry>
+        <Entry x:Name="txtDi" Placeholder="Dirección"></Entry>
+        <Grid>
+          <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+          </Grid.RowDefinitions>
+          <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+          </Grid.ColumnDefinitions>
+          <Entry x:Name="txtPr" Grid.Row="0" Grid.Column="0" Keyboard="Numeric" Placeholder="Precio"></Entry>
+          <Picker x:Name="txtUbicación" Grid.Row="0" Grid.Column="1" Title="Ubicación"  HorizontalOptions="FillAndExpand">
+            <Picker.Items>
+              <x:String>Norte</x:String>
+              <x:String>Sur</x:String>
+              <x:String>Oriente</x:String>
+              <x:String>Occidente</x:String>
+            </Picker.Items>
+          </Picker>
+        </Grid>
+        <Label Text="Información general" TextColor="#9c27b0" FontSize="25"></Label>
+        <Grid>
+          <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+          </Grid.RowDefinitions>
+          <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+          </Grid.ColumnDefinitions>
+          <Picker x:Name="txtEstrato" Grid.Row="0" Grid.Column="0" Title="Estrato"  HorizontalOptions="FillAndExpand">
+            <Picker.Items>
+              <x:String>1</x:String>
+              <x:String>2</x:String>
+              <x:String>3</x:String>
+              <x:String>4</x:String>
+              <x:String>5</x:String>
+              <x:String>6</x:String>
+              <x:String>Campestre</x:String>
+            </Picker.Items>
+          </Picker>
+          <Picker x:Name="txtAntiguedad" Grid.Row="0" Grid.Column="1" Title="Antiguedad"  HorizontalOptions="FillAndExpand">
+            <Picker.Items>
+              <x:String>Proyecto en Planos</x:String>
+              <x:String>Proyecto en construcción</x:String>
+              <x:String>Estrenar</x:String>
+              <x:String>Hasta 3 años</x:String>
+              <x:String>Hasta 6 años</x:String>
+              <x:String>Hasta 10 años</x:String>
+              <x:String>Hasta 15 años</x:String>
+              <x:String>Hasta 20 años</x:String>
+              <x:String>Más de 20 años</x:String>
+            </Picker.Items>
+          </Picker>
+        </Grid>
 
+        <Grid>
+          <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+          </Grid.RowDefinitions>
+          <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+          </Grid.ColumnDefinitions>
+          <Entry x:Name="txtAr"  Grid.Row="0" Grid.Column="0" Keyboard="Numeric" Placeholder="Area (m²)"></Entry>
+          <Entry x:Name="txtHa"  Grid.Row="0" Grid.Column="1" Keyboard="Numeric" Placeholder="Habitaciones"></Entry>
+          <Entry x:Name="txtBa"  Grid.Row="0" Grid.Column="2" Keyboard="Numeric"  Placeholder="Baños"></Entry>
+          <Entry x:Name="txtPa"  Grid.Row="0" Grid.Column="3" Keyboard="Numeric" Placeholder="Parqueaderos"></Entry>
+        </Grid>
+        <Label Text="Contacto y descripción" TextColor="#9c27b0" FontSize="25"></Label>
+        <Entry x:Name="txtTe" Placeholder="Telefono" Keyboard="Numeric"></Entry>
+        <Editor x:Name="txtDe" Placeholder="Descripción de inmueble" HeightRequest="111" Keyboard="Chat"/>
+        <Label Text="Otra información" TextColor="#9c27b0" FontSize="25"></Label>
+        <Grid>
+          <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+          </Grid.RowDefinitions>
+          <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+          </Grid.ColumnDefinitions>
 
+          <Picker x:Name="txtCategoria" Grid.Row="0" Grid.Column="0" Title="Categoria"  HorizontalOptions="FillAndExpand">
+            <Picker.Items>
+              <x:String>Apartamento</x:String>
+              <x:String>Apartaestudio</x:String>
+              <x:String>Casa</x:String>
+              <x:String>Finca</x:String>
+              <x:String>Lote</x:String>
+              <x:String>Local</x:String>
+              <x:String>Bodega</x:String>
+              <x:String>Edificio</x:String>
+            </Picker.Items>
+          </Picker>
+          <Picker x:Name="txtTipo" Title="Tipo" Grid.Row="0" Grid.Column="1" HorizontalOptions="FillAndExpand">
+            <Picker.Items>
+              <x:String>Venta</x:String>
+              <x:String>Arriendo</x:String>
+              <x:String>Alquiler Vacacional</x:String>
+              <x:String>Permuta</x:String>
+              <x:String>Venta-Permuta</x:String>
+              <x:String>Arriendo-Permuta</x:String>
+            </Picker.Items>
+          </Picker>
+          <Picker x:Name="TxtTerceria" Title="Terceria" Grid.Row="0" Grid.Column="2" HorizontalOptions="FillAndExpand">
+            <Picker.Items>
+              <x:String>Si</x:String>
+              <x:String>No</x:String>
+            </Picker.Items>
+          </Picker>
+        </Grid>
+        <StackLayout Padding="20">
+          <flv:FlowListView FlowColumnCount="3" x:Name="listItems" IsVisible="false"
+    SeparatorVisibility="None"
+    HasUnevenRows="false" RowHeight="100" >
+            <flv:FlowListView.FlowColumnTemplate>
+              <DataTemplate >
+                <ffimageloading:CachedImage  DownsampleToViewSize="true" AbsoluteLayout.LayoutFlags="All" HeightRequest="50" AbsoluteLayout.LayoutBounds="0,0,1,1" Source="{Binding .}"  Aspect="AspectFill" HorizontalOptions="FillAndExpand">
+                </ffimageloading:CachedImage>
+              </DataTemplate>
+            </flv:FlowListView.FlowColumnTemplate>
+          </flv:FlowListView>
+        </StackLayout>
 
-
-
-
-
-              <Label Text="Contacto y descripción" TextColor="#9c27b0" FontSize="25"></Label>
-                <Entry x:Name="txtTe" Placeholder="Telefono" Keyboard="Numeric"></Entry>
-                <Editor x:Name="txtDe" Placeholder="Descripción de inmueble" HeightRequest="111" Keyboard="Chat"/>
-
-
-
-              <Label Text="Otra información" TextColor="#9c27b0" FontSize="25"></Label>
-              <Grid>
-                <Grid.RowDefinitions>
-                  <RowDefinition Height="*" />
-                </Grid.RowDefinitions>
-                <Grid.ColumnDefinitions>
-                  <ColumnDefinition Width="*" />
-                  <ColumnDefinition Width="*" />
-                  <ColumnDefinition Width="*" />
-                </Grid.ColumnDefinitions>
-                
-                <Picker x:Name="txtCategoria" Grid.Row="0" Grid.Column="0" Title="Categoria"  HorizontalOptions="FillAndExpand">
-                  <Picker.Items>
-                    <x:String>Apartamento</x:String>
-                    <x:String>Apartaestudio</x:String>
-                    <x:String>Casa</x:String>
-                    <x:String>Finca</x:String>
-                    <x:String>Lote</x:String>
-                    <x:String>Local</x:String>
-                    <x:String>Bodega</x:String>
-                    <x:String>Edificio</x:String>
-                  </Picker.Items>
-                </Picker>
-                <Picker x:Name="txtTipo" Title="Tipo" Grid.Row="0" Grid.Column="1" HorizontalOptions="FillAndExpand">
-                  <Picker.Items>
-                    <x:String>Venta</x:String>
-                    <x:String>Arriendo</x:String>
-                    <x:String>Alquiler Vacacional</x:String>
-                    <x:String>Permuta</x:String>
-                    <x:String>Venta-Permuta</x:String>
-                    <x:String>Arriendo-Permuta</x:String>
-                  </Picker.Items>
-                </Picker>
-                <Picker x:Name="TxtTerceria" Title="Terceria" Grid.Row="0" Grid.Column="2" HorizontalOptions="FillAndExpand">
-                  <Picker.Items>
-                    <x:String>Si</x:String>
-                    <x:String>No</x:String>
-                  </Picker.Items>
-                </Picker>
-              </Grid>
-              <StackLayout Padding="20">
-                <flv:FlowListView FlowColumnCount="3" x:Name="listItems" IsVisible="false"
-        SeparatorVisibility="None"
-        HasUnevenRows="false" RowHeight="100" >
-                  <flv:FlowListView.FlowColumnTemplate>
-                    <DataTemplate >
-                      <ffimageloading:CachedImage  DownsampleToViewSize="true" AbsoluteLayout.LayoutFlags="All" HeightRequest="50" AbsoluteLayout.LayoutBounds="0,0,1,1" Source="{Binding .}"  Aspect="AspectFill" HorizontalOptions="FillAndExpand">
-                      </ffimageloading:CachedImage>
-                    </DataTemplate>
-                  </flv:FlowListView.FlowColumnTemplate>
-                </flv:FlowListView>
-              </StackLayout>
-                
-                <Button BackgroundColor="#9c27b0" TextColor="#FFFFFF" Text="Fotografías de inmueble" Clicked="Handle_Clicked"/>
-                <Button x:Name="btnPublicar" Text="Publicar" BackgroundColor="#9c27b0" TextColor="#FFFFFF"></Button>
-            </StackLayout>
-        </ScrollView>
-    </ContentPage.Content>
+        <Button BackgroundColor="#9c27b0" TextColor="#FFFFFF" Text="Fotografías de inmueble" Clicked="Handle_Clicked"/>
+        <Button x:Name="btnPublicar" Text="Publicar" BackgroundColor="#9c27b0" TextColor="#FFFFFF"></Button>
+      </StackLayout>
+    </ScrollView>
+  </ContentPage.Content>
 </ContentPage>
