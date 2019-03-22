@@ -3,14 +3,14 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="SocialBusinessApp.CambiarContrasena">
     <ContentPage.Content>
-        <StackLayout Padding="20,20,20,20" BackgroundColor="#F3E5F5">
-            <StackLayout Padding="20,20,20,20" BackgroundColor="#F3E5F5">
-                <Image Source="sbicon.png" WidthRequest="100" HeightRequest="100" HorizontalOptions="Center"/>
+        <StackLayout Padding="20,50,20,20">
+            <StackLayout Padding="20,20,20,20" >
+                <Image Source="sbicon" WidthRequest="100" HeightRequest="100" HorizontalOptions="Center"/>
             </StackLayout>
-            <Entry x:Name="txtContraAct" Placeholder="Contraseña Actual" HorizontalTextAlignment="Center" IsPassword="True"></Entry>
-            <Entry x:Name="txtContraNue" Placeholder="Contraseña Nueva"  HorizontalTextAlignment="Center" IsPassword="True"></Entry>
-            <Entry x:Name="txtContraNue2" Placeholder="Repita Nueva Contraseña"  HorizontalTextAlignment="Center" IsPassword="True"></Entry>
-            <Button x:Name="btnCambiarContrasena" Text="Guardar Cambios"  BackgroundColor="#9c27b0" TextColor="#FFFFFF"></Button>
+            <Entry x:Name="txtContraAct" Placeholder="Contraseña Actual"  IsPassword="True"></Entry>
+            <Entry x:Name="txtContraNue" Placeholder="Contraseña Nueva"   IsPassword="True"></Entry>
+            <Entry x:Name="txtContraNue2" Placeholder="Repita Nueva Contraseña"   IsPassword="True"></Entry>
+            <Button x:Name="btnCambiarContrasena" Text="Cambiar contraseña"  BackgroundColor="#9c27b0" TextColor="#FFFFFF"></Button>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

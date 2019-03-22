@@ -26,8 +26,45 @@ namespace SocialBusinessApp
 
             Ejecucion();
 
+            btnChangePassword.Clicked += (sender, e) => BtnChangePasswordClick();
+            btnEditProfile.Clicked += (sender, e) => BtnEditProfileClick();
+            btnPremium.Clicked += (sender, e) => BtnPremiumClick();
+            btnLogout.Clicked += (sender, e) => BtnLogoutClick();
+
         }
-        
+        private async void BtnChangePasswordClick()
+        {
+            await Navigation.PushModalAsync(new CambiarContrasena());
+        }
+        private async void BtnEditProfileClick()
+        {
+            //await Navigation.PushModalAsync(new OfertasUsuario(this.Code));
+        }
+        private async void BtnPremiumClick()
+        {
+            //await Navigation.PushModalAsync(new OfertasUsuario(this.Code));
+        }
+        private async void BtnLogoutClick()
+        {
+            EliminarSesion();
+            await Navigation.PopModalAsync();
+
+
+            //await App.Current.MainPage.Navigation.PopToRootAsync();
+            //await App.Current.MainPage.Navigation.PopToRootAsync();
+            //await App.Current.MainPage.Navigation.PushAsync(new InicioSesion());
+            Application.Current.MainPage = new NavigationPage(new InicioSesion());
+            //App.Current.MainPage.Navigation.InsertPageBefore(new InicioSesion(), this);
+            //await Navigation.PushAsync(new InicioSesion());
+            //await Navigation.PopAsync().ConfigureAwait(false);
+            //App.Current.MainPage.Navigation.InsertPageBefore(new);
+            //await App.Current.MainPage.Navigation.PopAsync().ConfigureAwait(false);
+        }
+        private void EliminarSesion()
+        {
+            Xamarin.Forms.Application.Current.Properties.Clear();
+        }
+
         private async void Ejecucion()
         {
             try

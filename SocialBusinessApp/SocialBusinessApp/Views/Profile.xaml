@@ -32,8 +32,14 @@
                     <Label x:Name="TxtInmobiliaria" Text="" HorizontalOptions="Center" FontSize="25" Font="Bold,25" TextColor="#9c27b0"></Label>
                 <Label x:Name="TxtNit" HorizontalOptions="Center" Text="" FontSize="20"></Label>
 
+                <Button x:Name="btnChangePassword" Text="Cambiar contraseña" BackgroundColor="#9c27b0" TextColor="#FFFFFF"></Button>
+                <Button x:Name="btnEditProfile" Text="Editar perfil" BackgroundColor="#9c27b0" TextColor="#FFFFFF"></Button>
+                <Button x:Name="btnPremium" Text="Actualizar a premium" BackgroundColor="#9c27b0" TextColor="#FFFFFF"></Button>
+                <Button x:Name="btnLogout" Text="Cerrar sesión" BackgroundColor="#9c27b0" TextColor="#FFFFFF"></Button>
                 
-                
+
+
+
 
 
                 <!--

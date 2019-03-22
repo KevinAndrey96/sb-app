@@ -21,7 +21,7 @@ namespace SocialBusinessApp
             InitializeComponent();
             btnCambiarContrasena.Clicked += (sender, e) => BtnCambiarContrasenaClick();
         }
-        private void BtnCambiarContrasenaClick()
+        private async void BtnCambiarContrasenaClick()
         {
             if (txtContraNue.Text.Equals(txtContraNue2.Text))
             {
@@ -29,7 +29,7 @@ namespace SocialBusinessApp
             }
             else
             {
-                DisplayAlert("Alerta", "Las contraseñas no coinciden, por favor verifiquelas", "Ok");
+                await DisplayAlert("Alerta", "Las contraseñas no coinciden, por favor verifiquelas", "Ok");
             }
             
         }
@@ -37,19 +37,19 @@ namespace SocialBusinessApp
         {
             var values = new Dictionary<string, string>
                 {
-                   { "Dato1",  "kaherreras@unal.edu.co"},
-                   //{ "Dato1",  (String)App.Current.Properties["Usuario"] },
+                   { "Dato1",  (String)App.Current.Properties["Usuario"] },
                    { "Dato2", txtContraAct.Text},
                    { "Dato3", txtContraNue.Text}
                 };
             var content = new FormUrlEncodedContent(values);
 
-            var response = await Client.PostAsync("http://app.socialbusiness.com.co/api/ChangePassword.php", content);
+            var response = await Client.PostAsync("https://app.socialbusiness.com.co/api/ChangePassword.php", content);
             var responseString = await response.Content.ReadAsStringAsync();
             Respuesta Rta = JsonConvert.DeserializeObject<Respuesta>(responseString);
             await DisplayAlert("Alerta", Rta.Mensaje, "Ok");
-            Navigation.InsertPageBefore(new MLS(), this);
-            await Navigation.PopAsync().ConfigureAwait(false);
+            //Navigation.InsertPageBefore(new MLS(), this);
+            //await Navigation.PopAsync().ConfigureAwait(false);
+            await Navigation.PopModalAsync();
         }
     }
 }
