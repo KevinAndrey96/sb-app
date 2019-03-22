@@ -71,12 +71,6 @@ namespace SocialBusinessApp.Views
                 await DisplayAlert("Alerta", Rta.Mensaje, "Ok");
             }
         }
-        private async void SendTo()
-        {
-            //waitActivityIndicator.IsRunning = true;
-            
-
-        }
         /*private async void ComentariosListView_ItemTapped(object sender, ItemTappedEventArgs e)
         {
             var asoc = e.Item as Asociacion;

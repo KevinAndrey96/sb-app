@@ -1,6 +1,9 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using SocialBusinessApp.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -12,10 +15,111 @@ namespace SocialBusinessApp.Views
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class EditarPerfil : ContentPage
 	{
-		public EditarPerfil()
-		{
-			InitializeComponent();
-		}
+        Inmobiliario Userio;
+        public EditarPerfil()
+        {
+            InitializeComponent();
+            Ejecucion();
+            btnActualizar.Clicked += (sender, e) => BtnActualizarClick();
+
+        }
+        private static HttpClient client = new HttpClient();
+        Respuesta Rta;
+        private async void BtnActualizarClick()
+        {
+            string Departamento = "NO";
+            string Ciudad = "NO";
+            string Genero = "NO";
+            string Mes = "NO";
+            try
+            {
+                Departamento = pikDepartamento.Items[pikDepartamento.SelectedIndex];
+            }
+            catch
+            {
+                Departamento = "NO";
+            }
+            if(Departamento!="NO")
+            {
+                try
+                {
+                    Ciudad = pikCiudad.Items[pikCiudad.SelectedIndex];
+                }
+                catch
+                {
+                    //await DisplayAlert("Alerta","Por favor Seleccione una ciudad", "Ok");
+                    Ciudad = "NO";
+                }
+            }
+            try
+            {
+                Genero = pikGenero.Items[pikGenero.SelectedIndex];
+            }
+            catch
+            {
+                Genero = "NO";
+            }
+            try
+            {
+                Mes = pikMes.Items[pikMes.SelectedIndex];
+            }
+            catch
+            {
+                Mes = "NO";
+            }
+            if((Departamento!="NO" && Ciudad !="NO") || (Departamento==Ciudad) )
+            {
+                var values = new Dictionary<string, string>
+                {
+                    { "Profesional",  (String)App.Current.Properties["Codigo"]},
+                    { "Nombres",  txtNombres.Text},
+                    { "Apellidos", txtApellidos.Text },
+                    { "Departamento", Departamento },
+                    { "Ciudad", Ciudad},
+                    { "Telefono", txtTelefono.Text },
+                    { "Genero", Genero },
+                    { "Dia", txtDia.Text },
+                    { "Mes", Mes },
+                    { "Ano", txtAno.Text },
+                    { "Facebook", txtFacebook.Text },
+                    { "Twitter", txtTwitter.Text },
+                    { "Instagram", txtInstagram.Text },
+                    { "Youtubbe", txtYoutube.Text },
+                    { "Web", txtWeb.Text },
+
+                };
+
+                var content = new FormUrlEncodedContent(values);
+                var responseString="";
+                try
+                {
+                    var response = await client.PostAsync("https://app.socialbusiness.com.co/api/ActualizarPerfil.php", content);
+                    responseString = await response.Content.ReadAsStringAsync();
+                    //await DisplayAlert("Alerta", responseString, "Ok");
+                    Rta = JsonConvert.DeserializeObject<Respuesta>(responseString);
+
+                }
+                catch (Exception e)
+                {
+                    //waitActivityIndicator.IsRunning = false;
+                    await DisplayAlert("Alerta", "No se detecta conexión a internet, por favor intente más tarde "+e+"---"+responseString, "Ok");
+                    return;
+                }
+                if (Rta.Estado.Equals("Si"))
+                {
+                    await DisplayAlert("¡Éxito!", Rta.Mensaje, "Ok");
+                    await Navigation.PopModalAsync();
+                }
+                else
+                {
+                    //waitActivityIndicator.IsRunning = false;
+                    await DisplayAlert("Alerta", Rta.Mensaje, "Ok");
+                }
+            }else
+            {
+                await DisplayAlert("Alerta", "Por favor verifique los datos e intentelo de nuevo", "Ok");
+            }
+        }
         void DepartamentoSelect(object sender, EventArgs args)
         {
             Picker modePicker = (Picker)sender;
@@ -1078,6 +1182,54 @@ namespace SocialBusinessApp.Views
                     break;
 
             }
+        }
+        private async void Ejecucion()
+        {
+            try
+            {
+                HttpClient client = new HttpClient
+                {
+                    BaseAddress = new Uri("https://app.socialbusiness.com.co")
+                };
+                var code = (String)App.Current.Properties["Codigo"];
+                string url = string.Format("/api/Profile.php?id=" + code);
+                var response = await client.GetAsync(url);
+                var responseString = await response.Content.ReadAsStringAsync();
+                Userio = JsonConvert.DeserializeObject<Inmobiliario>(responseString);
+
+                //FPerfil.Source = Userio.FotoPerfil;
+                //FInmobiliaria.Source = Userio.FotoInmobiliaria;
+
+                txtNombres.Text = "" + Userio.Nombres;
+                txtApellidos.Text = "" + Userio.Apellidos;
+                //TxtCodigo.Text = Userio.Codigo;
+                pikDepartamento.Title = Userio.Departamento;
+                pikCiudad.Title = Userio.Ciudad;
+                txtTelefono.Text = "" + Userio.Celular;
+                pikGenero.Title = Userio.Genero;
+                txtDia.Text = Userio.Dia;
+                pikMes.Title= Userio.Mes;
+                txtAno.Text = Userio.Ano;
+
+                txtFacebook.Text = Userio.Facebook;
+                txtTwitter.Text = Userio.Twitter;
+                txtInstagram.Text = Userio.Instagram;
+                txtYoutube.Text= Userio.Youtube;
+                txtWeb.Text= Userio.Web;
+                /*
+
+                TxtInmobiliaria.Text = Userio.Inmobiliaria;
+                TxtNit.Text = "Nit. " + Userio.Nit;
+                TxtDepartamento.Text = Userio.Departamento;*/
+
+            }
+            catch (Exception e)
+            {
+                //waitActivityIndicator.IsRunning = false;
+                await DisplayAlert("Alerta", "No se detecta conexión a internet, por favor intente más tarde" + e, "Ok");
+                return;
+            }
+
         }
 
     }
