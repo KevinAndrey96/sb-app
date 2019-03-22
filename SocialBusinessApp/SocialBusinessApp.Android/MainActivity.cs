@@ -203,7 +203,7 @@ namespace SocialBusinessApp.Droid
             if (CheckSelfPermission(permission) == (int)Android.Content.PM.Permission.Granted)
             {
                 //TODO change the message to show the permissions name
-                Toast.MakeText(this, "Permisos otorgados", ToastLength.Short).Show();
+                //Toast.MakeText(this, "Permisos otorgados", ToastLength.Short).Show();
                 return;
             }
 
