@@ -31,8 +31,9 @@ namespace SocialBusinessApp.Views
             this.oferta = oferta;
 
             btnUbicacion.Clicked += (sender, e) => btnUbicacionClickAsync();
-            btnEditar.Clicked += (sender, e) => btnEditarClick();
-            btnEliminar.Clicked += (sender, e) => btnEliminarClick();
+            btnGaleria.Clicked += (sender, e) => btnGaleriaF();
+            //btnEditar.Clicked += (sender, e) => btnEditarClick();
+            //btnEliminar.Clicked += (sender, e) => btnEliminarClick();
             //btnGaleria.Clicked += (sender, e) => btnGaleriaClickAsync();
 
             TxtNombrePlace.Text = oferta.Nombre;
@@ -56,19 +57,24 @@ namespace SocialBusinessApp.Views
             DisplayAlert("uno", "Dos: " + oferta.Lat, "Tres" + oferta.Long);
             PlaceID = oferta.ID;
             this.PlaceID = oferta.ID;
-            FotosInmuebleListView.ItemTemplate = new DataTemplate(typeof(FotosCell));
+            //FotosInmuebleListView.ItemTemplate = new DataTemplate(typeof(FotosCell));
 
             this.LoadFotos();
 
 
 
         }
-
         private async void btnUbicacionClickAsync()
         {
             //var objects = new Oferta();
             await Navigation.PushModalAsync(new Mapa(oferta.Lat, oferta.Long, oferta.Nombre, oferta.Direccion));
         }
+        
+        private async void btnGaleriaF()
+        {
+            await Navigation.PushModalAsync(new MisListados("https://app.socialbusiness.com.co/gallery/?id=" + PlaceID));
+        }
+
         private async void btnEditarClick()
         {
             //var objects = new Oferta();
@@ -91,7 +97,7 @@ namespace SocialBusinessApp.Views
         }
         private async void LoadFotos()
         {
-            waitActivityIndicator.IsRunning = true;
+            //waitActivityIndicator.IsRunning = true;
             string result;
             try
             {
@@ -104,19 +110,19 @@ namespace SocialBusinessApp.Views
             catch (Exception)
             {
                 await DisplayAlert("Alerta", "No se detecta conexión a internet, por favor intente más tarde", "Ok");
-                waitActivityIndicator.IsRunning = false;
+                //waitActivityIndicator.IsRunning = false;
                 return;
             }
-            waitActivityIndicator.IsRunning = false;
+            //waitActivityIndicator.IsRunning = false;
 
             ofertafotos = JsonConvert.DeserializeObject<List<OfertaFotos>>(result);
-            FotosInmuebleListView.ItemsSource = ofertafotos;
+            //FotosInmuebleListView.ItemsSource = ofertafotos;
             //imgSlider.Images = ofertafotos;
         }
 
         private async void Delete()
         {
-            waitActivityIndicator.IsRunning = true;
+            //waitActivityIndicator.IsRunning = true;
             string result;
             try
             {
@@ -129,7 +135,7 @@ namespace SocialBusinessApp.Views
             catch (Exception)
             {
                 await DisplayAlert("Alerta", "No se detecta conexión a internet, por favor intente más tarde", "Ok");
-                waitActivityIndicator.IsRunning = false;
+                //waitActivityIndicator.IsRunning = false;
                 return;
             }
 

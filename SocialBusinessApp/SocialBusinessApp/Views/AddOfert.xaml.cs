@@ -30,11 +30,11 @@ namespace SocialBusinessApp
         Respuesta Rta;
         IImagePickerService _imagePickerService;
 
-        private ImageSource Origen1, Origen2, Origen3, Origen4, Origen5;
+        //private ImageSource Origen1, Origen2, Origen3, Origen4, Origen5;
 
         List<string> _images = new List<string>();
 
-        Queue<string> paths = new Queue<string>();
+        //Queue<string> paths = new Queue<string>();
         string filePath = string.Empty;
         bool isBusy = false;
         private List<Ciudad> Antioquia = new List<Ciudad>();
@@ -48,12 +48,6 @@ namespace SocialBusinessApp
             btnPublicar.Clicked += (sender, e) => BtnPublicarClick();
 
             BindingContext = new PickerVM();
-
-            
-                /*
-                Antioquia.Add("Pereira");
-                Antioquia.Add("Baboon");*/
-
         }
         void DepartamentoSelect(object sender, EventArgs args)
         {
@@ -1140,18 +1134,19 @@ namespace SocialBusinessApp
         {
             await DependencyService.Get<IMediaService>().OpenGallery();
         }
-        
 
-        
-        private void BtnPublicarClick()
+        private async void BtnPublicarClick()
         {
+
+            
+            
             SendTo();
             //DisplayAlert("Imagen", _images.First(), "Ok");
             //SendTo2();
             
         }
 
-        public async Task<bool> Upload(MediaFile mediaFile, string filename)
+        /*public async Task<bool> Upload(MediaFile mediaFile, string filename)
         {
             byte[] bitmapData;
             var stream = new MemoryStream();
@@ -1184,7 +1179,7 @@ namespace SocialBusinessApp
                 return true;
             }
             return false;
-        }
+        }*/
 
 
 
@@ -1227,6 +1222,15 @@ namespace SocialBusinessApp
                 
                 var responseString = await response.Content.ReadAsStringAsync();
                 Rta = JsonConvert.DeserializeObject<Respuesta>(responseString);
+                
+                foreach (string foto in _images)
+                {
+                    /*await CrossFileUploader.Current.UploadFileAsync("https://app.socialbusiness.com.co/api/upload_photos.php", new FilePathItem("uploaded_file", foto), new Dictionary<string, string>()
+                    {
+                       {"Content-Type" , "multipart/form-data"}
+                    });*/
+                    var response2 = await CrossFileUploader.Current.UploadFileAsync($"https://app.socialbusiness.com.co/api/upload_photos.php?place_id="+Rta.Codigo, new FilePathItem("uploaded_file", foto));                    
+                }
                 await DisplayAlert("Alerta", Rta.Mensaje, "Ok");
                 //await Navigation.PopModalAsync().ConfigureAwait(false);
                 //await Navigation.PushModalAsync(new Archivos());

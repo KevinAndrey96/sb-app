@@ -29,7 +29,7 @@ namespace SocialBusinessApp.Views
 
         private async void LoadOfertas()
         {
-            waitActivityIndicator.IsRunning = true;
+            //waitActivityIndicator.IsRunning = true;
             string result;
             try
             {
@@ -43,10 +43,10 @@ namespace SocialBusinessApp.Views
             catch (Exception)
             {
                 await DisplayAlert("Alerta", "No se detecta conexión a internet, por favor intente más tarde", "Ok");
-                waitActivityIndicator.IsRunning = false;
+                //waitActivityIndicator.IsRunning = false;
                 return;
             }
-            waitActivityIndicator.IsRunning = false;
+            //waitActivityIndicator.IsRunning = false;
 
             ofertas = JsonConvert.DeserializeObject<List<Oferta>>(result);
             OfertasListView.ItemsSource = ofertas;

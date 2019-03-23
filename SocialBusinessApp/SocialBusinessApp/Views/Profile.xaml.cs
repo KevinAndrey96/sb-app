@@ -58,16 +58,18 @@ namespace SocialBusinessApp
 
         private async void Ejecucion()
         {
+            var responseString="";
+            var code = "";
             try
             {
                 HttpClient client = new HttpClient
                 {
-                    BaseAddress = new Uri("http://app.socialbusiness.com.co")
+                    BaseAddress = new Uri("https://app.socialbusiness.com.co")
                 };
-                var code=(String)App.Current.Properties["Codigo"];
+                code=(String)App.Current.Properties["Codigo"];
                 string url = string.Format("/api/Profile.php?id="+code);
                 var response = await client.GetAsync(url);
-                var responseString = await response.Content.ReadAsStringAsync();
+                responseString = await response.Content.ReadAsStringAsync();
                 Userio = JsonConvert.DeserializeObject<Inmobiliario>(responseString);
 
                 FPerfil.Source = Userio.FotoPerfil;
@@ -97,7 +99,7 @@ namespace SocialBusinessApp
             catch (Exception e)
             {
                 //waitActivityIndicator.IsRunning = false;
-                await DisplayAlert("Alerta", "No se detecta conexión a internet, por favor intente más tarde"+e, "Ok");
+                await DisplayAlert("Alerta", "No se detecta conexión a internet, por favor intente más tarde"+e+"---"+responseString+"--"+code, "Ok");
                 return;
             }
             
