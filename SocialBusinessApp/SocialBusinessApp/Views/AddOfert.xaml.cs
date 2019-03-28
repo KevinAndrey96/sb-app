@@ -1137,58 +1137,11 @@ namespace SocialBusinessApp
 
         private void BtnPublicarClick()
         {
-
-
-
             SendTo();
-            //DisplayAlert("Imagen", _images.First(), "Ok");
-            //SendTo2();
-
         }
-
-        /*public async Task<bool> Upload(MediaFile mediaFile, string filename)
-        {
-            byte[] bitmapData;
-            var stream = new MemoryStream();
-            mediaFile.GetStream().CopyTo(stream);
-            bitmapData = stream.ToArray();
-            var fileContent = new ByteArrayContent(bitmapData);
-
-            fileContent.Headers.ContentType = MediaTypeHeaderValue.Parse("application/octet-stream");
-            fileContent.Headers.ContentDisposition = new ContentDispositionHeaderValue("form-data")
-            {
-                Name = "fileUpload",
-                FileName = filename
-            };
-
-            string boundary = "---8393774hhy37373773";
-            MultipartFormDataContent multipartContent = new MultipartFormDataContent(boundary)
-            {
-                fileContent
-            };
-
-
-            HttpClient httpClient = new HttpClient();
-            HttpResponseMessage response = await httpClient.PostAsync("http://www.url.com/upload.php", multipartContent);
-            response.EnsureSuccessStatusCode();
-
-            if (response.IsSuccessStatusCode)
-            {
-                string content = await response.Content.ReadAsStringAsync();
-
-                return true;
-            }
-            return false;
-        }*/
-
-
-
-
-
+        
         private async void SendTo()
         {
-            
-
             var values = new Dictionary<string, string>
                 {
                    { "Dato1", txtNO.Text},
@@ -1198,7 +1151,7 @@ namespace SocialBusinessApp
                    { "Dato5", txtDi.Text},
                    { "Dato6", txtPr.Text},
                    { "Dato7", txtAr.Text},
-                   { "Dato8", txtUbicación.Items[txtUbicación.SelectedIndex]},
+                   { "Dato8", txtUbicacion.Items[txtUbicacion.SelectedIndex]},
                    { "Dato9", txtHa.Text},
                    { "Dato10", txtBa.Text},
                    { "Dato11", txtPa.Text},
@@ -1245,11 +1198,7 @@ namespace SocialBusinessApp
 
             }
         }
-
-
-
-
-
+        
 
         private MediaFile _image;
         private async void SendTo2()

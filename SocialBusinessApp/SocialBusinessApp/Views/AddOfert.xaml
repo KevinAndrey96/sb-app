@@ -73,7 +73,7 @@
             <ColumnDefinition Width="*" />
           </Grid.ColumnDefinitions>
           <Entry x:Name="txtPr" Grid.Row="0" Grid.Column="0" Keyboard="Numeric" Placeholder="Precio"></Entry>
-          <Picker x:Name="txtUbicación" Grid.Row="0" Grid.Column="1" Title="Ubicación"  HorizontalOptions="FillAndExpand">
+          <Picker x:Name="txtUbicacion" Grid.Row="0" Grid.Column="1" Title="Ubicacion"  HorizontalOptions="FillAndExpand">
             <Picker.Items>
               <x:String>Norte</x:String>
               <x:String>Sur</x:String>

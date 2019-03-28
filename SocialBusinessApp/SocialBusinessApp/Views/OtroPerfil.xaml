@@ -46,10 +46,10 @@
                 -->
                 
             </StackLayout>
-            <Button x:Name="btnOfertas" Text="Ofertas" BackgroundColor="#9c27b0" TextColor="#FFFFFF"></Button>
-            <Button x:Name="btnComentarios" Text="Comentarios" BackgroundColor="#9c27b0" TextColor="#FFFFFF"></Button>
-            <Button x:Name="btnLogros" Text="Logros" BackgroundColor="#9c27b0" TextColor="#FFFFFF"></Button>
-            <Button x:Name="btnEquipo" Text="Equipo inmobiliario" BackgroundColor="#9c27b0" TextColor="#FFFFFF"></Button>
+            <Button Image="libro.png" x:Name="btnOfertas" Text="Ofertas" BackgroundColor="#9c27b0" TextColor="#FFFFFF"></Button>
+            <Button Image="comentario.png" x:Name="btnComentarios" Text="Comentarios" BackgroundColor="#9c27b0" TextColor="#FFFFFF"></Button>
+            <Button Image="trofeo.png" x:Name="btnLogros" Text="Logros" BackgroundColor="#9c27b0" TextColor="#FFFFFF"></Button>
+            <Button Image="usuarios.png" x:Name="btnEquipo" Text="Equipo inmobiliario" BackgroundColor="#9c27b0" TextColor="#FFFFFF"></Button>
 
         </StackLayout>
     </ContentPage.Content>

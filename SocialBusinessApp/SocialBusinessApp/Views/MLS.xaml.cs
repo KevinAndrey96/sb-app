@@ -71,7 +71,7 @@ namespace SocialBusinessApp
         }
         private void BtnSearchClick(string Param)
         {
-            Navigation.PushModalAsync(new BuscarOfertas(Param));
+            Navigation.PushModalAsync(new BuscarOfertas(Param, "2"));
         }
         private void BtnAgregarOfertaClick()
         {
