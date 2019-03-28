@@ -22,7 +22,7 @@ namespace SocialBusinessApp.Views
         public string PlaceID;
         private string Lat;
         private string Long;
-        public MyPlace(Oferta oferta)
+        public MyPlace(Oferta oferta, Boolean mio)
         {
            
             NavigationPage.SetHasNavigationBar(this, true);
@@ -49,13 +49,31 @@ namespace SocialBusinessApp.Views
             TxtEstrato.Text = "Estrato: " + oferta.Estrato;
             TxtArea.Text = "Area: " + oferta.Area;
             TxtAntiguedad.Text = "Antiguedad: " + oferta.Antiguedad;
-            TxtUbicacion.Text = "Ubicación: " + oferta.Ubicacion + oferta.Lat + oferta.Long;
+            TxtUbicacion.Text = "Ubicación: " + oferta.Ubicacion;// + oferta.Lat + oferta.Long;
             TxtDescripcion.Text = oferta.Descripcion;
             FPlace.Source = oferta.Fotografia;
             Lat = oferta.Lat;
             Long = oferta.Long;
             DisplayAlert("uno", "Dos: " + oferta.Lat, "Tres" + oferta.Long);
             PlaceID = oferta.ID;
+
+            if(mio)
+            {
+                btnEditar.IsEnabled = true;
+                btnEditar.IsVisible= true;
+                btnEliminar.IsEnabled = true;
+                btnEliminar.IsVisible = true;
+            }else
+            {
+                btnEditar.IsEnabled = false;
+                btnEditar.IsVisible = false;
+                btnEliminar.IsEnabled = false;
+                btnEliminar.IsVisible = false;
+            }
+
+            btnEditar.Clicked += (sender, e) => BtnEditarClick(oferta.ID);
+            btnEliminar.Clicked += (sender, e) => BtnEliminarClick();
+
             this.PlaceID = oferta.ID;
             //FotosInmuebleListView.ItemTemplate = new DataTemplate(typeof(FotosCell));
 
@@ -64,9 +82,13 @@ namespace SocialBusinessApp.Views
 
 
         }
+        
+        private async void BtnEditarClick(string placeid)
+        {
+            await Navigation.PushModalAsync(new EditarOferta(placeid));
+        }
         private async void btnUbicacionClickAsync()
         {
-            //var objects = new Oferta();
             await Navigation.PushModalAsync(new Mapa(oferta.Lat, oferta.Long, oferta.Nombre, oferta.Direccion));
         }
         
@@ -74,13 +96,8 @@ namespace SocialBusinessApp.Views
         {
             await Navigation.PushModalAsync(new MisListados("https://app.socialbusiness.com.co/gallery/?id=" + PlaceID));
         }
-
-        private async void btnEditarClick()
-        {
-            //var objects = new Oferta();
-            await Navigation.PushAsync(new EditarOferta());
-        }
-        private async void btnEliminarClick()
+        
+        private async void BtnEliminarClick()
         {
             var answer = await DisplayAlert("Eliminar", "¿Está seguro?", "Si", "No");
             if (answer)

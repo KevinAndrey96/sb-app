@@ -45,6 +45,8 @@
     <Compile Include="Cells\ComentarioCell.cs" />
     <Compile Include="Cells\EquipoCell.cs" />
     <Compile Include="Cells\LogrosCell.cs" />
+    <Compile Include="CustomMap.cs" />
+    <Compile Include="Helpers\Settings.cs" />
     <Compile Include="IMediaService.cs" />
     <Compile Include="Interface1.cs" />
     <Compile Include="MediaService.cs" />
@@ -61,7 +63,7 @@
     <Compile Include="Views\Asociaciones.xaml.cs">
       <DependentUpon>Asociaciones.xaml</DependentUpon>
     </Compile>
-    <Compile Include="CambiarContrasena.xaml.cs">
+    <Compile Include="Views\CambiarContrasena.xaml.cs">
       <DependentUpon>CambiarContrasena.xaml</DependentUpon>
     </Compile>
     <Compile Include="Cells\AsociacionCell.cs" />
@@ -118,6 +120,9 @@
     <Compile Include="Views\Mapa.xaml.cs">
       <DependentUpon>Mapa.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\MapPage.xaml.cs">
+      <DependentUpon>MapPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\MisEventos.xaml.cs">
       <DependentUpon>MisEventos.xaml</DependentUpon>
     </Compile>
@@ -133,14 +138,14 @@
     <Compile Include="Views\MyPlace.xaml.cs">
       <DependentUpon>MyPlace.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\NuevoComentario.xaml.cs">
-      <DependentUpon>NuevoComentario.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Views\OfertasInmobiliaria.xaml.cs">
       <DependentUpon>OfertasInmobiliaria.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\OfertasUsuario.xaml.cs">
       <DependentUpon>OfertasUsuario.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\OlvidoClave.xaml.cs">
+      <DependentUpon>OlvidoClave.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\OtroPerfil.xaml.cs">
       <DependentUpon>OtroPerfil.xaml</DependentUpon>
@@ -194,7 +199,7 @@
     <Compile Include="Views\RankingI.xaml.cs">
       <DependentUpon>RankingI.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Registro.xaml.cs">
+    <Compile Include="Views\Registro.xaml.cs">
       <DependentUpon>Registro.xaml</DependentUpon>
     </Compile>
     <Compile Include="Models\Respuesta.cs" />
@@ -256,6 +261,12 @@
     <Reference Include="Plugin.Permissions, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Plugin.Permissions.3.0.0.12\lib\netstandard1.0\Plugin.Permissions.dll</HintPath>
     </Reference>
+    <Reference Include="Plugin.Settings, Version=3.1.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Xam.Plugins.Settings.3.1.1\lib\netstandard1.0\Plugin.Settings.dll</HintPath>
+    </Reference>
+    <Reference Include="Plugin.Settings.Abstractions, Version=3.1.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Xam.Plugins.Settings.3.1.1\lib\netstandard1.0\Plugin.Settings.Abstractions.dll</HintPath>
+    </Reference>
     <Reference Include="SkiaSharp, Version=1.60.0.0, Culture=neutral, PublicKeyToken=0738eb9f132ed756, processorArchitecture=MSIL">
       <HintPath>..\..\packages\SkiaSharp.1.60.0\lib\portable-net45+win8+wpa81+wp8\SkiaSharp.dll</HintPath>
     </Reference>
@@ -313,7 +324,7 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Registro.xaml">
+    <EmbeddedResource Include="Views\Registro.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>
@@ -325,7 +336,7 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="CambiarContrasena.xaml">
+    <EmbeddedResource Include="Views\CambiarContrasena.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>
@@ -541,12 +552,6 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Views\NuevoComentario.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
     <EmbeddedResource Include="Views\OfertasInmobiliaria.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
@@ -572,6 +577,18 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Views\BuscarInmobiliarias.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\MapPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\OlvidoClave.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>

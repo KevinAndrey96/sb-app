@@ -33,6 +33,10 @@ namespace SocialBusinessApp
         public string Lat{ get; set; }
         public string Long { get; set; }
 
+        public string Youtube { get; set; }
+        public string Categoria { get; set; }
+        public string Terceria { get; set; }
+
         public override string ToString()
         {
             return base.ToString();

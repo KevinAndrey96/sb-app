@@ -29,7 +29,7 @@ namespace SocialBusinessApp
         private async void EventosListView_ItemTapped(object sender, ItemTappedEventArgs e)
         {
             var even = e.Item as Evento;
-            await Navigation.PushModalAsync(new VerEvento(even));
+            await Navigation.PushModalAsync(new VerEvento(even, false, false));
         }
         private async void LoadEventos1()
         {
@@ -38,7 +38,7 @@ namespace SocialBusinessApp
             try
             {
                 HttpClient client1 = new HttpClient();
-                client1.BaseAddress = new Uri("http://app.socialbusiness.com.co");
+                client1.BaseAddress = new Uri("https://app.socialbusiness.com.co");
                 string url = string.Format("/api/HistoricoEventos.php");
                 var response = await client1.GetAsync(url);
                 result1 = response.Content.ReadAsStringAsync().Result;

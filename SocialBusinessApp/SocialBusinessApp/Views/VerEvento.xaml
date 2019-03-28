@@ -9,22 +9,27 @@
             <Image x:Name="FEvento" Source="http://app.socialbusiness.com.co/imgs/blank.png" WidthRequest="150" HorizontalOptions="Center"/>
 
             <Label x:Name="TxtNameE" Text="Evento" HorizontalOptions="Center" Font="Bold,30" TextColor="#9c27b0"></Label>
-            <Label x:Name="TxtDepartmentE" Text="Nacional" HorizontalOptions="Center" Font="Bold,30"></Label>
-            <Label x:Name="TxtCiudadE" Text="Nacional" HorizontalOptions="Center" Font="Bold,25"></Label>
-            <Label x:Name="TxtAddressE" Text="Av 9 No. 127B -16" FontSize="20"></Label>
+                <Label x:Name="TxtDepartmentE" Text="Nacional" HorizontalOptions="Center" Font="Bold,30"></Label>
+                <Label x:Name="TxtCiudadE" Text="Nacional" HorizontalOptions="Center" Font="Bold,25"></Label>
+
+                <Label x:Name="TxtAddressE" Text="Av 9 No. 127B -16" FontSize="20"></Label>
 
             <Label x:Name="TxtDescripcionE" Text="Av 9 No. 127B -16" FontSize="20"></Label>
 
             <Label x:Name="TxtHorarioE" Text="Evento" HorizontalOptions="Center" Font="Bold,25" ></Label>
             <Label x:Name="TxtCuposE" Text="Cupos" HorizontalOptions="Center" Font="Bold,25" TextColor="#9c27b0"></Label>
-            <Label x:Name="TxtPuntajeE" Text="Cupos" HorizontalOptions="Center" Font="Bold,25" TextColor="#9c27b0"></Label>
+            <Label x:Name="TxtPuntajeE" Text="Cupos" HorizontalOptions="Center" Font="Bold,25" ></Label>
+                <!--<Label x:Name="TxtPuntajeE" Text="Cupos" HorizontalOptions="Center" Font="Bold,25" TextColor="#9c27b0"></Label>-->
 
             <Label Text="" FontSize="20"></Label>
 
-            <Button x:Name="BtnAsistir" Text="Inscribirse!" WidthRequest="150"  HorizontalOptions="Center"  BackgroundColor="#448AFF" TextColor="#FFFFFF"></Button>
+            <!--<Button x:Name="BtnAsistir" Text="Inscribirse!" WidthRequest="150"  HorizontalOptions="Center"  BackgroundColor="#448AFF" TextColor="#FFFFFF"></Button>-->
+            <Button x:Name="btnAsistir" IsVisible="false" IsEnabled="false" Text="Asistir" BackgroundColor="#9c27b0" TextColor="#FFFFFF"></Button>
+            <Button x:Name="btnCancelar" IsVisible="false" IsEnabled="false" Text="Cancelar" BackgroundColor="#9c27b0" TextColor="#FFFFFF"></Button>
+            <Button x:Name="btnOpcionado" IsVisible="false" IsEnabled="false" Text="Postularte" BackgroundColor="#9c27b0" TextColor="#FFFFFF"></Button>
 
 
-            <!--<Button x:Name="" Text="Sitio Web" HeightRequest="80"  HorizontalOptions="FillAndExpand"  BackgroundColor="#448AFF" TextColor="#FFFFFF"></Button>
+                <!--<Button x:Name="" Text="Sitio Web" HeightRequest="80"  HorizontalOptions="FillAndExpand"  BackgroundColor="#448AFF" TextColor="#FFFFFF"></Button>
             <Button x:Name="" Text="Facebook" HeightRequest="80"  HorizontalOptions="FillAndExpand"  BackgroundColor="#448AFF" TextColor="#FFFFFF"></Button>
             <Button x:Name="" Text="Twitter" HeightRequest="80"  HorizontalOptions="FillAndExpand"  BackgroundColor="#448AFF" TextColor="#FFFFFF"></Button>
             -->

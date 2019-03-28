@@ -6,6 +6,55 @@
         <StackLayout>
             <StackLayout>
                 <Label Text="Resultados de busqueda" TextColor="#9c27b0" HorizontalOptions="Center" FontSize="25"></Label>
+                <StackLayout Margin="0,0,0,0" >
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Picker x:Name="txtDepartamento" Grid.Row="0" Grid.Column="0" Title="Departamento"  SelectedIndexChanged="DepartamentoSelect" HorizontalOptions="FillAndExpand" HeightRequest="50">
+                            <Picker.Items>
+                                <x:String>Amazonas</x:String>
+                                <x:String>Antioquia</x:String>
+                                <x:String>Arauca</x:String>
+                                <x:String>Atlántico</x:String>
+                                <x:String>Bogotá</x:String>
+                                <x:String>Bolívar</x:String>
+                                <x:String>Boyacá</x:String>
+                                <x:String>Caldas</x:String>
+                                <x:String>Caquetá</x:String>
+                                <x:String>Casanare</x:String>
+                                <x:String>Cauca</x:String>
+                                <x:String>Cesar</x:String>
+                                <x:String>Chocó</x:String>
+                                <x:String>Córdoba</x:String>
+                                <x:String>Cundinamarca</x:String>
+                                <x:String>Guainía</x:String>
+                                <x:String>Guaviare</x:String>
+                                <x:String>Huila</x:String>
+                                <x:String>La Guajira</x:String>
+                                <x:String>Magdalena</x:String>
+                                <x:String>Meta</x:String>
+                                <x:String>Nariño</x:String>
+                                <x:String>Norte de Santander</x:String>
+                                <x:String>Putumayo</x:String>
+                                <x:String>Quindío</x:String>
+                                <x:String>Risaralda</x:String>
+                                <x:String>San Andrés y Providencia</x:String>
+                                <x:String>Santander</x:String>
+                                <x:String>Sucre</x:String>
+                                <x:String>Tolima</x:String>
+                                <x:String>Valle del Cauca</x:String>
+                                <x:String>Vaupés</x:String>
+                                <x:String>Vichada</x:String>
+                            </Picker.Items>
+                        </Picker>
+                        <Picker x:Name="txtCiudad" Grid.Row="0" Grid.Column="1" Title="Ciudad"  IsEnabled="False" HorizontalOptions="FillAndExpand"></Picker>
+                    </Grid>
+                </StackLayout>
                 <Button Image="lupa.png" x:Name="btnSearch" TextColor="#FFFFFF" Text="Busqueda Avanzada" BackgroundColor="#9c27b0"></Button>
                 <ListView x:Name="InmobiliariasListView" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" RowHeight="111"/>
             </StackLayout>

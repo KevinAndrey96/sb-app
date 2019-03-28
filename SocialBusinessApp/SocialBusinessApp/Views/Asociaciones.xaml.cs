@@ -37,7 +37,7 @@ namespace SocialBusinessApp
         }
         private void BtnSearchClick(string Param)
         {
-            Navigation.PushModalAsync(new BuscarFranquicias(Param));
+            Navigation.PushModalAsync(new BuscarFranquicias(Param, "1"));
         }
 
         private async void AsociacionesListView_ItemTapped(object sender, ItemTappedEventArgs e)
@@ -56,7 +56,7 @@ namespace SocialBusinessApp
             try
             {
                 HttpClient client = new HttpClient();
-                client.BaseAddress = new Uri("http://app.socialbusiness.com.co");
+                client.BaseAddress = new Uri("https://app.socialbusiness.com.co");
                 string url = string.Format("/api/Asociaciones.php");
                 var response = await client.GetAsync(url);
                 result = response.Content.ReadAsStringAsync().Result;

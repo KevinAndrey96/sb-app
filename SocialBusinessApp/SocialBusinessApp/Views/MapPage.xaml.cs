@@ -10,9 +10,9 @@ using Xamarin.Forms.Xaml;
 namespace SocialBusinessApp.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class NuevoComentario : ContentPage
+    public partial class MapPage : ContentPage
     {
-        public NuevoComentario()
+        public MapPage()
         {
             InitializeComponent();
         }

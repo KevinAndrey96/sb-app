@@ -8,6 +8,7 @@ namespace SocialBusinessApp.Models
 {
     public class Evento
     {
+        public string Id { get; set; }
         public string Nombre { get; set; }
         public string HoraI { get; set; }
         public string HoraF { get; set; }
@@ -21,7 +22,6 @@ namespace SocialBusinessApp.Models
         public string Creacion { get; set; }
         public string CuposDisponibles { get; set; }
         public string Fotografia { get; set; }
-        
 
         public override string ToString()
         {

@@ -17,27 +17,35 @@ namespace SocialBusinessApp.Views
     public partial class BuscarFranquicias : ContentPage
     {
         private List<Asociacion> Asociacion1;
-        public BuscarFranquicias(string Param)
+        public BuscarFranquicias(string Param, string op)
         {
             InitializeComponent();
             FranquiciasListView.ItemTemplate = new DataTemplate(typeof(AsociacionCell));
-            this.LoadOfertas2(Param);
+            this.LoadOfertas2(Param, op);
             FranquiciasListView.ItemTapped += FranquiciasListView_ItemTapped;
-            //btnSearch.Clicked += (sender, e) => BtnSearchClick();
+            btnSearch.Clicked += (sender, e) => BtnSearchClick();
         }
-        /*private void BtnSearchClick()
+        private void BtnSearchClick()
         {
-            Navigation.PopModalAsync();
-            Navigation.PushModalAsync(new Filtros());
-        }*/
-        private async void LoadOfertas2(string Param)
+            try
+            {
+                var r = txtDepartamento.Items[txtDepartamento.SelectedIndex];
+                Navigation.PopModalAsync();
+                Navigation.PushModalAsync(new BuscarFranquicias(r, "2"));
+            }
+            catch
+            {
+                DisplayAlert("Alerta", "Seleccione un Departamento y Ciudad validos", "Ok");
+            }
+        }
+        private async void LoadOfertas2(string Param, string op)
         {
             string result;
             try
             {
                 HttpClient client = new HttpClient();
                 client.BaseAddress = new Uri("https://app.socialbusiness.com.co");
-                string url = string.Format("/api/BuscarFranquicias.php?Param=" + Param);
+                string url = string.Format("/api/BuscarFranquicias.php?Param=" + Param+"&op="+op);
                 var response = await client.GetAsync(url);
                 result = response.Content.ReadAsStringAsync().Result;
             }

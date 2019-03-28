@@ -1135,15 +1135,15 @@ namespace SocialBusinessApp
             await DependencyService.Get<IMediaService>().OpenGallery();
         }
 
-        private async void BtnPublicarClick()
+        private void BtnPublicarClick()
         {
 
-            
-            
+
+
             SendTo();
             //DisplayAlert("Imagen", _images.First(), "Ok");
             //SendTo2();
-            
+
         }
 
         /*public async Task<bool> Upload(MediaFile mediaFile, string filename)
@@ -1185,7 +1185,7 @@ namespace SocialBusinessApp
 
 
 
-    private async void SendTo()
+        private async void SendTo()
         {
             
 
@@ -1229,14 +1229,14 @@ namespace SocialBusinessApp
                     {
                        {"Content-Type" , "multipart/form-data"}
                     });*/
-                    var response2 = await CrossFileUploader.Current.UploadFileAsync($"https://app.socialbusiness.com.co/api/upload_photos.php?place_id="+Rta.Codigo, new FilePathItem("uploaded_file", foto));                    
+                    var response2 = await CrossFileUploader.Current.UploadFileAsync($"https://app.socialbusiness.com.co/api/upload_photos.php?op=Re&place_id="+Rta.Codigo, new FilePathItem("uploaded_file", foto));                    
                 }
                 await DisplayAlert("Alerta", Rta.Mensaje, "Ok");
                 //await Navigation.PopModalAsync().ConfigureAwait(false);
                 //await Navigation.PushModalAsync(new Archivos());
 
                 //Navigation.InsertPageBefore(new Archivos(), this);
-                //await Navigation.PopModalAsync();
+                await Navigation.PopModalAsync();
 
             }
             catch (Exception e)

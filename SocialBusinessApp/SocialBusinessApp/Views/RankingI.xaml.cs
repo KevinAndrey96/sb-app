@@ -36,7 +36,7 @@ namespace SocialBusinessApp
         }
         private void BtnSearchClick(string Param)
         {
-            Navigation.PushModalAsync(new BuscarInmobiliarias(Param));
+            Navigation.PushModalAsync(new BuscarInmobiliarias(Param, "1"));
         }
 
         private async void RankingIListView_ItemTapped(object sender, ItemTappedEventArgs e)

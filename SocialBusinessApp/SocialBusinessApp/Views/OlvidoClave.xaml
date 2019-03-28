@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SocialBusinessApp.Views.OlvidoClave">
+    <ContentPage.Content>
+        <StackLayout Padding="20,20,20,20" BackgroundColor="#FFFFFF">
+            <!--<Label Text="Bienvenido a Social Business PRO, Por favor completar los sigientes datos para el registro" FontSize="20" HorizontalOptions="Center"></Label>-->
+            <StackLayout Padding="20,20,20,20" >
+                <Image Source="sbicon" WidthRequest="100" HeightRequest="100" HorizontalOptions="Center"/>
+            </StackLayout>
+            <Label Text="Recuperar Contraseña"  FontSize="20" HorizontalOptions="Center"></Label>
+            <Label Text=""></Label>
+            <Entry x:Name="txtEmail" Placeholder="Correo electrónico" WidthRequest="250" Keyboard="Email"  Text="" HorizontalOptions="FillAndExpand"></Entry>
+            <Label Text=""></Label>
+            <Button x:Name="btnOlvidoClave" Text="Recuperar contraseña" BackgroundColor="#9c27b0"  WidthRequest="150" TextColor="#FFFFFF" RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent,Property=Height,Factor=1,Constant=250}" RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent,Property=Width,Factor=.5}" ></Button>
+        </StackLayout>
+        
+    </ContentPage.Content>
+</ContentPage>

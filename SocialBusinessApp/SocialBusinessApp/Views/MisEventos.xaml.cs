@@ -29,7 +29,7 @@ namespace SocialBusinessApp
         private async void EventosListView_ItemTapped(object sender, ItemTappedEventArgs e)
         {
             var even = e.Item as Evento;
-            await Navigation.PushModalAsync(new VerEvento(even));
+            await Navigation.PushModalAsync(new VerEvento(even, false, true));
         }
         private async void LoadEventos2()
         {
@@ -39,7 +39,7 @@ namespace SocialBusinessApp
             {
                 HttpClient client2 = new HttpClient();
                 var AppCodigo = (String)App.Current.Properties["Codigo"];
-                client2.BaseAddress = new Uri("http://app.socialbusiness.com.co");
+                client2.BaseAddress = new Uri("https://app.socialbusiness.com.co");
                 string url = string.Format("/api/MisEventos.php?id="+AppCodigo);
                 var response = await client2.GetAsync(url);
                 result2 = response.Content.ReadAsStringAsync().Result;

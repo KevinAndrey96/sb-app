@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SocialBusinessApp.Registro">
+  <ContentPage.Content>
+    <StackLayout Padding="20,20,20,20" BackgroundColor="#FFFFFF">
+      <!--<Label Text="Bienvenido a Social Business PRO, Por favor completar los sigientes datos para el registro" FontSize="20" HorizontalOptions="Center"></Label>-->
+      <StackLayout Padding="20,20,20,20" >
+        <Image Source="sbicon" WidthRequest="100" HeightRequest="100" HorizontalOptions="Center"/>
+      </StackLayout>
+      <Label Text="Registro" HorizontalOptions="Center"  FontSize="20"></Label>
+      <Label Text=""></Label>
+      <Grid>
+        <Grid.RowDefinitions>
+          <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+          <ColumnDefinition Width="*" />
+          <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Picker x:Name="txtDepartamento" Grid.Row="0" Grid.Column="0" Title="Departamento"  SelectedIndexChanged="DepartamentoSelect" HorizontalOptions="FillAndExpand">
+          <Picker.Items>
+            <x:String>Amazonas</x:String>
+            <x:String>Antioquia</x:String>
+            <x:String>Arauca</x:String>
+            <x:String>Atlántico</x:String>
+            <x:String>Bogotá</x:String>
+            <x:String>Bolívar</x:String>
+            <x:String>Boyacá</x:String>
+            <x:String>Caldas</x:String>
+            <x:String>Caquetá</x:String>
+            <x:String>Casanare</x:String>
+            <x:String>Cauca</x:String>
+            <x:String>Cesar</x:String>
+            <x:String>Chocó</x:String>
+            <x:String>Córdoba</x:String>
+            <x:String>Cundinamarca</x:String>
+            <x:String>Guainía</x:String>
+            <x:String>Guaviare</x:String>
+            <x:String>Huila</x:String>
+            <x:String>La Guajira</x:String>
+            <x:String>Magdalena</x:String>
+            <x:String>Meta</x:String>
+            <x:String>Nariño</x:String>
+            <x:String>Norte de Santander</x:String>
+            <x:String>Putumayo</x:String>
+            <x:String>Quindío</x:String>
+            <x:String>Risaralda</x:String>
+            <x:String>San Andrés y Providencia</x:String>
+            <x:String>Santander</x:String>
+            <x:String>Sucre</x:String>
+            <x:String>Tolima</x:String>
+            <x:String>Valle del Cauca</x:String>
+            <x:String>Vaupés</x:String>
+            <x:String>Vichada</x:String>
+          </Picker.Items>
+        </Picker>
+        <Picker x:Name="txtCiudad" Grid.Row="0" Grid.Column="1" Title="Ciudad"  IsEnabled="False" HorizontalOptions="FillAndExpand"></Picker>
+      </Grid>
+      <Entry x:Name="txtNombres" Placeholder="Nombres" WidthRequest="250"   Text="" HorizontalOptions="FillAndExpand"></Entry>
+      <Entry x:Name="txtApellidos" Placeholder="Apellidos" WidthRequest="250"   Text="" HorizontalOptions="FillAndExpand"></Entry>
+      <Entry x:Name="txtCelu" Placeholder="Celular" WidthRequest="250" Keyboard="Numeric"  Text="" HorizontalOptions="FillAndExpand"></Entry>
+      <Entry x:Name="txtEmail" Placeholder="Correo electrónico" WidthRequest="250" Keyboard="Email"  Text="" HorizontalOptions="FillAndExpand"></Entry>
+      <Entry x:Name="txtContrasena" Placeholder="Contraseña" WidthRequest="250"  IsPassword="True"  Text="" HorizontalOptions="FillAndExpand"></Entry>
+      <Entry x:Name="txtContrasena2" Placeholder="Repita Contraseña" WidthRequest="250" IsPassword="True"  Text="" HorizontalOptions="FillAndExpand"></Entry>
+      <Label Text=""></Label>
+      <Button x:Name="btnRegistrarmeRegistro" Text="Registrarse" BackgroundColor="#9c27b0"  WidthRequest="150" TextColor="#FFFFFF" RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent,Property=Height,Factor=1,Constant=250}" RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent,Property=Width,Factor=.5}" ></Button>
+    </StackLayout>
+
+  </ContentPage.Content>
+</ContentPage>

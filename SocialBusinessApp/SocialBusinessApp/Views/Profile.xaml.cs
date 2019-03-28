@@ -43,13 +43,17 @@ namespace SocialBusinessApp
         }
         private async void BtnPremiumClick()
         {
-            //await Navigation.PushModalAsync(new OfertasUsuario(this.Code));
+            await Navigation.PushModalAsync(new MisListados("https://app.socialbusiness.com.co/Premium.php"));
         }
         private async void BtnLogoutClick()
         {
-            EliminarSesion();
-            await Navigation.PopModalAsync();
-            Application.Current.MainPage = new NavigationPage(new InicioSesion());
+            var answer = await DisplayAlert("Cerrar Sesión", "¿Está seguro?", "Si", "No");
+            if (answer)
+            {
+                EliminarSesion();
+                await Navigation.PopModalAsync();
+                Application.Current.MainPage = new NavigationPage(new InicioSesion());
+            }
         }
         private void EliminarSesion()
         {
@@ -90,9 +94,19 @@ namespace SocialBusinessApp
                     txtPremium.Text = "Suscripcipción Premium Vencida";
                     btnPremium.IsVisible = true;
                 }
-
                 TxtInmobiliaria.Text = Userio.Inmobiliaria;
                 TxtNit.Text = "Nit. " + Userio.Nit;
+                if (Userio.Inmobiliaria=="No")
+                {
+                    TxtInmobiliaria.IsVisible = false;
+                    TxtNit.IsVisible = false;
+                }
+                else
+                {
+                    TxtInmobiliaria.IsVisible = true;
+                    TxtNit.IsVisible = true;
+                }
+                
                 TxtDepartamento.Text = Userio.Departamento;
 
             }

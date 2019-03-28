@@ -41,7 +41,8 @@
                 <Label Text=""  x:Name="TxtDescripcion" FontSize="15"></Label>
 
 
-                <!--<Button x:Name="btnGaleria" Text="Galeria" BackgroundColor="#9c27b0" TextColor="#FFFFFF"></Button>-->
+                <Button x:Name="btnEditar" IsVisible="false" IsEnabled="false" Text="Editar" BackgroundColor="#9c27b0" TextColor="#FFFFFF"></Button>
+                <Button x:Name="btnEliminar" IsVisible="false" IsEnabled="false" Text="Eliminar" BackgroundColor="#9c27b0" TextColor="#FFFFFF"></Button>
 
                 <!--<StackLayout>
                     <StackLayout HorizontalOptions="Center" VerticalOptions="Start">

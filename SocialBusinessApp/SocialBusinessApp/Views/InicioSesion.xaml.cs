@@ -7,6 +7,7 @@ using System.Net.Http;
 using Newtonsoft.Json;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using SocialBusinessApp.Views;
 
 namespace SocialBusinessApp
 {
@@ -41,7 +42,9 @@ namespace SocialBusinessApp
         }
         private void BtnOlvidoClaveClick()
         {
-            Device.OpenUri(new Uri("http://app.socialbusiness.com.co/user/password-request.php"));
+            //Device.OpenUri(new Uri("https://app.socialbusiness.com.co/user/password-request.php"));
+            Navigation.PushAsync(new OlvidoClave());
+
         }
         protected override void OnAppearing()
         {

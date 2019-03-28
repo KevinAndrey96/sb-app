@@ -41,7 +41,7 @@ namespace SocialBusinessApp
         }
         private void BtnSearchClick(string Param)
         {
-            Navigation.PushModalAsync(new BuscarProfesionales(Param));
+            Navigation.PushModalAsync(new BuscarProfesionales(Param,"1"));
         }
 
         private async void RankingListView_ItemTapped(object sender, ItemTappedEventArgs e)
