@@ -19,11 +19,14 @@
                     <Button x:Name="btnUbicacion"  Grid.Row="0" Grid.Column="0" Text="Ubicación" BackgroundColor="#9c27b0" TextColor="#FFFFFF" HorizontalOptions="FillAndExpand"></Button>
                     <Button x:Name="btnGaleria"  Grid.Row="0" Grid.Column="1" Text="Galeria" BackgroundColor="#9c27b0" TextColor="#FFFFFF" HorizontalOptions="FillAndExpand"></Button>
                 </Grid>
+                <Label Text="--TERCERIA--"  x:Name="txtTerceria" HorizontalOptions="Center" FontSize="17"></Label>
                 <Label Text="Precio: " x:Name="TxtPrecio" FontSize="17"></Label>
                 <Label Text="Dirección: "  x:Name="TxtDireccion" FontSize="17"></Label>
                 <Label Text="Barrio: "  x:Name="TxtBarrio" FontSize="17"></Label>
                 <Label Text="Ciudad: "  x:Name="TxtCiudad" FontSize="17"></Label>
                 <Label Text="Departamento: "  x:Name="TxtDepartamento" FontSize="17"></Label>
+                <Label Text="Categoria: "  x:Name="txtCategoria" FontSize="17"></Label>
+                
 
                 <Label Text="Información del inmueble" HorizontalOptions="CenterAndExpand" FontSize="25" TextColor="#9c27b0" Font="Bold,25"/>
 
@@ -39,9 +42,9 @@
                 <Label Text="Descripción" HorizontalOptions="CenterAndExpand" FontSize="25" TextColor="#9c27b0" Font="Bold,25"/>
 
                 <Label Text=""  x:Name="TxtDescripcion" FontSize="15"></Label>
-                
-                
-                <!--<Button x:Name="btnGaleria" Text="Galeria" BackgroundColor="#9c27b0" TextColor="#FFFFFF"></Button>-->
+
+
+                <Button Image="youtube.png" x:Name="btnYoutube" Text="Ver Video" BackgroundColor="#9c27b0" TextColor="#FFFFFF"></Button>
 
                 <!--<StackLayout>
                     <StackLayout HorizontalOptions="Center" VerticalOptions="Start">

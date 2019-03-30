@@ -43,11 +43,41 @@ namespace SocialBusinessApp
             FInmobiliaria.Source = rank.FotografiaInmobiliaria;
 
             btnOfertas.Clicked += (sender, e) => BtnOfertasClick();
+            btnWhatsapp.Clicked += (sender, e) => BtnWhatsappClick(rank.Celular);
+            btnFacebook.Clicked += (sender, e) => BtnURLClick(rank.Facebook);
+            btnTwitter.Clicked += (sender, e) => BtnURLClick(rank.Twitter);
+            btnInstagram.Clicked += (sender, e) => BtnURLClick(rank.Instagram);
+            btnYoutube.Clicked += (sender, e) => BtnURLClick(rank.Youtube);
+            btnWeb.Clicked += (sender, e) => BtnURLClick(rank.Web);
+
             btnComentarios.Clicked += (sender, e) => BtnComentariosClick();
             btnLogros.Clicked += (sender, e) => BtnLogrosClick();
             btnEquipo.Clicked += (sender, e) => BtnEquipoClick();
 
         }
+        private void BtnWhatsappClick(string number)
+        {
+            if(number=="")
+            {
+                DisplayAlert("Alerta", "El usuario no tiene configurado su whatsapp aún", "Ok");
+            }else
+            {
+                Device.OpenUri(new Uri("https://api.whatsapp.com/send?phone=57" + number));
+            }
+        }
+        private void BtnURLClick(string url)
+        {
+            if (url == "")
+            {
+                DisplayAlert("Alerta", "El usuario no tiene configurada esta red social aún", "Ok");
+            }
+            else
+            {
+                Device.OpenUri(new Uri(url));
+            }
+            
+        }
+        
         private async void BtnOfertasClick()
         {
             await Navigation.PushModalAsync(new OfertasUsuario(this.Code));

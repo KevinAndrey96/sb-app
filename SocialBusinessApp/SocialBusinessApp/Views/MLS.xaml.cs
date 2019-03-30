@@ -95,7 +95,7 @@ namespace SocialBusinessApp
         private async void OfertasListView_ItemTapped(object sender, ItemTappedEventArgs e)
         {
             var oferta = e.Item as Oferta;
-            await Navigation.PushModalAsync(new Place(oferta));
+            await Navigation.PushModalAsync(new MyPlace(oferta,false));
         }
         /*private void BtnAgregarOfertaClick()
         {
@@ -111,7 +111,7 @@ namespace SocialBusinessApp
         }
         private void BtnChatClick()
         {
-            Navigation.PushAsync(new MisListados("http://app.socialbusiness.com.co/chat"));
+            Navigation.PushAsync(new MisListados("https://app.socialbusiness.com.co/chat"));
         }
         
         private void BtnSalirClick()
@@ -132,7 +132,7 @@ namespace SocialBusinessApp
             try
             {
                 HttpClient client = new HttpClient();
-                client.BaseAddress = new Uri("http://app.socialbusiness.com.co");
+                client.BaseAddress = new Uri("https://app.socialbusiness.com.co");
                 string url = string.Format("/api/Ofertas.php");
                 var response = await client.GetAsync(url);
                 result = response.Content.ReadAsStringAsync().Result;

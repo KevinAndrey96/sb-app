@@ -188,8 +188,8 @@
           </flv:FlowListView>
         </StackLayout>
 
-        <Button BackgroundColor="#9c27b0" TextColor="#FFFFFF" Text="Fotografías de inmueble" Clicked="Handle_Clicked"/>
-        <Button x:Name="btnPublicar" Text="Publicar" BackgroundColor="#9c27b0" TextColor="#FFFFFF"></Button>
+        <Button Image="galeria.png" BackgroundColor="#9c27b0" TextColor="#FFFFFF" Text="Fotografías de inmueble" Clicked="Handle_Clicked"/>
+        <Button Image="ok.png" x:Name="btnPublicar" Text="Publicar" BackgroundColor="#9c27b0" TextColor="#FFFFFF"></Button>
       </StackLayout>
     </ScrollView>
   </ContentPage.Content>

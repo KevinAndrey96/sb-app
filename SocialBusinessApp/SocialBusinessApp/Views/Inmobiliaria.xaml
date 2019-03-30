@@ -15,7 +15,7 @@
             <Label x:Name="TxtScore" Text="4000 Puntos" FontSize="20"></Label>
             
             <!--<Label Text="" FontSize="20"></Label>-->
-            <Button x:Name="btnInmuebles" Text="Inmuebles" BackgroundColor="#9c27b0" TextColor="#FFFFFF"></Button>
+            <Button Image="casa.png" x:Name="btnInmuebles" Text="Inmuebles" BackgroundColor="#9c27b0" TextColor="#FFFFFF"></Button>
             <!--<Button x:Name="btnIntegrantes" Text="Integrantes" BackgroundColor="#9c27b0" TextColor="#FFFFFF"></Button>-->
             <ListView x:Name="IntegrantesListView" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" RowHeight="111"/>
             <!--

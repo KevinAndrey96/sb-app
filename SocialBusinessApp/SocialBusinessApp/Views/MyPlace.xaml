@@ -2,49 +2,71 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:controls="clr-namespace:Xamd.ImageCarousel.Forms.Plugin.Abstractions;assembly=Xamd.ImageCarousel.Forms.Plugin.Abstractions"
+             xmlns:views="clr-namespace:SuaveControls.Views;assembly=SuaveControls.FloatingActionButton"
              x:Class="SocialBusinessApp.Views.MyPlace">
     <ContentPage.Content>
-        <ScrollView>
-            <StackLayout Padding="20,20,20,20">
-                <Label Text="" x:Name="TxtNombrePlace" HorizontalOptions="Center" FontSize="30" Font="Bold,30" TextColor="#9c27b0"/>
-                <Image x:Name="FPlace" Source="" HorizontalOptions="Center" WidthRequest="200" HeightRequest="200"/>
-                <Grid>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="*" />
-                    </Grid.RowDefinitions>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="*" />
-                    </Grid.ColumnDefinitions>
-                    <Button x:Name="btnUbicacion"  Grid.Row="0" Grid.Column="0" Text="Ubicación" BackgroundColor="#9c27b0" TextColor="#FFFFFF" HorizontalOptions="FillAndExpand"></Button>
-                    <Button x:Name="btnGaleria"  Grid.Row="0" Grid.Column="1" Text="Galeria" BackgroundColor="#9c27b0" TextColor="#FFFFFF" HorizontalOptions="FillAndExpand"></Button>
-                </Grid>
-                <Label Text="Precio: " x:Name="TxtPrecio" FontSize="17"></Label>
-                <Label Text="Dirección: "  x:Name="TxtDireccion" FontSize="17"></Label>
-                <Label Text="Barrio: "  x:Name="TxtBarrio" FontSize="17"></Label>
-                <Label Text="Ciudad: "  x:Name="TxtCiudad" FontSize="17"></Label>
-                <Label Text="Departamento: "  x:Name="TxtDepartamento" FontSize="17"></Label>
+        
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="8*" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="4*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+            
+                <StackLayout  Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" Grid.RowSpan="2">
+                <ScrollView>
+                    <StackLayout Padding="20,20,20,20">
+                        <Label Text="" x:Name="TxtNombrePlace" HorizontalOptions="Center" FontSize="30" Font="Bold,30" TextColor="#9c27b0"/>
+                        <Image x:Name="FPlace" Source="" HorizontalOptions="Center" WidthRequest="200" HeightRequest="200"/>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <!--<Button x:Name="btnUbicacion"  Grid.Row="0" Grid.Column="0" Text="Ubicación" BackgroundColor="#9c27b0" TextColor="#FFFFFF" HorizontalOptions="FillAndExpand"></Button>
+                            <Button x:Name="btnGaleria"  Grid.Row="0" Grid.Column="1" Text="Galeria" BackgroundColor="#9c27b0" TextColor="#FFFFFF" HorizontalOptions="FillAndExpand"></Button>-->
+                            <Button Image="lapiz.png" x:Name="btnEditar" Grid.Row="0" Grid.Column="0" IsVisible="false" IsEnabled="false" Text="Editar" BackgroundColor="#9c27b0" TextColor="#FFFFFF"></Button>
+                            <Button Image="basura.png" x:Name="btnEliminar" Grid.Row="0" Grid.Column="1" IsVisible="false" IsEnabled="false" Text="Eliminar" BackgroundColor="#9c27b0" TextColor="#FFFFFF"></Button>
+                        </Grid>
+                        <Button Image="compartir.png" x:Name="btnCompartir" Text="Compartir" BackgroundColor="#9c27b0" TextColor="#FFFFFF"></Button>
+                        <Label Text="--TERCERIA--"  x:Name="txtTerceria" HorizontalOptions="Center" FontSize="17"></Label>
+                        <Label Text="Precio: " x:Name="TxtPrecio" FontSize="17"></Label>
+                        <Label Text="Dirección: "  x:Name="TxtDireccion" FontSize="17"></Label>
+                        <Label Text="Barrio: "  x:Name="TxtBarrio" FontSize="17"></Label>
+                        <Label Text="Ciudad: "  x:Name="TxtCiudad" FontSize="17"></Label>
+                        <Label Text="Departamento: "  x:Name="TxtDepartamento" FontSize="17"></Label>
+                        <Label Text="Categoria: "  x:Name="txtCategoria" FontSize="17"></Label>
 
-                <Label Text="Información del inmueble" HorizontalOptions="CenterAndExpand" FontSize="25" TextColor="#9c27b0" Font="Bold,25"/>
 
-                <Label Text="Tipo de inmueble: "  x:Name="TxtTipo" FontSize="17"></Label>
-                <Label Text="Area: "  x:Name="TxtArea" FontSize="17"></Label>
-                <Label Text="Ubicación: "  x:Name="TxtUbicacion" FontSize="17"></Label>
-                <Label Text="Habitaciones: "  x:Name="TxtHabitaciones" FontSize="17"></Label>
-                <Label Text="Baños: "  x:Name="TxtBanos" FontSize="17"></Label>
-                <Label Text="Parqueaderos: " x:Name="TxtParqueaderos" FontSize="17"></Label>
-                <Label Text="Estrato: " x:Name="TxtEstrato" FontSize="17"></Label>
-                <Label Text="Antiguedad:"  x:Name="TxtAntiguedad" FontSize="17"></Label>
+                        <Label Text="Información del inmueble" HorizontalOptions="CenterAndExpand" FontSize="25" TextColor="#9c27b0" Font="Bold,25"/>
 
-                <Label Text="Descripción" HorizontalOptions="CenterAndExpand" FontSize="25" TextColor="#9c27b0" Font="Bold,25"/>
+                        <Label Text="Tipo de inmueble: "  x:Name="TxtTipo" FontSize="17"></Label>
+                        <Label Text="Area: "  x:Name="TxtArea" FontSize="17"></Label>
+                        <Label Text="Ubicación: "  x:Name="TxtUbicacion" FontSize="17"></Label>
+                        <Label Text="Habitaciones: "  x:Name="TxtHabitaciones" FontSize="17"></Label>
+                        <Label Text="Baños: "  x:Name="TxtBanos" FontSize="17"></Label>
+                        <Label Text="Parqueaderos: " x:Name="TxtParqueaderos" FontSize="17"></Label>
+                        <Label Text="Estrato: " x:Name="TxtEstrato" FontSize="17"></Label>
+                        <Label Text="Antiguedad:"  x:Name="TxtAntiguedad" FontSize="17"></Label>
 
-                <Label Text=""  x:Name="TxtDescripcion" FontSize="15"></Label>
+                        <Label Text="Descripción" HorizontalOptions="CenterAndExpand" FontSize="25" TextColor="#9c27b0" Font="Bold,25"/>
+
+                        <Label Text=""  x:Name="TxtDescripcion" FontSize="15"></Label>
 
 
-                <Button x:Name="btnEditar" IsVisible="false" IsEnabled="false" Text="Editar" BackgroundColor="#9c27b0" TextColor="#FFFFFF"></Button>
-                <Button x:Name="btnEliminar" IsVisible="false" IsEnabled="false" Text="Eliminar" BackgroundColor="#9c27b0" TextColor="#FFFFFF"></Button>
+                        <Button Image="youtube.png" x:Name="btnYoutube" IsVisible="False" IsEnabled="False" Text="Ver Video" BackgroundColor="#9c27b0" TextColor="#FFFFFF"></Button>
 
-                <!--<StackLayout>
+
+
+
+
+                        <!--<StackLayout>
                     <StackLayout HorizontalOptions="Center" VerticalOptions="Start">
                         <Image Margin="0,50,0,0" x:Name="imgBanner" Source="banner.png"></Image>
                     </StackLayout>
@@ -53,11 +75,21 @@
                     </StackLayout>
                 </StackLayout>-->
 
-                <!--<ActivityIndicator x:Name="waitActivityIndicator" HorizontalOptions="Center"></ActivityIndicator>-->
-                <!--<ScrollView>-->
-                <!--<ListView x:Name="FotosInmuebleListView" HorizontalOptions="FillAndExpand" HeightRequest="222" RowHeight="111"/>-->
-                <!--</ScrollView> -->
+                        <!--<ActivityIndicator x:Name="waitActivityIndicator" HorizontalOptions="Center"></ActivityIndicator>-->
+                        <!--<ScrollView>-->
+                        <!--<ListView x:Name="FotosInmuebleListView" HorizontalOptions="FillAndExpand" HeightRequest="222" RowHeight="111"/>-->
+                        <!--</ScrollView> -->
+                    </StackLayout>
+            </ScrollView>
             </StackLayout>
-        </ScrollView>
+            
+            <views:FloatingActionButton Image="galeria.png" Grid.Column="1" Grid.Row="1" ButtonColor="#9c27b0" WidthRequest="56" HeightRequest="56" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" x:Name="btnGaleria"/>
+                <StackLayout Grid.Column="0" Grid.Row="1" Orientation="Horizontal">
+                    <Label Text="  "></Label>
+                    <views:FloatingActionButton Image="mapa.png" Grid.Column="0" Grid.Row="1" ButtonColor="#9c27b0" WidthRequest="56" HeightRequest="56" HorizontalOptions="StartAndExpand" VerticalOptions="CenterAndExpand" x:Name="btnUbicacion"/>
+                </StackLayout>
+            </Grid>
+            
+        
     </ContentPage.Content>
 </ContentPage>

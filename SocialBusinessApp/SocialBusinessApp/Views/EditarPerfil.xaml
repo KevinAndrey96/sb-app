@@ -106,13 +106,16 @@
                     <Entry x:Name="txtAno" Grid.Row="0" Grid.Column="2" Placeholder="Año" Keyboard="Numeric"></Entry>
                 </Grid>
                 <Label Text="Redes Sociales" TextColor="#9c27b0" FontSize="25"></Label>
-                <Entry x:Name="txtFacebook" Placeholder="Facebook URL"></Entry>
-                <Entry x:Name="txtTwitter" Placeholder="Twitter URL"></Entry>
-                <Entry x:Name="txtInstagram" Placeholder="Instagram URL"></Entry>
-                <Entry x:Name="txtYoutube" Placeholder="Youtube URL"></Entry>
-                <Entry x:Name="txtWeb" Placeholder="Sitio Web URL"></Entry>
+                    <Entry x:Name="txtFacebook" Placeholder="Facebook URL"></Entry>
+                    <Entry x:Name="txtTwitter" Placeholder="Twitter URL"></Entry>
+                    <Entry x:Name="txtInstagram" Placeholder="Instagram URL"></Entry>
+                    <Entry x:Name="txtYoutube" Placeholder="Youtube URL"></Entry>
+                    <Entry x:Name="txtWeb" Placeholder="Sitio Web URL"></Entry>
+                <Label Text="Inmobiliaria" TextColor="#9c27b0" FontSize="25"></Label>
+                <Picker x:Name="pikInmobiliaria" Title="Inmobiliaria" HorizontalOptions="FillAndExpand"></Picker>
 
-                <Button x:Name="btnActualizar" Text="Actualizar datos" BackgroundColor="#9c27b0" TextColor="#FFFFFF"></Button>
+                <!--<Button Image="casa.png" x:Name="btnInmobiliaria" Text="Inmobiliaria" BackgroundColor="#9c27b0" TextColor="#FFFFFF"></Button>-->
+                <Button Image="ok.png" x:Name="btnActualizar" Text="Actualizar datos" BackgroundColor="#9c27b0" TextColor="#FFFFFF"></Button>
             </StackLayout>
         </ScrollView>
     </ContentPage.Content>

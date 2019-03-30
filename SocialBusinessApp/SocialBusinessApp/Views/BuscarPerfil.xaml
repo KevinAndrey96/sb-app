@@ -1,57 +1,109 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:views="clr-namespace:SuaveControls.Views;assembly=SuaveControls.FloatingActionButton"
              x:Class="SocialBusinessApp.Views.BuscarPerfil">
     <ContentPage.Content>
-        <StackLayout Padding="20,20,20,20">
-            <!--<StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+
+
+
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="8*" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="4*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <StackLayout  Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" Grid.RowSpan="2">
+                <ScrollView>
+                    <StackLayout Padding="20,20,20,20">
+                        <!--<StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
                 <Image x:Name="FPerfil" Source="" WidthRequest="150" HorizontalOptions="Center"/>
                 <Image x:Name="FInmobiliaria" Source="" WidthRequest="150" HorizontalOptions="Center"/>
             </StackLayout>-->
-            <Grid>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="*" />
-                </Grid.RowDefinitions>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="*" />
-                </Grid.ColumnDefinitions>
-                <Image x:Name="FPerfil" Source="" Grid.Row="0" Grid.Column="0" WidthRequest="150" HorizontalOptions="Center"/>
-                <Image x:Name="FInmobiliaria" Grid.Row="0" Grid.Column="1" Source="" WidthRequest="150" HorizontalOptions="Center"/>
-            </Grid>
-            <Label x:Name="TxtName" Text="" TextColor="#9c27b0" HorizontalOptions="Center" FontSize="25"></Label>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Image x:Name="FPerfil" Source="" Grid.Row="0" Grid.Column="0" WidthRequest="150" HorizontalOptions="Center"/>
+                            <Image x:Name="FInmobiliaria" Grid.Row="0" Grid.Column="1" Source="" WidthRequest="150" HorizontalOptions="Center"/>
+                        </Grid>
 
-            <Label x:Name="TxtCodigo" Text="" HorizontalOptions="Center" Font="Bold,30"></Label>
-            <Label x:Name="TxtDepartamento" Text="" HorizontalOptions="Center" Font="Bold,20"></Label>
-            <Label x:Name="TxtCorreo" Text="" FontSize="20"></Label>
-            <Label x:Name="TxtCelular" Text="" FontSize="20"></Label>
-            <Label x:Name="TxtPosicion" Text="" FontSize="20"></Label>
-            <Label x:Name="TxtPuntaje" Text="" FontSize="20"></Label>
+                        <Label x:Name="TxtName" Text="" HorizontalOptions="Center" Font="Bold,30" TextColor="#9c27b0"></Label>
+                        <Label x:Name="TxtCodigo" Text="" HorizontalOptions="Center" Font="Bold,30"></Label>
+                        <Label x:Name="TxtDepartamento" Text="" HorizontalOptions="Center" Font="Bold,20"></Label>
 
-            <Label x:Name="TxtInmobiliaria" Text="" HorizontalOptions="Center" FontSize="25" Font="Bold,25" TextColor="#9c27b0"></Label>
-            <Label x:Name="TxtNit" HorizontalOptions="Center" Text="" FontSize="20"></Label>
+                        <Label x:Name="TxtCorreo" Text="" FontSize="20"></Label>
+                        <Label x:Name="TxtCelular" Text="" FontSize="20"></Label>
+                        <Label x:Name="TxtPosicion" Text="" FontSize="20"></Label>
+                        <Label x:Name="TxtPuntaje" Text="" FontSize="20"></Label>
 
-            
+                        <Label x:Name="TxtInmobiliaria" Text="" HorizontalOptions="Center" FontSize="25" Font="Bold,25" TextColor="#9c27b0"></Label>
+                        <Label x:Name="TxtNit" HorizontalOptions="Center" Text="" FontSize="20"></Label>
 
-            <StackLayout  Orientation="Horizontal" HorizontalOptions="FillAndExpand">
-                <!--<Button x:Name="BtnOfertas" Text="Ofertas" HeightRequest="80"  HorizontalOptions="FillAndExpand"  BackgroundColor="#448AFF" TextColor="#FFFFFF"></Button>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+
+                            <Button Image="whatsapp.png" Grid.Row="0" Grid.Column="0" x:Name="btnWhatsapp" BackgroundColor="#25d366" TextColor="#ffffff" HorizontalOptions="FillAndExpand"></Button>
+                            <Button Image="facebook.png" Grid.Row="0" x:Name="btnFacebook" Grid.Column="1" BackgroundColor="#3c5a99" HorizontalOptions="FillAndExpand"></Button>
+                            <Button Image="instagram.png" Grid.Row="0" Grid.Column="2" x:Name="btnInstagram"  BackgroundColor="#e1306c" TextColor="#ffffff"  HorizontalOptions="FillAndExpand"></Button>
+                            <Button Image="twitter.png" Grid.Row="0" Grid.Column="3"  x:Name="btnTwitter" BackgroundColor="#1da1f2" TextColor="#ffffff"  HorizontalOptions="FillAndExpand"></Button>
+                            <Button Image="youtube2.png" Grid.Row="0" Grid.Column="4"  x:Name="btnYoutube" BackgroundColor="#FF0000" TextColor="#ffffff"  HorizontalOptions="FillAndExpand"></Button>
+                            <Button Image="web.png" Grid.Row="0" Grid.Column="5"  x:Name="btnWeb" BackgroundColor="#9c27b0" TextColor="#ffffff"  HorizontalOptions="FillAndExpand"></Button>
+                        </Grid>
+
+                        <!--<Button Image="whatsapp.png" Text="Whatsapp" BackgroundColor="#25d366" TextColor="#ffffff" HorizontalOptions="FillAndExpand"></Button>
+                    <Button Image="facebook.png" Text="Facebook" BackgroundColor="#3c5a99" HorizontalOptions="FillAndExpand"></Button>
+                    <Button Image="instagram.png" Text="Instagram" BackgroundColor="#e1306c" TextColor="#ffffff"  HorizontalOptions="FillAndExpand"></Button>
+                    <Button Image="twitter.png" Text="Twitter" BackgroundColor="#1da1f2" TextColor="#ffffff"  HorizontalOptions="FillAndExpand"></Button>
+                    <Button Image="youtube.png" Text="Youtube" BackgroundColor="#FF0000" TextColor="#ffffff"  HorizontalOptions="FillAndExpand"></Button>
+                    <Button Image="web.png" Text="Sitio Web" BackgroundColor="#9c27b0" TextColor="#ffffff"  HorizontalOptions="FillAndExpand"></Button>-->
+
+
+                        <StackLayout  Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                            <!--<Button x:Name="BtnOfertas" Text="Ofertas" HeightRequest="80"  HorizontalOptions="FillAndExpand"  BackgroundColor="#448AFF" TextColor="#FFFFFF"></Button>
                 <Button x:Name="BtnInmobiliaria" Text="E. Inmobiliario" HeightRequest="80"  HorizontalOptions="FillAndExpand"  BackgroundColor="#448AFF" TextColor="#FFFFFF"></Button>
             </StackLayout>
             <StackLayout  Orientation="Horizontal" HorizontalOptions="FillAndExpand">
                 <Button x:Name="BtnComentarios" Text="Comentarios" HeightRequest="80"  HorizontalOptions="FillAndExpand"  BackgroundColor="#448AFF" TextColor="#FFFFFF"></Button>
                 <Button x:Name="BtnLogros" Text="Logros" HeightRequest="80"   HorizontalOptions="FillAndExpand" BackgroundColor="#448AFF" TextColor="#FFFFFF"></Button>-->
-                <!--<Image x:Name="BtnOfert" Source="ofertas.png" WidthRequest="100" HeightRequest="100" HorizontalOptions="Center"/>
+                            <!--<Image x:Name="BtnOfert" Source="ofertas.png" WidthRequest="100" HeightRequest="100" HorizontalOptions="Center"/>
                 <Image x:Name="BtnTeam" Source="equipo.png" WidthRequest="100" HeightRequest="100" HorizontalOptions="Center"/>
                 <Image x:Name="BtnComments" Source="comentarios.png" WidthRequest="100" HeightRequest="100" HorizontalOptions="Center"/>
                 <Image x:Name="BtnAchievement" Source="logros.png" WidthRequest="100" HeightRequest="100" HorizontalOptions="Center"/>
                 -->
 
-            </StackLayout>
-            <Button Image="libro.png" x:Name="btnOfertas" Text="Ofertas" BackgroundColor="#9c27b0" TextColor="#FFFFFF"></Button>
-            <Button Image="comentario.png" x:Name="btnComentarios" Text="Comentarios" BackgroundColor="#9c27b0" TextColor="#FFFFFF"></Button>
-            <Button Image="trofeo.png" x:Name="btnLogros" Text="Logros" BackgroundColor="#9c27b0" TextColor="#FFFFFF"></Button>
-            <Button Image="usuarios.png" x:Name="btnEquipo" Text="Equipo inmobiliario" BackgroundColor="#9c27b0" TextColor="#FFFFFF"></Button>
+                        </StackLayout>
+                        <Button Image="libro.png" x:Name="btnOfertas" Text="Ofertas" BackgroundColor="#9c27b0" TextColor="#FFFFFF"></Button>
+                        <!--<Button Image="comentario.png" x:Name="btnComentarios" Text="Comentarios" BackgroundColor="#9c27b0" TextColor="#FFFFFF"></Button>-->
+                        <!--<Button Image="trofeo.png" x:Name="btnLogros" Text="Logros" BackgroundColor="#9c27b0" TextColor="#FFFFFF"></Button>-->
+                        <Button Image="usuarios.png" x:Name="btnEquipo" Text="Equipo inmobiliario" BackgroundColor="#9c27b0" TextColor="#FFFFFF"></Button>
 
-        </StackLayout>
+                    </StackLayout>
+                </ScrollView>
+            </StackLayout>
+            <views:FloatingActionButton Image="comentario.png" Grid.Column="1" Grid.Row="1" ButtonColor="#9c27b0" WidthRequest="56" HeightRequest="56" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" x:Name="btnComentarios" />
+            <StackLayout Grid.Column="0" Grid.Row="1" Orientation="Horizontal">
+                <Label Text="  "></Label>
+                <views:FloatingActionButton Image="trofeo.png" Grid.Column="0" Grid.Row="1" ButtonColor="#9c27b0" WidthRequest="56" HeightRequest="56" HorizontalOptions="StartAndExpand" VerticalOptions="CenterAndExpand" x:Name="btnLogros"/>
+            </StackLayout>
+
+        </Grid>
     </ContentPage.Content>
 </ContentPage>

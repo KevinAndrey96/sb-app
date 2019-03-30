@@ -63,7 +63,7 @@ namespace SocialBusinessApp
             {
                 HttpClient client = new HttpClient
                 {
-                    BaseAddress = new Uri("http://app.socialbusiness.com.co")
+                    BaseAddress = new Uri("https://app.socialbusiness.com.co")
                 };
                 string url = string.Format("/api/RankingProfesional.php");
                 var response = await client.GetAsync(url);

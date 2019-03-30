@@ -12,7 +12,7 @@
             <Label Text=""></Label>
             <Entry x:Name="txtEmail" Placeholder="Correo electrónico" WidthRequest="250" Keyboard="Email"  Text="" HorizontalOptions="FillAndExpand"></Entry>
             <Label Text=""></Label>
-            <Button x:Name="btnOlvidoClave" Text="Recuperar contraseña" BackgroundColor="#9c27b0"  WidthRequest="150" TextColor="#FFFFFF" RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent,Property=Height,Factor=1,Constant=250}" RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent,Property=Width,Factor=.5}" ></Button>
+            <Button Image="candado.png" x:Name="btnOlvidoClave" Text="Recuperar contraseña" BackgroundColor="#9c27b0"  WidthRequest="150" TextColor="#FFFFFF" RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent,Property=Height,Factor=1,Constant=250}" RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent,Property=Width,Factor=.5}" ></Button>
         </StackLayout>
         
     </ContentPage.Content>

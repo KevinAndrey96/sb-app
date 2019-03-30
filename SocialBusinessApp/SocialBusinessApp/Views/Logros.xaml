@@ -11,7 +11,7 @@
                     <Label Text="Logro" TextColor="#9c27b0" HorizontalOptions="Center" FontSize="17"></Label>
                 </StackLayout>
                 
-                <ListView x:Name="LogrosListView" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" RowHeight="30"/>
+                <ListView x:Name="LogrosListView" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" RowHeight="60"/>
             </StackLayout>
         </StackLayout>
     </ContentPage.Content>

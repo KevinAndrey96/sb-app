@@ -26,8 +26,32 @@ namespace SocialBusinessApp.Views
             btnComentarios.Clicked += (sender, e) => btnComentariosClick(Perfil);
             btnLogros.Clicked += (sender, e) => btnLogrosClick(Perfil);
             btnEquipo.Clicked += (sender, e) => btnEquipoClick(Perfil);
+
         }
 
+        private void BtnWhatsappClick(string number)
+        {
+            if (number == "")
+            {
+                DisplayAlert("Alerta", "El usuario no tiene configurado su whatsapp aún", "Ok");
+            }
+            else
+            {
+                Device.OpenUri(new Uri("https://api.whatsapp.com/send?phone=57" + number));
+            }
+        }
+        private void BtnURLClick(string url)
+        {
+            if (url == "")
+            {
+                DisplayAlert("Alerta", "El usuario no tiene configurada esta red social aún", "Ok");
+            }
+            else
+            {
+                Device.OpenUri(new Uri(url));
+            }
+
+        }
         private async void btnOfertasClick(string Code)
         {
             await Navigation.PushModalAsync(new OfertasUsuario("Código: "+Code));
@@ -79,9 +103,17 @@ namespace SocialBusinessApp.Views
                     TxtNit.Text = "";
                     btnEquipo.IsVisible = false;
                 }
-                
+
+
+                btnWhatsapp.Clicked += (sender, e) => BtnWhatsappClick(Userio.Celular);
+                btnFacebook.Clicked += (sender, e) => BtnURLClick(Userio.Facebook);
+                btnTwitter.Clicked += (sender, e) => BtnURLClick(Userio.Twitter);
+                btnInstagram.Clicked += (sender, e) => BtnURLClick(Userio.Instagram);
+                btnYoutube.Clicked += (sender, e) => BtnURLClick(Userio.Youtube);
+                btnWeb.Clicked += (sender, e) => BtnURLClick(Userio.Web);
+
                 //TxtDepartamento.Text = Userio.Departamento;
-                
+
             }
             catch (Exception e)
             {

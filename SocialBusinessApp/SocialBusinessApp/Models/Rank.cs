@@ -16,6 +16,12 @@ namespace SocialBusinessApp
         public string Fotografia { get; set; }
         public string Ciudad { get; set; }
 
+        public string Facebook { get; set; }
+        public string Instagram { get; set; }
+        public string Twitter { get; set; }
+        public string Youtube { get; set; }
+        public string Web { get; set; }
+
         public string Inmobiliaria { get; set; }
         public string Nit { get; set; }
         public string Celular { get; set; }

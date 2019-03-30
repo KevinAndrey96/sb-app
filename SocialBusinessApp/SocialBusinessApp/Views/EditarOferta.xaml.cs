@@ -49,6 +49,10 @@ namespace SocialBusinessApp.Views
                     DisplayAlert("Alerta", "Seleccione una opción valida para el tratamiento de fotos", "Ok");
                 }
             }
+            else
+            {
+                SendTo(placeid);
+            }
         }
         private async void SendTo(string placeid)
         {
@@ -202,7 +206,6 @@ namespace SocialBusinessApp.Views
                     //Navigation.InsertPageBefore(new Archivos(), this);
                     
                    
-                    await Navigation.PopModalAsync();
 
                 }
                 catch (Exception e)
@@ -210,6 +213,7 @@ namespace SocialBusinessApp.Views
                     await DisplayAlert("Alerta", "" + e, "Ok");
 
                 }
+                await Navigation.PopModalAsync();
             }
             
         }

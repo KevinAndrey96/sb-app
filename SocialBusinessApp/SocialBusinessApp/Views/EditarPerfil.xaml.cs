@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using SocialBusinessApp.Models;
 using System;
 using System.Collections.Generic;
@@ -15,12 +16,22 @@ namespace SocialBusinessApp.Views
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class EditarPerfil : ContentPage
 	{
+        private List<string> InmobiliariasL = new List<string>();
+        private List<Inmobiliaria> Inmo1;
+
+
+
         Inmobiliario Userio;
+        Inmobiliaria Inmobiliarias;
         public EditarPerfil()
         {
             InitializeComponent();
             Ejecucion();
             btnActualizar.Clicked += (sender, e) => BtnActualizarClick();
+            InmobiliariasL.Add("Baboon");
+            InmobiliariasL.Add("Capuchin Monkey");
+            CargarInmobiliarias();
+            //pikInmobiliaria.ItemsSource = InmobiliariasL;
 
         }
         private static HttpClient client = new HttpClient();
@@ -1230,6 +1241,36 @@ namespace SocialBusinessApp.Views
                 return;
             }
 
+        }
+
+        private async void CargarInmobiliarias()
+        {
+            string result;
+            try
+            {
+                HttpClient client = new HttpClient();
+                client.BaseAddress = new Uri("https://app.socialbusiness.com.co");
+                string url = string.Format("/api/ObtenerInmobiliarias.php");
+                var response = await client.GetAsync(url);
+                result = response.Content.ReadAsStringAsync().Result;
+                //Inmobiliarias = JsonConvert.DeserializeObject<Inmobiliaria>(responseString);
+                //Inmo1 = JsonConvert.DeserializeObject<List<Inmobiliaria>>(responseString);
+                //pikInmobiliaria.ItemsSource = Inmo1;
+                /*
+                JObject information = JObject.Parse(responseString);
+                string json = JsonConvert.SerializeObject(responseString["Nombre"]);
+                var myObjectList = (Inmobiliaria)JsonConvert.DeserializeObject(json, typeof(Inmobiliaria));
+                */
+                Inmo1 = JsonConvert.DeserializeObject<List<Inmobiliaria>>(result);
+
+            }
+            catch (Exception e)
+            {
+                //waitActivityIndicator.IsRunning = false;
+                await DisplayAlert("Alerta", "No se detecta conexión a internet, por favor intente más tarde" + e, "Ok");
+                return;
+            }
+            
         }
 
     }

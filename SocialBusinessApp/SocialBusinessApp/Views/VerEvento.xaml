@@ -24,9 +24,9 @@
             <Label Text="" FontSize="20"></Label>
 
             <!--<Button x:Name="BtnAsistir" Text="Inscribirse!" WidthRequest="150"  HorizontalOptions="Center"  BackgroundColor="#448AFF" TextColor="#FFFFFF"></Button>-->
-            <Button x:Name="btnAsistir" IsVisible="false" IsEnabled="false" Text="Asistir" BackgroundColor="#9c27b0" TextColor="#FFFFFF"></Button>
-            <Button x:Name="btnCancelar" IsVisible="false" IsEnabled="false" Text="Cancelar" BackgroundColor="#9c27b0" TextColor="#FFFFFF"></Button>
-            <Button x:Name="btnOpcionado" IsVisible="false" IsEnabled="false" Text="Postularte" BackgroundColor="#9c27b0" TextColor="#FFFFFF"></Button>
+                <Button Image="asistir.png" x:Name="btnAsistir" IsVisible="false" IsEnabled="false" Text="Asistir" BackgroundColor="#9c27b0" TextColor="#FFFFFF"></Button>
+                <Button Image="basura.png" x:Name="btnCancelar" IsVisible="false" IsEnabled="false" Text="Cancelar" BackgroundColor="#9c27b0" TextColor="#FFFFFF"></Button>
+                <Button Image="lapiz.png" x:Name="btnOpcionado" IsVisible="false" IsEnabled="false" Text="Postularte" BackgroundColor="#9c27b0" TextColor="#FFFFFF"></Button>
 
 
                 <!--<Button x:Name="" Text="Sitio Web" HeightRequest="80"  HorizontalOptions="FillAndExpand"  BackgroundColor="#448AFF" TextColor="#FFFFFF"></Button>

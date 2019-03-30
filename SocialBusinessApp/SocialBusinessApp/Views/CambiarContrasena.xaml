@@ -10,7 +10,7 @@
             <Entry x:Name="txtContraAct" Placeholder="Contraseña Actual"  IsPassword="True"></Entry>
             <Entry x:Name="txtContraNue" Placeholder="Contraseña Nueva"   IsPassword="True"></Entry>
             <Entry x:Name="txtContraNue2" Placeholder="Repita Nueva Contraseña"   IsPassword="True"></Entry>
-            <Button x:Name="btnCambiarContrasena" Text="Cambiar contraseña"  BackgroundColor="#9c27b0" TextColor="#FFFFFF"></Button>
+            <Button Image="ok.png" x:Name="btnCambiarContrasena" Text="Cambiar contraseña"  BackgroundColor="#9c27b0" TextColor="#FFFFFF"></Button>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

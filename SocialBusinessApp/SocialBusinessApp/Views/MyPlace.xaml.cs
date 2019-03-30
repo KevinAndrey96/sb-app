@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using Plugin.Share;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -35,6 +36,32 @@ namespace SocialBusinessApp.Views
             //btnEditar.Clicked += (sender, e) => btnEditarClick();
             //btnEliminar.Clicked += (sender, e) => btnEliminarClick();
             //btnGaleria.Clicked += (sender, e) => btnGaleriaClickAsync();
+
+            btnYoutube.Clicked += (sender, e) => BtnYoutubeClick(oferta.Youtube);
+            btnCompartir.Clicked += (sender, e) => BtnCompartirClick(oferta.ID,oferta.Nombre);
+
+            
+
+
+            txtCategoria.Text = "Categoria: " + oferta.Categoria;
+            if (oferta.Terceria == "Si")
+            {
+                txtTerceria.IsVisible = true;
+            }
+            else
+            {
+                txtTerceria.IsVisible = false;
+            }
+            if (oferta.Youtube != "")
+            {
+                btnYoutube.IsVisible = true;
+                btnYoutube.IsEnabled = true;
+            }
+            else
+            {
+                btnYoutube.IsVisible = false;
+                btnYoutube.IsEnabled = false;
+            }
 
             TxtNombrePlace.Text = oferta.Nombre;
             TxtPrecio.Text = "Precio: " + oferta.Precio;
@@ -82,7 +109,19 @@ namespace SocialBusinessApp.Views
 
 
         }
-        
+        private async void BtnYoutubeClick(string url)
+        {
+            await Navigation.PushModalAsync(new MisListados(url));
+        }
+        private async void BtnCompartirClick(string placeid,string nombre)
+        {
+            await CrossShare.Current.Share(new Plugin.Share.Abstractions.ShareMessage
+            {
+                Text = "Te invito a darle un vistazo a este inmueble que encontré en Social Business: "+nombre,
+                Title = "Inmueble Social Business",
+                Url = "https://app.socialbusiness.com.co/place/"+placeid
+            });
+        }
         private async void BtnEditarClick(string placeid)
         {
             await Navigation.PushModalAsync(new EditarOferta(placeid));

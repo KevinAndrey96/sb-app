@@ -17,7 +17,7 @@ using Xamarin.Forms.Xaml;
 namespace SocialBusinessApp
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class Place : ContentPage
+    public partial class Place2 : ContentPage
     {
         ObservableCollection<FileImageSource> imageSources = new ObservableCollection<FileImageSource>();
 
@@ -26,15 +26,15 @@ namespace SocialBusinessApp
         public string PlaceID;
         private string Lat;
         private string Long;
-        public Place(Oferta oferta)
-        {
+        public Place2(Oferta oferta)
+        {/*
             NavigationPage.SetHasNavigationBar(this, true);
             InitializeComponent();
             //this.LoadFotos();
             this.oferta = oferta;
 
-            btnUbicacion.Clicked += (sender, e) => btnUbicacionClickAsync();
-            btnGaleria.Clicked += (sender, e) => btnGaleriaF();
+            btnUbicacion.Clicked += (sender, e) => BtnUbicacionClickAsync();
+            
             //btnGaleria.Clicked += (sender, e) => btnGaleriaClickAsync();
 
             TxtNombrePlace.Text = oferta.Nombre;
@@ -43,6 +43,25 @@ namespace SocialBusinessApp
             TxtCiudad.Text = "Ciudad: "+oferta.Ciudad;
             TxtBarrio.Text = "Barrio: "+oferta.Barrio;
             TxtDepartamento.Text = "Departamento: "+oferta.Departamento;
+            btnYoutube.Clicked += (sender, e) => BtnYoutubeClick(oferta.Youtube);
+            txtCategoria.Text = "Categoria: "+oferta.Categoria;
+            if (oferta.Terceria == "Si")
+            {
+                txtTerceria.IsVisible = true;
+            }else
+            {
+                txtTerceria.IsVisible = false;
+            }
+            if(oferta.Youtube!="")
+            {
+                btnYoutube.IsVisible = true;
+                btnYoutube.IsEnabled = true;
+            }else
+            {
+                btnYoutube.IsVisible = true;
+                btnYoutube.IsEnabled = true;
+            }
+
             TxtTipo.Text = "Tipo: "+oferta.Tipo;
             TxtHabitaciones.Text = "Habitaciones: " + oferta.Habitaciones;
             TxtBanos.Text = "Baños: " + oferta.Banos;
@@ -50,7 +69,7 @@ namespace SocialBusinessApp
             TxtEstrato.Text = "Estrato: "+oferta.Estrato;
             TxtArea.Text = "Area: " + oferta.Area;
             TxtAntiguedad.Text = "Antiguedad: "+ oferta.Antiguedad;
-            TxtUbicacion.Text = "Ubicación: " + oferta.Ubicacion+ oferta.Lat+oferta.Long;
+            TxtUbicacion.Text = "Ubicación: " + oferta.Ubicacion;//+ oferta.Lat+oferta.Long;
             TxtDescripcion.Text = oferta.Descripcion;
             FPlace.Source = oferta.Fotografia;
             Lat = oferta.Lat;
@@ -64,23 +83,27 @@ namespace SocialBusinessApp
 
 
 
-
+            */
             
             //imageSources.Add("comentarios.png");
             //imageSources.Add(Uri("https://i.etsystatic.com/11805514/r/il/3fe133/1001694695/il_570xN.1001694695_lcrp.jpg"));
             //imgSlider.Images = imageSources;
         }
         
-        private async void btnUbicacionClickAsync()
+        private async void BtnUbicacionClickAsync()
         {
             //var objects = new Oferta();
             await Navigation.PushModalAsync(new Mapa(oferta.Lat,oferta.Long, oferta.Nombre, oferta.Direccion));
         }
-        private async void btnGaleriaClickAsync()
+        private async void BtnYoutubeClick(string url)
+        {
+            await Navigation.PushModalAsync(new MisListados(url));
+        }
+        private async void BtnGaleriaClickAsync()
         {
             await Navigation.PushModalAsync(new Gallery());
         }
-        private async void btnGaleriaF()
+        private async void BtnGaleriaF()
         {
             await Navigation.PushModalAsync(new MisListados("https://app.socialbusiness.com.co/gallery/?id="+PlaceID));
         }
