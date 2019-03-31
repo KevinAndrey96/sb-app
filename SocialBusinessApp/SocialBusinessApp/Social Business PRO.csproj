@@ -63,6 +63,7 @@
     <Compile Include="Tabbeds\TabbedMLS.xaml.cs">
       <DependentUpon>TabbedMLS.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ViewModels\MapEditarViewModel.cs" />
     <Compile Include="ViewModels\MapViewModel.cs" />
     <Compile Include="ViewModels\PickerVM.cs" />
     <Compile Include="Views\AdminInmobiliaria.xaml.cs">
@@ -119,6 +120,9 @@
     <Compile Include="Views\GMap.xaml.cs">
       <DependentUpon>GMap.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\GuardarUbicacion.xaml.cs">
+      <DependentUpon>GuardarUbicacion.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\HistoricoEventos.xaml.cs">
       <DependentUpon>HistoricoEventos.xaml</DependentUpon>
     </Compile>
@@ -130,6 +134,9 @@
     </Compile>
     <Compile Include="Views\Mapa.xaml.cs">
       <DependentUpon>Mapa.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MapaEditarUbicacion.xaml.cs">
+      <DependentUpon>MapaEditarUbicacion.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\MapPage.xaml.cs">
       <DependentUpon>MapPage.xaml</DependentUpon>
@@ -627,6 +634,18 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Views\GMap.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\MapaEditarUbicacion.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\GuardarUbicacion.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>

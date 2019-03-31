@@ -34,6 +34,16 @@ namespace SocialBusinessApp.Views
             InitializeComponent();
             Ejecucion(placeid);
             btnEditarOferta.Clicked += (sender, e) => BtnEditarOfertaClick(placeid);
+            //btnVerUbica.Clicked += (sender, e) => BtnVerUbicaClick();
+            btnEditarUbica.Clicked += (sender, e) => BtnEditarUbicaClick(placeid);
+        }
+        private async void BtnVerUbicaClick(string lat,string lon, string name, string direcc)
+        {
+            await Navigation.PushModalAsync(new Mapa(lat,lon,name,direcc));
+        }
+        private async void BtnEditarUbicaClick(string placeid)
+        {
+            await Navigation.PushModalAsync(new MapaEditarUbicacion(placeid));
         }
         private void BtnEditarOfertaClick(string placeid)
         {
@@ -197,7 +207,7 @@ namespace SocialBusinessApp.Views
                         foreach (string foto in _images)
                         {
                             var response2 = await CrossFileUploader.Current.UploadFileAsync($"https://app.socialbusiness.com.co/api/upload_photos.php?op=Ag&place_id=" + Rta.Codigo, new FilePathItem("uploaded_file", foto));
-                            await DisplayAlert("", response2.Message, "ok");
+                            //await DisplayAlert("", response2.Message, "ok");
                         }
                     }
 
@@ -1339,6 +1349,7 @@ namespace SocialBusinessApp.Views
                 txtCategoria.Title = ofer.Categoria;
                 txtTipo.Title = ofer.Tipo;
                 TxtTerceria.Title = ofer.Terceria;
+                btnVerUbica.Clicked += (sender, e) => BtnVerUbicaClick(ofer.Lat,ofer.Long,ofer.Nombre,ofer.Direccion);
 
             }
             catch (Exception e)

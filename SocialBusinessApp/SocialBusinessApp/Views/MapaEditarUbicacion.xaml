@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:googleMaps="clr-namespace:Xamarin.Forms.GoogleMaps;assembly=Xamarin.Forms.GoogleMaps"
+             xmlns:bindings="clr-namespace:Xamarin.Forms.GoogleMaps.Bindings;assembly=Xamarin.Forms.GoogleMaps.Bindings"
+             xmlns:local="clr-namespace:SocialBusinessApp.ViewModels"
+             x:Class="SocialBusinessApp.Views.MapaEditarUbicacion">
+    <ContentPage.BindingContext>
+        <local:MapEditarViewModel/>
+
+    </ContentPage.BindingContext>
+    <StackLayout>
+        <Label Text="Seleccione la ubicación en el mapa" HorizontalOptions="Center" FontSize="25"  TextColor="#9c27b0"/>
+        <Label Text="{Binding Username, Mode=TwoWay}" IsVisible="false" x:Name="place"  HorizontalOptions="Center" FontSize="25"  TextColor="#9c27b0"/>
+        <googleMaps:Map  InitialCameraUpdate="4.725800, -74.050556, 6, 0, 0">
+            <googleMaps:Map.Behaviors  >
+                <bindings:BindingPinsBehavior Value="{Binding Pins4}"/>
+                <bindings:MapClickedToCommandBehavior Command="{Binding MapClickedCommand}"/>
+            </googleMaps:Map.Behaviors>
+        </googleMaps:Map>
+        <Button Text="Seleccionar Ubicación y continuar" TextColor="#FFFFFF" Image="mapa.png" BackgroundColor="#9c27b0" Command="{Binding Continuarcom}"/>
+    </StackLayout>
+</ContentPage>

@@ -11,6 +11,7 @@
     </ContentPage.BindingContext>
     <StackLayout>
         <Label Text="Seleccione la ubicación en el mapa" HorizontalOptions="Center" FontSize="25"  TextColor="#9c27b0"/>
+        
         <googleMaps:Map  InitialCameraUpdate="4.725800, -74.050556, 6, 0, 0">
             <googleMaps:Map.Behaviors  >
                 <bindings:BindingPinsBehavior Value="{Binding Pins4}"/>
