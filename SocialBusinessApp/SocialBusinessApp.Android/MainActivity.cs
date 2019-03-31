@@ -26,6 +26,7 @@ using FFImageLoading.Forms.Platform;
 using Plugin.Permissions;
 using System.Threading.Tasks;
 using Android;
+//using TK.CustomMap.Droid;
 
 
 //using FFImageLoading.Forms.Platform;
@@ -46,18 +47,24 @@ namespace SocialBusinessApp.Droid
             
             global::Xamarin.Forms.Forms.Init(this, bundle);
             Xamarin.FormsMaps.Init(this, bundle);
+            //TKGoogleMaps.Init(this, bundle);
+            //TKCustomMapRenderer.InitMapRenderer();
+            
             Xamarin.Essentials.Platform.Init(this, bundle);
             ImageCarouselRenderer.Init();
 
+            Xamarin.FormsGoogleMaps.Init(this, bundle);
+            Xamarin.FormsGoogleMapsBindings.Init(); // Add this line
 
             FlowListView.Init();
+            
             //CachedImageRenderer.Init(false);
             //FFImageLoading.Forms.Platform.CachedImageRenderer.Init(true);
             //FFImageLoading.Forms.Platform.CachedImageRenderer.Init(enableFastRenderer: false);
             CachedImageRenderer.Init(true);
             //FFImageLoading.Forms.Platform.CachedImageRenderer.Init(enableFastRenderer: [true] /[false]);
 
-
+            
             LoadApplication(new App());
         }
 

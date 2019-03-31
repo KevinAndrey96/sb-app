@@ -36,7 +36,7 @@ namespace SocialBusinessApp.Views
             {
                 HttpClient client = new HttpClient
                 {
-                    BaseAddress = new Uri("http://app.socialbusiness.com.co")
+                    BaseAddress = new Uri("https://app.socialbusiness.com.co")
                 };
                 string url = string.Format("/api/Equipo.php?Profesional="+code.Substring(8));
                 var response = await client.GetAsync(url);

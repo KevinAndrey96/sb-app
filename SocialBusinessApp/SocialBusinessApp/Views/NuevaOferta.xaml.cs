@@ -20,10 +20,10 @@ using SkiaSharp;
 using SocialBusinessApp.ViewModels;
 using SocialBusinessApp.Models;
 
-namespace SocialBusinessApp
+namespace SocialBusinessApp.Views
 {
 	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class Listado : ContentPage
+	public partial class NuevaOferta: ContentPage
     {      
 
         private static HttpClient client = new HttpClient();
@@ -40,12 +40,12 @@ namespace SocialBusinessApp
         private List<Ciudad> Antioquia = new List<Ciudad>();
 
 
-        public Listado ()
+        public NuevaOferta (string lat, string lon)
 		{
             //NavigationPage.SetHasNavigationBar(this, false);
             _imagePickerService = DependencyService.Get<IImagePickerService>();
             InitializeComponent ();
-            btnPublicar.Clicked += (sender, e) => BtnPublicarClick();
+            btnPublicar.Clicked += (sender, e) => BtnPublicarClick(lat,lon);
 
             BindingContext = new PickerVM();
         }
@@ -1135,12 +1135,12 @@ namespace SocialBusinessApp
             await DependencyService.Get<IMediaService>().OpenGallery();
         }
 
-        private void BtnPublicarClick()
+        private void BtnPublicarClick(string lat, string lon)
         {
-            SendTo();
+            SendTo(lat,lon);
         }
         
-        private async void SendTo()
+        private async void SendTo(string lat, string lon)
         {
             var values = new Dictionary<string, string>
                 {
@@ -1160,6 +1160,9 @@ namespace SocialBusinessApp
                    { "Dato14", txtTe.Text},
                    { "Dato15", TxtTerceria.Items[TxtTerceria.SelectedIndex]},
 
+                   { "Dato16", lat},
+                   { "Dato17", lon},
+
                    { "Dato19", txtDe.Text},
                    { "Dato20", txtCategoria.Items[txtCategoria.SelectedIndex]},
                    { "Dato21", txtTipo.Items[txtTipo.SelectedIndex]},
@@ -1167,9 +1170,9 @@ namespace SocialBusinessApp
 
                 };
             var content = new FormUrlEncodedContent(values);
-
-            var response = await client.PostAsync("https://app.socialbusiness.com.co/api/Post.php", content);
-            //DisplayAlert("Alert", "You have been alerted 2", "OK");
+            
+            var response = await client.PostAsync("https://app.socialbusiness.com.co/api/NuevaOferta.php", content);
+            await DisplayAlert("Alert",lat+"/"+lon, "OK");
             try
             {
                 

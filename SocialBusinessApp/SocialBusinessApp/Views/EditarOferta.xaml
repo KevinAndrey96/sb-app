@@ -193,8 +193,20 @@
                         <x:String>Agregar</x:String>
                     </Picker.Items>
                 </Picker>
-                <Button BackgroundColor="#9c27b0" TextColor="#FFFFFF" Text="Fotografías de inmueble" Clicked="Handle_Clicked"/>
-                <Button x:Name="btnEditarOferta" Text="Editar publicación" BackgroundColor="#9c27b0" TextColor="#FFFFFF"></Button>
+              <Label Text="Ubicación" TextColor="#9c27b0" FontSize="25"></Label>
+              <Grid>
+                <Grid.RowDefinitions>
+                  <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                  <ColumnDefinition Width="*" />
+                  <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Button Image="mapa.png" Grid.Row="0" Grid.Column="0"  BackgroundColor="#9c27b0" TextColor="#FFFFFF" Text="Ver" x:Name="btnVerUbica"/>
+                <Button Image="lapiz.png" Grid.Row="0" Grid.Column="1"  x:Name="btnEditarUbica" Text="Editar" BackgroundColor="#9c27b0" TextColor="#FFFFFF"></Button>
+              </Grid>
+                <Button Image="galeria.png" BackgroundColor="#9c27b0" TextColor="#FFFFFF" Text="Fotografías de inmueble" Clicked="Handle_Clicked"/>
+                <Button Image="ok.png" x:Name="btnEditarOferta" Text="Guardar publicación" BackgroundColor="#9c27b0" TextColor="#FFFFFF"></Button>
             </StackLayout>
         </ScrollView>
     </ContentPage.Content>

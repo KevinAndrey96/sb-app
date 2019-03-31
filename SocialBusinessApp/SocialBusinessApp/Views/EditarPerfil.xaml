@@ -112,7 +112,13 @@
                     <Entry x:Name="txtYoutube" Placeholder="Youtube URL"></Entry>
                     <Entry x:Name="txtWeb" Placeholder="Sitio Web URL"></Entry>
                 <Label Text="Inmobiliaria" TextColor="#9c27b0" FontSize="25"></Label>
-                <Picker x:Name="pikInmobiliaria" Title="Inmobiliaria" HorizontalOptions="FillAndExpand"></Picker>
+                <StackLayout Orientation="Horizontal" Padding="5,5,5,5" HorizontalOptions="FillAndExpand">
+                    <Picker x:Name="pikInmobiliaria" Title="Inmobiliaria" HorizontalOptions="FillAndExpand"></Picker>
+                    <Button Image="mas.png" WidthRequest="50" HeightRequest="50" HorizontalOptions="Center" x:Name="btnAgregarInmobiliaria" BackgroundColor="#9c27b0"></Button>
+                </StackLayout>
+                <Entry x:Name="txtNombreI" IsVisible="False" Placeholder="Nombre Inmobiliaria"></Entry>
+                <Entry x:Name="txtNitI" IsVisible="False" Placeholder="Nit" Keyboard="Numeric"></Entry>
+
 
                 <!--<Button Image="casa.png" x:Name="btnInmobiliaria" Text="Inmobiliaria" BackgroundColor="#9c27b0" TextColor="#FFFFFF"></Button>-->
                 <Button Image="ok.png" x:Name="btnActualizar" Text="Actualizar datos" BackgroundColor="#9c27b0" TextColor="#FFFFFF"></Button>

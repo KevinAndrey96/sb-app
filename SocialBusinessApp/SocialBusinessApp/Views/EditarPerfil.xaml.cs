@@ -17,25 +17,30 @@ namespace SocialBusinessApp.Views
 	public partial class EditarPerfil : ContentPage
 	{
         private List<string> InmobiliariasL = new List<string>();
-        private List<Inmobiliaria> Inmo1;
+        private List<InmobiliariaO> Inmo1;
 
 
 
         Inmobiliario Userio;
-        Inmobiliaria Inmobiliarias;
         public EditarPerfil()
         {
             InitializeComponent();
             Ejecucion();
             btnActualizar.Clicked += (sender, e) => BtnActualizarClick();
-            InmobiliariasL.Add("Baboon");
-            InmobiliariasL.Add("Capuchin Monkey");
+            btnAgregarInmobiliaria.Clicked += (sender, e) => BtnAgregarInmobiliariaClick();
             CargarInmobiliarias();
             //pikInmobiliaria.ItemsSource = InmobiliariasL;
 
         }
         private static HttpClient client = new HttpClient();
         Respuesta Rta;
+        private async void BtnAgregarInmobiliariaClick()
+        {
+            pikInmobiliaria.SelectedIndex = -1;
+            await Navigation.PushModalAsync(new NuevaInmobiliaria());
+            /*txtNombreI.IsVisible = true;
+            txtNitI.IsVisible = true;*/
+        }
         private async void BtnActualizarClick()
         {
             string Departamento = "NO";
@@ -78,7 +83,17 @@ namespace SocialBusinessApp.Views
             {
                 Mes = "NO";
             }
-            if((Departamento!="NO" && Ciudad !="NO") || (Departamento==Ciudad) )
+            string Inmobi = "No";
+            try
+            {
+                Inmobi = pikInmobiliaria.Items[pikInmobiliaria.SelectedIndex];
+            }
+            catch
+            {
+                Inmobi = "NO";
+            }
+            
+            if ((Departamento!="NO" && Ciudad !="NO") || (Departamento==Ciudad) )
             {
                 var values = new Dictionary<string, string>
                 {
@@ -97,6 +112,9 @@ namespace SocialBusinessApp.Views
                     { "Instagram", txtInstagram.Text },
                     { "Youtubbe", txtYoutube.Text },
                     { "Web", txtWeb.Text },
+                    { "Inmobiliaria", Inmobi}
+                    /*{ "NombreI", txtNombreI.Text },
+                    { "NitI", txtNitI.Text }*/
 
                 };
 
@@ -1227,6 +1245,8 @@ namespace SocialBusinessApp.Views
                 txtInstagram.Text = Userio.Instagram;
                 txtYoutube.Text= Userio.Youtube;
                 txtWeb.Text= Userio.Web;
+
+                pikInmobiliaria.Title = Userio.Inmobiliaria;
                 /*
 
                 TxtInmobiliaria.Text = Userio.Inmobiliaria;
@@ -1261,7 +1281,17 @@ namespace SocialBusinessApp.Views
                 string json = JsonConvert.SerializeObject(responseString["Nombre"]);
                 var myObjectList = (Inmobiliaria)JsonConvert.DeserializeObject(json, typeof(Inmobiliaria));
                 */
-                Inmo1 = JsonConvert.DeserializeObject<List<Inmobiliaria>>(result);
+                //await DisplayAlert("", result, "Ok");
+
+                Inmo1 = JsonConvert.DeserializeObject<List<InmobiliariaO>>(result);
+
+                foreach (InmobiliariaO Inmobiliarial in Inmo1)
+                {
+                    InmobiliariasL.Add(Inmobiliarial.Nombre);
+                }
+
+                pikInmobiliaria.ItemsSource = InmobiliariasL;
+
 
             }
             catch (Exception e)

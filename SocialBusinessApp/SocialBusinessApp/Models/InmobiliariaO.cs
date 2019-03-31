@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 
 namespace SocialBusinessApp.Models
 {
-    public class Inmobiliaria
+    public class InmobiliariaO
     {
         public string Nombre { get; set; }
 
         public override string ToString()
         {
-            return base.ToString();
+            return Nombre.ToString();
         }
     }
 }

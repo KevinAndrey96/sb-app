@@ -143,6 +143,7 @@ namespace SocialBusinessApp.Views
             {
                 Terceria = "NO";
             }
+            
 
             if ((Departamento != "NO" && Ciudad != "NO") || (Departamento == Ciudad))
             {
@@ -169,6 +170,7 @@ namespace SocialBusinessApp.Views
                    { "Dato20", Categoria},
                    { "Dato21", Tipo},
                    { "Dato22", (String)App.Current.Properties["Usuario"]}
+                  
 
                 };
                 var content = new FormUrlEncodedContent(values);

@@ -8,33 +8,45 @@ using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using Xamarin.Forms.Maps;
+using SocialBusinessApp.Behaviors;
+using SocialBusinessApp.ViewModels;
+using Position = Xamarin.Forms.Maps.Position;
 
 namespace SocialBusinessApp.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class Mapa : ContentPage
     {
+        
         public Mapa(string Lat, string Long, string Nombre, string Direccion)
         {
             InitializeComponent();
+
             //DisplayAlert("1", "uno: "+Lat, "Dos: "+Long);
             
-
-            map.MoveToRegion(
+            map2.MoveToRegion(
                 MapSpan.FromCenterAndRadius(
-                    new Xamarin.Forms.Maps.Position(Convert.ToSingle(Lat), Convert.ToSingle(Long)), Distance.FromMiles(1)));
+                    new Xamarin.Forms.Maps.Position(Convert.ToDouble(Lat), Convert.ToDouble(Long)), Distance.FromMiles(1)));
 
-            var pin = new Pin
+            var pin2 = new Pin
             {
-                Type = PinType.Place,
-                Position = new Xamarin.Forms.Maps.Position(Convert.ToSingle(Lat), Convert.ToSingle(Long)),
+                Position = new Xamarin.Forms.Maps.Position(Convert.ToDouble(Lat), Convert.ToDouble(Long)),
                 Label = Nombre,
                 Address = Direccion,
                 Id = "Social Business"
             };
 
-            map.Pins.Add(pin);
+            map2.Pins.Add(pin2);
         }
+        /*private static void OnItemsSourceChanged(BindableObject view, object oldValue, object newValue)
+        {
+
+            if (view is MapBehavior mapBehavior)
+            {
+                mapBehavior.AddPins();
+                mapBehavior.PositionMap();
+            }
+        }*/
 
     }
 }

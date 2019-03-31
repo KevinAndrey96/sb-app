@@ -128,7 +128,9 @@ namespace SocialBusinessApp.Views
         }
         private async void btnUbicacionClickAsync()
         {
+            await DisplayAlert("", oferta.Lat + "/" + oferta.Long,"Ok");
             await Navigation.PushModalAsync(new Mapa(oferta.Lat, oferta.Long, oferta.Nombre, oferta.Direccion));
+            //await Navigation.PushModalAsync(new CustomMap());
         }
         
         private async void btnGaleriaF()

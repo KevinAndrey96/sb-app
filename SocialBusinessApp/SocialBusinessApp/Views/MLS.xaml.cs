@@ -75,7 +75,7 @@ namespace SocialBusinessApp
         }
         private void BtnAgregarOfertaClick()
         {
-            Navigation.PushModalAsync(new Listado());
+            Navigation.PushModalAsync(new GMap());
         }
         private void BtnPerfilClick()
         {

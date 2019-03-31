@@ -30,8 +30,13 @@ namespace SocialBusinessApp
             btnChangePassword.Clicked += (sender, e) => BtnChangePasswordClick();
             btnEditProfile.Clicked += (sender, e) => BtnEditProfileClick();
             btnPremium.Clicked += (sender, e) => BtnPremiumClick();
+            btnAdminI.Clicked += (sender, e) => BtnAdminIClick();
             btnLogout.Clicked += (sender, e) => BtnLogoutClick();
 
+        }
+        private async void BtnAdminIClick()
+        {
+            await Navigation.PushModalAsync(new AdminInmobiliaria());
         }
         private async void BtnChangePasswordClick()
         {
@@ -106,7 +111,15 @@ namespace SocialBusinessApp
                     TxtInmobiliaria.IsVisible = true;
                     TxtNit.IsVisible = true;
                 }
-                
+                if (Userio.Admin == "No")
+                {
+                    btnAdminI.IsVisible = false;
+                }
+                else
+                {
+                    btnAdminI.IsVisible = true;
+                }
+
                 TxtDepartamento.Text = Userio.Departamento;
 
             }

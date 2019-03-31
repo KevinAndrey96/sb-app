@@ -26,6 +26,7 @@ namespace SocialBusinessApp.Models
         public String Dia { get; set; }
         public String Mes { get; set; }
         public String Ano { get; set; }
+        public String Admin { get; set; }
 
         public String Facebook { get; set; }
         public String Twitter { get; set; }

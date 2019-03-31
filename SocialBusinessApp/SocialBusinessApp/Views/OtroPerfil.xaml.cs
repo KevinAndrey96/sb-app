@@ -26,7 +26,7 @@ namespace SocialBusinessApp
             if(rank.Nit!="")
             {
                 TxtInmobiliaria.Text = "Inmobiliaria: " + rank.Inmobiliaria;
-                TxtNit.Text = "Nit: " + rank.Nit;
+                TxtNit.Text = "Nit. " + rank.Nit;
                 btnEquipo.IsVisible = true;
             }
             else

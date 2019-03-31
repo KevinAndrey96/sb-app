@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SocialBusinessApp.Views.AdminInmobiliaria">
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="Equipo inmobiliario" TextColor="#9c27b0" HorizontalOptions="Center" FontSize="25"></Label>
+            <StackLayout Orientation="Horizontal" Padding="5,5,5,5" HorizontalOptions="FillAndExpand">
+                <Entry x:Name="txtCProfesional" Keyboard="Numeric" Placeholder="Agregar profesional por código" HorizontalOptions="FillAndExpand"></Entry>
+                <Button Image="mas.png" WidthRequest="50" HeightRequest="50" HorizontalOptions="Center" x:Name="btnAgregarProfesional" BackgroundColor="#9c27b0"></Button>
+            </StackLayout>
+            
+            <ListView x:Name="EquipoListView" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" RowHeight="111"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
