@@ -37,7 +37,7 @@
                         <Button Image="compartir.png" x:Name="btnCompartir" Text="Compartir" BackgroundColor="#9c27b0" TextColor="#FFFFFF"></Button>
                         <Label Text="--TERCERIA--"  x:Name="txtTerceria" HorizontalOptions="Center" FontSize="17"></Label>
                         <Label Text="Precio: " x:Name="TxtPrecio" FontSize="17"></Label>
-                        <Label Text="Dirección: "  x:Name="TxtDireccion" FontSize="17"></Label>
+                        <Label Text="Dirección: " IsVisible="False"  x:Name="TxtDireccion" FontSize="17"></Label>
                         <Label Text="Barrio: "  x:Name="TxtBarrio" FontSize="17"></Label>
                         <Label Text="Ciudad: "  x:Name="TxtCiudad" FontSize="17"></Label>
                         <Label Text="Departamento: "  x:Name="TxtDepartamento" FontSize="17"></Label>

@@ -1,6 +1,8 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
@@ -11,13 +13,20 @@ namespace SocialBusinessApp
     {
         Image splashImage;
 
+        private static HttpClient client = new HttpClient();
+        private String AppUsuario;
+        private String AppContrasena;
+        Respuesta Rta;
+
         public SplashPage()
         {
             NavigationPage.SetHasNavigationBar(this, false);
 
-            var sub = new AbsoluteLayout();
-            sub.HorizontalOptions = LayoutOptions.FillAndExpand;
-            sub.VerticalOptions = LayoutOptions.FillAndExpand;
+            var sub = new AbsoluteLayout
+            {
+                HorizontalOptions = LayoutOptions.FillAndExpand,
+                VerticalOptions = LayoutOptions.FillAndExpand
+            };
 
             splashImage = new Image
             {
@@ -41,7 +50,13 @@ namespace SocialBusinessApp
             this.BackgroundColor = Color.FromHex("#FFFFFF");
             this.Content = sub;
         }
-
+        private void GuardarSesion(String Usuario, String Contrasena, String Codigo)
+        {
+            //DisplayAlert("Bienvenido","Su sesión ha sido iniciada con exito","Ok");
+            App.Current.Properties["Codigo"] = Codigo;
+            App.Current.Properties["Usuario"] = Usuario;
+            App.Current.Properties["Contrasena"] = Contrasena;
+        }
 
         protected override async void OnAppearing()
         {
@@ -52,11 +67,75 @@ namespace SocialBusinessApp
             await splashImage.ScaleTo(0.9, 750, Easing.Linear);
             //await splashImage.ScaleTo(150, 1200, Easing.Linear);
             //await splashImage.ScaleTo(150, 600, Easing.Linear);
-            Application.Current.MainPage = new NavigationPage(new InicioSesion())
+            /*Application.Current.MainPage = new NavigationPage(new InicioSesion())
             {
                 BarBackgroundColor = Color.FromHex("#9c27b0"),
                 BarTextColor = Color.White,
-            };
+            };*/
+           if (App.Current.Properties.ContainsKey("Usuario"))
+            {
+                AppUsuario = (String)App.Current.Properties["Usuario"];
+                AppContrasena = (String)App.Current.Properties["Contrasena"];
+                SendTo();
+            }else
+            {
+                Application.Current.MainPage = new NavigationPage(new InicioSesion())
+                {
+                    BarBackgroundColor = Color.FromHex("#9c27b0"),
+                    BarTextColor = Color.White,
+                };
+            }
         }
+        private async void SendTo()
+        {
+            
+            var values = new Dictionary<string, string>
+                {
+                   { "Dato1",  AppUsuario},
+                   { "Dato2", AppContrasena }
+
+                };
+            var content = new FormUrlEncodedContent(values);
+
+            try
+            {
+                var response = await client.PostAsync("https://app.socialbusiness.com.co/api/Login.php", content);
+                var responseString = await response.Content.ReadAsStringAsync();
+                Rta = JsonConvert.DeserializeObject<Respuesta>(responseString);
+            }
+            catch (Exception)
+            {
+                await DisplayAlert("Alerta", "No se detecta conexión a internet, por favor intente más tarde", "Ok");
+                return;
+            }
+            if (Rta.Estado.Equals("Si"))
+            {
+                //GuardarSesion(AppUsuario, AppContrasena, Rta.Codigo);
+
+                /*Navigation.InsertPageBefore(new TabbedPage1(), this);
+                await Navigation.PopAsync().ConfigureAwait(false);
+                await Navigation.PushAsync(new TabbedPage1());*/
+                Application.Current.MainPage = new NavigationPage(new TabbedPage1())
+                {
+                    BarBackgroundColor = Color.FromHex("#9c27b0"),
+                    BarTextColor = Color.White,
+                };
+            }
+            else
+            {
+                //EliminarSesion();
+                Application.Current.MainPage = new NavigationPage(new InicioSesion())
+                {
+                    BarBackgroundColor = Color.FromHex("#9c27b0"),
+                    BarTextColor = Color.White,
+                };
+            }
+            
+        }
+        private void EliminarSesion()
+        {
+            Xamarin.Forms.Application.Current.Properties.Clear();
+        }
+
     }
 }

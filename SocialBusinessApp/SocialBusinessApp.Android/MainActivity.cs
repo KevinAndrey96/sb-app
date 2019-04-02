@@ -33,7 +33,7 @@ using Android;
 
 namespace SocialBusinessApp.Droid
 {
-    [Activity(Label = "Social Business PRO", Icon = "@drawable/icon", Theme = "@style/MainTheme", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
+    [Activity(Label = "Social Business PRO", Icon = "@drawable/icon", Theme = "@style/MainTheme", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation, ScreenOrientation = ScreenOrientation.Portrait)]
     public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsAppCompatActivity
     {
         public static int OPENGALLERYCODE = 100;
@@ -183,7 +183,7 @@ namespace SocialBusinessApp.Droid
         {
             if ((int)Build.VERSION.SdkInt >= 23)
             {
-                await GetPermissionsAsync();
+                GetPermissions();
                 return;
             }
         }
@@ -204,7 +204,7 @@ namespace SocialBusinessApp.Droid
                     //Manifest.Permission_group.Storage
              };
 
-        async Task GetPermissionsAsync()
+        void GetPermissions()
         {
             const string permission = Manifest.Permission.AccessFineLocation;
             if (CheckSelfPermission(permission) == (int)Android.Content.PM.Permission.Granted)
@@ -235,7 +235,7 @@ namespace SocialBusinessApp.Droid
             RequestPermissions(PermissionsGroupLocation, RequestLocationId);
         }
 
-        public override async void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Android.Content.PM.Permission[] grantResults)
+        public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Android.Content.PM.Permission[] grantResults)
         {
             switch (requestCode)
 

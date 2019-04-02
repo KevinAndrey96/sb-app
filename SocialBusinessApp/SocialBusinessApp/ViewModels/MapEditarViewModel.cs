@@ -68,7 +68,7 @@ namespace SocialBusinessApp.ViewModels
                 await Application.Current.MainPage.Navigation.PushModalAsync(new GuardarUbicacion(lat, lon, placeid));
 
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 await Application.Current.MainPage.DisplayAlert("Alerta", "Seleccione una ubicación en el mapa para continuar", "Ok");
             }

@@ -1,4 +1,5 @@
-﻿using SocialBusinessApp.Views;
+﻿using Plugin.Share;
+using SocialBusinessApp.Views;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -53,7 +54,17 @@ namespace SocialBusinessApp
             btnComentarios.Clicked += (sender, e) => BtnComentariosClick();
             btnLogros.Clicked += (sender, e) => BtnLogrosClick();
             btnEquipo.Clicked += (sender, e) => BtnEquipoClick();
+            btnCompartir.Clicked += (sender, e) => BtnCompartirClick(rank.Codigo, rank.Nombre);
 
+        }
+        private async void BtnCompartirClick(string code, string nombre)
+        {
+            await CrossShare.Current.Share(new Plugin.Share.Abstractions.ShareMessage
+            {
+                Text = "Te invito a darle un vistazo a este colega: " + nombre,
+                Title = "Colega Social Business",
+                Url = "https://app.socialbusiness.com.co/profile/" + code
+            });
         }
         private void BtnWhatsappClick(string number)
         {

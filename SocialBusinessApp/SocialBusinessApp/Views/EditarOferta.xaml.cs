@@ -226,6 +226,7 @@ namespace SocialBusinessApp.Views
 
                 }
                 await Navigation.PopModalAsync();
+                Application.Current.MainPage = new NavigationPage(new TabbedPage1());
             }
             
         }

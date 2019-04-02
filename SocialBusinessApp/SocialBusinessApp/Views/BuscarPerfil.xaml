@@ -58,14 +58,15 @@
                                 <ColumnDefinition Width="*" />
                                 <ColumnDefinition Width="*" />
                                 <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
                             </Grid.ColumnDefinitions>
-
-                            <Button Image="whatsapp.png" Grid.Row="0" Grid.Column="0" x:Name="btnWhatsapp" BackgroundColor="#25d366" TextColor="#ffffff" HorizontalOptions="FillAndExpand"></Button>
-                            <Button Image="facebook.png" Grid.Row="0" x:Name="btnFacebook" Grid.Column="1" BackgroundColor="#3c5a99" HorizontalOptions="FillAndExpand"></Button>
-                            <Button Image="instagram.png" Grid.Row="0" Grid.Column="2" x:Name="btnInstagram"  BackgroundColor="#e1306c" TextColor="#ffffff"  HorizontalOptions="FillAndExpand"></Button>
-                            <Button Image="twitter.png" Grid.Row="0" Grid.Column="3"  x:Name="btnTwitter" BackgroundColor="#1da1f2" TextColor="#ffffff"  HorizontalOptions="FillAndExpand"></Button>
-                            <Button Image="youtube2.png" Grid.Row="0" Grid.Column="4"  x:Name="btnYoutube" BackgroundColor="#FF0000" TextColor="#ffffff"  HorizontalOptions="FillAndExpand"></Button>
-                            <Button Image="web.png" Grid.Row="0" Grid.Column="5"  x:Name="btnWeb" BackgroundColor="#9c27b0" TextColor="#ffffff"  HorizontalOptions="FillAndExpand"></Button>
+                            <Button Image="compartir.png" Grid.Row="0" Grid.Column="0"  x:Name="btnCompartir" BackgroundColor="#9c27b0" TextColor="#ffffff"  HorizontalOptions="FillAndExpand"></Button>
+                            <Button Image="whatsapp.png" Grid.Row="0" Grid.Column="1" x:Name="btnWhatsapp" BackgroundColor="#25d366" TextColor="#ffffff" HorizontalOptions="FillAndExpand"></Button>
+                            <Button Image="facebook.png" Grid.Row="0" x:Name="btnFacebook" Grid.Column="2" BackgroundColor="#3c5a99" HorizontalOptions="FillAndExpand"></Button>
+                            <Button Image="instagram.png" Grid.Row="0" Grid.Column="3" x:Name="btnInstagram"  BackgroundColor="#e1306c" TextColor="#ffffff"  HorizontalOptions="FillAndExpand"></Button>
+                            <Button Image="twitter.png" Grid.Row="0" Grid.Column="4"  x:Name="btnTwitter" BackgroundColor="#1da1f2" TextColor="#ffffff"  HorizontalOptions="FillAndExpand"></Button>
+                            <Button Image="youtube2.png" Grid.Row="0" Grid.Column="5"  x:Name="btnYoutube" BackgroundColor="#FF0000" TextColor="#ffffff"  HorizontalOptions="FillAndExpand"></Button>
+                            <Button Image="web.png" Grid.Row="0" Grid.Column="6"  x:Name="btnWeb" BackgroundColor="#9c27b0" TextColor="#ffffff"  HorizontalOptions="FillAndExpand"></Button>
                         </Grid>
 
                         <!--<Button Image="whatsapp.png" Text="Whatsapp" BackgroundColor="#25d366" TextColor="#ffffff" HorizontalOptions="FillAndExpand"></Button>

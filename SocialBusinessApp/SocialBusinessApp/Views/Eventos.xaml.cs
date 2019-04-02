@@ -40,9 +40,11 @@ namespace SocialBusinessApp
             string result;
             try
             {
-                HttpClient client = new HttpClient();
-                client.BaseAddress = new Uri("https://app.socialbusiness.com.co");
-                string url = string.Format("/api/Eventos.php");
+                HttpClient client = new HttpClient
+                {
+                    BaseAddress = new Uri("https://app.socialbusiness.com.co")
+                };
+                string url = string.Format("/api/Eventos.php?Profesional="+ (String)App.Current.Properties["Codigo"]);
                 var response = await client.GetAsync(url);
                 result = response.Content.ReadAsStringAsync().Result;
             }

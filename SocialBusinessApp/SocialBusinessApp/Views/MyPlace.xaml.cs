@@ -31,8 +31,8 @@ namespace SocialBusinessApp.Views
             this.LoadFotos();
             this.oferta = oferta;
 
-            btnUbicacion.Clicked += (sender, e) => btnUbicacionClickAsync();
-            btnGaleria.Clicked += (sender, e) => btnGaleriaF();
+            btnUbicacion.Clicked += (sender, e) => BtnUbicacionClickAsync();
+            btnGaleria.Clicked += (sender, e) => BtnGaleriaF();
             //btnEditar.Clicked += (sender, e) => btnEditarClick();
             //btnEliminar.Clicked += (sender, e) => btnEliminarClick();
             //btnGaleria.Clicked += (sender, e) => btnGaleriaClickAsync();
@@ -84,18 +84,21 @@ namespace SocialBusinessApp.Views
             DisplayAlert("uno", "Dos: " + oferta.Lat, "Tres" + oferta.Long);
             PlaceID = oferta.ID;
 
-            if(mio)
+            if (mio)
             {
                 btnEditar.IsEnabled = true;
-                btnEditar.IsVisible= true;
+                btnEditar.IsVisible = true;
                 btnEliminar.IsEnabled = true;
                 btnEliminar.IsVisible = true;
-            }else
+                TxtDireccion.IsVisible = true;
+            }
+            else
             {
                 btnEditar.IsEnabled = false;
                 btnEditar.IsVisible = false;
                 btnEliminar.IsEnabled = false;
                 btnEliminar.IsVisible = false;
+                TxtDireccion.IsVisible = false;
             }
 
             btnEditar.Clicked += (sender, e) => BtnEditarClick(oferta.ID);
@@ -117,7 +120,7 @@ namespace SocialBusinessApp.Views
         {
             await CrossShare.Current.Share(new Plugin.Share.Abstractions.ShareMessage
             {
-                Text = "Te invito a darle un vistazo a este inmueble que encontré en Social Business: "+nombre,
+                Text = "Te invito a darle un vistazo a este inmueble: "+nombre,
                 Title = "Inmueble Social Business",
                 Url = "https://app.socialbusiness.com.co/place/"+placeid
             });
@@ -126,14 +129,14 @@ namespace SocialBusinessApp.Views
         {
             await Navigation.PushModalAsync(new EditarOferta(placeid));
         }
-        private async void btnUbicacionClickAsync()
+        private async void BtnUbicacionClickAsync()
         {
             //await DisplayAlert("", oferta.Lat + "/" + oferta.Long,"Ok");
             await Navigation.PushModalAsync(new Mapa(oferta.Lat, oferta.Long, oferta.Nombre, oferta.Direccion));
             //await Navigation.PushModalAsync(new CustomMap());
         }
         
-        private async void btnGaleriaF()
+        private async void BtnGaleriaF()
         {
             await Navigation.PushModalAsync(new MisListados("https://app.socialbusiness.com.co/gallery/?id=" + PlaceID));
         }
@@ -146,10 +149,11 @@ namespace SocialBusinessApp.Views
                 Delete();
                 await DisplayAlert("Correcto", "Se ha eliminado el inmueble con exito", "Ok");
                 await Navigation.PopModalAsync();
+                Application.Current.MainPage = new NavigationPage(new TabbedPage1());
             }
         }
 
-        private async void btnGaleriaClickAsync()
+        private async void BtnGaleriaClickAsync()
         {
             await Navigation.PushModalAsync(new Gallery());
         }
@@ -181,7 +185,7 @@ namespace SocialBusinessApp.Views
         private async void Delete()
         {
             //waitActivityIndicator.IsRunning = true;
-            string result;
+            
             try
             {
                 HttpClient client = new HttpClient();

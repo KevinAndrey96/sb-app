@@ -1,58 +1,77 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:views="clr-namespace:SuaveControls.Views;assembly=SuaveControls.FloatingActionButton"
              x:Class="SocialBusinessApp.Profile">
     <ContentPage.Content>
-        <ScrollView>
-                <StackLayout Padding="20,20,20,20">
+        <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="8*" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="4*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <StackLayout  Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" Grid.RowSpan="2">
+                <ScrollView>
+                    <StackLayout Padding="20,20,20,20">
 
-                <Grid>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="*" />
-                    </Grid.RowDefinitions>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="*" />
-                    </Grid.ColumnDefinitions>
-                    <Image x:Name="FPerfil" Source="" Grid.Row="0" Grid.Column="0" WidthRequest="150" HorizontalOptions="Center"/>
-                    <Image x:Name="FInmobiliaria" Grid.Row="0" Grid.Column="1" Source="" WidthRequest="150" HorizontalOptions="Center"/>
-                </Grid>
-                    
-                <Label x:Name="TxtName" Text="" HorizontalOptions="Center" Font="Bold,30" TextColor="#9c27b0"></Label>
-                    <Label x:Name="TxtCodigo" Text="" HorizontalOptions="Center" Font="Bold,30"></Label>
-                <Label x:Name="TxtDepartamento" Text="" HorizontalOptions="Center" Font="Bold,20"></Label>
-                    
-                <Label x:Name="TxtCorreo" Text="" FontSize="20"></Label>
-                    <Label x:Name="TxtCelular" Text="" FontSize="20"></Label>
-                    <Label x:Name="TxtPosicion" Text="" FontSize="20"></Label>
-                    <Label x:Name="TxtPuntaje" Text="" FontSize="20"></Label>
-                
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Image x:Name="FPerfil" Source="" Grid.Row="0" Grid.Column="0" WidthRequest="150" HorizontalOptions="Center"/>
+                            <Image x:Name="FInmobiliaria" Grid.Row="0" Grid.Column="1" Source="" WidthRequest="150" HorizontalOptions="Center"/>
+                        </Grid>
 
+                        <Label x:Name="TxtName" Text="" HorizontalOptions="Center" Font="Bold,30" TextColor="#9c27b0"></Label>
+                        <Label x:Name="TxtCodigo" Text="" HorizontalOptions="Center" Font="Bold,30"></Label>
+                        <Label x:Name="TxtDepartamento" Text="" HorizontalOptions="Center" Font="Bold,20"></Label>
 
-                    <Label x:Name="TxtInmobiliaria" Text="" HorizontalOptions="Center" FontSize="25" Font="Bold,25" TextColor="#9c27b0"></Label>
-                <Label x:Name="TxtNit" HorizontalOptions="Center" Text="" FontSize="20"></Label>
-
-                <Button Image="candado.png" x:Name="btnChangePassword" Text="Cambiar contraseña" BackgroundColor="#9c27b0" TextColor="#FFFFFF"></Button>
-                <Button Image="usuario.png" x:Name="btnEditProfile" Text="Editar perfil" BackgroundColor="#9c27b0" TextColor="#FFFFFF"></Button>
-                <Button Image="cohete.png" x:Name="btnPremium" IsVisible="false" Text="Actualizar a premium" BackgroundColor="#9c27b0" TextColor="#FFFFFF"></Button>
-                <Button Image="casa.png" x:Name="btnAdminI" IsVisible="False" Text="Admin Inmobiliaria" BackgroundColor="#9c27b0" TextColor="#FFFFFF"></Button>
-                <Button Image="salir.png" x:Name="btnLogout" Text="Cerrar sesión" BackgroundColor="#9c27b0" TextColor="#FFFFFF"></Button>
-                <Label x:Name="txtPremium" Text="Estado de suscripción" TextColor="#9c27b0" HorizontalOptions="Center" FontSize="25"></Label>
+                        <Label x:Name="TxtCorreo" Text="" FontSize="20"></Label>
+                        <Label x:Name="TxtCelular" Text="" FontSize="20"></Label>
+                        <Label x:Name="TxtPosicion" Text="" FontSize="20"></Label>
+                        <Label x:Name="TxtPuntaje" Text="" FontSize="20"></Label>
 
 
 
+                        <Label x:Name="TxtInmobiliaria" Text="" HorizontalOptions="Center" FontSize="25" Font="Bold,25" TextColor="#9c27b0"></Label>
+                        <Label x:Name="TxtNit" HorizontalOptions="Center" Text="" FontSize="20"></Label>
+
+                        <Button Image="candado.png" x:Name="btnChangePassword" Text="Cambiar contraseña" BackgroundColor="#9c27b0" TextColor="#FFFFFF"></Button>
+                        <!--<Button Image="usuario.png" x:Name="btnEditProfile" Text="Editar perfil" BackgroundColor="#9c27b0" TextColor="#FFFFFF"></Button>-->
+                        <Button Image="cohete.png" x:Name="btnPremium" IsVisible="false" Text="Actualizar a premium" BackgroundColor="#9c27b0" TextColor="#FFFFFF"></Button>
+                        <Button Image="casa.png" x:Name="btnAdminI" IsVisible="False" Text="Admin Inmobiliaria" BackgroundColor="#9c27b0" TextColor="#FFFFFF"></Button>
+                        <!--<Button Image="salir.png" x:Name="btnLogout" Text="Cerrar sesión" BackgroundColor="#9c27b0" TextColor="#FFFFFF"></Button>-->
+                        <Label x:Name="txtPremium" Text="Estado de suscripción" TextColor="#9c27b0" HorizontalOptions="Center" FontSize="25"></Label>
 
 
 
-                <!--
+
+
+
+                        <!--
                         <Image x:Name="BtnEditProfile" Source="registrarse.png" WidthRequest="100" HeightRequest="100" HorizontalOptions="Center"/>
                         <Image x:Name="BtnChangePassword" Source="password.png" WidthRequest="100" HeightRequest="100" HorizontalOptions="Center"/>
                         <Image x:Name="BtnPremium" Source="premium.png" WidthRequest="100" HeightRequest="100" HorizontalOptions="Center"/>
     -->
-                    <!--                
+                        <!--                
                     <Image x:Name="BtnLogout" Source="salir.png" WidthRequest="100" HeightRequest="100" HorizontalOptions="Center"/>
                     -->
-                </StackLayout>
-            </ScrollView>
+                    </StackLayout>
+                </ScrollView>
+            </StackLayout>
+        <views:FloatingActionButton Image="salir.png" Grid.Column="1" Grid.Row="1" ButtonColor="#9c27b0" WidthRequest="56" HeightRequest="56" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" x:Name="btnLogout"/>
+        <StackLayout Grid.Column="0" Grid.Row="1" Orientation="Horizontal">
+            <Label Text="  "></Label>
+            <views:FloatingActionButton Image="lapiz.png" Grid.Column="0" Grid.Row="1" ButtonColor="#9c27b0" WidthRequest="56" HeightRequest="56" HorizontalOptions="StartAndExpand" VerticalOptions="CenterAndExpand" x:Name="btnEditProfile"/>
+        </StackLayout>
+        </Grid>
+        
     </ContentPage.Content>
 </ContentPage>

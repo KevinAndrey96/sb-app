@@ -103,6 +103,7 @@ namespace SocialBusinessApp.Views
                 {
                     await DisplayAlert("¡Éxito!", Rta.Mensaje, "Ok");
                     await Navigation.PopModalAsync();
+                    Application.Current.MainPage = new NavigationPage(new TabbedPage1());
                 }
                 else
                 {
@@ -142,6 +143,7 @@ namespace SocialBusinessApp.Views
                 {
                     await DisplayAlert("¡Éxito!", Rta.Mensaje, "Ok");
                     await Navigation.PopModalAsync();
+                    Application.Current.MainPage = new NavigationPage(new TabbedPage1());
                 }
                 else
                 {
@@ -181,6 +183,7 @@ namespace SocialBusinessApp.Views
                 {
                     await DisplayAlert("¡Éxito!", Rta.Mensaje, "Ok");
                     await Navigation.PopModalAsync();
+                    Application.Current.MainPage = new NavigationPage(new TabbedPage1());
                 }
                 else
                 {

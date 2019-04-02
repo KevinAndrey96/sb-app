@@ -33,10 +33,10 @@ namespace SocialBusinessApp.Views
             BtnSearch.GestureRecognizers.Add(Search);
             */
             //AsociacionesListView.ItemTapped += AsociacionesListView_ItemTapped;
-            btnComentar.Clicked += (sender, e) => btnComentarClick(code);
+            btnComentar.Clicked += (sender, e) => BtnComentarClick(code);
 
         }
-        private async void btnComentarClick(string code)
+        private async void BtnComentarClick(string code)
         {
             var values = new Dictionary<string, string>
                 {
@@ -83,8 +83,10 @@ namespace SocialBusinessApp.Views
             string result;
             try
             {
-                HttpClient client = new HttpClient();
-                client.BaseAddress = new Uri("https://app.socialbusiness.com.co");
+                HttpClient client = new HttpClient
+                {
+                    BaseAddress = new Uri("https://app.socialbusiness.com.co")
+                };
                 string url = string.Format("/api/Comentarios.php?Profesional="+code.Substring(8));
                 var response = await client.GetAsync(url);
                 result = response.Content.ReadAsStringAsync().Result;

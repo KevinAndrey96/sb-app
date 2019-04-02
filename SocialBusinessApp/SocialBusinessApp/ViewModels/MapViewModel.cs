@@ -54,7 +54,7 @@ namespace SocialBusinessApp.ViewModels
                 string lat = Pins4.First().Position.Latitude.ToString();
                 string lon = Pins4.First().Position.Longitude.ToString();
                 await Application.Current.MainPage.Navigation.PushModalAsync(new NuevaOferta(lat, lon));
-            }catch(Exception e)
+            }catch (Exception)
             {
                 await Application.Current.MainPage.DisplayAlert("Alerta", "Seleccione una ubicación en el mapa para continuar", "Ok");
             }

@@ -1088,19 +1088,23 @@ namespace SocialBusinessApp
         }
         private void BtnSearchClick()
         {
+            
             string Ubicacion = "";
             string Categoria = "";
             string Estrato = "";
             string Tipo = "";
             string Antiguedad = "";
             string Ciudad = "";
+            string Departamento = "";
             string SuperQuery = "";
+            int cont = 0;
             SuperQuery += "Barrio=" + txtBar.Text;
 
             try
             {
                 Ubicacion = txtUbicacion.Items[txtUbicacion.SelectedIndex];
                 SuperQuery += "&Ubicacion=" + txtUbicacion.Items[txtUbicacion.SelectedIndex];
+                cont++;
             }
             catch
             {
@@ -1111,6 +1115,7 @@ namespace SocialBusinessApp
             {
                 Categoria = txtCategoria.Items[txtCategoria.SelectedIndex];
                 SuperQuery += "&TipoInmueble=" + txtCategoria.Items[txtCategoria.SelectedIndex];
+                cont++;
             }
             catch
             {
@@ -1121,6 +1126,7 @@ namespace SocialBusinessApp
             {
                 Estrato = txtEstrato.Items[txtEstrato.SelectedIndex];
                 SuperQuery += "&Estrato=" + txtEstrato.Items[txtEstrato.SelectedIndex];
+                cont++;
             }
             catch
             {
@@ -1131,6 +1137,7 @@ namespace SocialBusinessApp
             {
                 Tipo = txtTipo.Items[txtTipo.SelectedIndex];
                 SuperQuery += "&TipoNegocio=" + txtTipo.Items[txtTipo.SelectedIndex];
+                cont++;
             }
             catch
             {
@@ -1141,6 +1148,7 @@ namespace SocialBusinessApp
             {
                 Antiguedad = txtAntiguedad.Items[txtAntiguedad.SelectedIndex];
                 SuperQuery += "&Antiguedad=" + txtAntiguedad.Items[txtAntiguedad.SelectedIndex];
+                cont++;
             }
             catch
             {
@@ -1149,25 +1157,74 @@ namespace SocialBusinessApp
 
             try
             {
-                Ciudad = txtCiudad.Items[txtCiudad.SelectedIndex];
-                SuperQuery += "&city_name=" + txtCiudad.Items[txtCiudad.SelectedIndex];
+                Departamento = txtDepartamento.Items[txtDepartamento.SelectedIndex];
+                //SuperQuery += "&city_name=" + txtCiudad.Items[txtCiudad.SelectedIndex];
+                try
+                {
+                    Ciudad = txtCiudad.Items[txtCiudad.SelectedIndex];
+                    SuperQuery += "&city_name=" + txtCiudad.Items[txtCiudad.SelectedIndex];
+                }
+                catch
+                {
+                    Ciudad = "";
+                }
             }
             catch
             {
-                Ciudad = "";
+                Departamento = "";
+            }
+            
+
+            if (Ciudad != "")
+            {
+                cont++;
+            }                
+            if (!string.IsNullOrWhiteSpace((txtBar.Text)))
+            {
+                cont++;
+                SuperQuery += "&Barrio=" + txtBar.Text;
+            }
+            if (!string.IsNullOrWhiteSpace(txtPrMin.Text))
+            {
+                cont++;
+                SuperQuery += "&PrecioMin=" + txtPrMin.Text;
+            }
+            if (!string.IsNullOrWhiteSpace(txtPrMax.Text))
+            {
+                cont++;
+                SuperQuery += "&PrecioMax=" + txtPrMax.Text;
+            }
+            if (!string.IsNullOrWhiteSpace(txtAr.Text))
+            {
+                cont++;
+                SuperQuery += "&Area=" + txtAr.Text;
+            }
+            if (!string.IsNullOrWhiteSpace(txtHa.Text))
+            {
+                cont++;
+                SuperQuery += "&Habitaciones=" + txtHa.Text;
+            }
+            if (!string.IsNullOrWhiteSpace(txtBa.Text))
+            {
+                cont++;
+                SuperQuery += "&Banos=" + txtBa.Text;
+            }
+            if (!string.IsNullOrWhiteSpace(txtPa.Text))
+            {
+                cont++;
+                SuperQuery += "&Parqueaderos=" + txtPa.Text;
             }
 
-            
-            SuperQuery += "&Area=" + txtAr.Text;
-            SuperQuery += "&Habitaciones=" + txtHa.Text;
-            SuperQuery += "&Banos=" + txtBa.Text;
-            SuperQuery += "&Parqueaderos=" + txtPa.Text;
-            SuperQuery += "&PrecioMin=" + txtPrMin.Text;
-            SuperQuery += "&PrecioMax=" + txtPrMax.Text;
-
-            //DisplayAlert("", SuperQuery, "Ok");
-
-            Navigation.PushModalAsync(new BuscarOfertas(SuperQuery, "1"));
+            //DisplayAlert("", SuperQuery+"/"+cont, "Ok");
+            if(cont==0)
+            {
+                DisplayAlert("Alerta", "Debe seleccionar por lo menos un parametro de busqueda", "Ok");
+            }
+            else
+            {
+                Navigation.PopModalAsync();
+                Navigation.PushModalAsync(new BuscarOfertas(SuperQuery, "1"));
+            }
 
         }
     }

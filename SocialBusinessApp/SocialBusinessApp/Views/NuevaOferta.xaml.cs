@@ -1137,7 +1137,48 @@ namespace SocialBusinessApp.Views
 
         private void BtnPublicarClick(string lat, string lon)
         {
-            SendTo(lat,lon);
+            int cont = 0;
+            if (!string.IsNullOrWhiteSpace(txtNO.Text))
+                cont++;
+            if (!string.IsNullOrWhiteSpace(txtDepartamento.Items[txtDepartamento.SelectedIndex]))
+                cont++;
+            if (!string.IsNullOrWhiteSpace(txtCiudad.Items[txtCiudad.SelectedIndex]))
+                cont++;
+            if (!string.IsNullOrWhiteSpace(txtBar.Text))
+                cont++;
+            if (!string.IsNullOrWhiteSpace(txtDi.Text))
+                cont++;
+            if (!string.IsNullOrWhiteSpace(txtPr.Text))
+                cont++;
+            if (!string.IsNullOrWhiteSpace(txtAr.Text))
+                cont++;
+            if (!string.IsNullOrWhiteSpace(txtUbicacion.Items[txtUbicacion.SelectedIndex]))
+                cont++;
+            if (!string.IsNullOrWhiteSpace(txtHa.Text))
+                cont++;
+            if (!string.IsNullOrWhiteSpace(txtBa.Text))
+                cont++;
+            if (!string.IsNullOrWhiteSpace(txtPa.Text))
+                cont++;
+            if (!string.IsNullOrWhiteSpace(txtEstrato.Items[txtEstrato.SelectedIndex]))
+                cont++;
+            if (!string.IsNullOrWhiteSpace(txtAntiguedad.Items[txtAntiguedad.SelectedIndex]))
+                cont++;
+            //if (!string.IsNullOrWhiteSpace(txtTe.Text))
+                //cont++;
+            if (!string.IsNullOrWhiteSpace(TxtTerceria.Items[TxtTerceria.SelectedIndex]))
+                cont++;
+            if (!string.IsNullOrWhiteSpace(txtDe.Text))
+                cont++;
+            if (!string.IsNullOrWhiteSpace(txtCategoria.Items[txtCategoria.SelectedIndex]))
+                cont++;
+            if (!string.IsNullOrWhiteSpace(txtTipo.Items[txtTipo.SelectedIndex]))
+                cont++;
+
+            if (cont == 17)
+                SendTo(lat, lon);
+            else
+                DisplayAlert("Alerta", "Por favor rellene todos los campos", "Ok");
         }
         
         private async void SendTo(string lat, string lon)

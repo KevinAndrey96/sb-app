@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using Plugin.Share;
 using SocialBusinessApp.Models;
 using System;
 using System.Collections.Generic;
@@ -22,11 +23,21 @@ namespace SocialBusinessApp.Views
             Ejecucion(Perfil);
             //await Navigation.PushModalAsync(new OfertasUsuario(this.Code));
 
-            btnOfertas.Clicked += (sender, e) => btnOfertasClick(Perfil);
-            btnComentarios.Clicked += (sender, e) => btnComentariosClick(Perfil);
-            btnLogros.Clicked += (sender, e) => btnLogrosClick(Perfil);
-            btnEquipo.Clicked += (sender, e) => btnEquipoClick(Perfil);
-
+            btnOfertas.Clicked += (sender, e) => BtnOfertasClick(Perfil);
+            btnComentarios.Clicked += (sender, e) => BtnComentariosClick(Perfil);
+            btnLogros.Clicked += (sender, e) => BtnLogrosClick(Perfil);
+            btnEquipo.Clicked += (sender, e) => BtnEquipoClick(Perfil);
+            btnCompartir.Clicked += (sender, e) => BtnCompartirClick(Userio.Codigo, Userio.Nombre+" "+Userio.Apellidos);
+            
+        }
+        private async void BtnCompartirClick(string code, string nombre)
+        {
+            await CrossShare.Current.Share(new Plugin.Share.Abstractions.ShareMessage
+            {
+                Text = "Te invito a darle un vistazo a este colega: " + nombre,
+                Title = "Colega Social Business",
+                Url = "https://app.socialbusiness.com.co/profile/" + code
+            });
         }
 
         private void BtnWhatsappClick(string number)
@@ -52,19 +63,19 @@ namespace SocialBusinessApp.Views
             }
 
         }
-        private async void btnOfertasClick(string Code)
+        private async void BtnOfertasClick(string Code)
         {
             await Navigation.PushModalAsync(new OfertasUsuario("Código: "+Code));
         }
-        private async void btnComentariosClick(string Code)
+        private async void BtnComentariosClick(string Code)
         {
             await Navigation.PushModalAsync(new Comentarios("Código: "+Code));
         }
-        private async void btnLogrosClick(string Code)
+        private async void BtnLogrosClick(string Code)
         {
             await Navigation.PushModalAsync(new Logros("Código: "+Code));
         }
-        private async void btnEquipoClick(string Code)
+        private async void BtnEquipoClick(string Code)
         {
             await Navigation.PushModalAsync(new Equipo("Código: " + Code));
         }
@@ -111,6 +122,7 @@ namespace SocialBusinessApp.Views
                 btnInstagram.Clicked += (sender, e) => BtnURLClick(Userio.Instagram);
                 btnYoutube.Clicked += (sender, e) => BtnURLClick(Userio.Youtube);
                 btnWeb.Clicked += (sender, e) => BtnURLClick(Userio.Web);
+                
 
                 //TxtDepartamento.Text = Userio.Departamento;
 

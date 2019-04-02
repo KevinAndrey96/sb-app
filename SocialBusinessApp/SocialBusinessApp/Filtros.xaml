@@ -90,7 +90,7 @@
                     <Entry x:Name="txtPrMin" Grid.Row="0" Grid.Column="0" Keyboard="Numeric" Placeholder="Precio mínimo"></Entry>
                     <Entry x:Name="txtPrMax" Grid.Row="0" Grid.Column="1" Keyboard="Numeric" Placeholder="Precio máximo"></Entry>
                 </Grid>
-                <Entry x:Name="txtDi" Placeholder="Dirección"></Entry>
+                <!--<Entry x:Name="txtDi" Placeholder="Dirección"></Entry>-->
                 <Label Text="Información general" TextColor="#9c27b0" FontSize="25"></Label>
                 <Grid>
                     <Grid.RowDefinitions>
