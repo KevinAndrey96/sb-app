@@ -20,14 +20,14 @@ namespace SocialBusinessApp.Views
         private static HttpClient client = new HttpClient();
         Respuesta Rta;
         string r = "";
-        IImagePickerService _imagePickerService;
+        //IImagePickerService _imagePickerService;
 
         Oferta ofer;
 
         List<string> _images = new List<string>();
 
         string filePath = string.Empty;
-        bool isBusy = false;
+        //bool isBusy = false;
 
         public EditarOferta(string placeid)
         {

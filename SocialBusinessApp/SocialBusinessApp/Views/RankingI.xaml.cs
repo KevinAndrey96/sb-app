@@ -62,7 +62,7 @@ namespace SocialBusinessApp
         }
         private void BtnChatClick()
         {
-            Navigation.PushAsync(new MisListados("http://app.socialbusiness.com.co/chat"));
+            Navigation.PushAsync(new MisListados("https://app.socialbusiness.com.co/chat"));
         }
         private void BtnPerfilClick()
         {
@@ -81,8 +81,10 @@ namespace SocialBusinessApp
             string result;
             try
             {
-                HttpClient client = new HttpClient();
-                client.BaseAddress = new Uri("http://app.socialbusiness.com.co");
+                HttpClient client = new HttpClient
+                {
+                    BaseAddress = new Uri("https://app.socialbusiness.com.co")
+                };
                 //string url = string.Format("/api/RankingInmobiliario.php");
                 string url = string.Format("/api/Inmobiliarias.php");
                 var response = await client.GetAsync(url);

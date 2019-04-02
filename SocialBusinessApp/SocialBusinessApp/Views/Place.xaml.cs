@@ -22,10 +22,10 @@ namespace SocialBusinessApp
         ObservableCollection<FileImageSource> imageSources = new ObservableCollection<FileImageSource>();
 
         private Oferta oferta;
-        private List<OfertaFotos> ofertafotos;
+        //private List<OfertaFotos> ofertafotos;
         public string PlaceID;
-        private string Lat;
-        private string Long;
+        //private string Lat;
+        //private string Long;
         public Place2(Oferta oferta)
         {/*
             NavigationPage.SetHasNavigationBar(this, true);

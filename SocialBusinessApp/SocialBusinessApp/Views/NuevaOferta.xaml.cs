@@ -36,7 +36,7 @@ namespace SocialBusinessApp.Views
 
         //Queue<string> paths = new Queue<string>();
         string filePath = string.Empty;
-        bool isBusy = false;
+        //bool isBusy = false;
         private List<Ciudad> Antioquia = new List<Ciudad>();
 
 
@@ -1213,7 +1213,7 @@ namespace SocialBusinessApp.Views
             var content = new FormUrlEncodedContent(values);
             
             var response = await client.PostAsync("https://app.socialbusiness.com.co/api/NuevaOferta.php", content);
-            await DisplayAlert("Alert",lat+"/"+lon, "OK");
+            //await DisplayAlert("Alert",lat+"/"+lon, "OK");
             try
             {
                 
@@ -1234,6 +1234,7 @@ namespace SocialBusinessApp.Views
 
                 //Navigation.InsertPageBefore(new Archivos(), this);
                 await Navigation.PopModalAsync();
+                Application.Current.MainPage = new NavigationPage(new TabbedPage1());
 
             }
             catch (Exception e)
@@ -1244,7 +1245,7 @@ namespace SocialBusinessApp.Views
         }
         
 
-        private MediaFile _image;
+        //private MediaFile _image;
         private async void SendTo2()
         {
             
@@ -1252,8 +1253,10 @@ namespace SocialBusinessApp.Views
             {
                 try
                 {
-                    MultipartFormDataContent formData = new MultipartFormDataContent();
-                    formData.Add(new StringContent(JsonConvert.SerializeObject("uploaded_file"), Encoding.UTF8, "application/json"), "uploaded_file");
+                    MultipartFormDataContent formData = new MultipartFormDataContent
+                    {
+                        { new StringContent(JsonConvert.SerializeObject("uploaded_file"), Encoding.UTF8, "application/json"), "uploaded_file" }
+                    };
                     //formData.Add(new StringContent("param2 name"), "param2");
                     var response = await client.PostAsync("https://app.socialbusiness.com.co/api/upload_photos.php", formData);
                     //Logger.Log("Response : " + responseObj.ToString());

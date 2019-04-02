@@ -20,7 +20,7 @@ namespace SocialBusinessApp
             this.Icon = "iconoranking";
             this.Children.Add(new Ranking());
             this.Children.Add(new Asociaciones());
-            this.Children.Add(new RankingI());
+            //this.Children.Add(new RankingI());
             
         }
     }

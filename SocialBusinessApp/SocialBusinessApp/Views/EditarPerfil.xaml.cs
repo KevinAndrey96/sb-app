@@ -1,5 +1,7 @@
 ﻿using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using Plugin.FileUploader;
+using Plugin.FileUploader.Abstractions;
 using SocialBusinessApp.Models;
 using System;
 using System.Collections.Generic;
@@ -32,6 +34,29 @@ namespace SocialBusinessApp.Views
             //pikInmobiliaria.ItemsSource = InmobiliariasL;
 
         }
+
+        List<string> _images = new List<string>();
+
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+            MessagingCenter.Subscribe<App, List<string>>((App)Xamarin.Forms.Application.Current, "ImagesSelected", (s, images) =>
+            {
+                listItems.IsVisible = true;
+                listItems.FlowItemsSource = images;
+                _images = images;
+            });
+        }
+        protected override void OnDisappearing()
+        {
+            base.OnDisappearing();
+            MessagingCenter.Unsubscribe<App, List<string>>(this, "ImagesSelected");
+        }
+        async void Handle_Clicked(object sender, System.EventArgs e)
+        {
+            await DependencyService.Get<IMediaService>().OpenGallery();
+        }
+
         private static HttpClient client = new HttpClient();
         Respuesta Rta;
         private async void BtnAgregarInmobiliariaClick()
@@ -134,10 +159,26 @@ namespace SocialBusinessApp.Views
                     await DisplayAlert("Alerta", "No se detecta conexión a internet, por favor intente más tarde "+e+"---"+responseString, "Ok");
                     return;
                 }
+                try
+                {
+                    foreach (string foto in _images)
+                    {
+                        var response2 = await CrossFileUploader.Current.UploadFileAsync($"https://app.socialbusiness.com.co/api/FotoPerfil.php?Profesional=" + (String)App.Current.Properties["Codigo"], new FilePathItem("uploaded_file", foto));
+                        break;
+                    }
+                    
+
+                }
+                catch (Exception e)
+                {
+                    await DisplayAlert("Alerta", "" + e, "Ok");
+
+                }
                 if (Rta.Estado.Equals("Si"))
                 {
                     await DisplayAlert("¡Éxito!", Rta.Mensaje, "Ok");
                     await Navigation.PopModalAsync();
+                    Application.Current.MainPage = new NavigationPage(new TabbedPage1());
                 }
                 else
                 {
@@ -1268,8 +1309,10 @@ namespace SocialBusinessApp.Views
             string result;
             try
             {
-                HttpClient client = new HttpClient();
-                client.BaseAddress = new Uri("https://app.socialbusiness.com.co");
+                HttpClient client = new HttpClient
+                {
+                    BaseAddress = new Uri("https://app.socialbusiness.com.co")
+                };
                 string url = string.Format("/api/ObtenerInmobiliarias.php");
                 var response = await client.GetAsync(url);
                 result = response.Content.ReadAsStringAsync().Result;

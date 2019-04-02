@@ -1,6 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+             xmlns:flv="clr-namespace:DLToolkit.Forms.Controls;assembly=DLToolkit.Forms.Controls.FlowListView"
              x:Class="SocialBusinessApp.Views.EditarPerfil">
     <ContentPage.Content>
         <ScrollView>
@@ -116,8 +118,20 @@
                     <Picker x:Name="pikInmobiliaria" Title="Inmobiliaria" HorizontalOptions="FillAndExpand"></Picker>
                     <Button Image="mas.png" WidthRequest="50" HeightRequest="50" HorizontalOptions="Center" x:Name="btnAgregarInmobiliaria" BackgroundColor="#9c27b0"></Button>
                 </StackLayout>
-                <Entry x:Name="txtNombreI" IsVisible="False" Placeholder="Nombre Inmobiliaria"></Entry>
-                <Entry x:Name="txtNitI" IsVisible="False" Placeholder="Nit" Keyboard="Numeric"></Entry>
+                <StackLayout Padding="20">
+                    <flv:FlowListView FlowColumnCount="3" x:Name="listItems" IsVisible="false"
+    SeparatorVisibility="None"
+    HasUnevenRows="false" RowHeight="100" >
+                        <flv:FlowListView.FlowColumnTemplate>
+                            <DataTemplate >
+                                <ffimageloading:CachedImage  DownsampleToViewSize="true" AbsoluteLayout.LayoutFlags="All" HeightRequest="50" AbsoluteLayout.LayoutBounds="0,0,1,1" Source="{Binding .}"  Aspect="AspectFill" HorizontalOptions="FillAndExpand">
+                                </ffimageloading:CachedImage>
+                            </DataTemplate>
+                        </flv:FlowListView.FlowColumnTemplate>
+                    </flv:FlowListView>
+                </StackLayout>
+
+                <Button Image="galeria.png" BackgroundColor="#9c27b0" TextColor="#FFFFFF" Text="Foto de Perfil" Clicked="Handle_Clicked"/>
 
 
                 <!--<Button Image="casa.png" x:Name="btnInmobiliaria" Text="Inmobiliaria" BackgroundColor="#9c27b0" TextColor="#FFFFFF"></Button>-->

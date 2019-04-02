@@ -18,9 +18,8 @@ namespace SocialBusinessApp
             NavigationPage.SetHasNavigationBar(this, false);
             InitializeComponent();
             this.Children.Add(new TabbedMLS());
-            //this.Children.Add(new Ranking());
             this.Children.Add(new TabbedPage2());
-            this.Children.Add(new MisListados("http://app.socialbusiness.com.co/chat"));
+            this.Children.Add(new MisListados("https://app.socialbusiness.com.co/chat"));
             this.Children.Add(new TabbedEventos());
             //this.Children.Add(new Profile());
             
