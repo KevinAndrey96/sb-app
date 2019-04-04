@@ -164,6 +164,7 @@ namespace SocialBusinessApp.Views
                     foreach (string foto in _images)
                     {
                         var response2 = await CrossFileUploader.Current.UploadFileAsync($"https://app.socialbusiness.com.co/api/FotoPerfil.php?Profesional=" + (String)App.Current.Properties["Codigo"], new FilePathItem("uploaded_file", foto));
+                        //await DisplayAlert("", response2.Message, "Ok");
                         break;
                     }
                     
