@@ -41,8 +41,10 @@ namespace SocialBusinessApp.Views
             string result;
             try
             {
-                HttpClient client = new HttpClient();
-                client.BaseAddress = new Uri("https://app.socialbusiness.com.co");
+                HttpClient client = new HttpClient
+                {
+                    BaseAddress = new Uri("https://app.socialbusiness.com.co")
+                };
                 string url = string.Format("/api/BusquedaAvanzadaOfertas.php?" + Param);
                 var response = await client.GetAsync(url);
                 result = response.Content.ReadAsStringAsync().Result;
@@ -61,8 +63,10 @@ namespace SocialBusinessApp.Views
             string result;
             try
             {
-                HttpClient client = new HttpClient();
-                client.BaseAddress = new Uri("https://app.socialbusiness.com.co");
+                HttpClient client = new HttpClient
+                {
+                    BaseAddress = new Uri("https://app.socialbusiness.com.co")
+                };
                 //var code = (String)App.Current.Properties["Codigo"];
                 //await DisplayAlert("Codigo", code, "Ok");
                 string url = string.Format("/api/BuscarOfertas.php?Param=" + Param);

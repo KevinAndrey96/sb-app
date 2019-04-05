@@ -6,11 +6,11 @@
         <StackLayout>
             <StackLayout Padding="10,10,0,0">
                 <Label Text="Logros" TextColor="#9c27b0" HorizontalOptions="Center" FontSize="25"></Label>
-                <StackLayout Orientation="Horizontal">
+                <!--<StackLayout Orientation="Horizontal">
                     <Label Text="Puntaje" WidthRequest="80" TextColor="#9c27b0" HorizontalOptions="Center" FontSize="17"></Label>
-                    <Label Text="Logro" TextColor="#9c27b0" HorizontalOptions="Center" FontSize="17"></Label>
+                    <Label Text="Logro" TextColor="#9c27b0" HorizontalOptions="StartAndExpand" FontSize="17"></Label>
                 </StackLayout>
-                
+                -->
                 <ListView x:Name="LogrosListView" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" RowHeight="60"/>
             </StackLayout>
         </StackLayout>

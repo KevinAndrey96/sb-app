@@ -14,12 +14,14 @@ namespace SocialBusinessApp.Cells
             var PuntajeLabel = new Label
             {
                 FontSize = 17,
-                WidthRequest = 80
+                WidthRequest = 80,
+                
             };
             PuntajeLabel.SetBinding(Label.TextProperty, new Binding("Puntaje"));
             var TextoLabel = new Label
             {
-                FontSize = 17
+                FontSize = 17,
+                HorizontalTextAlignment= TextAlignment.Start
             };
             TextoLabel.SetBinding(Label.TextProperty, new Binding("Texto"));
             /*
@@ -31,15 +33,15 @@ namespace SocialBusinessApp.Cells
             };
             FotoImage.SetBinding(Image.SourceProperty, new Binding("Fotografia"));
             */
-            var View2 = new StackLayout
+            /*var View2 = new StackLayout
             {
                 Children = { PuntajeLabel, TextoLabel },
                 Orientation = StackOrientation.Vertical
-            };
+            };*/
 
             View = new StackLayout
             {
-                Children = { PuntajeLabel ,TextoLabel
+                Children = { TextoLabel/*, PuntajeLabel*/
                 //Children = { /*FotoImage,*/ View2
                 },
                 Orientation = StackOrientation.Horizontal

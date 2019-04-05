@@ -125,22 +125,35 @@
                         </Picker.Items>
                     </Picker>
                 </Grid>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <!--<ColumnDefinition Width="*" />-->
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Entry x:Name="txtAr"  Grid.Row="0" Grid.Column="0" Keyboard="Numeric" Placeholder="Area (m²) mínima"></Entry>
+                    <Entry x:Name="txtAr2"  Grid.Row="0" Grid.Column="1" Keyboard="Numeric" Placeholder="Area (m²) máxima"></Entry>
+                </Grid>
 
                 <Grid>
                     <Grid.RowDefinitions>
                         <RowDefinition Height="*" />
                     </Grid.RowDefinitions>
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*" />
+                        <!--<ColumnDefinition Width="*" />-->
                         <ColumnDefinition Width="*" />
                         <ColumnDefinition Width="*" />
                         <ColumnDefinition Width="*" />
                     </Grid.ColumnDefinitions>
-                    <Entry x:Name="txtAr"  Grid.Row="0" Grid.Column="0" Keyboard="Numeric" Placeholder="Area (m²)"></Entry>
-                    <Entry x:Name="txtHa"  Grid.Row="0" Grid.Column="1" Keyboard="Numeric" Placeholder="Habitaciones"></Entry>
-                    <Entry x:Name="txtBa"  Grid.Row="0" Grid.Column="2" Keyboard="Numeric"  Placeholder="Baños"></Entry>
-                    <Entry x:Name="txtPa"  Grid.Row="0" Grid.Column="3" Keyboard="Numeric" Placeholder="Parqueaderos"></Entry>
+                    <!--<Entry x:Name="txtAr"  Grid.Row="0" Grid.Column="0" Keyboard="Numeric" Placeholder="Area (m²)"></Entry>-->
+                    <Entry x:Name="txtHa"  Grid.Row="0" Grid.Column="0" Keyboard="Numeric" Placeholder="Habitaciones"></Entry>
+                    <Entry x:Name="txtBa"  Grid.Row="0" Grid.Column="1" Keyboard="Numeric"  Placeholder="Baños"></Entry>
+                    <Entry x:Name="txtPa"  Grid.Row="0" Grid.Column="2" Keyboard="Numeric" Placeholder="Parqueaderos"></Entry>
                 </Grid>
+               
                 <!--<Entry x:Name="txtTe" Placeholder="Enlace de Youtube" ></Entry>-->
                 <!--<Label Text="Descripción" TextColor="#9c27b0" FontSize="25"></Label>-->
                 <!--<Editor x:Name="txtDe" Placeholder="Descripción de inmueble" HeightRequest="111" Keyboard="Chat"/>-->

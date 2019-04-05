@@ -33,8 +33,10 @@ namespace SocialBusinessApp.Views
             string result;
             try
             {
-                HttpClient client = new HttpClient();
-                client.BaseAddress = new Uri("https://app.socialbusiness.com.co");
+                HttpClient client = new HttpClient
+                {
+                    BaseAddress = new Uri("https://app.socialbusiness.com.co")
+                };
                 var code = (String)App.Current.Properties["Codigo"];
                 string url = string.Format("/api/MisOfertas.php?User="+code);
                 var response = await client.GetAsync(url);

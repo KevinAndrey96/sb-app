@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 
 using Xamarin.Forms;
+using AndroidSpecific = Xamarin.Forms.PlatformConfiguration.AndroidSpecific;
+
 
 namespace SocialBusinessApp
 {
@@ -13,6 +15,7 @@ namespace SocialBusinessApp
         public App()
         {
             InitializeComponent();
+            AndroidSpecific.Application.SetWindowSoftInputModeAdjust(this, AndroidSpecific.WindowSoftInputModeAdjust.Resize);
 
             //MainPage = new SocialBusinessApp.MainPage();
             //MainPage = new SocialBusinessApp.InicioSesion();#

@@ -1199,6 +1199,11 @@ namespace SocialBusinessApp
                 cont++;
                 SuperQuery += "&Area=" + txtAr.Text;
             }
+            if (!string.IsNullOrWhiteSpace(txtAr2.Text))
+            {
+                cont++;
+                SuperQuery += "&Area2=" + txtAr2.Text;
+            }
             if (!string.IsNullOrWhiteSpace(txtHa.Text))
             {
                 cont++;

@@ -21,6 +21,7 @@ namespace SocialBusinessApp.Tabbeds
             this.Icon = "iconomls";
             this.Children.Add(new MLS());
             this.Children.Add(new MisOfertas());
+            this.Children.Add(new Constructoras());
         }
     }
 }

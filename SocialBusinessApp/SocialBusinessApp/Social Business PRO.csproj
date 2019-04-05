@@ -98,6 +98,9 @@
     <Compile Include="Views\Comentarios.xaml.cs">
       <DependentUpon>Comentarios.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\Constructoras.xaml.cs">
+      <DependentUpon>Constructoras.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\EditarOferta.xaml.cs">
       <DependentUpon>EditarOferta.xaml</DependentUpon>
     </Compile>
@@ -646,6 +649,12 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Views\GuardarUbicacion.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\Constructoras.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>

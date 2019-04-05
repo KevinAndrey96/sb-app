@@ -37,19 +37,19 @@ namespace SocialBusinessApp.Droid
     public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsAppCompatActivity
     {
         public static int OPENGALLERYCODE = 100;
-        protected async override void OnCreate(Bundle bundle)
+        protected override void OnCreate(Bundle bundle)
         {
-            await TryToGetPermissions();
+            TryToGetPermissions();
             TabLayoutResource = Resource.Layout.Tabbar;
             ToolbarResource = Resource.Layout.Toolbar;
 
             base.OnCreate(bundle);
-            
+
             global::Xamarin.Forms.Forms.Init(this, bundle);
             Xamarin.FormsMaps.Init(this, bundle);
             //TKGoogleMaps.Init(this, bundle);
             //TKCustomMapRenderer.InitMapRenderer();
-            
+
             Xamarin.Essentials.Platform.Init(this, bundle);
             ImageCarouselRenderer.Init();
 
@@ -57,24 +57,24 @@ namespace SocialBusinessApp.Droid
             Xamarin.FormsGoogleMapsBindings.Init(); // Add this line
 
             FlowListView.Init();
-            
+
             //CachedImageRenderer.Init(false);
             //FFImageLoading.Forms.Platform.CachedImageRenderer.Init(true);
             //FFImageLoading.Forms.Platform.CachedImageRenderer.Init(enableFastRenderer: false);
             CachedImageRenderer.Init(true);
             //FFImageLoading.Forms.Platform.CachedImageRenderer.Init(enableFastRenderer: [true] /[false]);
 
-            
+
             LoadApplication(new App());
         }
 
 
 
-/*        public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Android.Content.PM.Permission[] grantResults)
-{
-    PermissionsImplementation.Current.OnRequestPermissionsResult(requestCode, permissions, grantResults);
-    base.OnRequestPermissionsResult(requestCode, permissions, grantResults);
-}*/
+        /*        public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Android.Content.PM.Permission[] grantResults)
+        {
+            PermissionsImplementation.Current.OnRequestPermissionsResult(requestCode, permissions, grantResults);
+            base.OnRequestPermissionsResult(requestCode, permissions, grantResults);
+        }*/
 
 
         protected override void OnActivityResult(int requestCode, Result resultCode, Intent data)
@@ -179,7 +179,7 @@ namespace SocialBusinessApp.Droid
 
         #region RuntimePermissions
 
-        async Task TryToGetPermissions()
+        void TryToGetPermissions()
         {
             if ((int)Build.VERSION.SdkInt >= 23)
             {

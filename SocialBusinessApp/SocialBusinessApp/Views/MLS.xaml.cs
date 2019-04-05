@@ -22,7 +22,7 @@ namespace SocialBusinessApp
         {
             NavigationPage.SetHasNavigationBar(this, false);
             InitializeComponent();
-            this.Title = "Multiple Listing Service (MLS)";
+            this.Title = "MLS";
 
             
 
@@ -80,6 +80,7 @@ namespace SocialBusinessApp
         private void BtnPerfilClick()
         {
             Navigation.PushModalAsync(new Profile());
+            //Navigation.PushModalAsync(new MisListados("https://app.socialbusiness.com.co/chat"));
         }
 
 
@@ -131,8 +132,10 @@ namespace SocialBusinessApp
             string result;
             try
             {
-                HttpClient client = new HttpClient();
-                client.BaseAddress = new Uri("https://app.socialbusiness.com.co");
+                HttpClient client = new HttpClient
+                {
+                    BaseAddress = new Uri("https://app.socialbusiness.com.co")
+                };
                 string url = string.Format("/api/Ofertas.php");
                 var response = await client.GetAsync(url);
                 result = response.Content.ReadAsStringAsync().Result;
