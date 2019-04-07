@@ -99,7 +99,7 @@ namespace SocialBusinessApp.Droid
                             if (path != null)
                             {
                                 //Rotate Image
-                                var imageRotated = ImageHelpers.RotateImage(path);
+                                var imageRotated = ImageHelpers.RotateImage(path,0);
                                 var newPath = ImageHelpers.SaveFile("TmpPictures", imageRotated, System.DateTime.Now.ToString("yyyyMMddHHmmssfff"));
                                 images.Add(newPath);
                             }
@@ -113,7 +113,7 @@ namespace SocialBusinessApp.Droid
                         if (path != null)
                         {
                             //Rotate Image
-                            var imageRotated = ImageHelpers.RotateImage(path);
+                            var imageRotated = ImageHelpers.RotateImage(path,0);
                             var newPath = ImageHelpers.SaveFile("TmpPictures", imageRotated, System.DateTime.Now.ToString("yyyyMMddHHmmssfff"));
                             images.Add(newPath);
                         }

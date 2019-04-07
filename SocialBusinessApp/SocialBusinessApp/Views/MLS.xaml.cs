@@ -22,9 +22,11 @@ namespace SocialBusinessApp
         {
             NavigationPage.SetHasNavigationBar(this, false);
             InitializeComponent();
-            this.Title = "MLS";
+            //this.Title = "MLS";
+            this.Title = "Ofertas";
+            this.Icon = "iconomls";
 
-            
+
 
             //this.Icon = "ranking.png";
             /*

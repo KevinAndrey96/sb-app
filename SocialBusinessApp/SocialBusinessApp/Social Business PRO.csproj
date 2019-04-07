@@ -48,6 +48,7 @@
     <Compile Include="Cells\EquipoCell.cs" />
     <Compile Include="Cells\LogrosCell.cs" />
     <Compile Include="CustomMap.cs" />
+    <Compile Include="Helpers\FileHelper.cs" />
     <Compile Include="Helpers\Settings.cs" />
     <Compile Include="IMediaService.cs" />
     <Compile Include="Interface1.cs" />
@@ -58,11 +59,14 @@
     <Compile Include="Models\InmobiliariaO.cs" />
     <Compile Include="Models\Inmobiliario.cs" />
     <Compile Include="Models\Logro.cs" />
+    <Compile Include="Models\MediaFile.cs" />
     <Compile Include="Services\IMediaService.cs" />
     <Compile Include="Services\IMessanger.cs" />
+    <Compile Include="Services\IMultiMediaPickerService.cs" />
     <Compile Include="Tabbeds\TabbedMLS.xaml.cs">
       <DependentUpon>TabbedMLS.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ViewModels\MainViewModel.cs" />
     <Compile Include="ViewModels\MapEditarViewModel.cs" />
     <Compile Include="ViewModels\MapViewModel.cs" />
     <Compile Include="ViewModels\PickerVM.cs" />

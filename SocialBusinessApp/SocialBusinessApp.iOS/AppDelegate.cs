@@ -29,8 +29,13 @@ namespace SocialBusinessApp.iOS
             global::Xamarin.Forms.Forms.Init();
             ImageCarouselRenderer.Init();
             Xamarin.FormsMaps.Init();
-            LoadApplication(new App());
+            //LoadApplication(new App());
             FloatingActionButtonRenderer.InitRenderer();
+
+            //global::Xamarin.Forms.Forms.Init();
+            Xamarin.FormsGoogleMaps.Init("REDACTED_GOOGLE_API_KEY");
+            Xamarin.FormsGoogleMapsBindings.Init(); // Add this line
+            LoadApplication(new App());
 
             return base.FinishedLaunching(app, options);
         }

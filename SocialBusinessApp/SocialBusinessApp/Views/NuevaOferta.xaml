@@ -3,7 +3,10 @@
  xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
  x:Class="SocialBusinessApp.Views.NuevaOferta"
  xmlns:flv="clr-namespace:DLToolkit.Forms.Controls;assembly=DLToolkit.Forms.Controls.FlowListView"
- xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms">
+ xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core" 
+             ios:Page.UseSafeArea="true"
+             >
   <ContentPage.Content>
     <ScrollView>
       <StackLayout Padding="20,20,20,20" BackgroundColor="#FFFFFF">
@@ -175,7 +178,12 @@
             </Picker.Items>
           </Picker>
         </Grid>
-        <StackLayout Padding="20">
+                <Button TextColor="White" BackgroundColor="Blue" Text="Select images from gallery" Command="{Binding SelectImagesCommand}"/>
+
+
+
+
+                <StackLayout Padding="20">
           <flv:FlowListView FlowColumnCount="3" x:Name="listItems" IsVisible="false"
     SeparatorVisibility="None"
     HasUnevenRows="false" RowHeight="100" >

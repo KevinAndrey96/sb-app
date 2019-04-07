@@ -12,7 +12,7 @@
     <OutputType>Exe</OutputType>
     <RootNamespace>SocialBusinessApp.iOS</RootNamespace>
     <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
-    <AssemblyName>SocialBusinessApp</AssemblyName>
+    <AssemblyName>Social Business PRO</AssemblyName>
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
     <IsWebBootstrapper>false</IsWebBootstrapper>
@@ -134,11 +134,13 @@
     <Compile Include="Helpers\Settings.cs" />
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
+    <Compile Include="Services\MultiMediaPickerService.cs" />
     <None Include="app.config" />
     <None Include="Entitlements.plist" />
     <None Include="Info.plist">
       <SubType>Designer</SubType>
     </None>
+    <Compile Include="MediaService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <ITunesArtwork Include="iTunesArtwork" />
     <ITunesArtwork Include="iTunesArtwork@2x" />
@@ -188,6 +190,9 @@
     </Reference>
     <Reference Include="FFImageLoading.Transformations, Version=2.4.4.859, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Xamarin.FFImageLoading.Transformations.2.4.4.859\lib\Xamarin.iOS10\FFImageLoading.Transformations.dll</HintPath>
+    </Reference>
+    <Reference Include="GMImagePicker.Xamarin, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\GMImagePicker.Xamarin.2.3.2\lib\xamarinios10\GMImagePicker.Xamarin.dll</HintPath>
     </Reference>
     <Reference Include="Google.Maps, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Xamarin.Google.iOS.Maps.3.0.3\lib\Xamarin.iOS10\Google.Maps.dll</HintPath>
@@ -433,6 +438,53 @@
     <BundleResource Include="Resources\lapiz.png" />
     <BundleResource Include="Resources\lapiz%402x.png" />
     <BundleResource Include="Resources\lapiz%403x.png" />
+    <BundleResource Include="Resources\usuario.png" />
+    <BundleResource Include="Resources\asistir.png" />
+    <BundleResource Include="Resources\asistir%402x.png" />
+    <BundleResource Include="Resources\basura.png" />
+    <BundleResource Include="Resources\buscar.png" />
+    <BundleResource Include="Resources\candado.png" />
+    <BundleResource Include="Resources\casa.png" />
+    <BundleResource Include="Resources\cohete.png" />
+    <BundleResource Include="Resources\comentario.png" />
+    <BundleResource Include="Resources\comentarios.png" />
+    <BundleResource Include="Resources\compartir.png" />
+    <BundleResource Include="Resources\equipo.png" />
+    <BundleResource Include="Resources\eventos.png" />
+    <BundleResource Include="Resources\facebook.png" />
+    <BundleResource Include="Resources\galeria.png" />
+    <BundleResource Include="Resources\iconochat.png" />
+    <BundleResource Include="Resources\iconoeventos.png" />
+    <BundleResource Include="Resources\iconomls.png" />
+    <BundleResource Include="Resources\iconoperfil.png" />
+    <BundleResource Include="Resources\iconoranking.png" />
+    <BundleResource Include="Resources\instagram.png" />
+    <BundleResource Include="Resources\libro.png" />
+    <BundleResource Include="Resources\logros.png" />
+    <BundleResource Include="Resources\lupa.png" />
+    <BundleResource Include="Resources\mapa.png" />
+    <BundleResource Include="Resources\mas.png" />
+    <BundleResource Include="Resources\ofertar.png" />
+    <BundleResource Include="Resources\ofertas.png" />
+    <BundleResource Include="Resources\ok.png" />
+    <BundleResource Include="Resources\pbusqueda.png" />
+    <BundleResource Include="Resources\perfil.png" />
+    <BundleResource Include="Resources\peventos.png" />
+    <BundleResource Include="Resources\phistorico.png" />
+    <BundleResource Include="Resources\pinmobiliarias.png" />
+    <BundleResource Include="Resources\pofertar.png" />
+    <BundleResource Include="Resources\ppremium.png" />
+    <BundleResource Include="Resources\pprofesionales.png" />
+    <BundleResource Include="Resources\premium.png" />
+    <BundleResource Include="Resources\ranking.png" />
+    <BundleResource Include="Resources\salir.png" />
+    <BundleResource Include="Resources\trofeo.png" />
+    <BundleResource Include="Resources\twitter.png" />
+    <BundleResource Include="Resources\usuarios.png" />
+    <BundleResource Include="Resources\web.png" />
+    <BundleResource Include="Resources\whatsapp.png" />
+    <BundleResource Include="Resources\youtube.png" />
+    <BundleResource Include="Resources\youtube2.png" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
@@ -449,6 +501,7 @@
       <Visible>false</Visible>
     </ImageAsset>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

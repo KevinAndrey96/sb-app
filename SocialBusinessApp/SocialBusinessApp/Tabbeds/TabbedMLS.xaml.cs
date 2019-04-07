@@ -18,10 +18,25 @@ namespace SocialBusinessApp.Tabbeds
             NavigationPage.SetHasNavigationBar(this, false);
             InitializeComponent();
             this.Title = "Ofertas";
-            this.Icon = "iconomls";
-            this.Children.Add(new MLS());
-            this.Children.Add(new MisOfertas());
-            this.Children.Add(new Constructoras());
+            //this.Icon = "iconomls";
+            if (Device.OS.Equals(TargetPlatform.iOS))
+            {
+                // Don't show first navigation bar
+                NavigationPage.SetHasNavigationBar(this, false);
+
+                // Add a child that is a NavigationPage with a View inside. An extra NavigationPage is possible on iOS. So every tab has its own navigation stack
+                this.Children.Add(new NavigationPage(new MLS()));
+                this.Children.Add(new NavigationPage(new MisOfertas()));
+                this.Children.Add(new NavigationPage(new Constructoras()));
+            }
+            else
+            {
+                // Add a child that is a view. So no Navigation Page, because we already created that one in the ViewSplash
+                this.Children.Add(new MLS());
+                this.Children.Add(new MisOfertas());
+                this.Children.Add(new Constructoras());
+            }
+            
         }
     }
 }
