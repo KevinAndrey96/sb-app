@@ -1,4 +1,6 @@
 ﻿using Newtonsoft.Json;
+using SocialBusinessApp.Tabbeds;
+using SocialBusinessApp.Views;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -50,13 +52,14 @@ namespace SocialBusinessApp
             this.BackgroundColor = Color.FromHex("#FFFFFF");
             this.Content = sub;
         }
-        private void GuardarSesion(String Usuario, String Contrasena, String Codigo)
+        /*private void GuardarSesion(String Usuario, String Contrasena, String Codigo, String VIP)
         {
             //DisplayAlert("Bienvenido","Su sesión ha sido iniciada con exito","Ok");
             App.Current.Properties["Codigo"] = Codigo;
             App.Current.Properties["Usuario"] = Usuario;
             App.Current.Properties["Contrasena"] = Contrasena;
-        }
+            App.Current.Properties["VIP"] = VIP;
+        }*/
 
         protected override async void OnAppearing()
         {
@@ -108,18 +111,37 @@ namespace SocialBusinessApp
                 await DisplayAlert("Alerta", "No se detecta conexión a internet, por favor intente más tarde", "Ok");
                 return;
             }
+
+            //agrega
+            /*
+            Application.Current.MainPage = new NavigationPage(new NuevaOferta())
+            {
+                BarBackgroundColor = Color.FromHex("#9c27b0"),
+                BarTextColor = Color.White,
+            };
+            */
+            //finaliza
+            
             if (Rta.Estado.Equals("Si"))
             {
-                //GuardarSesion(AppUsuario, AppContrasena, Rta.Codigo);
-
-                /*Navigation.InsertPageBefore(new TabbedPage1(), this);
-                await Navigation.PopAsync().ConfigureAwait(false);
-                await Navigation.PushAsync(new TabbedPage1());*/
-                Application.Current.MainPage = new NavigationPage(new TabbedPage1())
+                if (Rta.VIP.Equals("SI"))
                 {
-                    BarBackgroundColor = Color.FromHex("#9c27b0"),
-                    BarTextColor = Color.White,
+                    Application.Current.MainPage = new NavigationPage(new TabbedPage1())
+                    {
+                        BarBackgroundColor = Color.FromHex("#9c27b0"),
+                        BarTextColor = Color.White,
+                    };
+                }else
+                {
+                    Application.Current.MainPage = new NavigationPage(new TabbedPrincipal2())
+                    {
+                        BarBackgroundColor = Color.FromHex("#9c27b0"),
+                        BarTextColor = Color.White,
+                        //BarTintColor = Color.Black,
+                        //TintColor = Color.Red,
                 };
+                }
+                
             }
             else
             {

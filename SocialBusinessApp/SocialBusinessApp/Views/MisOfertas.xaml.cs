@@ -38,6 +38,7 @@ namespace SocialBusinessApp.Views
                     BaseAddress = new Uri("https://app.socialbusiness.com.co")
                 };
                 var code = (String)App.Current.Properties["Codigo"];
+                
                 string url = string.Format("/api/MisOfertas.php?User="+code);
                 var response = await client.GetAsync(url);
                 result = response.Content.ReadAsStringAsync().Result;

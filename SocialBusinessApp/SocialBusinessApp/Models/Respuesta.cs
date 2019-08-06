@@ -11,5 +11,6 @@ namespace SocialBusinessApp
         public String Mensaje { get; set; }
         public String Estado{ get; set; }
         public String Codigo { get; set; }
+        public String VIP { get; set; }
     }
 }

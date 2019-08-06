@@ -53,8 +53,10 @@ namespace SocialBusinessApp.ViewModels
                 await Application.Current.MainPage.Navigation.PopModalAsync();
                 string lat = Pins4.First().Position.Latitude.ToString();
                 string lon = Pins4.First().Position.Longitude.ToString();
-                await Application.Current.MainPage.Navigation.PushModalAsync(new NuevaOferta(lat, lon));
-            }catch (Exception)
+                await Application.Current.MainPage.Navigation.PushAsync(new NuevaOferta(lat, lon));
+                //await Application.Current.MainPage.Navigation.PushAsync(new Page1(lat, lon));
+            }
+            catch (Exception)
             {
                 await Application.Current.MainPage.DisplayAlert("Alerta", "Seleccione una ubicación en el mapa para continuar", "Ok");
             }

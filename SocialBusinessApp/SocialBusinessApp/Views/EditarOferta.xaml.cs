@@ -3,6 +3,7 @@ using Plugin.FileUploader;
 using Plugin.FileUploader.Abstractions;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Net.Http;
 using System.Text;
@@ -24,13 +25,15 @@ namespace SocialBusinessApp.Views
 
         Oferta ofer;
 
-        List<string> _images = new List<string>();
+        List<string> _imagesandroid = new List<string>();
+        ObservableCollection<string> _imagesios = new ObservableCollection<string>();
 
         string filePath = string.Empty;
         //bool isBusy = false;
 
         public EditarOferta(string placeid)
         {
+            NavigationPage.SetHasNavigationBar(this, true);
             InitializeComponent();
             Ejecucion(placeid);
             btnEditarOferta.Clicked += (sender, e) => BtnEditarOfertaClick(placeid);
@@ -53,6 +56,7 @@ namespace SocialBusinessApp.Views
                 {
                     r = picReemplazar.Items[picReemplazar.SelectedIndex];
                     SendTo(placeid);
+                    btnEditarOferta.IsEnabled = false;
                 }
                 catch
                 {
@@ -193,21 +197,64 @@ namespace SocialBusinessApp.Views
                     var responseString = await response.Content.ReadAsStringAsync();
                     Rta = JsonConvert.DeserializeObject<Respuesta>(responseString);
 
-                    if (r == "Reemplazar")
-                    {
-                        foreach (string foto in _images)
-                        {
-                            var response2 = await CrossFileUploader.Current.UploadFileAsync($"https://app.socialbusiness.com.co/api/upload_photos.php?op=Re&place_id=" + Rta.Codigo, new FilePathItem("uploaded_file", foto));
-                            await DisplayAlert("", response2.Message, "ok");
-                        }
+                   
 
-                    }
-                    else
+
+
+                    if (Device.RuntimePlatform == Device.iOS)
                     {
-                        foreach (string foto in _images)
+                        if (r == "Reemplazar")
                         {
-                            var response2 = await CrossFileUploader.Current.UploadFileAsync($"https://app.socialbusiness.com.co/api/upload_photos.php?op=Ag&place_id=" + Rta.Codigo, new FilePathItem("uploaded_file", foto));
-                            //await DisplayAlert("", response2.Message, "ok");
+                            var contador = 0;
+                            foreach (string foto in _imagesios)
+                            {
+                                if (contador == 0)
+                                {
+                                    var response2 = await CrossFileUploader.Current.UploadFileAsync($"https://app.socialbusiness.com.co/api/upload_photos.php?op=Re&place_id=" + Rta.Codigo, new FilePathItem("uploaded_file", foto));
+                                }
+                                else
+                                {
+                                    var response2 = await CrossFileUploader.Current.UploadFileAsync($"https://app.socialbusiness.com.co/api/upload_photos.php?op=Ag&place_id=" + Rta.Codigo, new FilePathItem("uploaded_file", foto));
+                                }
+                                contador++;
+                            }
+
+                        }
+                        else
+                        {
+                            foreach (string foto in _imagesios)
+                            {
+                                var response2 = await CrossFileUploader.Current.UploadFileAsync($"https://app.socialbusiness.com.co/api/upload_photos.php?op=Ag&place_id=" + Rta.Codigo, new FilePathItem("uploaded_file", foto));
+                                //await DisplayAlert("", response2.Message, "ok");
+                            }
+                        }
+                    }
+                    else if (Device.RuntimePlatform == Device.Android)
+                    {
+                        if (r == "Reemplazar")
+                        {
+                            var contador = 0;
+                            foreach (string foto in _imagesandroid)
+                            {
+                                if (contador == 0)
+                                {
+                                    var response2 = await CrossFileUploader.Current.UploadFileAsync($"https://app.socialbusiness.com.co/api/upload_photos.php?op=Re&place_id=" + Rta.Codigo, new FilePathItem("uploaded_file", foto));
+                                }
+                                else
+                                {
+                                    var response2 = await CrossFileUploader.Current.UploadFileAsync($"https://app.socialbusiness.com.co/api/upload_photos.php?op=Ag&place_id=" + Rta.Codigo, new FilePathItem("uploaded_file", foto));
+                                }
+                                contador++;
+                            }
+
+                        }
+                        else
+                        {
+                            foreach (string foto in _imagesandroid)
+                            {
+                                var response2 = await CrossFileUploader.Current.UploadFileAsync($"https://app.socialbusiness.com.co/api/upload_photos.php?op=Ag&place_id=" + Rta.Codigo, new FilePathItem("uploaded_file", foto));
+                                //await DisplayAlert("", response2.Message, "ok");
+                            }
                         }
                     }
 
@@ -225,7 +272,7 @@ namespace SocialBusinessApp.Views
                     await DisplayAlert("Alerta", "" + e, "Ok");
 
                 }
-                await Navigation.PopModalAsync();
+                await Navigation.PopAsync();
                 Application.Current.MainPage = new NavigationPage(new TabbedPage1());
             }
             
@@ -1288,7 +1335,8 @@ namespace SocialBusinessApp.Views
                     txtCiudad.Items.Add("SAN JOSÉ DE OCUNE");
                     break;
                 case 33://ESTADOS UNIDOS
-                    txtCiudad.Items.Add("Miami");
+                    txtCiudad.Items.Add("MIAMI");
+                    txtCiudad.Items.Add("DETROIT");
                     break;
 
             }
@@ -1297,24 +1345,43 @@ namespace SocialBusinessApp.Views
         {
             await DependencyService.Get<IMediaService>().OpenGallery();
         }
+        
         protected override void OnAppearing()
         {
             base.OnAppearing();
-            MessagingCenter.Subscribe<App, List<string>>((App)Xamarin.Forms.Application.Current, "ImagesSelected", (s, images) =>
+            if (Device.RuntimePlatform == Device.iOS)
             {
-                listItems.IsVisible = true;
-                listItems.FlowItemsSource = images;
-                picReemplazar.IsEnabled = true;
-                picReemplazar.IsVisible = true;
-                _images = images;
-            });
+                MessagingCenter.Subscribe<App, string>((App)Xamarin.Forms.Application.Current, "ImagesSelected", (s, image) =>
+                {
+                    listItemsIos.IsVisible = true;
+                    _imagesios.Add(image);
+                    picReemplazar.IsEnabled = true;
+                    picReemplazar.IsVisible = true;
+                });
+            }
+            else if (Device.RuntimePlatform == Device.Android)
+            {
+                MessagingCenter.Subscribe<App, List<string>>((App)Xamarin.Forms.Application.Current, "ImagesSelected", (s, images) =>
+                {
+                    listItemsAndroid.IsVisible = true;
+                    listItemsAndroid.FlowItemsSource = images;
+                    picReemplazar.IsEnabled = true;
+                    picReemplazar.IsVisible = true;
+                    _imagesandroid = images;
+                });
+            }
+
+        }
+        private void Button_Clicked(object sender, EventArgs e)
+        {
+            DependencyService.Get<IPickImage>().getImage();//ios
         }
         protected override void OnDisappearing()
         {
             base.OnDisappearing();
             MessagingCenter.Unsubscribe<App, List<string>>(this, "ImagesSelected");
+            MessagingCenter.Unsubscribe<App, string>(this, "ImagesSelected");
         }
-
         private async void Ejecucion(string placeid)
         {
             var responseString = "";

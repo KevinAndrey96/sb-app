@@ -8,6 +8,7 @@ using Newtonsoft.Json;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using SocialBusinessApp.Views;
+using SocialBusinessApp.Tabbeds;
 
 namespace SocialBusinessApp
 {
@@ -82,6 +83,7 @@ namespace SocialBusinessApp
                 var response = await client.PostAsync("https://app.socialbusiness.com.co/api/Login.php", content);
                 var responseString = await response.Content.ReadAsStringAsync();
                 Rta = JsonConvert.DeserializeObject<Respuesta>(responseString);
+                
             }
             catch (Exception)
             {
@@ -92,11 +94,19 @@ namespace SocialBusinessApp
             if (Rta.Estado.Equals("Si"))
             {
                 waitActivityIndicator.IsRunning = false;
-                GuardarSesion(AppUsuario, AppContrasena, Rta.Codigo);
+                GuardarSesion(AppUsuario, AppContrasena, Rta.Codigo, Rta.VIP);
                 
-                Navigation.InsertPageBefore(new TabbedPage1(), this);
-                await Navigation.PopAsync().ConfigureAwait(false);
-                await Navigation.PushAsync(new TabbedPage1());
+                if (Rta.VIP.Equals("SI"))
+                {
+                    Navigation.InsertPageBefore(new TabbedPage1(), this);
+                    await Navigation.PopAsync().ConfigureAwait(false);
+                    await Navigation.PushAsync(new TabbedPage1());
+                }else
+                {
+                    Navigation.InsertPageBefore(new TabbedPrincipal2(), this);
+                    await Navigation.PopAsync().ConfigureAwait(false);
+                    await Navigation.PushAsync(new TabbedPrincipal2());
+                }
             }
             else
             {
@@ -106,12 +116,14 @@ namespace SocialBusinessApp
             
         }
 
-        private void GuardarSesion(String Usuario, String Contrasena, String Codigo)
+        private void GuardarSesion(String Usuario, String Contrasena, String Codigo, String VIP)
         {
-            //DisplayAlert("Bienvenido","Su sesión ha sido iniciada con exito","Ok");
+            DisplayAlert("Bienvenido","Su sesión ha sido iniciada con exito","Ok");
             App.Current.Properties["Codigo"] = Codigo;
             App.Current.Properties["Usuario"] = Usuario;
+            App.Current.Properties["VIP"] = VIP;
             App.Current.Properties["Contrasena"] = Contrasena;
+            
         }
     }
 }           

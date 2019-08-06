@@ -19,35 +19,35 @@ using Xamarin.Forms.Internals;
 using SkiaSharp;
 using SocialBusinessApp.ViewModels;
 using SocialBusinessApp.Models;
+using System.Collections.ObjectModel;
+using DLToolkit.Forms.Controls;
 
 namespace SocialBusinessApp.Views
 {
-	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class NuevaOferta: ContentPage
-    {      
+    //[XamlCompilation(XamlCompilationOptions.Compile)]
+    public partial class NuevaOferta : ContentPage
+    {
 
         private static HttpClient client = new HttpClient();
         Respuesta Rta;
-        IImagePickerService _imagePickerService;
 
-        //private ImageSource Origen1, Origen2, Origen3, Origen4, Origen5;
+        List<string> _imagesandroid = new List<string>();
+        ObservableCollection<string> _imagesios = new ObservableCollection<string>();
 
-        List<string> _images = new List<string>();
+        //string filePath = string.Empty;
+        
+        public NuevaOferta(string lat, string lon)
+        {
+            NavigationPage.SetHasNavigationBar(this, false);
 
-        //Queue<string> paths = new Queue<string>();
-        string filePath = string.Empty;
-        //bool isBusy = false;
-        private List<Ciudad> Antioquia = new List<Ciudad>();
+            FlowListView.Init();
+            InitializeComponent();
+            
+            btnPublicar.Clicked += (sender, e) => BtnPublicarClick(lat, lon);
 
-
-        public NuevaOferta (string lat, string lon)
-		{
-            //NavigationPage.SetHasNavigationBar(this, false);
-            _imagePickerService = DependencyService.Get<IImagePickerService>();
-            InitializeComponent ();
-            btnPublicar.Clicked += (sender, e) => BtnPublicarClick(lat,lon);
-
-            BindingContext = new PickerVM();
+            listItemsIos.FlowItemsSource = _imagesios;
+            //btnGaler.Clicked += (sender, e) => BtnGalerClick();
+            //BindingContext = new NuevaOfertaViewModel();
         }
         void DepartamentoSelect(object sender, EventArgs args)
         {
@@ -834,7 +834,7 @@ namespace SocialBusinessApp.Views
                     txtCiudad.Items.Add("IPIALES");
                     txtCiudad.Items.Add("LA CRUZ");
                     break;
-                    case 22://NORTE DE SANTANDER
+                case 22://NORTE DE SANTANDER
 
                     txtCiudad.Items.Add("CUCUTA");
                     txtCiudad.Items.Add("ABREGO");
@@ -1113,26 +1113,70 @@ namespace SocialBusinessApp.Views
             }
         }
 
-     
-    
+
+        /*
         protected override void OnAppearing()
         {
             base.OnAppearing();
             MessagingCenter.Subscribe<App, List<string>>((App)Xamarin.Forms.Application.Current, "ImagesSelected", (s, images) =>
             {
+                
                 listItems.IsVisible = true;
                 listItems.FlowItemsSource = images;
                 _images = images;
+                DisplayAlert("Hola", "Llego" + _images.First(), "Ok");
             });
+            MessagingCenter.Subscribe<App, string>((App)Xamarin.Forms.Application.Current, "ImagesSelected", (s, image) =>
+            {
+                _images.Add(image);
+            });
+        }*/
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+            if (Device.RuntimePlatform == Device.iOS)
+            {
+                MessagingCenter.Subscribe<App, string>((App)Xamarin.Forms.Application.Current, "ImagesSelected", (s, image) =>
+                {
+                    listItemsIos.IsVisible = true;
+                    _imagesios.Add(image);
+                });
+            }
+            else if (Device.RuntimePlatform == Device.Android)
+            {
+                MessagingCenter.Subscribe<App, List<string>>((App)Xamarin.Forms.Application.Current, "ImagesSelected", (s, images) =>
+                {
+
+                    listItemsAndroid.IsVisible = true;
+                    listItemsAndroid.FlowItemsSource = images;
+                    _imagesandroid = images;
+                    //DisplayAlert("Hola", "LlegoAndroid" + _imagesandroid.First(), "Ok");
+                });
+            }
+            
+        }
+
+        private void Button_Clicked(object sender, EventArgs e)
+        {
+            DependencyService.Get<IPickImage>().getImage();//ios
         }
         protected override void OnDisappearing()
         {
             base.OnDisappearing();
             MessagingCenter.Unsubscribe<App, List<string>>(this, "ImagesSelected");
+            MessagingCenter.Unsubscribe<App, string>(this, "ImagesSelected");
         }
+        /*async void BtnGalerClick()
+        {
+            Media = new ObservableCollection<Models.MediaFile>();
+            await _multiMediaPickerService.PickPhotosAsync();
+        }*/
+
+        
+
         async void Handle_Clicked(object sender, System.EventArgs e)
         {
-            await DependencyService.Get<IMediaService>().OpenGallery();
+            await DependencyService.Get<IMediaService>().OpenGallery();//android
         }
 
         private void BtnPublicarClick(string lat, string lon)
@@ -1176,14 +1220,20 @@ namespace SocialBusinessApp.Views
                 cont++;
 
             if (cont == 17)
+            {
+                btnPublicar.IsEnabled=false;
                 SendTo(lat, lon);
+            }
             else
                 DisplayAlert("Alerta", "Por favor rellene todos los campos", "Ok");
         }
         
         private async void SendTo(string lat, string lon)
         {
-            var values = new Dictionary<string, string>
+            
+            try
+            {
+                var values = new Dictionary<string, string>
                 {
                    { "Dato1", txtNO.Text},
                    { "Dato2", txtDepartamento.Items[txtDepartamento.SelectedIndex]},
@@ -1210,30 +1260,52 @@ namespace SocialBusinessApp.Views
                    { "Dato22", (String)App.Current.Properties["Usuario"]}
 
                 };
-            var content = new FormUrlEncodedContent(values);
-            
-            var response = await client.PostAsync("https://app.socialbusiness.com.co/api/NuevaOferta.php", content);
-            //await DisplayAlert("Alert",lat+"/"+lon, "OK");
-            try
-            {
+                var content = new FormUrlEncodedContent(values);
+                var response = await client.PostAsync("https://app.socialbusiness.com.co/api/NuevaOferta.php", content);
                 
                 var responseString = await response.Content.ReadAsStringAsync();
                 Rta = JsonConvert.DeserializeObject<Respuesta>(responseString);
+                int contador = 0;
                 
-                foreach (string foto in _images)
+                if (Device.RuntimePlatform == Device.iOS)
                 {
-                    /*await CrossFileUploader.Current.UploadFileAsync("https://app.socialbusiness.com.co/api/upload_photos.php", new FilePathItem("uploaded_file", foto), new Dictionary<string, string>()
+                    foreach (string foto in _imagesios)
                     {
-                       {"Content-Type" , "multipart/form-data"}
-                    });*/
-                    var response2 = await CrossFileUploader.Current.UploadFileAsync($"https://app.socialbusiness.com.co/api/upload_photos.php?op=Re&place_id="+Rta.Codigo, new FilePathItem("uploaded_file", foto));                    
+                        if (contador == 0)
+                        {
+                            var response2 = await CrossFileUploader.Current.UploadFileAsync($"https://app.socialbusiness.com.co/api/upload_photos.php?op=Re&place_id=" + Rta.Codigo, new FilePathItem("uploaded_file", foto));
+                        }
+                        else
+                        {
+                            var response2 = await CrossFileUploader.Current.UploadFileAsync($"https://app.socialbusiness.com.co/api/upload_photos.php?op=Ag&place_id=" + Rta.Codigo, new FilePathItem("uploaded_file", foto));
+                        }
+                        contador++;
+                        //await DisplayAlert("Alerta", response2.Message, "Ok");
+                    }
                 }
+                else if (Device.RuntimePlatform == Device.Android)
+                {
+                    foreach (string foto in _imagesandroid)
+                    {
+                        if (contador == 0)
+                        {
+                            var response2 = await CrossFileUploader.Current.UploadFileAsync($"https://app.socialbusiness.com.co/api/upload_photos.php?op=Re&place_id=" + Rta.Codigo, new FilePathItem("uploaded_file", foto));
+                        }
+                        else
+                        {
+                            var response2 = await CrossFileUploader.Current.UploadFileAsync($"https://app.socialbusiness.com.co/api/upload_photos.php?op=Ag&place_id=" + Rta.Codigo, new FilePathItem("uploaded_file", foto));
+                        }
+                        contador++;
+                        //await DisplayAlert("Alerta", response2.Message, "Ok");
+                    }
+                }
+                
                 await DisplayAlert("Alerta", Rta.Mensaje, "Ok");
                 //await Navigation.PopModalAsync().ConfigureAwait(false);
                 //await Navigation.PushModalAsync(new Archivos());
 
                 //Navigation.InsertPageBefore(new Archivos(), this);
-                await Navigation.PopModalAsync();
+                await Navigation.PopAsync();
                 Application.Current.MainPage = new NavigationPage(new TabbedPage1());
 
             }
@@ -1244,47 +1316,5 @@ namespace SocialBusinessApp.Views
             }
         }
         
-
-        //private MediaFile _image;
-        private async void SendTo2()
-        {
-            
-            using (HttpClient client = new HttpClient())
-            {
-                try
-                {
-                    MultipartFormDataContent formData = new MultipartFormDataContent
-                    {
-                        { new StringContent(JsonConvert.SerializeObject("uploaded_file"), Encoding.UTF8, "application/json"), "uploaded_file" }
-                    };
-                    //formData.Add(new StringContent("param2 name"), "param2");
-                    var response = await client.PostAsync("https://app.socialbusiness.com.co/api/upload_photos.php", formData);
-                    //Logger.Log("Response : " + responseObj.ToString());
-                    try
-                    {
-
-                        var responseString = await response.Content.ReadAsStringAsync();
-                        Rta = JsonConvert.DeserializeObject<Respuesta>(responseString);
-                        await DisplayAlert("Alerta", Rta.Mensaje, "Ok");
-                        //await Navigation.PopModalAsync().ConfigureAwait(false);
-                        //await Navigation.PushModalAsync(new Archivos());
-
-                        //Navigation.InsertPageBefore(new Archivos(), this);
-                        //await Navigation.PopModalAsync();
-
-                    }
-                    catch (Exception e)
-                    {
-                        await DisplayAlert("Alerta", "" + e, "Ok");
-
-                    }
-                }
-                catch (Exception ex)
-                {
-                    //Logger.Log("Exception : " + ex.ToString());
-                    await DisplayAlert("Error", ex.ToString(), "Ok");
-                }
-            }
-        }
     }
 }

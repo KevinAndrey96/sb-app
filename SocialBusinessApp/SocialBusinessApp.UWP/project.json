@@ -15,11 +15,11 @@
     "Xamarin.FFImageLoading.Forms": "2.4.5.870-pre",
     "Xamarin.FFImageLoading.Svg.Forms": "2.4.5.870-pre",
     "Xamarin.FFImageLoading.Transformations": "2.4.4.859",
-    "Xamarin.Forms": "3.4.0.1039999",
+    "Xamarin.Forms": "4.0.0.304370-pre8",
     "Xamarin.Forms.GoogleMaps": "3.2.0",
     "Xamarin.Forms.GoogleMaps.Bindings": "2.2.0",
     "Xamarin.Forms.ImagePicker": "1.0.0",
-    "Xamarin.Forms.Maps": "3.6.0.264807",
+    "Xamarin.Forms.Maps": "4.0.0.304370-pre8",
     "Xamd.Plugins.Forms.ImageCarousel": "1.0.2"
   },
   "frameworks": {

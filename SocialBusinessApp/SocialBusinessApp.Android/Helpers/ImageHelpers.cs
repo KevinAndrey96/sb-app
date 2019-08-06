@@ -23,7 +23,7 @@ namespace SocialBusinessApp.Droid.Helpers
 
         }
 
-        public static byte[] RotateImage(string path, int v)
+        public static byte[] RotateImage(string path)
         {
             byte[] imageBytes;
 

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SocialBusinessApp.Views;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -16,24 +17,20 @@ namespace SocialBusinessApp
         {
             InitializeComponent();
             AndroidSpecific.Application.SetWindowSoftInputModeAdjust(this, AndroidSpecific.WindowSoftInputModeAdjust.Resize);
-
-            //MainPage = new SocialBusinessApp.MainPage();
-            //MainPage = new SocialBusinessApp.InicioSesion();#
-            /*MainPage = new NavigationPage(new InicioSesion())
-            {
-                BarBackgroundColor = Color.FromHex("#9c27b0"),
-        		BarTextColor = Color.White,
-	        };*/
-            //Plugin.CurrentActivity.CrossCurrentActivity.Current.Init(this, bundle);
-
+            
             MainPage = new NavigationPage(new SplashPage())
             {
                 BarBackgroundColor = Color.FromHex("#FFFFFF"),
                 //#9c27b0
                 BarTextColor = Color.White,
             };
-
-            //MainPage = new SocialBusinessApp.MenuPrincipal();
+            
+            /*MainPage = new NavigationPage(new Page1())
+            {
+                BarBackgroundColor = Color.FromHex("#9c27b0"),
+                BarTextColor = Color.White,
+            };*/
+            
 
         }
 

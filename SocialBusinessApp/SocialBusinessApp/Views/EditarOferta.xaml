@@ -2,6 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="SocialBusinessApp.Views.EditarOferta"
+             xmlns:local="clr-namespace:SocialBusinessApp"
              xmlns:flv="clr-namespace:DLToolkit.Forms.Controls;assembly=DLToolkit.Forms.Controls.FlowListView"
              xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms">
     <ContentPage.Content>
@@ -187,8 +188,10 @@
                     <Button Image="mapa.png" Grid.Row="0" Grid.Column="0"  BackgroundColor="#9c27b0" TextColor="#FFFFFF" Text="Ver" x:Name="btnVerUbica"/>
                     <Button Image="lapiz.png" Grid.Row="0" Grid.Column="1"  x:Name="btnEditarUbica" Text="Editar" BackgroundColor="#9c27b0" TextColor="#FFFFFF"></Button>
                 </Grid>
-                <StackLayout >
-                    <flv:FlowListView FlowColumnCount="3" x:Name="listItems" IsVisible="false"
+
+
+                <StackLayout>
+                    <flv:FlowListView FlowColumnCount="3" x:Name="listItemsAndroid" IsVisible="False"
     SeparatorVisibility="None"
     HasUnevenRows="false" RowHeight="100" >
                         <flv:FlowListView.FlowColumnTemplate>
@@ -199,6 +202,33 @@
                         </flv:FlowListView.FlowColumnTemplate>
                     </flv:FlowListView>
                 </StackLayout>
+
+                
+                    <flv:FlowListView FlowColumnCount="3" 
+                        x:Name="listItemsIos" 
+					    SeparatorVisibility="None"
+						    HasUnevenRows="True" RowHeight="50" 
+                                    HeightRequest="100"
+                                    VerticalOptions="Start"
+                                  IsVisible="False"
+                        >
+                        <flv:FlowListView.FlowColumnTemplate>
+                            <DataTemplate >
+                                <Image AbsoluteLayout.LayoutFlags="All" HeightRequest="50" AbsoluteLayout.LayoutBounds="0,0,1,1" Source="{Binding .}"  Aspect="AspectFill" HorizontalOptions="FillAndExpand" />
+                            </DataTemplate>
+                        </flv:FlowListView.FlowColumnTemplate>
+                    </flv:FlowListView>
+                
+
+
+
+
+
+
+
+
+
+
                 <Picker x:Name="picReemplazar" Title="¿Que desea hacer con las fotos?" IsEnabled="false" IsVisible="false" HorizontalOptions="FillAndExpand">
                     <Picker.Items>
                         <x:String>Reemplazar</x:String>
@@ -206,7 +236,14 @@
                     </Picker.Items>
                 </Picker>
               
-                <Button Image="galeria.png" BackgroundColor="#9c27b0" TextColor="#FFFFFF" Text="Fotografías de inmueble" Clicked="Handle_Clicked"/>
+                <OnPlatform x:TypeArguments="View">
+                    <On Platform="Android">
+                        <Button Image="galeria.png" BackgroundColor="#9c27b0" TextColor="#FFFFFF" Text="Fotografías de inmueble" Clicked="Handle_Clicked"/>
+                    </On>
+                    <On Platform="iOS">
+                        <Button Image="galeria.png" BackgroundColor="#9c27b0" TextColor="#FFFFFF" Text="Fotografías de inmueble" Clicked="Button_Clicked"/>
+                    </On>
+                </OnPlatform>
                 <Button Image="ok.png" x:Name="btnEditarOferta" Text="Guardar publicación" BackgroundColor="#9c27b0" TextColor="#FFFFFF"></Button>
             </StackLayout>
         </ScrollView>

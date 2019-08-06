@@ -56,8 +56,17 @@ namespace SocialBusinessApp
             if (answer)
             {
                 EliminarSesion();
-                await Navigation.PopModalAsync();
-                Application.Current.MainPage = new NavigationPage(new InicioSesion());
+                try
+                {
+                    await Navigation.PopModalAsync();
+                    Application.Current.MainPage = new NavigationPage(new InicioSesion());
+                }
+                catch(Exception)
+                {
+                    await Navigation.PopAsync();
+                    Application.Current.MainPage = new NavigationPage(new InicioSesion());
+                }
+                
             }
         }
         private void EliminarSesion()

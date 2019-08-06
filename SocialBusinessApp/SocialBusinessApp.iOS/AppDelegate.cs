@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-
+using System.Threading.Tasks;
 using Foundation;
 using SuaveControls.FloatingActionButton.iOS.Renderers;
 using UIKit;
@@ -35,7 +35,15 @@ namespace SocialBusinessApp.iOS
             //global::Xamarin.Forms.Forms.Init();
             Xamarin.FormsGoogleMaps.Init("REDACTED_GOOGLE_API_KEY");
             Xamarin.FormsGoogleMapsBindings.Init(); // Add this line
+            
+
             LoadApplication(new App());
+
+            UIButton ben = new UIButton();
+            ben.TouchUpInside += async (Object sender, EventArgs e) =>
+            {
+                await Task.Delay(888);
+            };
 
             return base.FinishedLaunching(app, options);
         }

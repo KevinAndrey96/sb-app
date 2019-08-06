@@ -18,7 +18,7 @@ namespace SocialBusinessApp.Tabbeds
             NavigationPage.SetHasNavigationBar(this, false);
             InitializeComponent();
             this.Title = "Ofertas";
-            //this.Icon = "iconomls";
+            this.Icon = "iconomls";
             if (Device.OS.Equals(TargetPlatform.iOS))
             {
                 // Don't show first navigation bar

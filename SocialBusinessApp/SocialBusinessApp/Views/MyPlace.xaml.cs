@@ -127,7 +127,8 @@ namespace SocialBusinessApp.Views
         }
         private async void BtnEditarClick(string placeid)
         {
-            await Navigation.PushModalAsync(new EditarOferta(placeid));
+            await Application.Current.MainPage.Navigation.PopModalAsync();
+            await Application.Current.MainPage.Navigation.PushAsync(new EditarOferta(placeid));
         }
         private async void BtnUbicacionClickAsync()
         {

@@ -15,6 +15,7 @@ using Xamarin.Forms;
 //using ELCImagePicker;
 using System.IO;
 using GMImagePicker;
+using Photos;
 
 [assembly: Xamarin.Forms.Dependency(typeof(MediaService))]
 namespace SocialBusinessApp.iOS
@@ -23,53 +24,29 @@ namespace SocialBusinessApp.iOS
     {
         public async Task OpenGallery()
         {
-            //var picker = ELCImagePickerViewController.Create(15);
             var picker = new GMImagePickerController();
             picker.FinishedPickingAssets += (sender, args) => {
-                Console.WriteLine("User finished picking assets. {0} items selected.", args.Assets.Length);
-            };
-            //await PresentViewControllerAsync(picker, true);
-            //picker.MaximumImagesCount = 15;
-
-            var topController = UIApplication.SharedApplication.KeyWindow.RootViewController;
-            while (topController.PresentedViewController != null)
-            {
-                topController = topController.PresentedViewController;
-            }
-            topController.PresentViewController(picker, true, null);
-
-            /*await picker.Completion.ContinueWith(t =>
-            {
-                picker.BeginInvokeOnMainThread(() =>
+                foreach (var item in args.Assets)
                 {
-                    //dismiss the picker
-                    picker.DismissViewController(true, null);
+                    PHImageManager.DefaultManager.RequestImageData(item, null, (NSData data, NSString dataUti, UIImageOrientation orientation, NSDictionary info) => {
+                        NSUrl url = info.ObjectForKey(new NSString("PHImageFileURLKey")) as NSUrl;
+                        string urlString = url.AbsoluteString;
 
-                    if (t.IsCanceled || t.Exception != null)
-                    {
-                    }
-                    else
-                    {
-                        List<string> images = new List<string>();
+                        string[] strs = urlString.Split("/");
 
-                        var items = t.Result as List<AssetResult>;
-                        foreach (var item in items)
-                        {
-                            var path = Save(item.Image, item.Name);
-                            images.Add(path);
-                            //CleanPath(path);
-                        }
+                        string s = Save(UIImage.LoadFromData(data), strs[strs.Length - 1]);
 
-                        MessagingCenter.Send<App, List<string>>((App)Xamarin.Forms.Application.Current, "ImagesSelected", images);
-                    }
-                });
-            });*/
+                        MessagingCenter.Send<App, string>((App)Xamarin.Forms.Application.Current, "ImagesSelected", s);
+                    });
+
+                }
+            };
+            UIApplication.SharedApplication.KeyWindow.RootViewController.PresentViewController(picker, true, null);
         }
 
         string Save(UIImage image, string name)
         {
-            var documentsDirectory = Environment.GetFolderPath
-                                  (Environment.SpecialFolder.Personal);
+            var documentsDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Personal);
             string jpgFilename = System.IO.Path.Combine(documentsDirectory, name); // hardcoded filename, overwritten each time
             NSData imgData = image.AsJPEG();
             NSError err = null;
@@ -84,18 +61,6 @@ namespace SocialBusinessApp.iOS
             }
         }
 
-        /*void IMediaService.ClearFiles(List<string> filePaths)
-        {
-            var documentsDirectory = Environment.GetFolderPath
-                              (Environment.SpecialFolder.Personal);
 
-            if (Directory.Exists(documentsDirectory))
-            {
-                foreach (var p in filePaths)
-                {
-                    File.Delete(p);
-                }
-            }
-        }*/
     }
 }
