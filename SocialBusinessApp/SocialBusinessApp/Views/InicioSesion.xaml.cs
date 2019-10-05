@@ -118,7 +118,6 @@ namespace SocialBusinessApp
 
         private void GuardarSesion(String Usuario, String Contrasena, String Codigo, String VIP)
         {
-            DisplayAlert("Bienvenido","Su sesión ha sido iniciada con exito","Ok");
             App.Current.Properties["Codigo"] = Codigo;
             App.Current.Properties["Usuario"] = Usuario;
             App.Current.Properties["VIP"] = VIP;

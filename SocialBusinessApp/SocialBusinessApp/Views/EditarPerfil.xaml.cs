@@ -21,8 +21,6 @@ namespace SocialBusinessApp.Views
         private List<string> InmobiliariasL = new List<string>();
         private List<InmobiliariaO> Inmo1;
 
-
-
         Inmobiliario Userio;
         public EditarPerfil()
         {
@@ -135,7 +133,7 @@ namespace SocialBusinessApp.Views
                     { "Facebook", txtFacebook.Text },
                     { "Twitter", txtTwitter.Text },
                     { "Instagram", txtInstagram.Text },
-                    { "Youtubbe", txtYoutube.Text },
+                    { "Youtube", txtYoutube.Text },
                     { "Web", txtWeb.Text },
                     { "Inmobiliaria", Inmobi}
                     /*{ "NombreI", txtNombreI.Text },
@@ -1256,6 +1254,7 @@ namespace SocialBusinessApp.Views
         }
         private async void Ejecucion()
         {
+            var responseString="";
             try
             {
                 HttpClient client = new HttpClient
@@ -1265,15 +1264,12 @@ namespace SocialBusinessApp.Views
                 var code = (String)App.Current.Properties["Codigo"];
                 string url = string.Format("/api/Profile.php?id=" + code);
                 var response = await client.GetAsync(url);
-                var responseString = await response.Content.ReadAsStringAsync();
+                responseString = await response.Content.ReadAsStringAsync();
+                
                 Userio = JsonConvert.DeserializeObject<Inmobiliario>(responseString);
-
-                //FPerfil.Source = Userio.FotoPerfil;
-                //FInmobiliaria.Source = Userio.FotoInmobiliaria;
-
+                
                 txtNombres.Text = "" + Userio.Nombres;
                 txtApellidos.Text = "" + Userio.Apellidos;
-                //TxtCodigo.Text = Userio.Codigo;
                 pikDepartamento.Title = Userio.Departamento;
                 pikCiudad.Title = Userio.Ciudad;
                 txtTelefono.Text = "" + Userio.Celular;
@@ -1289,17 +1285,12 @@ namespace SocialBusinessApp.Views
                 txtWeb.Text= Userio.Web;
 
                 pikInmobiliaria.Title = Userio.Inmobiliaria;
-                /*
-
-                TxtInmobiliaria.Text = Userio.Inmobiliaria;
-                TxtNit.Text = "Nit. " + Userio.Nit;
-                TxtDepartamento.Text = Userio.Departamento;*/
-
+                
             }
             catch (Exception e)
             {
                 //waitActivityIndicator.IsRunning = false;
-                await DisplayAlert("Alerta", "No se detecta conexión a internet, por favor intente más tarde" + e, "Ok");
+                await DisplayAlert("Alerta", "" + e+ "----"+responseString, "Ok");
                 return;
             }
 
