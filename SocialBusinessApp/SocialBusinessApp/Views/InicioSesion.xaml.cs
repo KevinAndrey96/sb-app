@@ -27,7 +27,7 @@ namespace SocialBusinessApp
             NavigationPage.SetHasNavigationBar(this, false);
             InitializeComponent();
             //btnOlvidoClave.Clicked += (sender, e) => btnOlvidoClaveClick();
-            
+            /*
             TapGestureRecognizer SignUp = new TapGestureRecognizer();
             SignUp.Tapped += (sender, e) => BtnRegistroClick();
             BtnSignUp.GestureRecognizers.Add(SignUp);
@@ -38,13 +38,16 @@ namespace SocialBusinessApp
 
             TapGestureRecognizer Password = new TapGestureRecognizer();
             Password.Tapped += (sender, e) => BtnOlvidoClaveClick();
-            BtnPassword.GestureRecognizers.Add(Password);
+            BtnPassword.GestureRecognizers.Add(Password);*/
 
         }
-        private void BtnOlvidoClaveClick()
+
+
+        //private void BtnOlvidoClaveClick()
+        async void BtnOlvidoClaveClick(object sender, System.EventArgs e)
         {
             //Device.OpenUri(new Uri("https://app.socialbusiness.com.co/user/password-request.php"));
-            Navigation.PushAsync(new OlvidoClave());
+            await Navigation.PushAsync(new OlvidoClave());
 
         }
         protected override void OnAppearing()
@@ -56,11 +59,17 @@ namespace SocialBusinessApp
                 SendTo();
             }
         }
-        private void BtnRegistroClick()
+
+
+        //private void BtnRegistroClick()
+        async void BtnRegistroClick(object sender, System.EventArgs e)
         {
-            Navigation.PushAsync(new Registro());
+            await Navigation.PushAsync(new Registro());
         }
-        private void BtnIngresarClick()
+
+
+        //private void BtnIngresarClick()
+        async void BtnIngresarClick(object sender, System.EventArgs e)
         {
             AppUsuario = txtEmail.Text;
             AppContrasena = txtContrasena.Text;

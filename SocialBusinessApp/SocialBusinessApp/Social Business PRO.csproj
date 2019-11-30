@@ -330,7 +330,7 @@
       <HintPath>..\..\packages\Xamarin.Forms.4.0.0.304370-pre8\lib\netstandard1.0\Xamarin.Forms.Core.dll</HintPath>
     </Reference>
     <Reference Include="Xamarin.Forms.GoogleMaps, Version=3.0.1.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Xamarin.Forms.GoogleMaps.3.2.0\lib\netstandard1.0\Xamarin.Forms.GoogleMaps.dll</HintPath>
+      <HintPath>..\..\packages\Xamarin.Forms.GoogleMaps.3.3.0\lib\netstandard1.0\Xamarin.Forms.GoogleMaps.dll</HintPath>
     </Reference>
     <Reference Include="Xamarin.Forms.GoogleMaps.Bindings, Version=2.2.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Xamarin.Forms.GoogleMaps.Bindings.2.2.0\lib\netstandard1.0\Xamarin.Forms.GoogleMaps.Bindings.dll</HintPath>

@@ -5,6 +5,8 @@
     <ContentPage.Content BackgroundColor="#E1BEE7">
         <ScrollView>
             <StackLayout Padding="20,20,20,20" BackgroundColor="#FFFFFF">
+              <StackLayout Spacing="50">
+              </StackLayout>
                 <Image Source="logorec.png" WidthRequest="300" HeightRequest="130" HorizontalOptions="Center"/>
                 <ActivityIndicator x:Name="waitActivityIndicator"></ActivityIndicator>
                 <Entry x:Name="txtEmail" Placeholder="E-Mail" WidthRequest="250" Keyboard="Email" HorizontalTextAlignment="Center" Text="" HorizontalOptions="Center" RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent,Property=Height,Factor=1,Constant=250}" RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent,Property=Width,Factor=.5}"></Entry>
@@ -17,7 +19,7 @@
                     <Image x:Name="BtnSignUp" Source="registrarse.png" WidthRequest="100" HeightRequest="100" HorizontalOptions="Center"/>
                     <Image x:Name="BtnPassword" Source="password.png" WidthRequest="100" HeightRequest="100" HorizontalOptions="Center"/>
                 </>-->
-                <Grid>
+                <!--<Grid>
                     <Grid.RowDefinitions>
                         <RowDefinition Height="*" />
                     </Grid.RowDefinitions>
@@ -25,11 +27,27 @@
                         <ColumnDefinition Width="*" />
                         <ColumnDefinition Width="*" />
                         <ColumnDefinition Width="*" />
-                    </Grid.ColumnDefinitions>
-                    <Image x:Name="BtnLogin" Grid.Row="0" Grid.Column="0" Source="ingresar.png" WidthRequest="100" HeightRequest="100" HorizontalOptions="Center"/>
+                    </Grid.ColumnDefinitions>-->
+                    
+                    <!--<Button Image="" x:Name="BtnPassword" BackgroundColor="#9c27b0" TextColor="#FFFFFF" Text="Recuperar contraseña" />-->
+                    <!--<Image x:Name="BtnLogin" Grid.Row="0" Grid.Column="0" Source="ingresar.png" WidthRequest="100" HeightRequest="100" HorizontalOptions="Center"/>
                     <Image x:Name="BtnSignUp" Grid.Row="0" Grid.Column="1" Source="registrarse.png" WidthRequest="100" HeightRequest="100" HorizontalOptions="Center"/>
-                    <Image x:Name="BtnPassword" Grid.Row="0" Grid.Column="2" Source="password.png" WidthRequest="100" HeightRequest="100" HorizontalOptions="Center"/>
-                </Grid>
+                    <Image x:Name="BtnPassword" Grid.Row="0" Grid.Column="2" Source="password.png" WidthRequest="100" HeightRequest="100" HorizontalOptions="Center"/>-->
+                <!--</Grid>-->
+              <StackLayout Spacing="50">
+              </StackLayout>
+              <Grid>
+                <Grid.RowDefinitions>
+                  <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                  <ColumnDefinition Width="*" />
+                  <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Button Clicked="BtnIngresarClick" Image="ok.png" Grid.Row="0" Grid.Column="0" x:Name="BtnLogin" BackgroundColor="#9c27b0" TextColor="#FFFFFF" Text="Iniciar Sesión" />
+                <Button Clicked="BtnRegistroClick" Image="candado.png" Grid.Row="0" Grid.Column="1" x:Name="BtnSignUp" BackgroundColor="#9c27b0" TextColor="#FFFFFF" Text="Registrarse" />
+              </Grid>
+              <Button Image="BtnOlvidoClaveClick" x:Name="BtnPassword" Text="¿Olvidaste tu contraseña?" TextColor="Blue" HorizontalOptions="Center" BackgroundColor = "Transparent" />
             </StackLayout>
         </ScrollView>
     </ContentPage.Content>
