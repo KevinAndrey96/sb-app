@@ -26,6 +26,11 @@ namespace SocialBusinessApp.Cells
                 FontSize = 17
             };
             PuntajeLabel.SetBinding(Label.TextProperty, new Binding("Puntaje"));
+            var AgentesLabel = new Label
+            {
+                FontSize = 17
+            };
+            AgentesLabel.SetBinding(Label.TextProperty, new Binding("Integrantes"));
             var MedallaImage = new Image
             {
                 //Source = ImageSource.FromUri(new Uri(String.Format("http://app.socialbusiness.com.co/place_pic_thumb/2/18.02.01.16.25-1517520342.06-25656287.jpg"))),
@@ -44,7 +49,7 @@ namespace SocialBusinessApp.Cells
 
             var View2 = new StackLayout
             {
-                Children = { PosicionLabel, NombreLabel, PuntajeLabel },
+                Children = { PosicionLabel, NombreLabel, PuntajeLabel, AgentesLabel },
                 Orientation = StackOrientation.Vertical
             };
 

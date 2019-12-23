@@ -89,17 +89,8 @@
                         <ColumnDefinition Width="*" />
                         <ColumnDefinition Width="*" />
                     </Grid.ColumnDefinitions>
-                    <Picker x:Name="txtEstrato" Grid.Row="0" Grid.Column="0" Title="Estrato"  HorizontalOptions="FillAndExpand">
-                        <Picker.Items>
-                            <x:String>1</x:String>
-                            <x:String>2</x:String>
-                            <x:String>3</x:String>
-                            <x:String>4</x:String>
-                            <x:String>5</x:String>
-                            <x:String>6</x:String>
-                            <x:String>Campestre</x:String>
-                        </Picker.Items>
-                    </Picker>
+                    <Entry x:Name="txtAr"  Grid.Row="0" Grid.Column="0" Keyboard="Numeric" Placeholder="Area (m²)"></Entry>
+                    
                     <Picker x:Name="txtAntiguedad" Grid.Row="0" Grid.Column="1" Title="Antiguedad"  HorizontalOptions="FillAndExpand">
                         <Picker.Items>
                             <x:String>Proyecto en Planos</x:String>
@@ -125,7 +116,17 @@
                         <ColumnDefinition Width="*" />
                         <ColumnDefinition Width="*" />
                     </Grid.ColumnDefinitions>
-                    <Entry x:Name="txtAr"  Grid.Row="0" Grid.Column="0" Keyboard="Numeric" Placeholder="Area (m²)"></Entry>
+                    <Picker x:Name="txtEstrato" Grid.Row="0" Grid.Column="0" Title="Estrato"  HorizontalOptions="FillAndExpand">
+                        <Picker.Items>
+                            <x:String>1</x:String>
+                            <x:String>2</x:String>
+                            <x:String>3</x:String>
+                            <x:String>4</x:String>
+                            <x:String>5</x:String>
+                            <x:String>6</x:String>
+                            <x:String>Campestre</x:String>
+                        </Picker.Items>
+                    </Picker>
                     <Entry x:Name="txtHa"  Grid.Row="0" Grid.Column="1" Keyboard="Numeric" Placeholder="Habitaciones"></Entry>
                     <Entry x:Name="txtBa"  Grid.Row="0" Grid.Column="2" Keyboard="Numeric"  Placeholder="Baños"></Entry>
                     <Entry x:Name="txtPa"  Grid.Row="0" Grid.Column="3" Keyboard="Numeric" Placeholder="Parqueaderos"></Entry>
@@ -144,22 +145,10 @@
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*" />
                         <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="*" />
                     </Grid.ColumnDefinitions>
 
-                    <Picker x:Name="txtCategoria" Grid.Row="0" Grid.Column="0" Title="Categoria"  HorizontalOptions="FillAndExpand">
-                        <Picker.Items>
-                            <x:String>Apartamento</x:String>
-                            <x:String>Apartaestudio</x:String>
-                            <x:String>Casa</x:String>
-                            <x:String>Finca</x:String>
-                            <x:String>Lote</x:String>
-                            <x:String>Local</x:String>
-                            <x:String>Bodega</x:String>
-                            <x:String>Edificio</x:String>
-                        </Picker.Items>
-                    </Picker>
-                    <Picker x:Name="txtTipo" Title="Tipo" Grid.Row="0" Grid.Column="1" HorizontalOptions="FillAndExpand">
+                    
+                    <Picker x:Name="txtTipo" Title="Tipo" Grid.Row="0" Grid.Column="0" HorizontalOptions="FillAndExpand">
                         <Picker.Items>
                             <x:String>Venta</x:String>
                             <x:String>Arriendo</x:String>
@@ -169,7 +158,7 @@
                             <x:String>Arriendo-Permuta</x:String>
                         </Picker.Items>
                     </Picker>
-                    <Picker x:Name="TxtTerceria" Title="Terceria" Grid.Row="0" Grid.Column="2" HorizontalOptions="FillAndExpand">
+                    <Picker x:Name="TxtTerceria" Title="Terceria" Grid.Row="0" Grid.Column="1" HorizontalOptions="FillAndExpand">
                         <Picker.Items>
                             <x:String>Si</x:String>
                             <x:String>No</x:String>
@@ -177,8 +166,19 @@
                     </Picker>
                 </Grid>
 
+                <Picker x:Name="txtCategoria" Title="Categoria"  HorizontalOptions="FillAndExpand">
+                    <Picker.Items>
+                        <x:String>Apartamento</x:String>
+                        <x:String>Apartaestudio</x:String>
+                        <x:String>Casa</x:String>
+                        <x:String>Finca</x:String>
+                        <x:String>Lote</x:String>
+                        <x:String>Local</x:String>
+                        <x:String>Bodega</x:String>
+                        <x:String>Edificio</x:String>
+                    </Picker.Items>
+                </Picker>
 
-                
                 <StackLayout>
           <flv:FlowListView FlowColumnCount="3" x:Name="listItemsAndroid" IsVisible="False"
     SeparatorVisibility="None"

@@ -29,7 +29,7 @@ namespace SocialBusinessApp.Views
             TxtDepartments.Text = "Ciudad: "+ranki.Departamento;
             TxtNit.Text = "Nit. "+ranki.Nit;
 
-            TxtScore.Text = ranki.Puntaje+" puntos";
+            TxtScore.Text = ranki.Puntaje;
 
             btnInmuebles.Clicked += (sender, e) => BtnInmueblesClick(ranki.Nombre);
             //btnIntegrantes.Clicked += (sender, e) => BtnIntegrantesClick();

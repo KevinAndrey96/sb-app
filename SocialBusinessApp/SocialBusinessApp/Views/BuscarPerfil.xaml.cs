@@ -24,7 +24,7 @@ namespace SocialBusinessApp.Views
             //await Navigation.PushModalAsync(new OfertasUsuario(this.Code));
 
             btnOfertas.Clicked += (sender, e) => BtnOfertasClick(Perfil);
-            btnComentarios.Clicked += (sender, e) => BtnComentariosClick(Perfil);
+            //btnComentarios.Clicked += (sender, e) => BtnComentariosClick(Perfil);
             btnLogros.Clicked += (sender, e) => BtnLogrosClick(Perfil);
             btnEquipo.Clicked += (sender, e) => BtnEquipoClick(Perfil);
             btnCompartir.Clicked += (sender, e) => BtnCompartirClick(Userio.Codigo, Userio.Nombre+" "+Userio.Apellidos);

@@ -44,15 +44,15 @@ namespace SocialBusinessApp
             var ranki = e.Item as RankI;
             await Navigation.PushModalAsync(new Inmobiliaria(ranki));
         }
-        private void BtnEventosClick()
+        /*private void BtnEventosClick()
         {
             Navigation.PushAsync(new Eventos());
-        }
+        }*/
         private void BtnStandarSearchClick()
         {
             Navigation.PushAsync(new Eventos());
         }
-        private void BtnBuscarClick()
+        /*private void BtnBuscarClick()
         {
             Navigation.PushAsync(new Filtros());
         }
@@ -68,13 +68,13 @@ namespace SocialBusinessApp
         {
             //Navigation.PushAsync(new Perfil((String)App.Current.Properties["Codigo"]));
         }
-
+        *//*
         private async void BtnRankingProfesionalClick()
         {
             Navigation.InsertPageBefore(new Ranking(), this);
             await Navigation.PopAsync().ConfigureAwait(false);
             await Navigation.PushAsync(new Ranking());
-        }
+        }*/
         private async void LoadRankingI()
         {
             //waitActivityIndicator.IsRunning = true;

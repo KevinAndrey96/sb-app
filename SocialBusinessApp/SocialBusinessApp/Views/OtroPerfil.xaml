@@ -100,7 +100,7 @@
                 </StackLayout>
                 </ScrollView>
             </StackLayout>
-            <views:FloatingActionButton Image="comentario.png" Grid.Column="1" Grid.Row="1" ButtonColor="#9c27b0" WidthRequest="56" HeightRequest="56" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" x:Name="btnComentarios" />
+            <!--<views:FloatingActionButton Image="comentario.png" Grid.Column="1" Grid.Row="1" ButtonColor="#9c27b0" WidthRequest="56" HeightRequest="56" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" x:Name="btnComentarios" />-->
             <StackLayout Grid.Column="0" Grid.Row="1" Orientation="Horizontal">
                 <Label Text="  "></Label>
                 <views:FloatingActionButton Image="trofeo.png" Grid.Column="0" Grid.Row="1" ButtonColor="#9c27b0" WidthRequest="56" HeightRequest="56" HorizontalOptions="StartAndExpand" VerticalOptions="CenterAndExpand" x:Name="btnLogros"/>

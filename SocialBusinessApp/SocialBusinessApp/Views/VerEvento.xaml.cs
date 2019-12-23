@@ -93,10 +93,10 @@ namespace SocialBusinessApp.Views
                     Rta = JsonConvert.DeserializeObject<Respuesta>(responseString);
 
                 }
-                catch (Exception)
+                catch (Exception e)
                 {
                     //waitActivityIndicator.IsRunning = false;
-                    await DisplayAlert("Alerta", "No se detecta conexión a internet, por favor intente más tarde", "Ok");
+                    await DisplayAlert("Alerta", "No se detecta conexión a internet, por favor intente más tarde"+e, "Ok");
                     return;
                 }
                 if (Rta.Estado.Equals("Si"))

@@ -97,8 +97,6 @@ namespace SocialBusinessApp.Cells
         private void PlusClicked(object sender, EventArgs e)
         {
             Button btn = (Button)sender;
-            //var ran = btn.Text as Rank;
-            //Application.Current.MainPage.DisplayAlert("Alert", "Do you want to delete this item.", btn.Text);
             Application.Current.MainPage.Navigation.PushModalAsync(new BuscarPerfil(btn.Text));
         }
     }

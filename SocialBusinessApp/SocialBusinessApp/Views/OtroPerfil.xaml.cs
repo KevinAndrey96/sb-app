@@ -51,7 +51,7 @@ namespace SocialBusinessApp
             btnYoutube.Clicked += (sender, e) => BtnURLClick(rank.Youtube);
             btnWeb.Clicked += (sender, e) => BtnURLClick(rank.Web);
 
-            btnComentarios.Clicked += (sender, e) => BtnComentariosClick();
+//            btnComentarios.Clicked += (sender, e) => BtnComentariosClick();
             btnLogros.Clicked += (sender, e) => BtnLogrosClick();
             btnEquipo.Clicked += (sender, e) => BtnEquipoClick();
             btnCompartir.Clicked += (sender, e) => BtnCompartirClick(rank.Codigo, rank.Nombre);

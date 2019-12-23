@@ -37,6 +37,8 @@ namespace SocialBusinessApp
         public string Categoria { get; set; }
         public string Terceria { get; set; }
 
+        public string Number { get; set; }
+
         public override string ToString()
         {
             return base.ToString();

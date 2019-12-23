@@ -28,7 +28,7 @@ namespace SocialBusinessApp.Views
         List<string> _imagesandroid = new List<string>();
         ObservableCollection<string> _imagesios = new ObservableCollection<string>();
 
-        string filePath = string.Empty;
+        //string filePath = string.Empty;
         //bool isBusy = false;
 
         public EditarOferta(string placeid)

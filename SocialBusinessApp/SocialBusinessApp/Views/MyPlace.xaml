@@ -60,6 +60,8 @@
                         <Label Text=""  x:Name="TxtDescripcion" FontSize="15"></Label>
 
 
+                        <Button Image="usuario.png" x:Name="btnPerfil" IsVisible="False" IsEnabled="False" Text="Perfil Inmobiliario" BackgroundColor="#9c27b0" TextColor="#FFFFFF"></Button>
+                        <Button Image="whatsapp.png" x:Name="btnWhatsapp" IsVisible="False" IsEnabled="False" Text="Contactar Agente" BackgroundColor="#9c27b0" TextColor="#FFFFFF"></Button>
                         <Button Image="youtube.png" x:Name="btnYoutube" IsVisible="False" IsEnabled="False" Text="Ver Video" BackgroundColor="#9c27b0" TextColor="#FFFFFF"></Button>
                         <Button Image="compartir.png" x:Name="btnCompartir" Text="Compartir" HorizontalOptions="Center" WidthRequest="250" BackgroundColor="#9c27b0" TextColor="#FFFFFF"></Button>
                         <Button  x:Name="btnCompartir2" Text="" HorizontalOptions="Center" WidthRequest="250" BackgroundColor="Transparent" TextColor="#FFFFFF"></Button>

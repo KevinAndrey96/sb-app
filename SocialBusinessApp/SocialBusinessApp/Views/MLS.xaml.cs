@@ -87,10 +87,10 @@ namespace SocialBusinessApp
 
 
 
-        private void OnClick_u()
+        /*private void OnClick_u()
         {
             Navigation.PushAsync(new Eventos());
-        }
+        }*/
         private void BtnStandarSearchClick()
         {
             Navigation.PushAsync(new Eventos());
@@ -108,7 +108,7 @@ namespace SocialBusinessApp
         {
             Navigation.PushAsync(new Filtros());
         }
-        private void BtnRankingClick()
+        /*private void BtnRankingClick()
         {
             Navigation.PushAsync(new Ranking());
         }
@@ -116,14 +116,14 @@ namespace SocialBusinessApp
         {
             Navigation.PushAsync(new MisListados("https://app.socialbusiness.com.co/chat"));
         }
-        
+        *//*
         private void BtnSalirClick()
         {
             EliminarSesion();
             //Navigation.PushAsync(new InicioSesion());
             Navigation.InsertPageBefore(new InicioSesion(), this);
             Navigation.PopAsync().ConfigureAwait(false);
-        }
+        }*/
         private void EliminarSesion()
         {
             Xamarin.Forms.Application.Current.Properties.Clear();

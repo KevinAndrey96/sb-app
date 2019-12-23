@@ -1248,7 +1248,7 @@ namespace SocialBusinessApp.Views
                    { "Dato11", txtPa.Text},
                    { "Dato12", txtEstrato.Items[txtEstrato.SelectedIndex]},
                    { "Dato13", txtAntiguedad.Items[txtAntiguedad.SelectedIndex]},
-                   { "Dato14", txtTe.Text},
+                   { "Dato14", txtTe.Text},//Youtube
                    { "Dato15", TxtTerceria.Items[TxtTerceria.SelectedIndex]},
 
                    { "Dato16", lat},
@@ -1266,7 +1266,9 @@ namespace SocialBusinessApp.Views
                 var responseString = await response.Content.ReadAsStringAsync();
                 Rta = JsonConvert.DeserializeObject<Respuesta>(responseString);
                 int contador = 0;
-                
+
+                //await DisplayAlert("Alerta", responseString, "Ok");
+
                 if (Device.RuntimePlatform == Device.iOS)
                 {
                     foreach (string foto in _imagesios)
@@ -1290,24 +1292,33 @@ namespace SocialBusinessApp.Views
                         if (contador == 0)
                         {
                             var response2 = await CrossFileUploader.Current.UploadFileAsync($"https://app.socialbusiness.com.co/api/upload_photos.php?op=Re&place_id=" + Rta.Codigo, new FilePathItem("uploaded_file", foto));
+                            //await DisplayAlert("Alerta", response2.Message, "Ok");
                         }
                         else
                         {
                             var response2 = await CrossFileUploader.Current.UploadFileAsync($"https://app.socialbusiness.com.co/api/upload_photos.php?op=Ag&place_id=" + Rta.Codigo, new FilePathItem("uploaded_file", foto));
+                            //await DisplayAlert("Alerta", response2.Message, "Ok");
                         }
                         contador++;
-                        //await DisplayAlert("Alerta", response2.Message, "Ok");
+                        
                     }
                 }
                 
                 await DisplayAlert("Alerta", Rta.Mensaje, "Ok");
+                //await DisplayAlert("Alerta",responseString, "Ok");
                 //await Navigation.PopModalAsync().ConfigureAwait(false);
                 //await Navigation.PushModalAsync(new Archivos());
 
                 //Navigation.InsertPageBefore(new Archivos(), this);
+
+
+
+
+
+                
                 await Navigation.PopAsync();
                 Application.Current.MainPage = new NavigationPage(new TabbedPage1());
-
+                
             }
             catch (Exception e)
             {

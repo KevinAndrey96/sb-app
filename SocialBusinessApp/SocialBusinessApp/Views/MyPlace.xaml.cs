@@ -40,7 +40,10 @@ namespace SocialBusinessApp.Views
             btnYoutube.Clicked += (sender, e) => BtnYoutubeClick(oferta.Youtube);
             btnCompartir.Clicked += (sender, e) => BtnCompartirClick(oferta.ID,oferta.Nombre);
 
-            
+            btnWhatsapp.Clicked += (sender, e) => BtnWhatsappClick(oferta.Number);
+            btnPerfil.Clicked += (sender, e) => BtnPerfilClick(oferta.UserId);
+
+
 
 
             txtCategoria.Text = "Categoria: " + oferta.Categoria;
@@ -78,10 +81,12 @@ namespace SocialBusinessApp.Views
             TxtAntiguedad.Text = "Antiguedad: " + oferta.Antiguedad;
             TxtUbicacion.Text = "Ubicación: " + oferta.Ubicacion;// + oferta.Lat + oferta.Long;
             TxtDescripcion.Text = oferta.Descripcion;
-            FPlace.Source = oferta.Fotografia;
+            //FPlace.Source = oferta.Fotografia;
+            FPlace.Source = new UriImageSource { CachingEnabled = true, Uri = new System.Uri(oferta.Fotografia) }; 
+            
             Lat = oferta.Lat;
             Long = oferta.Long;
-            DisplayAlert("uno", "Dos: " + oferta.Lat, "Tres" + oferta.Long);
+            //DisplayAlert("uno", "Dos: " + oferta.Lat, "Tres" + oferta.Long);
             PlaceID = oferta.ID;
 
             if (mio)
@@ -91,6 +96,12 @@ namespace SocialBusinessApp.Views
                 btnEliminar.IsEnabled = true;
                 btnEliminar.IsVisible = true;
                 TxtDireccion.IsVisible = true;
+
+
+                btnWhatsapp.IsVisible = false;
+                btnWhatsapp.IsEnabled = false;
+                btnPerfil.IsEnabled = false;
+                btnPerfil.IsVisible = false;
             }
             else
             {
@@ -99,6 +110,13 @@ namespace SocialBusinessApp.Views
                 btnEliminar.IsEnabled = false;
                 btnEliminar.IsVisible = false;
                 TxtDireccion.IsVisible = false;
+
+
+
+                btnWhatsapp.IsVisible = true;
+                btnWhatsapp.IsEnabled = true;
+                btnPerfil.IsEnabled = true;
+                btnPerfil.IsVisible = true;
             }
 
             btnEditar.Clicked += (sender, e) => BtnEditarClick(oferta.ID);
@@ -115,6 +133,24 @@ namespace SocialBusinessApp.Views
         private async void BtnYoutubeClick(string url)
         {
             await Navigation.PushModalAsync(new MisListados(url));
+        }
+
+        private async void BtnPerfilClick(string userid)
+        {
+
+            await Navigation.PushModalAsync(new BuscarPerfil(userid));
+        }
+
+        private async void BtnWhatsappClick(string number)
+        {
+            if (number == "")
+            {
+                await DisplayAlert("Alerta", "El usuario no tiene configurado su whatsapp aún", "Ok");
+            }
+            else
+            {
+                Device.OpenUri(new Uri("https://api.whatsapp.com/send?phone=57" + number));
+            }
         }
         private async void BtnCompartirClick(string placeid,string nombre)
         {
@@ -154,10 +190,10 @@ namespace SocialBusinessApp.Views
             }
         }
 
-        private async void BtnGaleriaClickAsync()
+        /*private async void BtnGaleriaClickAsync()
         {
             await Navigation.PushModalAsync(new Gallery());
-        }
+        }*/
         private async void LoadFotos()
         {
             //waitActivityIndicator.IsRunning = true;
