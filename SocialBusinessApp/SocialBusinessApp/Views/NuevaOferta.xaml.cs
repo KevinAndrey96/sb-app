@@ -35,15 +35,22 @@ namespace SocialBusinessApp.Views
         ObservableCollection<string> _imagesios = new ObservableCollection<string>();
 
         //string filePath = string.Empty;
-        
+
         public NuevaOferta(string lat, string lon)
         {
             NavigationPage.SetHasNavigationBar(this, false);
 
             FlowListView.Init();
             InitializeComponent();
-            
-            btnPublicar.Clicked += (sender, e) => BtnPublicarClick(lat, lon);
+
+            try
+            {
+                btnPublicar.Clicked += (sender, e) => BtnPublicarClick(lat, lon);
+            }
+            catch
+            {
+                DisplayAlert("Alerta", "Por favor rellene los campos para continuar", "Ok");
+            }
 
             listItemsIos.FlowItemsSource = _imagesios;
             //btnGaler.Clicked += (sender, e) => BtnGalerClick();
@@ -1153,7 +1160,7 @@ namespace SocialBusinessApp.Views
                     //DisplayAlert("Hola", "LlegoAndroid" + _imagesandroid.First(), "Ok");
                 });
             }
-            
+
         }
 
         private void Button_Clicked(object sender, EventArgs e)
@@ -1172,7 +1179,7 @@ namespace SocialBusinessApp.Views
             await _multiMediaPickerService.PickPhotosAsync();
         }*/
 
-        
+
 
         async void Handle_Clicked(object sender, System.EventArgs e)
         {
@@ -1184,10 +1191,26 @@ namespace SocialBusinessApp.Views
             int cont = 0;
             if (!string.IsNullOrWhiteSpace(txtNO.Text))
                 cont++;
-            if (!string.IsNullOrWhiteSpace(txtDepartamento.Items[txtDepartamento.SelectedIndex]))
-                cont++;
-            if (!string.IsNullOrWhiteSpace(txtCiudad.Items[txtCiudad.SelectedIndex]))
-                cont++;
+            try
+            {
+                if (!string.IsNullOrWhiteSpace(txtDepartamento.Items[txtDepartamento.SelectedIndex]))
+                    cont++;
+            }
+            catch (Exception)
+            {
+                DisplayAlert("Alerta", "Por favor seleccione Departamento", "Ok");
+                return;
+            }
+            try
+            {
+                if (!string.IsNullOrWhiteSpace(txtCiudad.Items[txtCiudad.SelectedIndex]))
+                    cont++;
+            }
+            catch (Exception)
+            {
+                DisplayAlert("Alerta", "Por favor seleccione Ciudad", "Ok");
+                return;
+            }
             if (!string.IsNullOrWhiteSpace(txtBar.Text))
                 cont++;
             if (!string.IsNullOrWhiteSpace(txtDi.Text))
@@ -1196,41 +1219,100 @@ namespace SocialBusinessApp.Views
                 cont++;
             if (!string.IsNullOrWhiteSpace(txtAr.Text))
                 cont++;
-            if (!string.IsNullOrWhiteSpace(txtUbicacion.Items[txtUbicacion.SelectedIndex]))
-                cont++;
+            try
+            {
+                if (!string.IsNullOrWhiteSpace(txtUbicacion.Items[txtUbicacion.SelectedIndex]))
+                    cont++;
+            }
+            catch (Exception)
+            {
+                DisplayAlert("Alerta", "Por favor seleccione Ubicación", "Ok");
+                return;
+            }
             if (!string.IsNullOrWhiteSpace(txtHa.Text))
                 cont++;
             if (!string.IsNullOrWhiteSpace(txtBa.Text))
                 cont++;
             if (!string.IsNullOrWhiteSpace(txtPa.Text))
                 cont++;
-            if (!string.IsNullOrWhiteSpace(txtEstrato.Items[txtEstrato.SelectedIndex]))
-                cont++;
-            if (!string.IsNullOrWhiteSpace(txtAntiguedad.Items[txtAntiguedad.SelectedIndex]))
-                cont++;
+            try
+            {
+                if (!string.IsNullOrWhiteSpace(txtEstrato.Items[txtEstrato.SelectedIndex]))
+                    cont++;
+            }
+            catch (Exception)
+            {
+                DisplayAlert("Alerta", "Por favor seleccione Estrato", "Ok");
+                return;
+            }
+            try
+            {
+                if (!string.IsNullOrWhiteSpace(txtAntiguedad.Items[txtAntiguedad.SelectedIndex]))
+                    cont++;
+            }
+            catch (Exception)
+            {
+                DisplayAlert("Alerta", "Por favor seleccione Antiguedad", "Ok");
+                return;
+            }
             //if (!string.IsNullOrWhiteSpace(txtTe.Text))
-                //cont++;
-            if (!string.IsNullOrWhiteSpace(TxtTerceria.Items[TxtTerceria.SelectedIndex]))
-                cont++;
+            //cont++;
+            try
+            {
+                if (!string.IsNullOrWhiteSpace(TxtTerceria.Items[TxtTerceria.SelectedIndex]))
+                    cont++;
+            }
+            catch (Exception)
+            {
+                DisplayAlert("Alerta", "Por favor seleccione opción de tercería", "Ok");
+                return;
+            }
             if (!string.IsNullOrWhiteSpace(txtDe.Text))
                 cont++;
-            if (!string.IsNullOrWhiteSpace(txtCategoria.Items[txtCategoria.SelectedIndex]))
-                cont++;
-            if (!string.IsNullOrWhiteSpace(txtTipo.Items[txtTipo.SelectedIndex]))
-                cont++;
+            try
+            {
+                if (!string.IsNullOrWhiteSpace(txtCategoria.Items[txtCategoria.SelectedIndex]))
+                    cont++;
+            }
+            catch (Exception)
+            {
+                DisplayAlert("Alerta", "Por favor seleccione Categoría", "Ok");
+                return;
+            }
+            try
+            {
+                if (!string.IsNullOrWhiteSpace(txtTipo.Items[txtTipo.SelectedIndex]))
+                    cont++;
+            }
+            catch (Exception)
+            {
+                DisplayAlert("Alerta", "Por favor seleccione Tipo", "Ok");
+                return;
+            }
 
             if (cont == 17)
             {
-                btnPublicar.IsEnabled=false;
-                SendTo(lat, lon);
+                if (txtTe.Text.Substring(0, 23) == "https://www.youtube.com" || txtTe.Text.Substring(0, 19) == "https://youtube.com" || txtTe.Text.Substring(0, 21) == "https://m.youtube.com" || txtTe.Text.Substring(0, 16) == "https://youtu.be")
+                {
+                    btnPublicar.IsEnabled = false;
+                    SendTo(lat, lon);
+                }
+                else
+                {
+                    DisplayAlert("Alerta", "Por favor ingrese un enlace de youtube valido: https://www.youtube.com - https://youtube.com - https://m.youtube.com - https://youtu.be", "Ok");
+                }
+                //https://www.youtube.com || https://youtube.com || https://m.youtube.com || https://youtu.be
+
             }
             else
+            {
                 DisplayAlert("Alerta", "Por favor rellene todos los campos", "Ok");
+            }
         }
-        
+
         private async void SendTo(string lat, string lon)
         {
-            
+
             try
             {
                 var values = new Dictionary<string, string>
@@ -1262,7 +1344,7 @@ namespace SocialBusinessApp.Views
                 };
                 var content = new FormUrlEncodedContent(values);
                 var response = await client.PostAsync("https://app.socialbusiness.com.co/api/NuevaOferta.php", content);
-                
+
                 var responseString = await response.Content.ReadAsStringAsync();
                 Rta = JsonConvert.DeserializeObject<Respuesta>(responseString);
                 int contador = 0;
@@ -1300,10 +1382,10 @@ namespace SocialBusinessApp.Views
                             //await DisplayAlert("Alerta", response2.Message, "Ok");
                         }
                         contador++;
-                        
+
                     }
                 }
-                
+
                 await DisplayAlert("Alerta", Rta.Mensaje, "Ok");
                 //await DisplayAlert("Alerta",responseString, "Ok");
                 //await Navigation.PopModalAsync().ConfigureAwait(false);
@@ -1315,17 +1397,17 @@ namespace SocialBusinessApp.Views
 
 
 
-                
+
                 await Navigation.PopAsync();
                 Application.Current.MainPage = new NavigationPage(new TabbedPage1());
-                
+
             }
             catch (Exception e)
             {
-                await DisplayAlert("Alerta", ""+e, "Ok");
+                await DisplayAlert("Alerta", "" + e, "Ok");
 
             }
         }
-        
+
     }
 }

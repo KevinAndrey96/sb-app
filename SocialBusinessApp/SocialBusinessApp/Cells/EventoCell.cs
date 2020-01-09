@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FFImageLoading.Forms;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -37,7 +38,7 @@ namespace SocialBusinessApp.Cells
             };
             CiudadLabel.SetBinding(Label.TextProperty, new Binding("Ciudad"));
 
-            
+            /*
 
             var ImagenEvento= new Image
             {
@@ -46,7 +47,23 @@ namespace SocialBusinessApp.Cells
                 HeightRequest = 110
             };
             ImagenEvento.SetBinding(Image.SourceProperty, new Binding("Fotografia"));
-
+            */
+            var ImagenEvento = new CachedImage()
+            {
+                HorizontalOptions = LayoutOptions.Center,
+                VerticalOptions = LayoutOptions.Center,
+                WidthRequest = 110,
+                HeightRequest = 110,
+                CacheDuration = TimeSpan.FromDays(30),
+                DownsampleToViewSize = true,
+                RetryCount = 0,
+                RetryDelay = 250,
+                BitmapOptimizations = false,
+                //LoadingPlaceholder = "loading.png",
+                //ErrorPlaceholder = "error.png",
+                //Source = "http://loremflickr.com/600/600/nature?filename=simple.jpg"
+            };
+            ImagenEvento.SetBinding(CachedImage.SourceProperty, new Binding("Fotografia"));
             var View2 = new StackLayout
             {
                 Children = { NombreLabel, FechaLabel, DepartamentoLabel, CiudadLabel },

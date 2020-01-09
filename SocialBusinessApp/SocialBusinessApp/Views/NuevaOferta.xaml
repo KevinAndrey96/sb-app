@@ -70,7 +70,7 @@
                         <ColumnDefinition Width="*" />
                     </Grid.ColumnDefinitions>
                     <Entry x:Name="txtPr" Grid.Row="0" Grid.Column="0" Keyboard="Numeric" Placeholder="Precio"></Entry>
-                    <Picker x:Name="txtUbicacion" Grid.Row="0" Grid.Column="1" Title="Ubicacion"  HorizontalOptions="FillAndExpand">
+                    <Picker x:Name="txtUbicacion" Grid.Row="0" Grid.Column="1" Title="Ubicación"  HorizontalOptions="FillAndExpand">
                         <Picker.Items>
                             <x:String>Norte</x:String>
                             <x:String>Sur</x:String>
@@ -89,7 +89,7 @@
                         <ColumnDefinition Width="*" />
                         <ColumnDefinition Width="*" />
                     </Grid.ColumnDefinitions>
-                    <Entry x:Name="txtAr"  Grid.Row="0" Grid.Column="0" Keyboard="Numeric" Placeholder="Area (m²)"></Entry>
+                    <Entry x:Name="txtAr"  Grid.Row="0" Grid.Column="0" Keyboard="Numeric" Placeholder="Área (m²)"></Entry>
                     
                     <Picker x:Name="txtAntiguedad" Grid.Row="0" Grid.Column="1" Title="Antiguedad"  HorizontalOptions="FillAndExpand">
                         <Picker.Items>
@@ -158,7 +158,7 @@
                             <x:String>Arriendo-Permuta</x:String>
                         </Picker.Items>
                     </Picker>
-                    <Picker x:Name="TxtTerceria" Title="Terceria" Grid.Row="0" Grid.Column="1" HorizontalOptions="FillAndExpand">
+                    <Picker x:Name="TxtTerceria" Title="Tercería" Grid.Row="0" Grid.Column="1" HorizontalOptions="FillAndExpand">
                         <Picker.Items>
                             <x:String>Si</x:String>
                             <x:String>No</x:String>
@@ -166,7 +166,7 @@
                     </Picker>
                 </Grid>
 
-                <Picker x:Name="txtCategoria" Title="Categoria"  HorizontalOptions="FillAndExpand">
+                <Picker x:Name="txtCategoria" Title="Categoría"  HorizontalOptions="FillAndExpand">
                     <Picker.Items>
                         <x:String>Apartamento</x:String>
                         <x:String>Apartaestudio</x:String>
@@ -213,7 +213,7 @@
 
 
 
-                
+                <Label Text="Se cargarán unicamente 20 imágenes para usuarios premium y 10 para no premium." FontSize="20"></Label>
                 
                 <OnPlatform x:TypeArguments="View">
                     <On Platform="Android">

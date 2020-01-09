@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FFImageLoading.Forms;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -38,13 +39,29 @@ namespace SocialBusinessApp.Cells
                 WidthRequest = 110,
                 HeightRequest = 110
             };
-            var FotoImage = new Image
+            /*var FotoImage = new Image
             {
                 Source = ImageSource.FromUri(new Uri(String.Format("http://app.socialbusiness.com.co/place_pic_thumb/2/18.02.01.16.25-1517520342.06-25656287.jpg"))),
                 WidthRequest = 110,
                 HeightRequest = 110
             };
-            FotoImage.SetBinding(Image.SourceProperty, new Binding("Fotografia"));
+            FotoImage.SetBinding(Image.SourceProperty, new Binding("Fotografia"));*/
+            var FotoImage = new CachedImage()
+            {
+                HorizontalOptions = LayoutOptions.Center,
+                VerticalOptions = LayoutOptions.Center,
+                WidthRequest = 110,
+                HeightRequest = 110,
+                CacheDuration = TimeSpan.FromDays(30),
+                DownsampleToViewSize = true,
+                RetryCount = 0,
+                RetryDelay = 250,
+                BitmapOptimizations = false,
+                //LoadingPlaceholder = "loading.png",
+                //ErrorPlaceholder = "error.png",
+                //Source = "http://loremflickr.com/600/600/nature?filename=simple.jpg"
+            };
+            FotoImage.SetBinding(CachedImage.SourceProperty, new Binding("Fotografia"));
             //MedallaImage.Source= "logo.png";
 
             var View2 = new StackLayout

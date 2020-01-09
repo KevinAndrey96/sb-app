@@ -19,5 +19,6 @@
             </googleMaps:Map.Behaviors>
         </googleMaps:Map>
         <Button Text="Seleccionar Ubicación y continuar" TextColor="#FFFFFF" Image="mapa.png" BackgroundColor="#9c27b0" Command="{Binding Continuarcom}"/>
+        <Button Text="Omitir Ubicación y continuar" TextColor="#FFFFFF" Image="mapa.png" BackgroundColor="#9c27b0" Command="{Binding Continuarcom2}"/>
     </StackLayout>
 </ContentPage>

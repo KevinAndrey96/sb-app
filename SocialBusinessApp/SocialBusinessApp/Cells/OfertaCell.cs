@@ -1,4 +1,5 @@
-﻿using SocialBusinessApp.Views;
+﻿using FFImageLoading.Forms;
+using SocialBusinessApp.Views;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -43,16 +44,32 @@ namespace SocialBusinessApp.Cells
                 FontSize = 13
             };
             CiudadLabel.SetBinding(Label.TextProperty, new Binding("Ciudad"));
-            
+            /*
             var ImagenOferta = new Image
             {
-                Source = ImageSource.FromUri(new Uri (String.Format("https://app.socialbusiness.com.co/place_pic_thumb/2/18.02.01.16.25-1517520342.06-25656287.jpg"))),
+                //Source = ImageSource.FromUri(new Uri (String.Format("https://app.socialbusiness.com.co/place_pic_thumb/2/18.02.01.16.25-1517520342.06-25656287.jpg"))),
                 WidthRequest = 110,
                 HeightRequest = 110
             };
-            ImagenOferta.SetBinding(Image.SourceProperty, new Binding("Fotografia"));
+            ImagenOferta.SetBinding(Image.SourceProperty, new Binding("Fotografia"));*/
+            var ImagenOferta = new CachedImage()
+            {
+                HorizontalOptions = LayoutOptions.Center,
+                VerticalOptions = LayoutOptions.Center,
+                WidthRequest = 110,
+                HeightRequest = 110,
+                CacheDuration = TimeSpan.FromDays(30),
+                DownsampleToViewSize = true,
+                RetryCount = 0,
+                RetryDelay = 250,
+                BitmapOptimizations = false,
+                //LoadingPlaceholder = "loading.png",
+                //ErrorPlaceholder = "error.png",
+                //Source = "http://loremflickr.com/600/600/nature?filename=simple.jpg"
+            };
+            ImagenOferta.SetBinding(CachedImage.SourceProperty, new Binding("Fotografia")); 
 
-            Button button = new Button
+             Button button = new Button
             {
                 Image = "user_icon",
                 WidthRequest = 50,

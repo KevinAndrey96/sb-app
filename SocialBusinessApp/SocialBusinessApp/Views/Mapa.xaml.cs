@@ -11,6 +11,7 @@ using Xamarin.Forms.Maps;
 using SocialBusinessApp.Behaviors;
 using SocialBusinessApp.ViewModels;
 using Position = Xamarin.Forms.Maps.Position;
+using System.Globalization;
 
 namespace SocialBusinessApp.Views
 {
@@ -23,20 +24,24 @@ namespace SocialBusinessApp.Views
             InitializeComponent();
 
             //DisplayAlert("1", "uno: "+Lat, "Dos: "+Long);
+            CultureInfo nonInvariantCulture = new CultureInfo("en-US");
             
-            map2.MoveToRegion(
+            
+                map2.MoveToRegion(
                 MapSpan.FromCenterAndRadius(
-                    new Xamarin.Forms.Maps.Position(Convert.ToDouble(Lat), Convert.ToDouble(Long)), Distance.FromMiles(1)));
+                    new Xamarin.Forms.Maps.Position(double.Parse(Lat, System.Globalization.CultureInfo.InvariantCulture), double.Parse(Long, System.Globalization.CultureInfo.InvariantCulture)), Distance.FromMiles(1)));
 
-            var pin2 = new Pin
-            {
-                Position = new Xamarin.Forms.Maps.Position(Convert.ToDouble(Lat), Convert.ToDouble(Long)),
-                Label = Nombre,
-                Address = Direccion,
-                Id = "Social Business"
-            };
+                var pin2 = new Pin
+                {
+                    Position = new Xamarin.Forms.Maps.Position(double.Parse(Lat, System.Globalization.CultureInfo.InvariantCulture), double.Parse(Long, System.Globalization.CultureInfo.InvariantCulture)),
+                    Label = Nombre,
+                    Address = Direccion,
+                    Id = "Social Business"
+                };
 
-            map2.Pins.Add(pin2);
+                map2.Pins.Add(pin2);
+            
+            
         }
         /*private static void OnItemsSourceChanged(BindableObject view, object oldValue, object newValue)
         {

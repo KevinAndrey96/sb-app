@@ -22,7 +22,6 @@ namespace SocialBusinessApp.Views
             InitializeComponent();
             this.Title = "Ofertas";
 
-            
 
             OfertasListView2.ItemTemplate = new DataTemplate(typeof(OfertaCell));
             this.LoadOfertas2(Code);

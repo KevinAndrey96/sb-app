@@ -4,6 +4,7 @@
              x:Class="SocialBusinessApp.MisEventos">
     <ContentPage.Content>
         <StackLayout>
+            <Label Text="Mis eventos" HorizontalOptions="CenterAndExpand" FontSize="25" TextColor="#9c27b0" Font="Bold,25"/>
             <ListView x:Name="EventosListView2" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" RowHeight="111"/>
         </StackLayout>
     </ContentPage.Content>

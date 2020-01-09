@@ -218,9 +218,6 @@
       <DependentUpon>Perfil.xaml</DependentUpon>
     </Compile>
     <Compile Include="Models\PerfilUsuario.cs" />
-    <Compile Include="Views\Place.xaml.cs">
-      <DependentUpon>Place.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Models\PlacesResult.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Models\Rank.cs" />
@@ -417,12 +414,6 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Views\Ranking.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Views\Place.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>

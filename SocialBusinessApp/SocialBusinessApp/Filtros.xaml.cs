@@ -1223,7 +1223,7 @@ namespace SocialBusinessApp
             //DisplayAlert("", SuperQuery+"/"+cont, "Ok");
             if(cont==0)
             {
-                DisplayAlert("Alerta", "Debe seleccionar por lo menos un parametro de busqueda", "Ok");
+                DisplayAlert("Alerta", "Debe seleccionar por lo menos un parametro de búsqueda", "Ok");
             }
             else
             {

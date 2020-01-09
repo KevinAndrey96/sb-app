@@ -4,6 +4,7 @@
              x:Class="SocialBusinessApp.Asociaciones">
     <ContentPage.Content>
         <StackLayout>
+            <Label Text="Franquicias" HorizontalOptions="CenterAndExpand" FontSize="25" TextColor="#9c27b0" Font="Bold,25"/>
             <StackLayout Orientation="Horizontal" Padding="5,5,5,5" HorizontalOptions="FillAndExpand">
                 <Entry x:Name="txtSearch" Placeholder="¿Alguna franquicia en especial?" HorizontalOptions="FillAndExpand"></Entry>
                 <Button Image="lupa.png" WidthRequest="50" HeightRequest="50" HorizontalOptions="Center" x:Name="btnSearch" BackgroundColor="#9c27b0"></Button>

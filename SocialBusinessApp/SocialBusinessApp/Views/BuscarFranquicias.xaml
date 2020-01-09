@@ -5,7 +5,7 @@
     <ContentPage.Content>
         <StackLayout>
             <StackLayout>
-                <Label Text="Resultados de busqueda" TextColor="#9c27b0" HorizontalOptions="Center" FontSize="25"></Label>
+                <Label Text="Resultados de búsqueda" TextColor="#9c27b0" HorizontalOptions="Center" FontSize="25"></Label>
                 <StackLayout Orientation="Horizontal" Padding="5,5,5,5" HorizontalOptions="FillAndExpand">
                     <Picker x:Name="txtDepartamento" Title="Departamento" HorizontalOptions="FillAndExpand" HeightRequest="50">
                         <Picker.Items>

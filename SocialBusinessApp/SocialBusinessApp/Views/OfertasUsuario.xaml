@@ -13,7 +13,7 @@
                 <!--<Button x:Name="BtnBuscar" Text="Buscar" WidthRequest="150" HorizontalOptions="FillAndExpand" VerticalOptions="Center" BackgroundColor="#9c27b0" TextColor="#FFFFFF"></Button>-->
                 <!--<Image x:Name="BtnSearch" Source="buscar.png" HeightRequest="50" WidthRequest="50"  BackgroundColor="Transparent" HorizontalOptions="FillAndExpand"/>-->
             </StackLayout>
-            <ListView x:Name="OfertasListView2" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" RowHeight="111"/>
+            <ListView x:Name="OfertasListView2" CachingStrategy = "RecycleElement" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" RowHeight="111"/>
 
             <!--
             <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" HeightRequest="68">

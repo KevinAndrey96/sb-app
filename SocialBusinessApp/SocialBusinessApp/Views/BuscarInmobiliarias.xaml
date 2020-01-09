@@ -5,7 +5,7 @@
     <ContentPage.Content>
         <StackLayout>
             <StackLayout>
-                <Label Text="Resultados de busqueda" TextColor="#9c27b0" HorizontalOptions="Center" FontSize="25"></Label>
+                <Label Text="Resultados de búsqueda" TextColor="#9c27b0" HorizontalOptions="Center" FontSize="25"></Label>
                 <StackLayout Margin="0,0,0,0" >
                     <Grid>
                         <Grid.RowDefinitions>

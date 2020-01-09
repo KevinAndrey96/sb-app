@@ -4,8 +4,8 @@
              x:Class="SocialBusinessApp.Views.BuscarOfertas">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Resultados de busqueda" TextColor="#9c27b0" HorizontalOptions="Center" FontSize="25"></Label>
-            <Button Image="lupa.png" x:Name="btnSearch" TextColor="#FFFFFF" Text="Busqueda Avanzada" BackgroundColor="#9c27b0"></Button>
+            <Label Text="Resultados de búsqueda" TextColor="#9c27b0" HorizontalOptions="Center" FontSize="25"></Label>
+            <Button Image="lupa.png" x:Name="btnSearch" TextColor="#FFFFFF" Text="Búsqueda Avanzada" BackgroundColor="#9c27b0"></Button>
             <ListView x:Name="OfertasListView2" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" RowHeight="111"/>
         </StackLayout>
     </ContentPage.Content>

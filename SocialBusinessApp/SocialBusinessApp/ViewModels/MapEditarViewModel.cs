@@ -49,8 +49,31 @@ namespace SocialBusinessApp.ViewModels
 
 
         public Command Continuarcom => new Command(async () => await Continuar());
+        public Command Continuarcom2 => new Command(async () => await Continuar2());
 
         //(async () => await Mensajes("Hola"));
+        public async Task Continuar2()
+        {
+            ////await Application.Current.MainPage.DisplayAlert("Alerta", ""+Pins4.First().Position.ToString(), "Ok");
+            //await Application.Current.MainPage.DisplayAlert("Alerta", "" + Pins4.First().Position.Latitude, "Ok");
+
+
+            try
+            {
+
+                string lat = "0";
+                string lon = "0";
+                string placeid = Username;
+                //await Application.Current.MainPage.DisplayAlert("Alerta", "Hola: "+placeid, "Ok");
+                await Application.Current.MainPage.Navigation.PopModalAsync();
+                await Application.Current.MainPage.Navigation.PushModalAsync(new GuardarUbicacion(lat, lon, placeid));
+
+            }
+            catch (Exception)
+            {
+                await Application.Current.MainPage.DisplayAlert("Alerta", "Seleccione una ubicación en el mapa para continuar", "Ok");
+            }
+        }
         public async Task Continuar()
         {
             ////await Application.Current.MainPage.DisplayAlert("Alerta", ""+Pins4.First().Position.ToString(), "Ok");

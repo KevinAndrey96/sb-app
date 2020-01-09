@@ -4,6 +4,7 @@
              x:Class="SocialBusinessApp.Ranking">
     <ContentPage.Content>
         <StackLayout>
+            <Label Text="Profesionales" HorizontalOptions="CenterAndExpand" FontSize="25" TextColor="#9c27b0" Font="Bold,25"/>
             <!--<StackLayout Orientation="Horizontal">
                <Button x:Name="BtnRankingInmobiliarias" Text="R. Profesional" WidthRequest="150" HorizontalOptions="FillAndExpand" VerticalOptions="Center" BackgroundColor="#9c27b0" TextColor="#FFFFFF"></Button>
                 <ActivityIndicator x:Name="waitActivityIndicator" HorizontalOptions="Center"></ActivityIndicator>

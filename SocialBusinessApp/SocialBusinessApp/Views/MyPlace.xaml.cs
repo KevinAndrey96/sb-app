@@ -121,6 +121,7 @@ namespace SocialBusinessApp.Views
 
             btnEditar.Clicked += (sender, e) => BtnEditarClick(oferta.ID);
             btnEliminar.Clicked += (sender, e) => BtnEliminarClick();
+            //btnAtras.Clicked += (sender, e) => BtnAtrasClick();
 
             this.PlaceID = oferta.ID;
             //FotosInmuebleListView.ItemTemplate = new DataTemplate(typeof(FotosCell));
@@ -133,6 +134,10 @@ namespace SocialBusinessApp.Views
         private async void BtnYoutubeClick(string url)
         {
             await Navigation.PushModalAsync(new MisListados(url));
+        }
+        private async void BtnAtrasClick()
+        {
+            //await Navigation.PopModalAsync();
         }
 
         private async void BtnPerfilClick(string userid)
@@ -163,7 +168,7 @@ namespace SocialBusinessApp.Views
         }
         private async void BtnEditarClick(string placeid)
         {
-            await Application.Current.MainPage.Navigation.PopModalAsync();
+            await Application.Current.MainPage.Navigation.PopAsync();
             await Application.Current.MainPage.Navigation.PushAsync(new EditarOferta(placeid));
         }
         private async void BtnUbicacionClickAsync()
@@ -185,7 +190,7 @@ namespace SocialBusinessApp.Views
             {
                 Delete();
                 await DisplayAlert("Correcto", "Se ha eliminado el inmueble con exito", "Ok");
-                await Navigation.PopModalAsync();
+                await Navigation.PopAsync();
                 Application.Current.MainPage = new NavigationPage(new TabbedPage1());
             }
         }

@@ -4,9 +4,8 @@
              xmlns:controls="clr-namespace:Xamd.ImageCarousel.Forms.Plugin.Abstractions;assembly=Xamd.ImageCarousel.Forms.Plugin.Abstractions"
              xmlns:views="clr-namespace:SuaveControls.Views;assembly=SuaveControls.FloatingActionButton"
              x:Class="SocialBusinessApp.Views.MyPlace">
-    <ContentPage.Content>
         
-            <Grid>
+        <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="8*" />
                     <RowDefinition Height="*" />
@@ -93,6 +92,4 @@
                 </StackLayout>
             </Grid>
             
-        
-    </ContentPage.Content>
 </ContentPage>

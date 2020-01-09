@@ -56,6 +56,31 @@ namespace SocialBusinessApp
             btnEquipo.Clicked += (sender, e) => BtnEquipoClick();
             btnCompartir.Clicked += (sender, e) => BtnCompartirClick(rank.Codigo, rank.Nombre);
 
+            if(rank.Celular=="")
+            {
+                btnWhatsapp.IsVisible = false;
+            }
+            if(rank.Facebook=="")
+            {
+                btnFacebook.IsVisible = false;
+            }
+            if (rank.Twitter == "")
+            {
+                btnTwitter.IsVisible = false;
+            }
+            if (rank.Instagram == "")
+            {
+                btnInstagram.IsVisible = false;
+            }
+            if (rank.Youtube == "")
+            {
+                btnYoutube.IsVisible = false;
+            }
+            if (rank.Web == "")
+            {
+                btnWeb.IsVisible = false;
+            }
+
         }
         private async void BtnCompartirClick(string code, string nombre)
         {
@@ -63,7 +88,7 @@ namespace SocialBusinessApp
             {
                 Text = "Te invito a darle un vistazo a este colega: " + nombre,
                 Title = "Colega Social Business",
-                Url = "https://app.socialbusiness.com.co/profile/" + code
+                Url = "https://app.socialbusiness.com.co/profile/" + code.Substring(8)
             });
         }
         private void BtnWhatsappClick(string number)
@@ -91,7 +116,14 @@ namespace SocialBusinessApp
         
         private async void BtnOfertasClick()
         {
-            await Navigation.PushModalAsync(new OfertasUsuario(this.Code));
+            try
+            {
+                await Navigation.PushModalAsync(new OfertasUsuario(this.Code));
+            }catch(Exception e)
+            {
+                await Task.Delay(2000);
+                await Navigation.PushModalAsync(new OfertasUsuario(this.Code));
+            }
         }
         private async void BtnComentariosClick()
         {

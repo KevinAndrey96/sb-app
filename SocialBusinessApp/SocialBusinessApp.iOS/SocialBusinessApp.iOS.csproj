@@ -487,6 +487,7 @@
     <BundleResource Include="Resources\whatsapp.png" />
     <BundleResource Include="Resources\youtube.png" />
     <BundleResource Include="Resources\youtube2.png" />
+    <BundleResource Include="Resources\atras.png" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">

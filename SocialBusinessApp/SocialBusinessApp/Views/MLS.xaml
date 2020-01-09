@@ -8,6 +8,7 @@
         <StackLayout>
             <StackLayout Orientation="Horizontal">
                 <ActivityIndicator x:Name="waitActivityIndicator" HeightRequest="50" HorizontalOptions="Center" IsVisible="false"></ActivityIndicator>
+                <Label Text="MLS" HorizontalOptions="CenterAndExpand" FontSize="25" TextColor="#9c27b0" Font="Bold,25"/>
             </StackLayout>
             
             <Grid>
@@ -24,7 +25,7 @@
                         <Entry x:Name="txtSearch" Placeholder="¿Qué estás buscando?" HorizontalOptions="FillAndExpand"></Entry>
                         <Button Image="lupa.png" WidthRequest="50" HeightRequest="50" HorizontalOptions="Center" x:Name="btnSearch" BackgroundColor="#9c27b0"></Button>
                     </StackLayout>
-                    <ListView x:Name="OfertasListView" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" RowHeight="111"/>
+                    <ListView CachingStrategy ="RecycleElement" x:Name="OfertasListView" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" RowHeight="111"/>
                 </StackLayout>
                 <views:FloatingActionButton Image="mas.png" Grid.Column="1" Grid.Row="1" ButtonColor="#9c27b0" WidthRequest="56" HeightRequest="56" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" x:Name="btnAgregarOferta"/>
                 <StackLayout Grid.Column="0" Grid.Row="1" Orientation="Horizontal">
