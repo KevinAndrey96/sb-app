@@ -15,7 +15,7 @@ namespace SocialBusinessApp.Tabbeds
     {
         public TabbedMLS()
         {
-            NavigationPage.SetHasNavigationBar(this, false);
+            
             InitializeComponent();
             this.Title = "Ofertas";
             this.Icon = "iconomls";

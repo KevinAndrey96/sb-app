@@ -36,13 +36,13 @@ namespace SocialBusinessApp
         }
         private void BtnSearchClick(string Param)
         {
-            Navigation.PushModalAsync(new BuscarInmobiliarias(Param, "1"));
+            Navigation.PushAsync(new BuscarInmobiliarias(Param, "1"));
         }
 
         private async void RankingIListView_ItemTapped(object sender, ItemTappedEventArgs e)
         {
             var ranki = e.Item as RankI;
-            await Navigation.PushModalAsync(new Inmobiliaria(ranki));
+            await Navigation.PushAsync(new Inmobiliaria(ranki));
         }
         /*private void BtnEventosClick()
         {

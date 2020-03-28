@@ -40,7 +40,7 @@ namespace SocialBusinessApp.Views
         
         private async void BtnInmueblesClick(string name)
         {
-            await Navigation.PushModalAsync(new OfertasInmobiliaria(name));
+            await Navigation.PushAsync(new OfertasInmobiliaria(name));
         }
         /*private void BtnIntegrantesClick()
         {
@@ -49,7 +49,7 @@ namespace SocialBusinessApp.Views
         private async void IntegrantesListView_ItemTapped(object sender, ItemTappedEventArgs e)
         {
             var rank = e.Item as Rank;
-            await Navigation.PushModalAsync(new OtroPerfil(rank));
+            await Navigation.PushAsync(new OtroPerfil(rank));
         }
         private async void LoadRanking(string name)
         {
@@ -59,7 +59,7 @@ namespace SocialBusinessApp.Views
             {
                 HttpClient client = new HttpClient
                 {
-                    BaseAddress = new Uri("http://app.socialbusiness.com.co")
+                    BaseAddress = new Uri("https://app.socialbusiness.com.co")
                 };
                 string url = string.Format("/api/IntegrantesInmobiliaria.php?Inmobiliaria=" + name);
                 var response = await client.GetAsync(url);

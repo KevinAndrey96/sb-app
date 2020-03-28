@@ -14,7 +14,6 @@ namespace SocialBusinessApp.Tabbeds
     {
         public TabbedPrincipal2()
         {
-            NavigationPage.SetHasNavigationBar(this, false);
             InitializeComponent();
 
             if (Device.OS.Equals(TargetPlatform.iOS))
@@ -24,14 +23,19 @@ namespace SocialBusinessApp.Tabbeds
 
                 this.Children.Add(new NavigationPage(new TabbedMLS()));
                 this.Children.Add(new NavigationPage(new TabbedPage2()));
-                this.Children.Add(new NavigationPage(new MisListados("https://app.socialbusiness.com.co/chat")));
+                String AppUsuario = (String)App.Current.Properties["Usuario"];
+                String AppContrasena = (String)App.Current.Properties["Contrasena"];
+                this.Children.Add(new NavigationPage(new MisListados("https://app.socialbusiness.com.co/PreChat.php?u=" + AppUsuario + "&p=" + AppContrasena)));
                 this.Children.Add(new NavigationPage(new TabbedEventos()));
             }
             else
             {
+                NavigationPage.SetHasNavigationBar(this, false);
                 this.Children.Add(new TabbedMLS());
                 this.Children.Add(new TabbedPage2());
-                this.Children.Add(new MisListados("https://app.socialbusiness.com.co/chat"));
+                String AppUsuario = (String)App.Current.Properties["Usuario"];
+                String AppContrasena = (String)App.Current.Properties["Contrasena"];
+                this.Children.Add(new MisListados("https://app.socialbusiness.com.co/PreChat.php?u=" + AppUsuario + "&p=" + AppContrasena));
                 this.Children.Add(new TabbedEventos());
             }
         }

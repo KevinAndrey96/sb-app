@@ -10,7 +10,6 @@ namespace SocialBusinessApp
         public MisListados(string url )
         {
             AndroidSpecific.Application.SetWindowSoftInputModeAdjust(this, AndroidSpecific.WindowSoftInputModeAdjust.Resize);
-            NavigationPage.SetHasNavigationBar(this, false);
             InitializeComponent();
             this.Title = "Chat";
             this.Icon = "iconochat";

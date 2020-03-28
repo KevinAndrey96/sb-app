@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
              xmlns:flv="clr-namespace:DLToolkit.Forms.Controls;assembly=DLToolkit.Forms.Controls.FlowListView"
-             x:Class="SocialBusinessApp.Views.EditarPerfil">
+             x:Class="SocialBusinessApp.Views.EditarPerfil" Title="Editar Perfil">
     <ContentPage.Content>
         <ScrollView>
             <StackLayout Padding="20,20,20,20" BackgroundColor="#FFFFFF">
@@ -69,7 +69,7 @@
                         <ColumnDefinition Width="*" />
                         <ColumnDefinition Width="*" />
                     </Grid.ColumnDefinitions>
-                    <Entry x:Name="txtTelefono" Grid.Row="0" Grid.Column="0" Placeholder="Telefono" Keyboard="Numeric"></Entry>
+                    <Entry x:Name="txtTelefono" Grid.Row="0" Grid.Column="0" Placeholder="Teléfono" Keyboard="Numeric"></Entry>
                     <Picker x:Name="pikGenero" Grid.Row="0" Grid.Column="1" Title="Género" HorizontalOptions="FillAndExpand">
                         <Picker.Items>
                             <x:String>Masculino</x:String>
@@ -115,9 +115,10 @@
                     <Entry x:Name="txtWeb" Placeholder="Sitio Web URL"></Entry>
                 <Label Text="Inmobiliaria" TextColor="#9c27b0" FontSize="25"></Label>
                 <StackLayout Orientation="Horizontal" Padding="5,5,5,5" HorizontalOptions="FillAndExpand">
-                    <Picker x:Name="pikInmobiliaria" Title="Inmobiliaria" HorizontalOptions="FillAndExpand"></Picker>
+                    <Picker IsEnabled="False" x:Name="pikInmobiliaria" Title="Inmobiliaria" HorizontalOptions="FillAndExpand"></Picker>
                     <Button Image="mas.png" WidthRequest="50" HeightRequest="50" HorizontalOptions="Center" x:Name="btnAgregarInmobiliaria" BackgroundColor="#9c27b0"></Button>
                 </StackLayout>
+                <Button Image="salir.png" TextColor="#FFFFFF" Text="Desvincular de inmobiliaria" HorizontalOptions="Center" x:Name="btnDesvincular" BackgroundColor="#9c27b0"></Button>
                 <StackLayout Padding="20">
                     <flv:FlowListView FlowColumnCount="3" x:Name="listItems" IsVisible="false"
     SeparatorVisibility="None"

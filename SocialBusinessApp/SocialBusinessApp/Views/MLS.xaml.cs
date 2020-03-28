@@ -20,7 +20,6 @@ namespace SocialBusinessApp
         private List<Oferta> ofertas;
         public MLS()
         {
-            NavigationPage.SetHasNavigationBar(this, false);
             InitializeComponent();
             this.Title = "MLS";
             //this.Title = "Ofertas";
@@ -73,7 +72,7 @@ namespace SocialBusinessApp
         }
         private void BtnSearchClick(string Param)
         {
-            Navigation.PushModalAsync(new BuscarOfertas(Param, "2"));
+            Navigation.PushAsync(new BuscarOfertas(Param, "2"));
         }
         private void BtnAgregarOfertaClick()
         {
@@ -81,7 +80,7 @@ namespace SocialBusinessApp
         }
         private void BtnPerfilClick()
         {
-            Navigation.PushModalAsync(new Profile());
+            Navigation.PushAsync(new Profile());
             //Navigation.PushModalAsync(new MisListados("https://app.socialbusiness.com.co/chat"));
         }
 

@@ -47,7 +47,7 @@ namespace SocialBusinessApp
         private async void RankingListView_ItemTapped(object sender, ItemTappedEventArgs e)
         {
             var rank = e.Item as Rank;
-            await Navigation.PushModalAsync(new OtroPerfil(rank));
+            await Navigation.PushAsync(new OtroPerfil(rank));
         }
         private async void BtnRankingInmobiliariasClick()
         {

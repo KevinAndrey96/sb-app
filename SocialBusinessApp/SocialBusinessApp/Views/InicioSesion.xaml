@@ -48,6 +48,7 @@
                 <Button Clicked="BtnRegistroClick" Image="candado.png" Grid.Row="0" Grid.Column="1" x:Name="BtnSignUp" BackgroundColor="#9c27b0" TextColor="#FFFFFF" Text="Registrarse" />
               </Grid>
               <Button Image="BtnOlvidoClaveClick" x:Name="BtnPassword" Text="¿Olvidaste tu contraseña?" TextColor="Blue" HorizontalOptions="Center" BackgroundColor = "Transparent" />
+                <Label Text="Versión 0.40" TextColor="#9c27b0" HorizontalOptions="Center" BackgroundColor = "Transparent" />
             </StackLayout>
         </ScrollView>
     </ContentPage.Content>

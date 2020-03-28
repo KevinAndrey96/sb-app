@@ -58,6 +58,7 @@ namespace SocialBusinessApp
                     txtCiudad.Items.Add("ARGELIA");
                     txtCiudad.Items.Add("BARBOSA");
                     txtCiudad.Items.Add("BELMIRA");
+                    txtCiudad.Items.Add("BELLO");
                     txtCiudad.Items.Add("BETANIA");
                     txtCiudad.Items.Add("BETULIA");
                     txtCiudad.Items.Add("CIUDAD BOLIVAR");
@@ -70,7 +71,7 @@ namespace SocialBusinessApp
                     txtCiudad.Items.Add("CARACOLI");
                     txtCiudad.Items.Add("CARAMANTA");
                     txtCiudad.Items.Add("CAREPA");
-                    txtCiudad.Items.Add("EL CARMEN DE VIBORAL");
+                    
                     txtCiudad.Items.Add("CAROLINA");
                     txtCiudad.Items.Add("CAUCASIA");
                     txtCiudad.Items.Add("CHIGORODO");
@@ -81,9 +82,12 @@ namespace SocialBusinessApp
                     txtCiudad.Items.Add("COPACABANA");
                     txtCiudad.Items.Add("DABEIBA");
                     txtCiudad.Items.Add("DON MATIAS");
+
                     txtCiudad.Items.Add("EBEJICO");
                     txtCiudad.Items.Add("EL BAGRE");
+                    txtCiudad.Items.Add("EL CARMEN DE VIBORAL");
                     txtCiudad.Items.Add("ENTRERRIOS");
+                    txtCiudad.Items.Add("ENVIGADO");
                     txtCiudad.Items.Add("FREDONIA");
                     txtCiudad.Items.Add("FRONTINO");
                     txtCiudad.Items.Add("GIRALDO");
@@ -104,6 +108,7 @@ namespace SocialBusinessApp
                     txtCiudad.Items.Add("LA UNION");
                     txtCiudad.Items.Add("LIBORINA");
                     txtCiudad.Items.Add("MACEO");
+                    txtCiudad.Items.Add("MEDELLÍN");
                     txtCiudad.Items.Add("MONTEBELLO");
                     txtCiudad.Items.Add("MURINDO");
                     txtCiudad.Items.Add("MUTATA");
@@ -158,9 +163,9 @@ namespace SocialBusinessApp
                     txtCiudad.Items.Add("YOLOMBO");
                     txtCiudad.Items.Add("YONDO");
                     txtCiudad.Items.Add("ZARAGOZA");
-                    txtCiudad.Items.Add("ENVIGADO");
-                    txtCiudad.Items.Add("MEDELLÍN");
-                    txtCiudad.Items.Add("BELLO");
+                    
+                    
+                    
                     break;
                 case 2://ARAUCA
 
@@ -1227,8 +1232,8 @@ namespace SocialBusinessApp
             }
             else
             {
-                Navigation.PopModalAsync();
-                Navigation.PushModalAsync(new BuscarOfertas(SuperQuery, "1"));
+                Navigation.PopAsync();
+                Navigation.PushAsync(new BuscarOfertas(SuperQuery, "1"));
             }
 
         }

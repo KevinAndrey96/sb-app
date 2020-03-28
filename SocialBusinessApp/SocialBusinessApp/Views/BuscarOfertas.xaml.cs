@@ -33,8 +33,8 @@ namespace SocialBusinessApp.Views
         }
         private void BtnSearchClick()
         {
-            Navigation.PopModalAsync();
-            Navigation.PushModalAsync(new Filtros());
+            Navigation.PopAsync();
+            Navigation.PushAsync(new Filtros());
         }
         private async void LoadOfertas1(string Param)
         {
@@ -84,12 +84,17 @@ namespace SocialBusinessApp.Views
             //waitActivityIndicator2.IsRunning = false;
 
             ofertas = JsonConvert.DeserializeObject<List<Oferta>>(result);
+            if(ofertas.Count==0)
+            {
+                await DisplayAlert("Alerta", "No hay resultados disponibles", "Ok");
+            }
             OfertasListView2.ItemsSource = ofertas;
+
         }
         private async void OfertasListView_ItemTapped(object sender, ItemTappedEventArgs e)
         {
             var oferta = e.Item as Oferta;
-            await Navigation.PushModalAsync(new MyPlace(oferta,false));
+            await Navigation.PushAsync(new MyPlace(oferta,false));
         }
     }
 }

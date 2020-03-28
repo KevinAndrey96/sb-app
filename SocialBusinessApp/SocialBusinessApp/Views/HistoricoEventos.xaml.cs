@@ -21,7 +21,7 @@ namespace SocialBusinessApp
         {
             NavigationPage.SetHasNavigationBar(this, false);
             InitializeComponent();
-            this.Title = "Historico";
+            this.Title = "Histórico";
             EventosListView1.ItemTemplate = new DataTemplate(typeof(EventoCell));
             this.LoadEventos1();
             EventosListView1.ItemTapped += EventosListView_ItemTapped;

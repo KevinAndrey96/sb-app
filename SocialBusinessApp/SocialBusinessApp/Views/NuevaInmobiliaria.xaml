@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:flv="clr-namespace:DLToolkit.Forms.Controls;assembly=DLToolkit.Forms.Controls.FlowListView"
              xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
-             x:Class="SocialBusinessApp.Views.NuevaInmobiliaria">
+             x:Class="SocialBusinessApp.Views.NuevaInmobiliaria" Title="Registrar Inmobiliaria">
     <ContentPage.Content>
         <ScrollView>
 

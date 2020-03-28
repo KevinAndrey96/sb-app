@@ -75,7 +75,7 @@ namespace SocialBusinessApp.Views
         Respuesta Rta;
         private async void BtnAsistirClick()
         {
-            var answer = await DisplayAlert("Asistir a evento", "Recuerde que una vez inscrito solo podrá cancelar su asistencia al menos 1 día antes", "Aceptar", "Rechazar");
+            var answer = await DisplayAlert("Asistir a evento", "Recuerde que una vez inscrito solo podrá cancelar su asistencia con al menos un día de anticipación", "Aceptar", "Rechazar");
             if (answer)
             {
                 var values = new Dictionary<string, string>

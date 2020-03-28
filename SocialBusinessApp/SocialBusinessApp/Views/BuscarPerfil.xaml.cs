@@ -28,7 +28,8 @@ namespace SocialBusinessApp.Views
             btnLogros.Clicked += (sender, e) => BtnLogrosClick(Perfil);
             btnEquipo.Clicked += (sender, e) => BtnEquipoClick(Perfil);
             btnCompartir.Clicked += (sender, e) => BtnCompartirClick(Userio.Codigo, Userio.Nombre+" "+Userio.Apellidos);
-            
+
+
         }
         private async void BtnCompartirClick(string code, string nombre)
         {
@@ -65,19 +66,19 @@ namespace SocialBusinessApp.Views
         }
         private async void BtnOfertasClick(string Code)
         {
-            await Navigation.PushModalAsync(new OfertasUsuario("Código: "+Code));
+            await Navigation.PushAsync(new OfertasUsuario("Código: "+Code));
         }
         private async void BtnComentariosClick(string Code)
         {
-            await Navigation.PushModalAsync(new Comentarios("Código: "+Code));
+            await Navigation.PushAsync(new Comentarios("Código: "+Code));
         }
         private async void BtnLogrosClick(string Code)
         {
-            await Navigation.PushModalAsync(new Logros("Código: "+Code));
+            await Navigation.PushAsync(new Logros("Código: "+Code));
         }
         private async void BtnEquipoClick(string Code)
         {
-            await Navigation.PushModalAsync(new Equipo("Código: " + Code));
+            await Navigation.PushAsync(new Equipo("Código: " + Code));
         }
 
         private async void Ejecucion(String Perfil)
@@ -114,6 +115,33 @@ namespace SocialBusinessApp.Views
                     TxtNit.Text = "";
                     btnEquipo.IsVisible = false;
                 }
+
+
+                if (Userio.Celular == "")
+                {
+                    btnWhatsapp.IsVisible = false;
+                }
+                if (Userio.Facebook == "")
+                {
+                    btnFacebook.IsVisible = false;
+                }
+                if (Userio.Twitter == "")
+                {
+                    btnTwitter.IsVisible = false;
+                }
+                if (Userio.Instagram == "")
+                {
+                    btnInstagram.IsVisible = false;
+                }
+                if (Userio.Youtube == "")
+                {
+                    btnYoutube.IsVisible = false;
+                }
+                if (Userio.Web == "")
+                {
+                    btnWeb.IsVisible = false;
+                }
+
 
 
                 btnWhatsapp.Clicked += (sender, e) => BtnWhatsappClick(Userio.Celular);

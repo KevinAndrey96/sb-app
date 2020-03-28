@@ -39,6 +39,8 @@ namespace SocialBusinessApp
 
         public string Number { get; set; }
 
+        public string Estado { get; set; }
+
         public override string ToString()
         {
             return base.ToString();

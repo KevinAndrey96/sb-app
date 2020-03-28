@@ -28,8 +28,8 @@ namespace SocialBusinessApp.Views
             try
             {
                 var r = txtCiudad.Items[txtCiudad.SelectedIndex];
-                Navigation.PopModalAsync();
-                Navigation.PushModalAsync(new BuscarInmobiliarias(r, "2"));
+                Navigation.PopAsync();
+                Navigation.PushAsync(new BuscarInmobiliarias(r, "2"));
             }
             catch
             {
@@ -1116,12 +1116,16 @@ namespace SocialBusinessApp.Views
                 return;
             }
             ranki = JsonConvert.DeserializeObject<List<RankI>>(result);
+            if (ranki.Count == 0)
+            {
+                await DisplayAlert("Alerta", "No hay resultados disponibles", "Ok");
+            }
             InmobiliariasListView.ItemsSource = ranki;
         }
         private async void InmobiliariasListView_ItemTapped(object sender, ItemTappedEventArgs e)
         {
             var ranki = e.Item as RankI;
-            await Navigation.PushModalAsync(new Inmobiliaria(ranki));
+            await Navigation.PushAsync(new Inmobiliaria(ranki));
         }
     }
 }

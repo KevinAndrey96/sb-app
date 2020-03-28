@@ -52,6 +52,10 @@ namespace SocialBusinessApp.Views
             //waitActivityIndicator.IsRunning = false;
 
             rank = JsonConvert.DeserializeObject<List<Rank>>(result);
+            if (rank.Count == 0)
+            {
+                await DisplayAlert("Alerta", "No hay resultados disponibles", "Ok");
+            }
             EquipoListView.ItemsSource = rank;
         }
     }

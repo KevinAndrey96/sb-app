@@ -28,36 +28,39 @@ namespace SocialBusinessApp.Views
         Respuesta Rta;
         private async void BtnAgregarProfesionalClick()
         {
-            var values = new Dictionary<string, string>
+            if(txtCProfesional.Text!=null && txtCProfesional.Text!="")
+            {
+                var values = new Dictionary<string, string>
                 {
                    { "Agregar", txtCProfesional.Text},
                    { "Profesional", (String)App.Current.Properties["Codigo"]}
 
                 };
-            var content = new FormUrlEncodedContent(values);
+                var content = new FormUrlEncodedContent(values);
 
-            var response = await client.PostAsync("https://app.socialbusiness.com.co/api/AgregarProfesionalE.php", content);
-            try
-            {
+                var response = await client.PostAsync("https://app.socialbusiness.com.co/api/AgregarProfesionalE.php", content);
+                try
+                {
 
-                var responseString = await response.Content.ReadAsStringAsync();
-                Rta = JsonConvert.DeserializeObject<Respuesta>(responseString);
-                
-                await DisplayAlert("Alerta", Rta.Mensaje, "Ok");
-                
-                await Navigation.PopModalAsync();
+                    var responseString = await response.Content.ReadAsStringAsync();
+                    Rta = JsonConvert.DeserializeObject<Respuesta>(responseString);
 
-            }
-            catch (Exception e)
-            {
-                await DisplayAlert("Alerta", "" + e, "Ok");
+                    await DisplayAlert("Alerta", Rta.Mensaje, "Ok");
 
+                    await Navigation.PopAsync();
+
+                }
+                catch (Exception e)
+                {
+                    await DisplayAlert("Alerta", "" + e, "Ok");
+
+                }
             }
         }
         private async void EquipoListView_ItemTapped(object sender, ItemTappedEventArgs e)
         {
             var rank = e.Item as Rank;
-            await Navigation.PushModalAsync(new OtroPerfil(rank));
+            await Navigation.PushAsync(new OtroPerfil(rank));
             var answer = await DisplayAlert("Eliminar de inmobiliaria", "Desea eliminar este profesional de su inmobiliaria?", "Eliminar", "Cancelar");
             if (answer)
             {
@@ -79,7 +82,7 @@ namespace SocialBusinessApp.Views
 
                     await DisplayAlert("Alerta", Rta.Mensaje, "Ok");
 
-                    await Navigation.PopModalAsync();
+                    await Navigation.PopAsync();
 
                 }
                 catch (Exception ex)

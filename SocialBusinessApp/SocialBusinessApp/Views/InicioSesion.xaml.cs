@@ -104,7 +104,7 @@ namespace SocialBusinessApp
             {
                 waitActivityIndicator.IsRunning = false;
                 GuardarSesion(AppUsuario, AppContrasena, Rta.Codigo, Rta.VIP);
-                
+                /*
                 if (Rta.VIP.Equals("SI"))
                 {
                     Navigation.InsertPageBefore(new TabbedPage1(), this);
@@ -115,7 +115,12 @@ namespace SocialBusinessApp
                     Navigation.InsertPageBefore(new TabbedPrincipal2(), this);
                     await Navigation.PopAsync().ConfigureAwait(false);
                     await Navigation.PushAsync(new TabbedPrincipal2());
-                }
+                }*/
+                Navigation.InsertPageBefore(new TabbedPage1(), this);
+                await Navigation.PopAsync().ConfigureAwait(false);
+                await Navigation.PushAsync(new TabbedPage1());
+
+
             }
             else
             {

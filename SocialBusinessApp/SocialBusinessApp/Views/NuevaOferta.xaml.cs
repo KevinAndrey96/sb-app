@@ -91,6 +91,7 @@ namespace SocialBusinessApp.Views
                     txtCiudad.Items.Add("ARGELIA");
                     txtCiudad.Items.Add("BARBOSA");
                     txtCiudad.Items.Add("BELMIRA");
+                    txtCiudad.Items.Add("BELLO");
                     txtCiudad.Items.Add("BETANIA");
                     txtCiudad.Items.Add("BETULIA");
                     txtCiudad.Items.Add("CIUDAD BOLIVAR");
@@ -117,6 +118,7 @@ namespace SocialBusinessApp.Views
                     txtCiudad.Items.Add("EBEJICO");
                     txtCiudad.Items.Add("EL BAGRE");
                     txtCiudad.Items.Add("ENTRERRIOS");
+                    txtCiudad.Items.Add("ENVIGADO");
                     txtCiudad.Items.Add("FREDONIA");
                     txtCiudad.Items.Add("FRONTINO");
                     txtCiudad.Items.Add("GIRALDO");
@@ -137,6 +139,7 @@ namespace SocialBusinessApp.Views
                     txtCiudad.Items.Add("LA UNION");
                     txtCiudad.Items.Add("LIBORINA");
                     txtCiudad.Items.Add("MACEO");
+                    txtCiudad.Items.Add("MEDELLÍN");
                     txtCiudad.Items.Add("MONTEBELLO");
                     txtCiudad.Items.Add("MURINDO");
                     txtCiudad.Items.Add("MUTATA");
@@ -191,9 +194,9 @@ namespace SocialBusinessApp.Views
                     txtCiudad.Items.Add("YOLOMBO");
                     txtCiudad.Items.Add("YONDO");
                     txtCiudad.Items.Add("ZARAGOZA");
-                    txtCiudad.Items.Add("ENVIGADO");
-                    txtCiudad.Items.Add("MEDELLÍN");
-                    txtCiudad.Items.Add("BELLO");
+                    
+                    
+                    
                     break;
                 case 2://ARAUCA
 
@@ -1213,8 +1216,8 @@ namespace SocialBusinessApp.Views
             }
             if (!string.IsNullOrWhiteSpace(txtBar.Text))
                 cont++;
-            if (!string.IsNullOrWhiteSpace(txtDi.Text))
-                cont++;
+            //if (!string.IsNullOrWhiteSpace(txtDi.Text))
+              //  cont++;
             if (!string.IsNullOrWhiteSpace(txtPr.Text))
                 cont++;
             if (!string.IsNullOrWhiteSpace(txtAr.Text))
@@ -1229,12 +1232,12 @@ namespace SocialBusinessApp.Views
                 DisplayAlert("Alerta", "Por favor seleccione Ubicación", "Ok");
                 return;
             }
-            if (!string.IsNullOrWhiteSpace(txtHa.Text))
-                cont++;
-            if (!string.IsNullOrWhiteSpace(txtBa.Text))
-                cont++;
-            if (!string.IsNullOrWhiteSpace(txtPa.Text))
-                cont++;
+            //if (!string.IsNullOrWhiteSpace(txtHa.Text))
+              //  cont++;
+            //if (!string.IsNullOrWhiteSpace(txtBa.Text))
+                //cont++;
+            //if (!string.IsNullOrWhiteSpace(txtPa.Text))
+                //cont++;
             try
             {
                 if (!string.IsNullOrWhiteSpace(txtEstrato.Items[txtEstrato.SelectedIndex]))
@@ -1290,18 +1293,26 @@ namespace SocialBusinessApp.Views
                 return;
             }
 
-            if (cont == 17)
+            if (cont == 13)
             {
-                if (txtTe.Text.Substring(0, 23) == "https://www.youtube.com" || txtTe.Text.Substring(0, 19) == "https://youtube.com" || txtTe.Text.Substring(0, 21) == "https://m.youtube.com" || txtTe.Text.Substring(0, 16) == "https://youtu.be")
+                try
+                {
+                    if (txtTe.Text.Substring(0, 23) == "https://www.youtube.com" || txtTe.Text.Substring(0, 19) == "https://youtube.com" || txtTe.Text.Substring(0, 21) == "https://m.youtube.com" || txtTe.Text.Substring(0, 16) == "https://youtu.be")
+                    {
+                        btnPublicar.IsEnabled = false;
+                        SendTo(lat, lon);
+                    }
+                    else
+                    {
+                        DisplayAlert("Alerta", "Por favor ingrese un enlace de youtube valido: https://www.youtube.com - https://youtube.com - https://m.youtube.com - https://youtu.be", "Ok");
+                    }
+                    //https://www.youtube.com || https://youtube.com || https://m.youtube.com || https://youtu.be
+                }catch(Exception e)
                 {
                     btnPublicar.IsEnabled = false;
                     SendTo(lat, lon);
                 }
-                else
-                {
-                    DisplayAlert("Alerta", "Por favor ingrese un enlace de youtube valido: https://www.youtube.com - https://youtube.com - https://m.youtube.com - https://youtu.be", "Ok");
-                }
-                //https://www.youtube.com || https://youtube.com || https://m.youtube.com || https://youtu.be
+
 
             }
             else
@@ -1312,6 +1323,7 @@ namespace SocialBusinessApp.Views
 
         private async void SendTo(string lat, string lon)
         {
+            var responseString="";
 
             try
             {
@@ -1345,7 +1357,7 @@ namespace SocialBusinessApp.Views
                 var content = new FormUrlEncodedContent(values);
                 var response = await client.PostAsync("https://app.socialbusiness.com.co/api/NuevaOferta.php", content);
 
-                var responseString = await response.Content.ReadAsStringAsync();
+                responseString = await response.Content.ReadAsStringAsync();
                 Rta = JsonConvert.DeserializeObject<Respuesta>(responseString);
                 int contador = 0;
 
@@ -1404,7 +1416,7 @@ namespace SocialBusinessApp.Views
             }
             catch (Exception e)
             {
-                await DisplayAlert("Alerta", "" + e, "Ok");
+                await DisplayAlert("Alerta", "1" + e+responseString, "Ok");
 
             }
         }

@@ -72,8 +72,8 @@ namespace SocialBusinessApp.Cells
              Button button = new Button
             {
                 Image = "user_icon",
-                WidthRequest = 50,
-                HeightRequest = 50,
+                WidthRequest = 40,
+                HeightRequest = 40,
                 //BackgroundColor = Color.FromHex("9c27b0")
                 BackgroundColor = Color.Transparent,
 
@@ -93,7 +93,7 @@ namespace SocialBusinessApp.Cells
 
             var View3 = new StackLayout
             {
-                Children = { button, View2  },
+                Children = { /*button, */View2  },
                 Orientation = StackOrientation.Horizontal
             };
 

@@ -28,6 +28,7 @@ namespace SocialBusinessApp.Views
             Ejecucion();
             btnActualizar.Clicked += (sender, e) => BtnActualizarClick();
             btnAgregarInmobiliaria.Clicked += (sender, e) => BtnAgregarInmobiliariaClick();
+            btnDesvincular.Clicked += (sender, e) => BtnDesvincularClick();
             CargarInmobiliarias();
             //pikInmobiliaria.ItemsSource = InmobiliariasL;
 
@@ -60,65 +61,141 @@ namespace SocialBusinessApp.Views
         private async void BtnAgregarInmobiliariaClick()
         {
             pikInmobiliaria.SelectedIndex = -1;
-            await Navigation.PushModalAsync(new NuevaInmobiliaria());
+            await Navigation.PushAsync(new NuevaInmobiliaria());
             /*txtNombreI.IsVisible = true;
             txtNitI.IsVisible = true;*/
         }
         private async void BtnActualizarClick()
         {
-            string Departamento = "NO";
-            string Ciudad = "NO";
-            string Genero = "NO";
-            string Mes = "NO";
             try
             {
-                Departamento = pikDepartamento.Items[pikDepartamento.SelectedIndex];
-            }
-            catch
+                if (txtFacebook.Text.Substring(0, 2) != "ht")
+                {
+                    await DisplayAlert("Alerta", "La red social Facebook debe ser una URL válida","Ok");
+                    txtFacebook.Text = "NO";
+                }
+            }catch(Exception e)
             {
-                Departamento = "NO";
+                txtFacebook.Text = "NO";
             }
-            if(Departamento!="NO")
+            try
             {
+                if (txtTwitter.Text.Substring(0, 2) != "ht")
+                {
+                    await DisplayAlert("Alerta", "La red social Twitter debe ser una URL válida", "Ok");
+                    txtTwitter.Text = "NO";
+                }
+            }
+            catch (Exception e)
+            {
+                txtTwitter.Text = "NO";
+            }
+            try
+            {
+                if (txtInstagram.Text.Substring(0, 2) != "ht")
+                {
+                    await DisplayAlert("Alerta", "La red social Instagram debe ser una URL válida", "Ok");
+                    txtInstagram.Text = "NO";
+                }
+            }
+            catch (Exception e)
+            {
+                txtInstagram.Text = "NO";
+            }
+            try
+            {
+                if (txtYoutube.Text.Substring(0, 2) != "ht")
+                {
+                    await DisplayAlert("Alerta", "La red social Youtube debe ser una URL válida", "Ok");
+                    txtYoutube.Text = "NO";
+                }
+            }
+            catch (Exception e)
+            {
+                txtYoutube.Text = "NO";
+            }
+            try
+            {
+                if (txtWeb.Text.Substring(0, 2) != "ht")
+                {
+                    await DisplayAlert("Alerta", "La página web debe ser una URL válida", "Ok");
+                    txtWeb.Text = "NO";
+                }
+            }
+            catch (Exception e)
+            {
+                txtWeb.Text = "NO";
+            }
+
+            
+            if(txtFacebook.Text.Substring(0,2)=="NO")
+                txtFacebook.Text = "";
+            if (txtTwitter.Text.Substring(0, 2) == "NO")
+                txtTwitter.Text = "";
+            if (txtInstagram.Text.Substring(0, 2) == "NO")
+                txtInstagram.Text = "";
+            if (txtYoutube.Text.Substring(0, 2) == "NO")
+                txtYoutube.Text = "";
+            if (txtWeb.Text.Substring(0, 2) == "NO")
+                txtWeb.Text = "";
+
+
+
+
+            string Departamento = "NO";
+                string Ciudad = "NO";
+                string Genero = "NO";
+                string Mes = "NO";
                 try
                 {
-                    Ciudad = pikCiudad.Items[pikCiudad.SelectedIndex];
+                    Departamento = pikDepartamento.Items[pikDepartamento.SelectedIndex];
                 }
                 catch
                 {
-                    //await DisplayAlert("Alerta","Por favor Seleccione una ciudad", "Ok");
-                    Ciudad = "NO";
+                    Departamento = "NO";
                 }
-            }
-            try
-            {
-                Genero = pikGenero.Items[pikGenero.SelectedIndex];
-            }
-            catch
-            {
-                Genero = "NO";
-            }
-            try
-            {
-                Mes = pikMes.Items[pikMes.SelectedIndex];
-            }
-            catch
-            {
-                Mes = "NO";
-            }
-            string Inmobi = "No";
-            try
-            {
-                Inmobi = pikInmobiliaria.Items[pikInmobiliaria.SelectedIndex];
-            }
-            catch
-            {
-                Inmobi = "NO";
-            }
-            
-            if ((Departamento!="NO" && Ciudad !="NO") || (Departamento==Ciudad) )
-            {
-                var values = new Dictionary<string, string>
+                if (Departamento != "NO")
+                {
+                    try
+                    {
+                        Ciudad = pikCiudad.Items[pikCiudad.SelectedIndex];
+                    }
+                    catch
+                    {
+                        //await DisplayAlert("Alerta","Por favor Seleccione una ciudad", "Ok");
+                        Ciudad = "NO";
+                    }
+                }
+                try
+                {
+                    Genero = pikGenero.Items[pikGenero.SelectedIndex];
+                }
+                catch
+                {
+                    Genero = "NO";
+                }
+                try
+                {
+                    Mes = pikMes.Items[pikMes.SelectedIndex];
+                }
+                catch
+                {
+                    Mes = "NO";
+                }
+                string Inmobi = "No";
+                try
+                {
+                    Inmobi = pikInmobiliaria.Items[pikInmobiliaria.SelectedIndex];
+                }
+                catch
+                {
+                    Inmobi = "NO";
+                }
+
+
+                if ((Departamento != "NO" && Ciudad != "NO") || (Departamento == Ciudad))
+                {
+                    var values = new Dictionary<string, string>
                 {
                     { "Profesional",  (String)App.Current.Properties["Codigo"]},
                     { "Nombres",  txtNombres.Text},
@@ -141,11 +218,71 @@ namespace SocialBusinessApp.Views
 
                 };
 
+                    var content = new FormUrlEncodedContent(values);
+                    var responseString = "";
+                    try
+                    {
+                        var response = await client.PostAsync("https://app.socialbusiness.com.co/api/ActualizarPerfil.php", content);
+                        responseString = await response.Content.ReadAsStringAsync();
+                        //await DisplayAlert("Alerta", responseString, "Ok");
+                        Rta = JsonConvert.DeserializeObject<Respuesta>(responseString);
+
+                    }
+                    catch (Exception e)
+                    {
+                        //waitActivityIndicator.IsRunning = false;
+                        await DisplayAlert("Alerta", "No se detecta conexión a internet, por favor intente más tarde " + e + "---" + responseString, "Ok");
+                        return;
+                    }
+                    try
+                    {
+                        foreach (string foto in _images)
+                        {
+                            var response2 = await CrossFileUploader.Current.UploadFileAsync($"https://app.socialbusiness.com.co/api/FotoPerfil.php?Profesional=" + (String)App.Current.Properties["Codigo"], new FilePathItem("uploaded_file", foto));
+                            //await DisplayAlert("", response2.Message, "Ok");
+                            break;
+                        }
+
+
+                    }
+                    catch (Exception e)
+                    {
+                        await DisplayAlert("Alerta", "" + e, "Ok");
+
+                    }
+                    if (Rta.Estado.Equals("Si"))
+                    {
+                        await DisplayAlert("¡Éxito!", Rta.Mensaje, "Ok");
+                        await Navigation.PopAsync();
+                        Application.Current.MainPage = new NavigationPage(new TabbedPage1());
+                    }
+                    else
+                    {
+                        //waitActivityIndicator.IsRunning = false;
+                        await DisplayAlert("Alerta", Rta.Mensaje, "Ok");
+                    }
+                }
+                else
+                {
+                    await DisplayAlert("Alerta", "Por favor verifique los datos e intentelo de nuevo", "Ok");
+                }
+           
+            
+        }
+
+
+        private async void BtnDesvincularClick()
+        {
+                var values = new Dictionary<string, string>
+                {
+                    { "Profesional",  (String)App.Current.Properties["Codigo"]}
+                };
+
                 var content = new FormUrlEncodedContent(values);
-                var responseString="";
+                var responseString = "";
                 try
                 {
-                    var response = await client.PostAsync("https://app.socialbusiness.com.co/api/ActualizarPerfil.php", content);
+                    var response = await client.PostAsync("https://app.socialbusiness.com.co/api/DesvincularDeInmobiliaria.php", content);
                     responseString = await response.Content.ReadAsStringAsync();
                     //await DisplayAlert("Alerta", responseString, "Ok");
                     Rta = JsonConvert.DeserializeObject<Respuesta>(responseString);
@@ -154,41 +291,21 @@ namespace SocialBusinessApp.Views
                 catch (Exception e)
                 {
                     //waitActivityIndicator.IsRunning = false;
-                    await DisplayAlert("Alerta", "No se detecta conexión a internet, por favor intente más tarde "+e+"---"+responseString, "Ok");
+                    await DisplayAlert("Alerta", "No se detecta conexión a internet, por favor intente más tarde " + e + "---" + responseString, "Ok");
                     return;
                 }
-                try
-                {
-                    foreach (string foto in _images)
-                    {
-                        var response2 = await CrossFileUploader.Current.UploadFileAsync($"https://app.socialbusiness.com.co/api/FotoPerfil.php?Profesional=" + (String)App.Current.Properties["Codigo"], new FilePathItem("uploaded_file", foto));
-                        //await DisplayAlert("", response2.Message, "Ok");
-                        break;
-                    }
-                    
-
-                }
-                catch (Exception e)
-                {
-                    await DisplayAlert("Alerta", "" + e, "Ok");
-
-                }
+                
                 if (Rta.Estado.Equals("Si"))
                 {
                     await DisplayAlert("¡Éxito!", Rta.Mensaje, "Ok");
-                    await Navigation.PopModalAsync();
-                    Application.Current.MainPage = new NavigationPage(new TabbedPage1());
                 }
                 else
                 {
                     //waitActivityIndicator.IsRunning = false;
                     await DisplayAlert("Alerta", Rta.Mensaje, "Ok");
                 }
-            }else
-            {
-                await DisplayAlert("Alerta", "Por favor verifique los datos e intentelo de nuevo", "Ok");
-            }
         }
+
         void DepartamentoSelect(object sender, EventArgs args)
         {
             Picker modePicker = (Picker)sender;
@@ -223,7 +340,9 @@ namespace SocialBusinessApp.Views
                     pikCiudad.Items.Add("ARBOLETES");
                     pikCiudad.Items.Add("ARGELIA");
                     pikCiudad.Items.Add("BARBOSA");
+                    pikCiudad.Items.Add("BELLO");
                     pikCiudad.Items.Add("BELMIRA");
+
                     pikCiudad.Items.Add("BETANIA");
                     pikCiudad.Items.Add("BETULIA");
                     pikCiudad.Items.Add("CIUDAD BOLIVAR");
@@ -250,6 +369,7 @@ namespace SocialBusinessApp.Views
                     pikCiudad.Items.Add("EBEJICO");
                     pikCiudad.Items.Add("EL BAGRE");
                     pikCiudad.Items.Add("ENTRERRIOS");
+                    pikCiudad.Items.Add("ENVIGADO");
                     pikCiudad.Items.Add("FREDONIA");
                     pikCiudad.Items.Add("FRONTINO");
                     pikCiudad.Items.Add("GIRALDO");
@@ -270,6 +390,7 @@ namespace SocialBusinessApp.Views
                     pikCiudad.Items.Add("LA UNION");
                     pikCiudad.Items.Add("LIBORINA");
                     pikCiudad.Items.Add("MACEO");
+                    pikCiudad.Items.Add("MEDELLÍN");
                     pikCiudad.Items.Add("MONTEBELLO");
                     pikCiudad.Items.Add("MURINDO");
                     pikCiudad.Items.Add("MUTATA");
@@ -324,9 +445,9 @@ namespace SocialBusinessApp.Views
                     pikCiudad.Items.Add("YOLOMBO");
                     pikCiudad.Items.Add("YONDO");
                     pikCiudad.Items.Add("ZARAGOZA");
-                    pikCiudad.Items.Add("ENVIGADO");
-                    pikCiudad.Items.Add("MEDELLÍN");
-                    pikCiudad.Items.Add("BELLO");
+                    
+                    
+                    
                     break;
                 case 2://ARAUCA
 

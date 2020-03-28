@@ -80,6 +80,7 @@ namespace SocialBusinessApp.Views
                     pikCiudad.Items.Add("ARBOLETES");
                     pikCiudad.Items.Add("ARGELIA");
                     pikCiudad.Items.Add("BARBOSA");
+                    pikCiudad.Items.Add("BELLO");
                     pikCiudad.Items.Add("BELMIRA");
                     pikCiudad.Items.Add("BETANIA");
                     pikCiudad.Items.Add("BETULIA");
@@ -107,6 +108,7 @@ namespace SocialBusinessApp.Views
                     pikCiudad.Items.Add("EBEJICO");
                     pikCiudad.Items.Add("EL BAGRE");
                     pikCiudad.Items.Add("ENTRERRIOS");
+                    pikCiudad.Items.Add("ENVIGADO");
                     pikCiudad.Items.Add("FREDONIA");
                     pikCiudad.Items.Add("FRONTINO");
                     pikCiudad.Items.Add("GIRALDO");
@@ -127,6 +129,7 @@ namespace SocialBusinessApp.Views
                     pikCiudad.Items.Add("LA UNION");
                     pikCiudad.Items.Add("LIBORINA");
                     pikCiudad.Items.Add("MACEO");
+                    pikCiudad.Items.Add("MEDELLÍN");
                     pikCiudad.Items.Add("MONTEBELLO");
                     pikCiudad.Items.Add("MURINDO");
                     pikCiudad.Items.Add("MUTATA");
@@ -181,9 +184,9 @@ namespace SocialBusinessApp.Views
                     pikCiudad.Items.Add("YOLOMBO");
                     pikCiudad.Items.Add("YONDO");
                     pikCiudad.Items.Add("ZARAGOZA");
-                    pikCiudad.Items.Add("ENVIGADO");
-                    pikCiudad.Items.Add("MEDELLÍN");
-                    pikCiudad.Items.Add("BELLO");
+                    
+                    
+                    
                     break;
                 case 2://ARAUCA
 
@@ -1111,33 +1114,37 @@ namespace SocialBusinessApp.Views
         }
         private async void BtnCrearInmobiliariaClick()
         {
-            string Departamento = "NO";
-            string Ciudad = "NO";
-            
-            try
+            if(txtNombreI.Text!=null && txtNitI.Text!=null)
             {
-                Departamento = pikDepartamento.Items[pikDepartamento.SelectedIndex];
-            }
-            catch
-            {
-                Departamento = "NO";
-            }
-            if (Departamento != "NO")
-            {
+                
+                string Departamento = "NO";
+                string Ciudad = "NO";
+
                 try
                 {
-                    Ciudad = pikCiudad.Items[pikCiudad.SelectedIndex];
+                    Departamento = pikDepartamento.Items[pikDepartamento.SelectedIndex];
                 }
                 catch
                 {
-                    //await DisplayAlert("Alerta","Por favor Seleccione una ciudad", "Ok");
-                    Ciudad = "NO";
+                    Departamento = "NO";
                 }
-            }
+                if (Departamento != "NO")
+                {
+                    try
+                    {
+                        Ciudad = pikCiudad.Items[pikCiudad.SelectedIndex];
+                    }
+                    catch
+                    {
+                        //await DisplayAlert("Alerta","Por favor Seleccione una ciudad", "Ok");
+                        Ciudad = "NO";
+                    }
+                }
+                //DisplayAlert("ok", Departamento + "-" + Ciudad,"Ok");
 
-            if ((Departamento != "NO" && Ciudad != "NO") || (Departamento == Ciudad) && txtServicios.Text!="" && txtNitI.Text!="" && txtNombreI.Text!="")
-            {
-                var values = new Dictionary<string, string>
+                if (Departamento != "NO" && Ciudad != "NO" && txtServicios.Text != null && txtNitI.Text != null && txtNombreI.Text != null)
+                {
+                    var values = new Dictionary<string, string>
                 {
                     { "Profesional",  (String)App.Current.Properties["Codigo"]},
                     { "NombreI",  txtNombreI.Text},
@@ -1146,49 +1153,57 @@ namespace SocialBusinessApp.Views
                     { "Ciudad", Ciudad},
                 };
 
-                var content = new FormUrlEncodedContent(values);
-                var responseString = "";
-                try
-                {
-                    var response = await client.PostAsync("https://app.socialbusiness.com.co/api/NuevaInmobiliaria.php", content);
-                    responseString = await response.Content.ReadAsStringAsync();
-                    //await DisplayAlert("Alerta", responseString, "Ok");
-                    Rta = JsonConvert.DeserializeObject<Respuesta>(responseString);
-
-                }
-                catch (Exception e)
-                {
-                    //waitActivityIndicator.IsRunning = false;
-                    await DisplayAlert("Alerta", "No se detecta conexión a internet, por favor intente más tarde " + e + "---" + responseString, "Ok");
-                    return;
-                }
-
-                try
-                {
-                    foreach (string foto in _images)
+                    var content = new FormUrlEncodedContent(values);
+                    var responseString = "";
+                    try
                     {
-                        var response2 = await CrossFileUploader.Current.UploadFileAsync($"https://app.socialbusiness.com.co/api/FotoInmobiliaria.php?Inmobiliaria=" + txtNitI.Text, new FilePathItem("uploaded_file", foto));
-                        break;
+                        var response = await client.PostAsync("https://app.socialbusiness.com.co/api/NuevaInmobiliaria.php", content);
+                        responseString = await response.Content.ReadAsStringAsync();
+                        //await DisplayAlert("Alerta", responseString, "Ok");
+                        Rta = JsonConvert.DeserializeObject<Respuesta>(responseString);
+
                     }
-                    
+                    catch (Exception e)
+                    {
+                        //waitActivityIndicator.IsRunning = false;
+                        await DisplayAlert("Alerta", "No se detecta conexión a internet, por favor intente más tarde " + e + "---" + responseString, "Ok");
+                        return;
+                    }
 
-                }
-                catch (Exception e)
-                {
-                    await DisplayAlert("Alerta", "" + e, "Ok");
+                    try
+                    {
+                        foreach (string foto in _images)
+                        {
+                            var response2 = await CrossFileUploader.Current.UploadFileAsync($"https://app.socialbusiness.com.co/api/FotoInmobiliaria.php?Inmobiliaria=" + txtNitI.Text, new FilePathItem("uploaded_file", foto));
+                            break;
+                        }
 
-                }
-                if (Rta.Estado.Equals("Si"))
-                {
-                    await DisplayAlert("¡Éxito!", Rta.Mensaje, "Ok");
-                    await Navigation.PopModalAsync();
-                    Application.Current.MainPage = new NavigationPage(new TabbedPage1());
+                    }
+                    catch (Exception e)
+                    {
+                        await DisplayAlert("Alerta", "" + e, "Ok");
+
+                    }
+                    if (Rta.Estado.Equals("Si"))
+                    {
+                        await DisplayAlert("¡Éxito!", Rta.Mensaje, "Ok");
+                        await Navigation.PopAsync();
+                        Application.Current.MainPage = new NavigationPage(new TabbedPage1());
+                    }
+                    else
+                    {
+                        await DisplayAlert("Alerta", Rta.Mensaje, "Ok");
+                    }
                 }
                 else
                 {
-                    await DisplayAlert("Alerta", Rta.Mensaje, "Ok");
+                    await DisplayAlert("Alerta", "Por favor rellene todos los campos", "Ok");
                 }
+            }else
+            {
+                await DisplayAlert("Alerta", "Por favor complete todos los campos para continuar", "Ok");
             }
+            
                 
         }
         

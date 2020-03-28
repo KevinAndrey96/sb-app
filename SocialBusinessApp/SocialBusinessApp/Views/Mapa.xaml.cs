@@ -25,7 +25,8 @@ namespace SocialBusinessApp.Views
 
             //DisplayAlert("1", "uno: "+Lat, "Dos: "+Long);
             CultureInfo nonInvariantCulture = new CultureInfo("en-US");
-            
+
+            this.Title = "Ubicación";
             
                 map2.MoveToRegion(
                 MapSpan.FromCenterAndRadius(

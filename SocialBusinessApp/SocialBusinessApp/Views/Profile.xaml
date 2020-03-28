@@ -4,6 +4,7 @@
              xmlns:views="clr-namespace:SuaveControls.Views;assembly=SuaveControls.FloatingActionButton"
              x:Class="SocialBusinessApp.Profile">
     <ContentPage.Content>
+        <ScrollView>
         <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="8*" />
@@ -44,18 +45,20 @@
                         <Label x:Name="TxtNit" HorizontalOptions="Center" Text="" FontSize="20"></Label>
 
                         <Button Image="candado.png" x:Name="btnChangePassword" Text="Cambiar contraseña" BackgroundColor="#9c27b0" TextColor="#FFFFFF"></Button>
-                        <!--<Button Image="usuario.png" x:Name="btnEditProfile" Text="Editar perfil" BackgroundColor="#9c27b0" TextColor="#FFFFFF"></Button>-->
+                        <!--<Button Image="ok.png" x:Name="btnInmobi" Text="Inmobiliaria" BackgroundColor="#9c27b0" TextColor="#FFFFFF"></Button>-->
+                            <!--<Button Image="usuario.png" x:Name="btnEditProfile" Text="Editar perfil" BackgroundColor="#9c27b0" TextColor="#FFFFFF"></Button>-->
                         <Button Image="cohete.png" x:Name="btnPremium" IsVisible="false" Text="Actualizar a premium" BackgroundColor="#9c27b0" TextColor="#FFFFFF"></Button>
                         <Button Image="casa.png" x:Name="btnAdminI" IsVisible="False" Text="Admin Inmobiliaria" BackgroundColor="#9c27b0" TextColor="#FFFFFF"></Button>
-                        <!--<Button Image="salir.png" x:Name="btnLogout" Text="Cerrar sesión" BackgroundColor="#9c27b0" TextColor="#FFFFFF"></Button>-->
+                            <!--<Button Image="salir.png" x:Name="btnLogout" Text="Cerrar sesión" BackgroundColor="#9c27b0" TextColor="#FFFFFF"></Button>-->
                         <Label x:Name="txtPremium" Text="Estado de suscripción" TextColor="#9c27b0" HorizontalOptions="Center" FontSize="25"></Label>
+                        <Label Text="Versión 0.40" TextColor="#9c27b0" HorizontalOptions="Center" FontSize="15"></Label>
 
 
 
 
 
 
-                        <!--
+                            <!--
                         <Image x:Name="BtnEditProfile" Source="registrarse.png" WidthRequest="100" HeightRequest="100" HorizontalOptions="Center"/>
                         <Image x:Name="BtnChangePassword" Source="password.png" WidthRequest="100" HeightRequest="100" HorizontalOptions="Center"/>
                         <Image x:Name="BtnPremium" Source="premium.png" WidthRequest="100" HeightRequest="100" HorizontalOptions="Center"/>
@@ -72,6 +75,6 @@
             <views:FloatingActionButton Image="lapiz.png" Grid.Column="0" Grid.Row="1" ButtonColor="#9c27b0" WidthRequest="56" HeightRequest="56" HorizontalOptions="StartAndExpand" VerticalOptions="CenterAndExpand" x:Name="btnEditProfile"/>
         </StackLayout>
         </Grid>
-        
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>

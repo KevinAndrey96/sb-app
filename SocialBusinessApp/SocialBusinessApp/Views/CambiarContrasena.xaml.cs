@@ -17,7 +17,7 @@ namespace SocialBusinessApp
         private static HttpClient Client = new HttpClient();
         public CambiarContrasena()
         {
-            NavigationPage.SetHasNavigationBar(this, false);
+            
             InitializeComponent();
             btnCambiarContrasena.Clicked += (sender, e) => BtnCambiarContrasenaClick();
         }
@@ -49,7 +49,7 @@ namespace SocialBusinessApp
             await DisplayAlert("Alerta", Rta.Mensaje, "Ok");
             //Navigation.InsertPageBefore(new MLS(), this);
             //await Navigation.PopAsync().ConfigureAwait(false);
-            await Navigation.PopModalAsync();
+            await Navigation.PopAsync();
         }
     }
 }

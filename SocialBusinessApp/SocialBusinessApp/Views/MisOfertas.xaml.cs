@@ -57,7 +57,7 @@ namespace SocialBusinessApp.Views
         private async void OfertasListView_ItemTapped(object sender, ItemTappedEventArgs e)
         {
             var oferta = e.Item as Oferta;
-            await Navigation.PushModalAsync(new MyPlace(oferta, true));
+            await Navigation.PushAsync(new MyPlace(oferta, true));
         }
     }
 }

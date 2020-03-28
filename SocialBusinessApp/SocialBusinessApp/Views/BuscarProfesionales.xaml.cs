@@ -73,6 +73,7 @@ namespace SocialBusinessApp.Views
                     txtCiudad.Items.Add("ARGELIA");
                     txtCiudad.Items.Add("BARBOSA");
                     txtCiudad.Items.Add("BELMIRA");
+                    txtCiudad.Items.Add("BELLO");
                     txtCiudad.Items.Add("BETANIA");
                     txtCiudad.Items.Add("BETULIA");
                     txtCiudad.Items.Add("CIUDAD BOLIVAR");
@@ -99,6 +100,7 @@ namespace SocialBusinessApp.Views
                     txtCiudad.Items.Add("EBEJICO");
                     txtCiudad.Items.Add("EL BAGRE");
                     txtCiudad.Items.Add("ENTRERRIOS");
+                    txtCiudad.Items.Add("ENVIGADO");
                     txtCiudad.Items.Add("FREDONIA");
                     txtCiudad.Items.Add("FRONTINO");
                     txtCiudad.Items.Add("GIRALDO");
@@ -119,6 +121,7 @@ namespace SocialBusinessApp.Views
                     txtCiudad.Items.Add("LA UNION");
                     txtCiudad.Items.Add("LIBORINA");
                     txtCiudad.Items.Add("MACEO");
+                    txtCiudad.Items.Add("MEDELLÍN");
                     txtCiudad.Items.Add("MONTEBELLO");
                     txtCiudad.Items.Add("MURINDO");
                     txtCiudad.Items.Add("MUTATA");
@@ -173,9 +176,9 @@ namespace SocialBusinessApp.Views
                     txtCiudad.Items.Add("YOLOMBO");
                     txtCiudad.Items.Add("YONDO");
                     txtCiudad.Items.Add("ZARAGOZA");
-                    txtCiudad.Items.Add("ENVIGADO");
-                    txtCiudad.Items.Add("MEDELLÍN");
-                    txtCiudad.Items.Add("BELLO");
+                    
+                    
+                    
                     break;
                 case 2://ARAUCA
 
@@ -1118,6 +1121,10 @@ namespace SocialBusinessApp.Views
                 return;
             }
             rank = JsonConvert.DeserializeObject<List<Rank>>(result);
+            if (rank.Count == 0)
+            {
+                await DisplayAlert("Alerta", "No hay resultados disponibles", "Ok");
+            }
             ProfesionalesListView.ItemsSource = rank;
         }
         private async void ProfesionalesListView_ItemTapped(object sender, ItemTappedEventArgs e)

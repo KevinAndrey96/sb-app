@@ -55,6 +55,10 @@ namespace SocialBusinessApp.Views
                 return;
             }
             Asociacion1 = JsonConvert.DeserializeObject<List<Asociacion>>(result);
+            if (Asociacion1.Count == 0)
+            {
+                await DisplayAlert("Alerta", "No hay resultados disponibles", "Ok");
+            }
             FranquiciasListView.ItemsSource = Asociacion1;
         }
         private async void FranquiciasListView_ItemTapped(object sender, ItemTappedEventArgs e)

@@ -19,7 +19,6 @@ namespace SocialBusinessApp
         Inmobiliario Userio;
         public Profile()
         {
-            NavigationPage.SetHasNavigationBar(this, false);
             InitializeComponent();
             
             this.Title = "Perfil";
@@ -31,24 +30,29 @@ namespace SocialBusinessApp
             btnEditProfile.Clicked += (sender, e) => BtnEditProfileClick();
             btnPremium.Clicked += (sender, e) => BtnPremiumClick();
             btnAdminI.Clicked += (sender, e) => BtnAdminIClick();
+            //btnInmobi.Clicked += (sender, e) => BtnInmobiClick();
             btnLogout.Clicked += (sender, e) => BtnLogoutClick();
 
         }
         private async void BtnAdminIClick()
         {
-            await Navigation.PushModalAsync(new AdminInmobiliaria());
+            await Navigation.PushAsync(new AdminInmobiliaria());
         }
         private async void BtnChangePasswordClick()
         {
-            await Navigation.PushModalAsync(new CambiarContrasena());
+            await Navigation.PushAsync(new CambiarContrasena());
+        }
+        private async void BtnInmobiClick()
+        {
+            await Navigation.PushAsync(new BuscarInmobiliarias(TxtInmobiliaria.Text, "1"));
         }
         private async void BtnEditProfileClick()
         {
-            await Navigation.PushModalAsync(new EditarPerfil());
+            await Navigation.PushAsync(new EditarPerfil());
         }
         private async void BtnPremiumClick()
         {
-            await Navigation.PushModalAsync(new MisListados("https://app.socialbusiness.com.co/Premium.php"));
+            await Navigation.PushAsync(new MisListados("https://app.socialbusiness.com.co/Premium.php"));
         }
         private async void BtnLogoutClick()
         {
@@ -58,7 +62,7 @@ namespace SocialBusinessApp
                 EliminarSesion();
                 try
                 {
-                    await Navigation.PopModalAsync();
+                    await Navigation.PopAsync();
                     Application.Current.MainPage = new NavigationPage(new InicioSesion());
                 }
                 catch(Exception)
@@ -114,11 +118,13 @@ namespace SocialBusinessApp
                 {
                     TxtInmobiliaria.IsVisible = false;
                     TxtNit.IsVisible = false;
+                    //btnInmobi.IsVisible = false;
                 }
                 else
                 {
                     TxtInmobiliaria.IsVisible = true;
                     TxtNit.IsVisible = true;
+                    //btnInmobi.IsVisible = true;
                 }
                 if (Userio.Admin == "No")
                 {

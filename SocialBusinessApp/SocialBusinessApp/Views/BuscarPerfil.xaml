@@ -2,7 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:views="clr-namespace:SuaveControls.Views;assembly=SuaveControls.FloatingActionButton"
-             x:Class="SocialBusinessApp.Views.BuscarPerfil">
+             x:Class="SocialBusinessApp.Views.BuscarPerfil" Title="Perfil Social Business">
     <ContentPage.Content>
 
 
@@ -91,7 +91,7 @@
                 -->
 
                         </StackLayout>
-                        <Button Image="libro.png" x:Name="btnOfertas" Text="Ofertas" BackgroundColor="#9c27b0" TextColor="#FFFFFF"></Button>
+                        <!--<Button Image="libro.png" x:Name="btnOfertas" Text="Ofertas" BackgroundColor="#9c27b0" TextColor="#FFFFFF"></Button>-->
                         <!--<Button Image="comentario.png" x:Name="btnComentarios" Text="Comentarios" BackgroundColor="#9c27b0" TextColor="#FFFFFF"></Button>-->
                         <!--<Button Image="trofeo.png" x:Name="btnLogros" Text="Logros" BackgroundColor="#9c27b0" TextColor="#FFFFFF"></Button>-->
                         <Button Image="usuarios.png" x:Name="btnEquipo" Text="Equipo inmobiliario" BackgroundColor="#9c27b0" TextColor="#FFFFFF"></Button>
@@ -100,6 +100,7 @@
                 </ScrollView>
             </StackLayout>
             <!--<views:FloatingActionButton Image="comentario.png" Grid.Column="1" Grid.Row="1" ButtonColor="#9c27b0" WidthRequest="56" HeightRequest="56" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" x:Name="btnComentarios" />-->
+            <views:FloatingActionButton Image="libro.png" Grid.Column="1" Grid.Row="1" x:Name="btnOfertas" Text=""  ButtonColor="#9c27b0" TextColor="#FFFFFF" WidthRequest="56" HeightRequest="56" HorizontalOptions="StartAndExpand" VerticalOptions="CenterAndExpand"/>
             <StackLayout Grid.Column="0" Grid.Row="1" Orientation="Horizontal">
                 <Label Text="  "></Label>
                 <views:FloatingActionButton Image="trofeo.png" Grid.Column="0" Grid.Row="1" ButtonColor="#9c27b0" WidthRequest="56" HeightRequest="56" HorizontalOptions="StartAndExpand" VerticalOptions="CenterAndExpand" x:Name="btnLogros"/>

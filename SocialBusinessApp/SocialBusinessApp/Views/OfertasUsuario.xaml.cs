@@ -18,7 +18,6 @@ namespace SocialBusinessApp.Views
         private List<Oferta> ofertas;
         public OfertasUsuario(string Code)
         {
-            NavigationPage.SetHasNavigationBar(this, false);
             InitializeComponent();
             this.Title = "Ofertas";
 
@@ -35,7 +34,6 @@ namespace SocialBusinessApp.Views
             try
             {
 
-                
 
                 HttpClient client = new HttpClient();
                 client.BaseAddress = new Uri("https://app.socialbusiness.com.co");
@@ -61,7 +59,7 @@ namespace SocialBusinessApp.Views
         private async void OfertasListView_ItemTapped(object sender, ItemTappedEventArgs e)
         {
             var oferta = e.Item as Oferta;
-            await Navigation.PushModalAsync(new MyPlace(oferta,false));
+            await Navigation.PushAsync(new MyPlace(oferta,false));
         }
     }
 }

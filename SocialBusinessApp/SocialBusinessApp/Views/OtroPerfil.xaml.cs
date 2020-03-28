@@ -118,24 +118,24 @@ namespace SocialBusinessApp
         {
             try
             {
-                await Navigation.PushModalAsync(new OfertasUsuario(this.Code));
+                await Navigation.PushAsync(new OfertasUsuario(this.Code));
             }catch(Exception e)
             {
                 await Task.Delay(2000);
-                await Navigation.PushModalAsync(new OfertasUsuario(this.Code));
+                await Navigation.PushAsync(new OfertasUsuario(this.Code));
             }
         }
         private async void BtnComentariosClick()
         {
-            await Navigation.PushModalAsync(new Comentarios(this.Code));
+            await Navigation.PushAsync(new Comentarios(this.Code));
         }
         private async void BtnLogrosClick()
         {
-            await Navigation.PushModalAsync(new Logros(this.Code));
+            await Navigation.PushAsync(new Logros(this.Code));
         }
         private async void BtnEquipoClick()
         {
-            await Navigation.PushModalAsync(new Equipo(this.Code));
+            await Navigation.PushAsync(new Equipo(this.Code));
         }
     }
 }

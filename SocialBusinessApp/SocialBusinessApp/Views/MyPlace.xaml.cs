@@ -25,8 +25,6 @@ namespace SocialBusinessApp.Views
         private string Long;
         public MyPlace(Oferta oferta, Boolean mio)
         {
-           
-            NavigationPage.SetHasNavigationBar(this, true);
             InitializeComponent();
             this.LoadFotos();
             this.oferta = oferta;
@@ -47,6 +45,8 @@ namespace SocialBusinessApp.Views
 
 
             txtCategoria.Text = "Categoria: " + oferta.Categoria;
+            txtEstado.Text = "Estado: " + oferta.Estado;
+
             if (oferta.Terceria == "Si")
             {
                 txtTerceria.IsVisible = true;
@@ -96,12 +96,14 @@ namespace SocialBusinessApp.Views
                 btnEliminar.IsEnabled = true;
                 btnEliminar.IsVisible = true;
                 TxtDireccion.IsVisible = true;
+                txtEstado.IsVisible = true;
 
 
                 btnWhatsapp.IsVisible = false;
                 btnWhatsapp.IsEnabled = false;
                 btnPerfil.IsEnabled = false;
                 btnPerfil.IsVisible = false;
+
             }
             else
             {
@@ -110,6 +112,7 @@ namespace SocialBusinessApp.Views
                 btnEliminar.IsEnabled = false;
                 btnEliminar.IsVisible = false;
                 TxtDireccion.IsVisible = false;
+                txtEstado.IsVisible = false;
 
 
 
@@ -143,7 +146,7 @@ namespace SocialBusinessApp.Views
         private async void BtnPerfilClick(string userid)
         {
 
-            await Navigation.PushModalAsync(new BuscarPerfil(userid));
+            await Navigation.PushAsync(new BuscarPerfil(userid));
         }
 
         private async void BtnWhatsappClick(string number)
@@ -174,7 +177,7 @@ namespace SocialBusinessApp.Views
         private async void BtnUbicacionClickAsync()
         {
             //await DisplayAlert("", oferta.Lat + "/" + oferta.Long,"Ok");
-            await Navigation.PushModalAsync(new Mapa(oferta.Lat, oferta.Long, oferta.Nombre, oferta.Direccion));
+            await Navigation.PushAsync(new Mapa(oferta.Lat, oferta.Long, oferta.Nombre, oferta.Direccion));
             //await Navigation.PushModalAsync(new CustomMap());
         }
         

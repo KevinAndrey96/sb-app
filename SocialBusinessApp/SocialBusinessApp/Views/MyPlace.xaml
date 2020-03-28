@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:controls="clr-namespace:Xamd.ImageCarousel.Forms.Plugin.Abstractions;assembly=Xamd.ImageCarousel.Forms.Plugin.Abstractions"
              xmlns:views="clr-namespace:SuaveControls.Views;assembly=SuaveControls.FloatingActionButton"
-             x:Class="SocialBusinessApp.Views.MyPlace">
+             x:Class="SocialBusinessApp.Views.MyPlace" Title="Oferta Social Business">
         
         <Grid>
                 <Grid.RowDefinitions>
@@ -33,17 +33,20 @@
                             <Button Image="lapiz.png" x:Name="btnEditar" Grid.Row="0" Grid.Column="0" IsVisible="false" IsEnabled="false" Text="Editar" BackgroundColor="#9c27b0" TextColor="#FFFFFF"></Button>
                             <Button Image="basura.png" x:Name="btnEliminar" Grid.Row="0" Grid.Column="1" IsVisible="false" IsEnabled="false" Text="Eliminar" BackgroundColor="#9c27b0" TextColor="#FFFFFF"></Button>
                         </Grid>
-                        
-                        <Label Text="--TERCERIA--"  x:Name="txtTerceria" HorizontalOptions="Center" FontSize="17"></Label>
+
+                    <Button Image="usuario.png" x:Name="btnPerfil" IsVisible="True" IsEnabled="True" Text="Colega" BackgroundColor="#9c27b0" TextColor="#FFFFFF"></Button>
+
+                    <Label Text="--TERCERIA--"  x:Name="txtTerceria" HorizontalOptions="Center" FontSize="17"></Label>
                         <Label Text="Precio: " x:Name="TxtPrecio" FontSize="17"></Label>
                         <Label Text="Dirección: " IsVisible="False"  x:Name="TxtDireccion" FontSize="17"></Label>
                         <Label Text="Barrio: "  x:Name="TxtBarrio" FontSize="17"></Label>
                         <Label Text="Ciudad: "  x:Name="TxtCiudad" FontSize="17"></Label>
                         <Label Text="Departamento: "  x:Name="TxtDepartamento" FontSize="17"></Label>
                         <Label Text="Categoria: "  x:Name="txtCategoria" FontSize="17"></Label>
+                        <Label Text="Estado: "  IsVisible="False"  x:Name="txtEstado" TextColor="#9c27b0"  FontSize="17"></Label>
 
 
-                        <Label Text="Información del inmueble" HorizontalOptions="CenterAndExpand" FontSize="25" TextColor="#9c27b0" Font="Bold,25"/>
+                    <Label Text="Información del inmueble" HorizontalOptions="CenterAndExpand" FontSize="25" TextColor="#9c27b0" Font="Bold,25"/>
 
                         <Label Text="Tipo de inmueble: "  x:Name="TxtTipo" FontSize="17"></Label>
                         <Label Text="Area: "  x:Name="TxtArea" FontSize="17"></Label>
@@ -58,8 +61,7 @@
 
                         <Label Text=""  x:Name="TxtDescripcion" FontSize="15"></Label>
 
-
-                        <Button Image="usuario.png" x:Name="btnPerfil" IsVisible="False" IsEnabled="False" Text="Perfil Inmobiliario" BackgroundColor="#9c27b0" TextColor="#FFFFFF"></Button>
+                        
                         <Button Image="whatsapp.png" x:Name="btnWhatsapp" IsVisible="False" IsEnabled="False" Text="Contactar Agente" BackgroundColor="#9c27b0" TextColor="#FFFFFF"></Button>
                         <Button Image="youtube.png" x:Name="btnYoutube" IsVisible="False" IsEnabled="False" Text="Ver Video" BackgroundColor="#9c27b0" TextColor="#FFFFFF"></Button>
                         <Button Image="compartir.png" x:Name="btnCompartir" Text="Compartir" HorizontalOptions="Center" WidthRequest="250" BackgroundColor="#9c27b0" TextColor="#FFFFFF"></Button>
