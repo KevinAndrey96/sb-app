@@ -29,6 +29,7 @@ namespace SocialBusinessApp.iOS
             global::Xamarin.Forms.Forms.Init();
             ImageCarouselRenderer.Init();
             Xamarin.FormsMaps.Init();
+            FFImageLoading.Forms.Platform.CachedImageRenderer.Init();
             //LoadApplication(new App());
             FloatingActionButtonRenderer.InitRenderer();
 
