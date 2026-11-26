@@ -1,0 +1,23 @@
+# Visual Studio
+.vs/
+*.suo
+*.user
+*.userprefs
+
+# Compilacion
+[Bb]in/
+[Oo]bj/
+
+# Paquetes NuGet (se restauran con packages.config)
+packages/
+
+# Firmas y claves (no versionar)
+*.keystore
+*.jks
+*.p12
+*.mobileprovision
+
+# Sistema operativo
+.DS_Store
+Thumbs.db
+.idea/
