@@ -60,7 +60,7 @@ Proyecto de 2020 mantenido como archivo histórico. Xamarin.Forms llegó al fin 
 1. Clona el repositorio y ábrelo:
 
    ```bash
-   git clone git@github.com:KevinAndrey96/sb-app.git
+   git clone https://github.com/KevinAndrey96/sb-app.git
    ```
 
    Abre `Social Business PRO.sln` en Visual Studio y restaura los paquetes NuGet (el archivo `.gitignore` excluye la carpeta `packages/`).
