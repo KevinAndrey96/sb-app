@@ -34,7 +34,7 @@ namespace SocialBusinessApp.iOS
             FloatingActionButtonRenderer.InitRenderer();
 
             //global::Xamarin.Forms.Forms.Init();
-            Xamarin.FormsGoogleMaps.Init("REDACTED_GOOGLE_API_KEY");
+            Xamarin.FormsGoogleMaps.Init("YOUR_GOOGLE_MAPS_API_KEY");
             Xamarin.FormsGoogleMapsBindings.Init(); // Add this line
             
 
